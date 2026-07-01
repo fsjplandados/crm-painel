@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM Analytics | Farmácias São João</title>
+    <meta name="description" content="Dashboard de clientes e segmentos.">
+    <link rel="stylesheet" href="styles.css?v=3">
+    <!-- Chart.js for beautiful charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="header-logo">
+            <img src="Logotipo_são_joao.png" alt="Farmácias São João" class="logo">
+            <div class="header-titles">
+                <div class="header-title">Inteligência de Clientes</div>
+                <div class="header-subtitle">Analytics & Dashboard</div>
+            </div>
+        </div>
+        
+        <div class="header-right">
+            <div class="badge-vtex">CRM · Live</div>
+            <div class="avatar">SJ</div>
+        </div>
+    </header>
+
+    <main>
+    <main>
+        <div class="fade-in" style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1.5rem;">
+            <div>
+                <h1 class="dashboard-title">Visão Geral</h1>
+                <p class="dashboard-subtitle">Acompanhe a base de clientes e seus respectivos segmentos atualizados.</p>
+            </div>
+            <div style="font-size: 12px; color: #6B7280; font-weight: 500; display: flex; flex-direction: column; align-items: flex-end; gap: 4px;">
+                <div style="display: flex; align-items: center; gap: 6px;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    Período: Histórico até Maio/2026
+                </div>
+                <div style="font-size: 10px;">Dados extraídos dos arquivos enviados</div>
+            </div>
+        </div>
+
+        <!-- Top KPI Row -->
+        <div class="top-kpi-row fade-in delay-1">
+            <!-- 1. Base Total -->
+            <div class="kpi-card-solid-blue">
+                <svg class="bg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+                <div>
+                    <div class="kpi-label">Base Total de Clientes</div>
+                    <div class="kpi-value" id="total-clients">...</div>
+                </div>
+                <div class="kpi-footer">100% da base</div>
+            </div>
+
+            <!-- 2. Clientes Ativos (30 dias) -->
+            <div class="kpi-card-simple">
+                <div>
+                    <div class="kpi-label blue-text">Clientes Ativos (30 dias)</div>
+                    <div class="kpi-value" id="kpi-30d">...</div>
+                </div>
+                <div class="kpi-delta-row">
+                    <div class="kpi-delta neutral" id="delta-pct-30d">...</div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill bg-blue" id="progress-30d" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Clientes Ativos (60 dias) -->
+            <div class="kpi-card-simple">
+                <div>
+                    <div class="kpi-label green-text">Clientes Ativos (60 dias)</div>
+                    <div class="kpi-value" id="kpi-60d">...</div>
+                </div>
+                <div class="kpi-delta-row">
+                    <div class="kpi-delta positive" id="delta-60d"></div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill bg-green" id="progress-60d" style="width: 0%"></div>
+                    </div>
+                    <div class="kpi-delta subtext" id="delta-pct-60d">...</div>
+                </div>
+            </div>
+
+            <!-- 4. Clientes Ativos (90 dias) -->
+            <div class="kpi-card-simple">
+                <div>
+                    <div class="kpi-label orange-text">Clientes Ativos (90 dias)</div>
+                    <div class="kpi-value" id="kpi-90d">...</div>
+                </div>
+                <div class="kpi-delta-row">
+                    <div class="kpi-delta positive" id="delta-90d"></div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill bg-orange" id="progress-90d" style="width: 0%"></div>
+                    </div>
+                    <div class="kpi-delta subtext" id="delta-pct-90d">...</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Insight Automático -->
+        <div class="progressao-footer fade-in delay-2" style="border: 1px solid #E2E8F0; border-radius: 12px; margin-bottom: 2rem; background-color: #F8FAFC;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0D6EFD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><line x1="9" y1="18" x2="15" y2="18"></line><line x1="10" y1="22" x2="14" y2="22"></line><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 12 3a4.65 4.65 0 0 0-4.5 8.5c.76.76 1.23 1.52 1.41 2.5"></path></svg>
+            <div style="font-size: 13px; color: #4B5563;">
+                <div style="margin-bottom: 2px;">Apenas <strong id="flow-footer-pct" style="color:#111827;">...</strong> da base não comprou nos últimos 90 dias.</div>
+                <div>Foco principal: recuperar quem sai dos 30 dias para não avançar no ciclo de inatividade.</div>
+            </div>
+        </div>
+
+        <!-- Segmentação da Base (Half Width) -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
+            <!-- Left: Segmentation -->
+            <div class="segmentation-card fade-in delay-1" style="height: 100%;">
+                <style>
+                    /* Inline overrides to make segmentation card smaller */
+                    .segmentation-card { padding: 16px !important; }
+                    .segmentation-header { margin-bottom: 12px !important; }
+                    .segmentation-title { font-size: 11px !important; }
+                    .segmentation-subtitle { font-size: 10px !important; }
+                    .segment-row { padding: 4px 0 !important; gap: 8px !important; }
+                    .segment-name { font-size: 10px !important; width: 100px !important; }
+                    .segment-value { font-size: 10px !important; width: 60px !important; }
+                    .segment-percent { font-size: 10px !important; width: 35px !important; }
+                    .progress-bar-bg { height: 8px !important; }
+                </style>
+                <div class="segmentation-header">
+                    <div class="segmentation-title">Segmentação da Base</div>
+                    <div class="segmentation-subtitle">Quantidade de clientes e participação sobre a base total</div>
+                </div>
+                <div id="kpi-segments-list">
+                    <!-- Segments injected via app.js -->
+                </div>
+            </div>
+            <!-- Right: Base por status -->
+            <div class="segmentation-card fade-in delay-1" style="height: 100%; display: flex; flex-direction: column;">
+                <div class="segmentation-header" style="margin-bottom: 12px;">
+                    <div class="segmentation-title" style="text-transform: uppercase; color: #1E3A8A;">Base por status</div>
+                </div>
+                <div style="flex: 1; display: flex; align-items: center; justify-content: center; background: #F8FAFC; border: 1px dashed #CBD5E1; border-radius: 8px;">
+                    <div style="text-align: center; color: #64748B;">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom: 8px; opacity: 0.5;"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                        <div style="font-size: 12px; font-weight: 500;">Dado em construção</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Progressão removida -->
+
+        <!-- Row: Gender and Heatmap Side by Side -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: flex-start; margin-bottom: 2rem;">
+            <!-- Gender KPI (Now a table) -->
+            <div style="min-width: 0;">
+                <div class="kpi-card-simple fade-in delay-2" style="margin-bottom: 0; padding: 12px; height: 100%;">
+                    <div style="font-size: 11px; font-weight: 700; color: #1E3A8A; margin-bottom: 12px; text-transform: uppercase;">
+                        Perfil de Clientes <span style="color: #9CA3AF; margin: 0 8px;">|</span> Faixa Etária × Sexo
+                    </div>
+                    <div style="overflow-x: auto;">
+                        <table style="width: 100%; border-collapse: collapse; font-size: 9px; text-align: right;">
+                            <thead>
+                                <tr style="border-bottom: 2px solid #EFF6FF; color: #1E3A8A; font-weight: 700;">
+                                    <th style="text-align: left; padding: 4px 2px;">FAIXA ETÁRIA</th>
+                                    <th style="padding: 4px 2px;">MASCULINO</th>
+                                    <th style="padding: 4px 2px; width: 40px;"></th>
+                                    <th style="padding: 4px 2px; text-align: left;">FEMININO</th>
+                                    <th style="padding: 4px 2px;">TOTAL</th>
+                                    <th style="padding: 4px 2px;">% MASC.</th>
+                                    <th style="padding: 4px 2px;">% FEM.</th>
+                                </tr>
+                            </thead>
+                            <tbody id="perfil-table-body">
+                                <!-- Injected via JS -->
+                            </tbody>
+                            <tfoot id="perfil-table-foot" style="border-top: 1px solid #E2E8F0; font-weight: 700;">
+                                <!-- Injected via JS -->
+                            </tfoot>
+                        </table>
+                    </div>
+                    <div style="margin-top: 8px; padding: 8px; background: #F8FAFC; border-radius: 8px; border: 1px solid #E2E8F0; display: flex; align-items: center; gap: 8px;">
+                        <div style="width: 24px; height: 24px; border-radius: 50%; background: #EFF6FF; display: flex; align-items: center; justify-content: center; color: #3B82F6; flex-shrink: 0;">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        </div>
+                        <div style="font-size: 9.5px; color: #1E3A8A; font-weight: 600; line-height: 1.4;" id="perfil-summary-text">
+                            <!-- Injected via JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Heatmap Card -->
+            <div style="flex: 1 1 auto; min-width: 0;">
+                <style>
+                    /* Inline style to make heatmap smaller as requested */
+                    .heatmap-card { padding: 12px; height: 100%; }
+                    .heatmap-table { font-size: 8.5px !important; margin-bottom: 4px; width: 100%; }
+                    .heatmap-table th, .heatmap-table td { padding: 2px 1px !important; white-space: nowrap; }
+                    .heatmap-title { font-size: 11px !important; }
+                    .heatmap-subtitle { font-size: 10px !important; margin-bottom: 8px !important; }
+                    .heatmap-section-title { font-size: 10px !important; margin-bottom: 4px !important; }
+                    .heatmap-grid { gap: 0.5rem !important; grid-template-columns: 1fr !important; }
+                    .legend-bar { width: 100px !important; height: 6px !important; }
+                    .heatmap-legend { font-size: 8px !important; margin-top: 4px; margin-bottom: 8px; }
+                </style>
+                <div class="heatmap-card fade-in delay-2" style="margin-bottom: 0;">
+                    <div class="heatmap-header" style="margin-bottom: 12px;">
+                <h2 class="heatmap-title">Heatmap: Faixa de Valor × Faixa Etária <span style="text-transform:none; font-weight:500; font-size:10px; color:#6B7280;">- Período: 1S 2026</span></h2>
+                <p class="heatmap-subtitle">% de clientes dentro de cada faixa de valor</p>
+            </div>
+            
+            <div class="heatmap-grid">
+                <!-- Masculino -->
+                <div class="heatmap-section">
+                    <div class="heatmap-section-title blue">
+                        MASCULINO
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"/></svg>
+                    </div>
+                    <table class="heatmap-table" id="heatmap-m">
+                        <!-- injected via js -->
+                    </table>
+                    <div class="heatmap-legend">
+                        <span>Menor participação</span>
+                        <div class="legend-bar blue-gradient"></div>
+                        <span>Maior participação</span>
+                    </div>
+                </div>
+
+                <!-- Feminino -->
+                <div class="heatmap-section">
+                    <div class="heatmap-section-title pink">
+                        FEMININO
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"/></svg>
+                    </div>
+                    <table class="heatmap-table" id="heatmap-f">
+                        <!-- injected via js -->
+                    </table>
+                    <div class="heatmap-legend">
+                        <span>Menor participação</span>
+                        <div class="legend-bar pink-gradient"></div>
+                        <span>Maior participação</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+            </div>
+        </div>
+        <!-- NEW FREQUENCY SECTION -->
+        <div class="section-header fade-in delay-2" style="margin-top: 2rem;">
+            <div>
+                <h2 class="chart-title" style="font-size: 1.25rem; font-family: 'Montserrat', sans-serif; font-weight: 700; color: #1E3A8A; text-transform: uppercase;">Frequência, Recompra e Comparação <span style="text-transform:none; font-weight:500; font-size:14px; color:#6B7280;">- Período: 1S 2026</span></h2>
+                <p class="dashboard-subtitle">Acompanhe o comportamento de recompra, ticket médio e compare o desempenho entre os canais.</p>
+            </div>
+            <div>
+                <select id="channel-filter">
+                    <option value="TOTAL">Todos os Canais</option>
+                    <option value="LOJA_F">Loja Física</option>
+                    <option value="CANAIS_VIRTUAIS">Canais Virtuais</option>
+                    <option value="TELEVENDAS">Televendas</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Frequency KPIs -->
+        <div class="freq-kpi-row fade-in delay-2">
+            <div class="freq-kpi-card">
+                <div class="freq-kpi-title blue">FREQUÊNCIA MÉDIA</div>
+                <div class="freq-kpi-content">
+                    <div class="freq-icon-circle blue">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                    </div>
+                    <div class="freq-kpi-value-container">
+                        <div class="freq-kpi-value" id="kpi-freq">...</div>
+                        <div class="freq-kpi-subtitle">compras por cliente</div>
+                    </div>
+                </div>
+                <div class="freq-kpi-delta" id="delta-freq">...</div>
+            </div>
+
+            <div class="freq-kpi-card">
+                <div class="freq-kpi-title green">TICKET MÉDIO</div>
+                <div class="freq-kpi-content">
+                    <div class="freq-icon-circle green">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                    </div>
+                    <div class="freq-kpi-value-container">
+                        <div class="freq-kpi-value" id="kpi-ticket">...</div>
+                        <div class="freq-kpi-subtitle">por compra</div>
+                    </div>
+                </div>
+                <div class="freq-kpi-delta" id="delta-ticket">...</div>
+            </div>
+
+            <div class="freq-kpi-card">
+                <div class="freq-kpi-title purple">% RECOMPRA</div>
+                <div class="freq-kpi-content">
+                    <div class="freq-icon-circle purple">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+                    </div>
+                    <div class="freq-kpi-value-container">
+                        <div class="freq-kpi-value" id="kpi-recompra">...</div>
+                        <div class="freq-kpi-subtitle">clientes que voltaram</div>
+                    </div>
+                </div>
+                <div class="freq-kpi-delta" id="delta-recompra">...</div>
+            </div>
+
+            <div class="freq-kpi-card">
+                <div class="freq-kpi-title orange">MÉDIA ENTRE COMPRAS</div>
+                <div class="freq-kpi-content">
+                    <div class="freq-icon-circle orange">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    </div>
+                    <div class="freq-kpi-value-container">
+                        <div class="freq-kpi-value" id="kpi-dias" style="display:flex; align-items:baseline; gap:4px;">... <span style="font-size:16px; font-weight:600;">dias</span></div>
+                        <div class="freq-kpi-subtitle">para nova compra</div>
+                    </div>
+                </div>
+                <div class="freq-kpi-delta" id="delta-dias">...</div>
+            </div>
+        </div>
+
+        <!-- Frequency Charts -->
+        <div class="freq-charts-grid fade-in delay-2">
+            <div class="freq-chart-card">
+                <div class="freq-chart-title">Evolução da Frequência Média <span style="text-transform:none; font-weight:500; font-size:11px; color:#6B7280;">(por cliente)</span></div>
+                <div style="position: relative; height: 200px; width: 100%;">
+                    <canvas id="chart-freq"></canvas>
+                </div>
+            </div>
+            <div class="freq-chart-card">
+                <div class="freq-chart-title">Evolução do Ticket Médio <span style="text-transform:none; font-weight:500; font-size:11px; color:#6B7280;">(R$ por compra)</span></div>
+                <div style="position: relative; height: 200px; width: 100%;">
+                    <canvas id="chart-ticket"></canvas>
+                </div>
+            </div>
+            <div class="freq-chart-card">
+                <div class="freq-chart-title">% De Clientes que recompraram</div>
+                <div style="position: relative; height: 200px; width: 100%;">
+                    <canvas id="chart-recompra"></canvas>
+                </div>
+            </div>
+            <div class="freq-chart-card">
+                <div class="freq-chart-title">Média de Dias entre Compras</div>
+                <div style="position: relative; height: 200px; width: 100%;">
+                    <canvas id="chart-dias"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparison Table -->
+        <div class="freq-table-card fade-in delay-2">
+            <div style="margin-bottom: 24px;">
+                <h2 class="chart-title" style="font-size: 1.1rem; font-family: 'Montserrat', sans-serif; font-weight: 700; color: #1E3A8A; text-transform: uppercase; margin-bottom: 4px;">Comparação por Canal <span style="text-transform:none; font-weight:500; font-size:12px; color:#6B7280;">- Período: 1S 2026</span></h2>
+                <p class="dashboard-subtitle">Compare o desempenho dos canais em relação à Loja Física.</p>
+            </div>
+            <div style="overflow-x: auto;">
+                <table class="comp-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 20%;">Canal</th>
+                            <th style="width: 20%;">
+                                <div style="display:flex; align-items:center; gap:8px;">
+                                    <div class="freq-icon-circle blue" style="width:24px; height:24px; border-width:1px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg></div>
+                                    <div>Frequência Média<br><span style="font-size:10px; font-weight:400;">(compras por cliente)</span></div>
+                                </div>
+                            </th>
+                            <th style="width: 20%;">
+                                <div style="display:flex; align-items:center; gap:8px;">
+                                    <div class="freq-icon-circle green" style="width:24px; height:24px; border-width:1px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div>
+                                    <div>Ticket Médio<br><span style="font-size:10px; font-weight:400;">(R$ por compra)</span></div>
+                                </div>
+                            </th>
+                            <th style="width: 20%;">
+                                <div style="display:flex; align-items:center; gap:8px;">
+                                    <div class="freq-icon-circle purple" style="width:24px; height:24px; border-width:1px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg></div>
+                                    <div>% Recompra<br><span style="font-size:10px; font-weight:400;">(clientes que voltaram)</span></div>
+                                </div>
+                            </th>
+                            <th style="width: 20%;">
+                                <div style="display:flex; align-items:center; gap:8px;">
+                                    <div class="freq-icon-circle orange" style="width:24px; height:24px; border-width:1px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></div>
+                                    <div>Média de Dias<br><span style="font-size:10px; font-weight:400;">(entre compras)</span></div>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="comp-table-body">
+                        <!-- Injected via JS -->
+                    </tbody>
+                </table>
+            </div>
+            <div style="margin-top: 16px; padding: 12px; background: #F8FAFC; border-radius: 8px; font-size: 11px; color: #64748B; display: flex; gap: 8px; align-items: flex-start;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2" style="flex-shrink:0;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                <div>
+                    <strong>Como interpretar:</strong><br>
+                    • <span style="color:#10B981; font-weight:600;">X,XXx maior</span> = o canal tem desempenho superior à Loja Física <br>
+                    • <span style="color:#EF4444; font-weight:600;">X,XXx da Loja Física</span> = o canal tem desempenho inferior à Loja Física <br>
+                    • <span style="color:#EF4444; font-weight:600;">X,XXx maior (dias)</span> = o canal demora mais para o cliente comprar novamente
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparativo por Canal (Multi-line charts) -->
+        <div class="fade-in delay-2" style="margin-bottom: 2rem;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                <!-- Ticket Médio por Canal -->
+                <div class="freq-chart-card">
+                    <div class="freq-chart-title">Ticket Médio por Canal <span style="text-transform:none; font-weight:500; font-size:11px; color:#6B7280;">(R$ por compra)</span></div>
+                    <div style="position: relative; height: 260px; width: 100%;">
+                        <canvas id="chart-ticket-multi"></canvas>
+                    </div>
+                </div>
+
+                <!-- Taxa de Recompra por Canal -->
+                <div class="freq-chart-card">
+                    <div class="freq-chart-title">Taxa de Recompra por Canal <span style="text-transform:none; font-weight:500; font-size:11px; color:#6B7280;">(% clientes)</span></div>
+                    <div style="position: relative; height: 260px; width: 100%;">
+                        <canvas id="chart-recompra-multi"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Content Row -->
+        <div class="fade-in delay-2">
+            
+            <!-- Chart -->
+            <div class="chart-card" style="padding: 1.5rem;">
+                <div class="chart-header" style="margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid #E2E8F0;">
+                    <h2 class="chart-title" style="font-size: 1.125rem; font-family: 'Montserrat', sans-serif; font-weight: 700; color: #1E3A8A; text-transform: uppercase;">Evolução de Clientes Ativos por Canal</h2>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem;">
+                    <div style="position: relative; height: 320px; width: 100%;">
+                        <canvas id="active-clients-chart-main"></canvas>
+                    </div>
+                    <div style="position: relative; height: 320px; width: 100%;">
+                        <canvas id="active-clients-chart-secondary"></canvas>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        <!-- Fidelização Inteligente Placeholder -->
+        <div class="fade-in delay-2" style="margin-top: 3rem;">
+            <div class="section-header" style="margin-bottom: 1.5rem;">
+                <div>
+                    <h2 class="chart-title" style="font-size: 1.25rem; font-family: 'Montserrat', sans-serif; font-weight: 700; color: #1E3A8A; text-transform: uppercase;">Fidelização Inteligente</h2>
+                </div>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;">
+                <!-- Graph 1 -->
+                <div class="chart-card" style="padding: 1.5rem; height: 280px; display: flex; flex-direction: column;">
+                    <div style="margin-bottom: 16px; text-transform: uppercase; text-align: center; color: #1E3A8A; font-weight: 700; font-size: 12px;">Evolução Base</div>
+                    <div style="flex: 1; display: flex; align-items: center; justify-content: center; background: #F8FAFC; border: 1px dashed #CBD5E1; border-radius: 8px;">
+                        <div style="text-align: center; color: #64748B;">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom: 8px; opacity: 0.5;"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                            <div style="font-size: 12px; font-weight: 500;">Dado em construção</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Graph 2 -->
+                <div class="chart-card" style="padding: 1.5rem; height: 280px; display: flex; flex-direction: column;">
+                    <div style="margin-bottom: 16px; text-transform: uppercase; text-align: center; color: #1E3A8A; font-weight: 700; font-size: 12px;">Evolução Clientes Ativos</div>
+                    <div style="flex: 1; display: flex; align-items: center; justify-content: center; background: #F8FAFC; border: 1px dashed #CBD5E1; border-radius: 8px;">
+                        <div style="text-align: center; color: #64748B;">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom: 8px; opacity: 0.5;"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                            <div style="font-size: 12px; font-weight: 500;">Dado em construção</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Graph 3 -->
+                <div class="chart-card" style="padding: 1.5rem; height: 280px; display: flex; flex-direction: column;">
+                    <div style="margin-bottom: 16px; text-transform: uppercase; text-align: center; color: #1E3A8A; font-weight: 700; font-size: 12px;">Evolução Cliente Fiel</div>
+                    <div style="flex: 1; display: flex; align-items: center; justify-content: center; background: #F8FAFC; border: 1px dashed #CBD5E1; border-radius: 8px;">
+                        <div style="text-align: center; color: #64748B;">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom: 8px; opacity: 0.5;"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                            <div style="font-size: 12px; font-weight: 500;">Dado em construção</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Graph 4 -->
+                <div class="chart-card" style="padding: 1.5rem; height: 280px; display: flex; flex-direction: column;">
+                    <div style="margin-bottom: 16px; text-transform: uppercase; text-align: center; color: #1E3A8A; font-weight: 700; font-size: 12px;">Evolução Cliente Omni</div>
+                    <div style="flex: 1; display: flex; align-items: center; justify-content: center; background: #F8FAFC; border: 1px dashed #CBD5E1; border-radius: 8px;">
+                        <div style="text-align: center; color: #64748B;">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom: 8px; opacity: 0.5;"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                            <div style="font-size: 12px; font-weight: 500;">Dado em construção</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <script src="app.js?v=9"></script>
+</body>
+</html>
