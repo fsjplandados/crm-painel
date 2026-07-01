@@ -57,9 +57,7 @@ body {
 /* Since the São João logo is usually red and blue, inverting it might make it cyan. I will remove the filter and add a white background to the logo if necessary, but let's just leave it normal. */
 .logo {
   filter: none;
-  background: white;
-  padding: 4px;
-  border-radius: 4px;
+  background: transparent;
 }
 
 .header-titles {

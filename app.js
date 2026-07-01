@@ -833,4 +833,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     loadActiveClients();
     loadHeatmap();
     loadFrequenciaTicket();
+
+    // Show construction popup after 5 seconds
+    setTimeout(() => {
+        const popup = document.getElementById('construction-popup');
+        if (popup) {
+            popup.style.display = 'flex';
+        }
+    }, 5000);
 });
