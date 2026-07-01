@@ -59,7 +59,7 @@
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                     Período: Histórico até Maio/2026
                 </div>
-                <div style="font-size: 10px;">Dados extraídos dos arquivos enviados</div>
+                <div style="font-size: 10px;">Dados extraídos via Snowflake</div>
             </div>
         </div>
 
@@ -177,6 +177,20 @@
 
                 <!-- Tab 2: Perfil de Cliente -->
                 <div id="tab-2" class="tab-pane">
+        <div class="fade-in" style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1.5rem;">
+            <div>
+                <h1 class="dashboard-title">Perfil de Clientes</h1>
+                <p class="dashboard-subtitle">Análise demográfica e distribuição de valor da base de clientes.</p>
+            </div>
+            <div style="font-size: 12px; color: #6B7280; font-weight: 500; display: flex; flex-direction: column; align-items: flex-end; gap: 4px;">
+                <div style="display: flex; align-items: center; gap: 6px;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    Período: Clientes criados a partir de jan/2026
+                </div>
+                <div style="font-size: 10px;">Dados extraídos via Snowflake</div>
+            </div>
+        </div>
+
         <!-- Row: Gender and Heatmap Side by Side -->
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: flex-start; margin-bottom: 2rem;">
             <!-- Gender KPI (Now a table) -->
@@ -284,6 +298,20 @@
 
                 <!-- Tab 3: RFV -->
                 <div id="tab-3" class="tab-pane">
+        <div class="fade-in" style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1.5rem;">
+            <div>
+                <h1 class="dashboard-title">Comportamento de Compra</h1>
+                <p class="dashboard-subtitle">Acompanhe métricas de frequência, ticket médio e taxa de recompra por canal.</p>
+            </div>
+            <div style="font-size: 12px; color: #6B7280; font-weight: 500; display: flex; flex-direction: column; align-items: flex-end; gap: 4px;">
+                <div style="display: flex; align-items: center; gap: 6px;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    Período: Clientes criados a partir de jan/2026
+                </div>
+                <div style="font-size: 10px;">Dados extraídos via Snowflake</div>
+            </div>
+        </div>
+
         <!-- NEW FREQUENCY SECTION -->
         <div class="section-header fade-in delay-2" style="margin-top: 2rem;">
             <div>
@@ -552,11 +580,25 @@
                 
                 <!-- Tab 4: Pacientes Crônicos -->
                 <div id="tab-4" class="tab-pane fade-in">
+                    <div class="fade-in" style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1.5rem;">
+                        <div>
+                            <h1 class="dashboard-title">Pacientes Crônicos</h1>
+                            <p class="dashboard-subtitle">Acompanhe a participação no faturamento e clientes por grupo terapêutico.</p>
+                        </div>
+                        <div style="font-size: 12px; color: #6B7280; font-weight: 500; display: flex; flex-direction: column; align-items: flex-end; gap: 4px;">
+                            <div style="display: flex; align-items: center; gap: 6px;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                Período: Clientes criados a partir de jan/2026
+                            </div>
+                            <div style="font-size: 10px;">Dados extraídos via Snowflake</div>
+                        </div>
+                    </div>
+
                     <div class="section-header" style="margin-bottom: 2rem;">
                         <div>
                             <div style="font-size: 12px; font-weight: 500; color: #64748B; margin-bottom: 4px;">Digital</div>
                             <h2 class="chart-title" style="font-size: 1.5rem; font-family: 'Montserrat', sans-serif; font-weight: 400; color: #1E3A8A; display: flex; align-items: center; gap: 8px;">
-                                Pacientes Crônicos
+                                Análise por Grupo Terapêutico
                                 <span title="Clientes cadastrados a partir de 2026-01-01" style="cursor: help; color: #64748B; display: flex; align-items: center;">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
                                 </span>
