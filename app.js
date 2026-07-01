@@ -624,37 +624,39 @@ document.addEventListener('DOMContentLoaded', async () => {
 
                 const chartData = uniqueMonths.map(m => channelData.find(d => d.mes === m) || { freq: 0, ticket: 0, recompra: 0, dias: 0 });
                 
-                createChart('chart-freq', chartData.map(d => d.freq), '#0D6EFD', { min: 1, formatter: v => v.toFixed(2).replace('.', ',') });
-                createChart('chart-ticket', chartData.map(d => d.ticket), '#10B981', { min: 40, formatter: v => v.toFixed(2).replace('.', ',') });
-                createChart('chart-recompra', chartData.map(d => d.recompra * 100), '#8B5CF6', { min: 0, formatter: v => v.toFixed(1).replace('.', ',') + '%' });
+                try { createChart('chart-freq', chartData.map(d => d.freq), '#0D6EFD', { min: 1, formatter: v => v.toFixed(2).replace('.', ',') }); } catch (e) { console.error('Error freq chart', e); }
+                try { createChart('chart-ticket', chartData.map(d => d.ticket), '#10B981', { min: 40, formatter: v => (v||0).toFixed(2).replace('.', ',') }); } catch (e) { console.error('Error ticket chart', e); }
+                try { createChart('chart-recompra', chartData.map(d => d.recompra * 100), '#8B5CF6', { min: 0, formatter: v => (v||0).toFixed(1).replace('.', ',') + '%' }); } catch (e) { console.error('Error recompra chart', e); }
                 
                 // Média dias is bar chart
-                if (window.chart_dias) window.chart_dias.destroy();
-                const ctxDias = document.getElementById('chart-dias').getContext('2d');
-                window.chart_dias = new Chart(ctxDias, {
-                    type: 'bar',
-                    data: {
-                        labels: labels,
-                        datasets: [{
-                            data: chartData.map(d => d.dias),
-                            backgroundColor: '#F59E0B',
-                            barPercentage: 0.4
-                        }]
-                    },
-                    options: {
-                        ...commonOptions,
-                        plugins: {
-                            legend: { display: false },
-                            datalabels: {
-                                display: true, anchor: 'end', align: 'top', color: '#111827', font: { family: "'Inter', sans-serif", size: 10, weight: 600 }, formatter: v => v.toFixed(1).replace('.', ',')
-                            }
+                try {
+                    if (window.chart_dias) window.chart_dias.destroy();
+                    const ctxDias = document.getElementById('chart-dias').getContext('2d');
+                    window.chart_dias = new Chart(ctxDias, {
+                        type: 'bar',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                data: chartData.map(d => d.dias),
+                                backgroundColor: '#F59E0B',
+                                barPercentage: 0.4
+                            }]
                         },
-                        scales: {
-                            y: { grace: '20%', beginAtZero: true, grid: { color: '#F3F4F6' }, ticks: { color: '#9CA3AF' } },
-                            x: { grid: { display: false } }
+                        options: {
+                            ...commonOptions,
+                            plugins: {
+                                legend: { display: false },
+                                datalabels: {
+                                    display: true, anchor: 'end', align: 'top', color: '#111827', font: { family: "'Inter', sans-serif", size: 10, weight: 600 }, formatter: v => (v||0).toFixed(1).replace('.', ',')
+                                }
+                            },
+                            scales: {
+                                y: { grace: '20%', beginAtZero: true, grid: { color: '#F3F4F6' }, ticks: { color: '#9CA3AF' } },
+                                x: { grid: { display: false } }
+                            }
                         }
-                    }
-                });
+                    });
+                } catch (e) { console.error('Error dias chart', e); }
             };
 
             // Calculate Comparison Table
@@ -820,8 +822,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 });
             };
 
-            createMultiChart('chart-ticket-multi', 'ticket', false);
-            createMultiChart('chart-recompra-multi', 'recompra', true);
+            try { createMultiChart('chart-ticket-multi', 'ticket', false); } catch(e) { console.error('Error ticket multi', e); }
+            try { createMultiChart('chart-recompra-multi', 'recompra', true); } catch(e) { console.error('Error recompra multi', e); }
 
         } catch (error) {
             console.error('Error loading Frequencia:', error);
