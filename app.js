@@ -370,6 +370,12 @@ document.addEventListener('DOMContentLoaded', async () => {
                     });
                 });
 
+                let maxAgeVal = 0;
+                ages.forEach(a => {
+                    if (ageTotals[a].m > maxAgeVal) maxAgeVal = ageTotals[a].m;
+                    if (ageTotals[a].f > maxAgeVal) maxAgeVal = ageTotals[a].f;
+                });
+
                 let htmlBody = '';
                 // Sort ages if needed, assuming ages array is roughly correct or we can hardcode order if needed, but ages is already ordered by Set extraction if data is ordered.
                 ages.forEach(a => {
@@ -378,20 +384,26 @@ document.addEventListener('DOMContentLoaded', async () => {
                     const t = m + f;
                     const pctM = t > 0 ? (m / t * 100) : 0;
                     const pctF = t > 0 ? (f / t * 100) : 0;
+                    const barPctM = maxAgeVal > 0 ? (m / maxAgeVal * 100) : 0;
+                    const barPctF = maxAgeVal > 0 ? (f / maxAgeVal * 100) : 0;
                     
                     htmlBody += `<tr style="border-bottom: 1px solid #F1F5F9;">
-                        <td style="text-align: left; padding: 4px 2px; font-weight: 600; color: #475569;">${a}</td>
-                        <td style="padding: 4px 2px; color: #1E293B;">${formatNumber(m)}</td>
-                        <td style="padding: 4px 2px;">
-                            <div style="display: flex; height: 12px; border-radius: 6px; overflow: hidden; width: 100%;">
-                                <div style="background: #3B82F6; width: ${pctM}%;"></div>
-                                <div style="background: #F472B6; width: ${pctF}%;"></div>
+                        <td style="text-align: left; padding: 6px 2px; font-weight: 600; color: #475569;">${a}</td>
+                        <td style="padding: 6px 2px; color: #1E293B;">${formatNumber(m)}</td>
+                        <td style="padding: 6px 2px;">
+                            <div style="display: flex; align-items: center; justify-content: center; height: 16px; width: 100%;">
+                                <div style="flex: 1; display: flex; justify-content: flex-end; height: 100%; border-right: 1px solid #FFFFFF;">
+                                    <div style="background: #3B82F6; width: ${barPctM}%; border-radius: 4px 0 0 4px;"></div>
+                                </div>
+                                <div style="flex: 1; display: flex; justify-content: flex-start; height: 100%; border-left: 1px solid #FFFFFF;">
+                                    <div style="background: #F472B6; width: ${barPctF}%; border-radius: 0 4px 4px 0;"></div>
+                                </div>
                             </div>
                         </td>
-                        <td style="padding: 4px 2px; text-align: left; color: #1E293B;">${formatNumber(f)}</td>
-                        <td style="padding: 4px 2px; font-weight: 600; color: #1E293B;">${formatNumber(t)}</td>
-                        <td style="padding: 4px 2px; color: #1E3A8A; font-weight: 600;">${pctM.toFixed(2).replace('.', ',')}%</td>
-                        <td style="padding: 4px 2px; color: #1E3A8A; font-weight: 600;">${pctF.toFixed(2).replace('.', ',')}%</td>
+                        <td style="padding: 6px 2px; text-align: left; color: #1E293B;">${formatNumber(f)}</td>
+                        <td style="padding: 6px 2px; font-weight: 600; color: #1E293B;">${formatNumber(t)}</td>
+                        <td style="padding: 6px 2px; color: #1E3A8A; font-weight: 600;">${pctM.toFixed(2).replace('.', ',')}%</td>
+                        <td style="padding: 6px 2px; color: #1E3A8A; font-weight: 600;">${pctF.toFixed(2).replace('.', ',')}%</td>
                     </tr>`;
                 });
                 perfilTbody.innerHTML = htmlBody;
@@ -624,9 +636,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
                 const chartData = uniqueMonths.map(m => channelData.find(d => d.mes === m) || { freq: 0, ticket: 0, recompra: 0, dias: 0 });
                 
-                try { createChart('chart-freq', chartData.map(d => d.freq), '#0D6EFD', { min: 1, formatter: v => v.toFixed(2).replace('.', ',') }); } catch (e) { console.error('Error freq chart', e); }
-                try { createChart('chart-ticket', chartData.map(d => d.ticket), '#10B981', { min: 40, formatter: v => (v||0).toFixed(2).replace('.', ',') }); } catch (e) { console.error('Error ticket chart', e); }
-                try { createChart('chart-recompra', chartData.map(d => d.recompra * 100), '#8B5CF6', { min: 0, formatter: v => (v||0).toFixed(1).replace('.', ',') + '%' }); } catch (e) { console.error('Error recompra chart', e); }
+                try { createChart('chart-freq', chartData.map(d => d.freq), '#0D6EFD', { formatter: v => v.toFixed(2).replace('.', ',') }); } catch (e) { console.error('Error freq chart', e); }
+                try { createChart('chart-ticket', chartData.map(d => d.ticket), '#10B981', { formatter: v => (v||0).toFixed(2).replace('.', ',') }); } catch (e) { console.error('Error ticket chart', e); }
+                try { createChart('chart-recompra', chartData.map(d => d.recompra * 100), '#8B5CF6', { formatter: v => (v||0).toFixed(1).replace('.', ',') + '%' }); } catch (e) { console.error('Error recompra chart', e); }
                 
                 // Média dias is bar chart
                 try {
@@ -797,7 +809,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                                 anchor: 'end',
                                 color: function(context) { return context.dataset.borderColor; },
                                 font: { family: "'Inter', sans-serif", size: 10, weight: 600 },
-                                formatter: function(value) { return isPercentage ? value.toFixed(1).replace('.', ',') + '%' : value.toFixed(2).replace('.', ','); }
+                                formatter: function(value) { 
+                                    if (value === null || value === undefined) return '';
+                                    return isPercentage ? value.toFixed(1).replace('.', ',') + '%' : value.toFixed(2).replace('.', ','); 
+                                }
                             },
                             tooltip: {
                                 callbacks: {
@@ -830,11 +845,133 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     };
 
+    // Load Categorias
+    let categoriasData = [];
+
+    const loadCategorias = async () => {
+        try {
+            const response = await fetch('Arquivos Jun-2026/categorias_resumo.csv');
+            if (!response.ok) throw new Error('Network response was not ok');
+            const csvText = await response.text();
+            
+            // Simple CSV parser
+            const lines = csvText.trim().split('\n');
+            const headers = lines[0].split(',');
+            
+            for (let i = 1; i < lines.length; i++) {
+                if (!lines[i]) continue;
+                const cols = lines[i].split(',');
+                categoriasData.push({
+                    grupo: cols[0],
+                    sexo: cols[1],
+                    idade: cols[2],
+                    faturamento: parseFloat(cols[3]),
+                    clientes: parseFloat(cols[4])
+                });
+            }
+
+            // Populate filters
+            const generos = [...new Set(categoriasData.map(d => d.sexo).filter(s => s && s !== 'Não Informado'))].sort();
+            const idades = [...new Set(categoriasData.map(d => d.idade).filter(i => i))].sort();
+
+            const selGenero = document.getElementById('filter-genero');
+            generos.forEach(g => {
+                const opt = document.createElement('option');
+                opt.value = g;
+                opt.textContent = g;
+                selGenero.appendChild(opt);
+            });
+
+            const selIdade = document.getElementById('filter-idade');
+            idades.forEach(i => {
+                const opt = document.createElement('option');
+                opt.value = i;
+                opt.textContent = i;
+                selIdade.appendChild(opt);
+            });
+
+            applyCategoriasFilters(); // initial render
+        } catch (error) {
+            console.error('Error loading Categorias:', error);
+        }
+    };
+
+    window.applyCategoriasFilters = function() {
+        if (categoriasData.length === 0) return;
+
+        const gen = document.getElementById('filter-genero').value;
+        const ida = document.getElementById('filter-idade').value;
+
+        // Filter data
+        let filtered = categoriasData.filter(d => {
+            let pass = true;
+            if (gen !== 'Todos' && d.sexo !== gen) pass = false;
+            if (ida !== 'Todos' && d.idade !== ida) pass = false;
+            return pass;
+        });
+
+        // Aggregate by group
+        const groupMap = {};
+        let totalFat = 0;
+        let totalCli = 0;
+
+        filtered.forEach(d => {
+            if (!groupMap[d.grupo]) {
+                groupMap[d.grupo] = { fat: 0, cli: 0 };
+            }
+            groupMap[d.grupo].fat += d.faturamento;
+            groupMap[d.grupo].cli += d.clientes;
+            totalFat += d.faturamento;
+            totalCli += d.clientes;
+        });
+
+        // Convert to array and calculate percentages
+        const results = Object.keys(groupMap).map(k => {
+            return {
+                grupo: k,
+                pctFat: totalFat > 0 ? (groupMap[k].fat / totalFat) * 100 : 0,
+                pctCli: totalCli > 0 ? (groupMap[k].cli / totalCli) * 100 : 0
+            };
+        });
+
+        // Sort by pctFat descending
+        results.sort((a, b) => b.pctFat - a.pctFat);
+
+        // Render table
+        const tbody = document.getElementById('cronicos-table-body');
+        tbody.innerHTML = '';
+        
+        results.forEach(r => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td>${r.grupo}</td>
+                <td>
+                    <div class="progress-container">
+                        <div class="progress-bar-bg purple-bg">
+                            <div class="progress-fill purple" style="width: ${r.pctFat.toFixed(1)}%;"></div>
+                        </div>
+                        <div class="progress-label">${r.pctFat.toFixed(1).replace('.', ',')}%</div>
+                    </div>
+                </td>
+                <td>
+                    <div class="progress-container">
+                        <div class="progress-bar-bg green-bg">
+                            <div class="progress-fill green" style="width: ${r.pctCli.toFixed(1)}%;"></div>
+                        </div>
+                        <div class="progress-label">${r.pctCli.toFixed(1).replace('.', ',')}%</div>
+                    </div>
+                </td>
+            `;
+            tbody.appendChild(tr);
+        });
+    };
+
     // Initialize all
     loadBaseTotal();
     loadActiveClients();
     loadHeatmap();
     loadFrequenciaTicket();
+    loadCategorias();
 
     // Show construction popup after 5 seconds
     setTimeout(() => {

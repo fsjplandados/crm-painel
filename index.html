@@ -5,28 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRM Analytics | Farmácias São João</title>
     <meta name="description" content="Dashboard de clientes e segmentos.">
-    <link rel="stylesheet" href="styles.css?v=5">
+    <link rel="stylesheet" href="styles.css?v=6">
     <!-- Chart.js for beautiful charts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <header class="header">
-        <div class="header-logo">
-            <img src="Logotipo_são_joao.png" alt="Farmácias São João" class="logo">
-            <div class="header-titles">
-                <div class="header-title">Inteligência de Clientes</div>
-                <div class="header-subtitle">Analytics & Dashboard</div>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-logo">
+                <img src="Icone_logo_png.png" alt="Logo" style="width: 32px; height: auto;">
             </div>
+            <button class="sidebar-item active" onclick="switchTab('tab-1', this)" title="Visão Geral">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            </button>
+            <button class="sidebar-item" onclick="switchTab('tab-2', this)" title="Perfil de Cliente">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            </button>
+            <button class="sidebar-item" onclick="switchTab('tab-3', this)" title="RFV">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            </button>
+            <button class="sidebar-item" onclick="switchTab('tab-4', this)" title="Pacientes Crônicos">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+            </button>
         </div>
-        
-        <div class="header-right">
-            <div class="badge-vtex">CRM · Live</div>
-            <div class="avatar">SJ</div>
-        </div>
-    </header>
 
-    <main>
-    <main>
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <header class="header">
+                <div class="header-logo">
+                    <div class="header-titles" style="border-left: none; padding-left: 0; margin-left: 0;">
+                        <div class="header-title">Inteligência de Clientes</div>
+                        <div class="header-subtitle">Analytics & Dashboard</div>
+                    </div>
+                </div>
+                
+                <div class="header-right">
+                    <div class="badge-vtex">CRM · Live</div>
+                    <div class="avatar">SJ</div>
+                </div>
+            </header>
+
+            <main style="padding: 0 2rem;">
+                <!-- Tab 1: Visão Geral -->
+                <div id="tab-1" class="tab-pane active">
         <div class="fade-in" style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1.5rem;">
             <div>
                 <h1 class="dashboard-title">Visão Geral</h1>
@@ -151,7 +173,10 @@
         </div>
 
         <!-- Progressão removida -->
+                </div> <!-- Fechando tab-1 -->
 
+                <!-- Tab 2: Perfil de Cliente -->
+                <div id="tab-2" class="tab-pane">
         <!-- Row: Gender and Heatmap Side by Side -->
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: flex-start; margin-bottom: 2rem;">
             <!-- Gender KPI (Now a table) -->
@@ -169,7 +194,7 @@
                                 <tr style="border-bottom: 2px solid #EFF6FF; color: #1E3A8A; font-weight: 700;">
                                     <th style="text-align: left; padding: 4px 2px;">FAIXA ETÁRIA</th>
                                     <th style="padding: 4px 2px;">MASCULINO</th>
-                                    <th style="padding: 4px 2px; width: 40px;"></th>
+                                    <th style="padding: 4px 2px; width: 160px;"></th>
                                     <th style="padding: 4px 2px; text-align: left;">FEMININO</th>
                                     <th style="padding: 4px 2px;">TOTAL</th>
                                     <th style="padding: 4px 2px;">% MASC.</th>
@@ -255,6 +280,10 @@
         </div>
             </div>
         </div>
+                </div> <!-- Fechando tab-2 -->
+
+                <!-- Tab 3: RFV -->
+                <div id="tab-3" class="tab-pane">
         <!-- NEW FREQUENCY SECTION -->
         <div class="section-header fade-in delay-2" style="margin-top: 2rem;">
             <div>
@@ -519,7 +548,62 @@
                 </div>
             </div>
         </div>
-    </main>
+                </div> <!-- Fechando tab-3 -->
+                
+                <!-- Tab 4: Pacientes Crônicos -->
+                <div id="tab-4" class="tab-pane fade-in">
+                    <div class="section-header" style="margin-bottom: 2rem;">
+                        <div>
+                            <div style="font-size: 12px; font-weight: 500; color: #64748B; margin-bottom: 4px;">Digital</div>
+                            <h2 class="chart-title" style="font-size: 1.5rem; font-family: 'Montserrat', sans-serif; font-weight: 400; color: #1E3A8A; display: flex; align-items: center; gap: 8px;">
+                                Pacientes Crônicos
+                                <span title="Clientes cadastrados a partir de 2026-01-01" style="cursor: help; color: #64748B; display: flex; align-items: center;">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                                </span>
+                            </h2>
+                        </div>
+                        <div style="display: flex; gap: 1rem;">
+                            <select id="filter-genero" class="filter-select" onchange="applyCategoriasFilters()">
+                                <option value="Todos">Todos Gêneros</option>
+                            </select>
+                            <select id="filter-idade" class="filter-select" onchange="applyCategoriasFilters()">
+                                <option value="Todos">Todas Idades</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-card" style="padding: 0;">
+                        <!-- Tabela de Crônicos -->
+                        <div class="cronicos-table-container">
+                            <table class="cronicos-table" style="width: 100%; border-collapse: collapse;">
+                                <thead>
+                                    <tr style="background-color: #1E1B4B; color: white; text-align: left; font-size: 11px; font-weight: 700;">
+                                        <th style="padding: 12px 24px; width: 25%;">GRUPO TERAPÊUTICO</th>
+                                        <th style="padding: 12px 24px; width: 45%;">% FATURAMENTO</th>
+                                        <th style="padding: 12px 24px; width: 30%;">% CLIENTES</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="cronicos-table-body">
+                                    <!-- Injected via JS -->
+                                </tbody>
+                            </table>
+                            <div style="padding: 16px 24px; display: flex; gap: 24px; font-size: 12px; color: #64748B;">
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <div style="width: 12px; height: 12px; border-radius: 50%; background-color: #4338CA;"></div>
+                                    Participação no Faturamento
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <div style="width: 12px; height: 12px; border-radius: 50%; background-color: #65A30D;"></div>
+                                    Participação em Clientes
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- Fechando tab-4 -->
+                
+            </main>
+        </div> <!-- Fechando main-content -->
+    </div> <!-- Fechando app-container -->
 
     <!-- Popup de Construção -->
     <div id="construction-popup" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 9999; align-items: center; justify-content: center; backdrop-filter: blur(4px);">
@@ -538,5 +622,21 @@
 
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
     <script src="app.js?v=13"></script>
+
+    <!-- Script for Tabs Navigation -->
+    <script>
+        function switchTab(tabId, btn) {
+            // Remove active class from all buttons and tabs
+            document.querySelectorAll('.sidebar-item').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.tab-pane').forEach(t => t.classList.remove('active'));
+            
+            // Add active class to clicked button and target tab
+            btn.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+
+            // Trigger window resize so Chart.js recalculates canvas sizes
+            window.dispatchEvent(new Event('resize'));
+        }
+    </script>
 </body>
 </html>
