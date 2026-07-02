@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (lower.includes('sem segmentação')) return '#9CA3AF';
         if (lower.includes('clientes fiéis') || lower.includes('clientes fieis')) return '#2563EB';
         if (lower.includes('potencial fiel')) return '#93C5FD';
-        if (lower.includes('campeão') || lower.includes('campeao')) return '#10B981';
+        if (lower.includes('campeão') || lower.includes('campeao')) return '#00A650';
         if (lower.includes('em risco')) return '#FBBF24';
         if (lower.includes('hibernando')) return '#F97316';
         if (lower.includes('quase dormindo')) return '#EF4444';
@@ -241,21 +241,21 @@ document.addEventListener('DOMContentLoaded', async () => {
                             {
                                 label: '30 dias',
                                 data: data.data30,
-                                backgroundColor: '#0D6EFD',
+                                backgroundColor: '#99D420',
                                 barPercentage: 0.85,
                                 categoryPercentage: 0.8
                             },
                             {
                                 label: '60 dias',
                                 data: data.data60,
-                                backgroundColor: '#10B981',
+                                backgroundColor: '#00A650',
                                 barPercentage: 0.85,
                                 categoryPercentage: 0.8
                             },
                             {
                                 label: '90 dias',
                                 data: data.data90,
-                                backgroundColor: '#F59E0B',
+                                backgroundColor: '#F68712',
                                 barPercentage: 0.85,
                                 categoryPercentage: 0.8
                             }
@@ -684,9 +684,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
                 const chartData = uniqueMonths.map(m => channelData.find(d => d.mes === m) || { freq: 0, ticket: 0, recompra: 0, dias: 0 });
                 
-                try { createChart('chart-freq', chartData.map(d => d.freq), '#0D6EFD', { formatter: v => v.toFixed(2).replace('.', ',') }); } catch (e) { console.error('Error freq chart', e); }
-                try { createChart('chart-ticket', chartData.map(d => d.ticket), '#10B981', { formatter: v => (v||0).toFixed(2).replace('.', ',') }); } catch (e) { console.error('Error ticket chart', e); }
-                try { createChart('chart-recompra', chartData.map(d => d.recompra * 100), '#8B5CF6', { formatter: v => (v||0).toFixed(1).replace('.', ',') + '%' }); } catch (e) { console.error('Error recompra chart', e); }
+                try { createChart('chart-freq', chartData.map(d => d.freq), '#99D420', { formatter: v => v.toFixed(2).replace('.', ',') }); } catch (e) { console.error('Error freq chart', e); }
+                try { createChart('chart-ticket', chartData.map(d => d.ticket), '#00A650', { formatter: v => (v||0).toFixed(2).replace('.', ',') }); } catch (e) { console.error('Error ticket chart', e); }
+                try { createChart('chart-recompra', chartData.map(d => d.recompra * 100), '#00ADEF', { formatter: v => (v||0).toFixed(1).replace('.', ',') + '%' }); } catch (e) { console.error('Error recompra chart', e); }
                 
                 // Média dias is bar chart
                 try {
@@ -698,7 +698,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                             labels: labels,
                             datasets: [{
                                 data: chartData.map(d => d.dias),
-                                backgroundColor: '#F59E0B',
+                                backgroundColor: '#F68712',
                                 barPercentage: 0.4
                             }]
                         },
@@ -819,9 +819,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const ctx = document.getElementById(id).getContext('2d');
                 const channels = ['LOJA_F', 'CANAIS_VIRTUAIS', 'TELEVENDAS'];
                 const channelColors = {
-                    'LOJA_F': '#0D6EFD',
-                    'CANAIS_VIRTUAIS': '#8B5CF6',
-                    'TELEVENDAS': '#F59E0B'
+                    'LOJA_F': '#99D420',
+                    'CANAIS_VIRTUAIS': '#00ADEF',
+                    'TELEVENDAS': '#F68712'
                 };
                 
                 const datasets = channels.map(c => {
