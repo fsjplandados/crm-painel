@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             const csvText = await response.text();
             
-            const lines = csvText.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+            const lines = csvText.split('\n').map(line => line.trim()).filter(line => line.length > 0 && !line.includes('2026-06-01') && !line.includes('Jun/26'));
             let segmentsData = [];
 
             for (let i = 1; i < lines.length; i++) {
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             const csvText = await response.text();
             
-            const lines = csvText.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+            const lines = csvText.split('\n').map(line => line.trim()).filter(line => line.length > 0 && !line.includes('2026-06-01') && !line.includes('Jun/26'));
             
             let total30d = 0;
             let total60d = 0;
@@ -297,7 +297,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             const csvText = await response.text();
             
-            const lines = csvText.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+            const lines = csvText.split('\n').map(line => line.trim()).filter(line => line.length > 0 && !line.includes('2026-06-01') && !line.includes('Jun/26'));
             
             // Dynamically extract ages and rows (Faixa de ticket) in order of appearance
             const agesSet = new Set();
@@ -496,7 +496,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             const csvText = await response.text();
             
-            const lines = csvText.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+            const lines = csvText.split('\n').map(line => line.trim()).filter(line => line.length > 0 && !line.includes('2026-06-01') && !line.includes('Jun/26'));
             
             // Expected columns: MES, CANAL, FREQUENCIA_MEDIA, TICKET_MEDIO, PCT_RECOMPRA_MES, MEDIA_DIAS_RECOMPRA
             let rawData = [];
@@ -855,7 +855,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const csvText = await response.text();
             
             // Simple CSV parser
-            const lines = csvText.trim().split('\n');
+            const lines = csvText.trim().split('\n').filter(line => !line.includes('2026-06-01') && !line.includes('Jun/26'));
             const headers = lines[0].split(',');
             
             for (let i = 1; i < lines.length; i++) {
