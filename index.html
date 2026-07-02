@@ -690,11 +690,13 @@
 
                 <div class="filters-grid">
                     <div class="filter-group">
-                        <label class="filter-label">Agrupamento de Tempo</label>
+                        <label class="filter-label">Ver como</label>
                         <select class="filter-select" id="globalAgrupamento">
-                            <option value="mes">Mensal</option>
-                            <option value="trimestre">Trimestral</option>
-                            <option value="semestre">Semestral</option>
+                            <option value="mes">Por mês</option>
+                            <option value="trimestre">Por Trimestre</option>
+                            <option value="semestre">Por Semestre</option>
+                            <option value="ano">Por ano</option>
+                            <option value="historico">Todo o histórico</option>
                         </select>
                     </div>
 
@@ -754,6 +756,27 @@
             // Add active class to clicked button and target tab
             btn.classList.add('active');
             document.getElementById(tabId).classList.add('active');
+
+            // Set filter constraints depending on the tab
+            const ag = document.getElementById('globalAgrupamento');
+            const canal = document.getElementById('globalCanal');
+            const genero = document.getElementById('globalGenero');
+            const idade = document.getElementById('globalIdade');
+            
+            if (ag && canal && genero && idade) {
+                if (tabId === 'tab-1' || tabId === 'tab-4') {
+                    ag.value = 'historico';
+                    canal.value = 'TOTAL';
+                    genero.value = 'TODOS';
+                    idade.value = 'TODAS';
+                } else if (tabId === 'tab-2' || tabId === 'tab-3') {
+                    ag.value = 'mes';
+                }
+                
+                if (window.applyGlobalFilters) {
+                    window.applyGlobalFilters(true); // update internal state without forcing re-renders of other tabs if not needed
+                }
+            }
 
             // Trigger window resize so Chart.js recalculates canvas sizes after DOM reflow
             setTimeout(() => {
