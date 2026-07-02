@@ -800,7 +800,8 @@ main {
     display: inline-flex;
     align-items: center;
     gap: 32px;
-    background-color: #F4F4F5;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
     border-radius: 40px;
     padding: 8px 24px 8px 8px;
     margin-bottom: 24px;
@@ -809,12 +810,11 @@ main {
 .filter-icon-circle {
     width: 32px;
     height: 32px;
-    background-color: #FFFFFF;
+    background-color: #F8FAFC;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
 }
 
 .global-filters-btn {
@@ -837,51 +837,61 @@ main {
 
 /* Global Filters Modal */
 .filters-modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 9998;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  backdrop-filter: blur(2px);
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 9998;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(2px);
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+.filters-modal-overlay.active {
+    opacity: 1;
 }
 .filters-modal {
-  background: #FFFFFF;
-  border-radius: 16px;
-  width: 90%;
-  max-width: 800px;
-  max-height: 90vh;
-  overflow-y: auto;
-  z-index: 9999;
-  box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+    background: #FFFFFF;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 700px;
+    max-height: 90vh;
+    overflow-y: auto;
+    z-index: 9999;
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+    transform: translateY(20px);
+    transition: transform 0.2s;
+}
+.filters-modal-overlay.active .filters-modal {
+    transform: translateY(0);
 }
 .filters-modal-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 24px;
-  border-bottom: 1px solid #E2E8F0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 24px 0px 24px;
 }
 .filters-modal-title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 18px;
-  font-weight: 700;
-  color: #DB2777; /* Cor de destaque rosa Biso */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #1E293B;
+    border-bottom: 2px solid #DB2777;
+    padding-bottom: 8px;
+    margin-bottom: -2px;
 }
 .filters-close-btn {
-  background: none;
-  border: none;
-  color: #EF4444;
-  cursor: pointer;
-  padding: 4px;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    background: none;
+    border: none;
+    color: #E11D48;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
 }
 .filters-close-btn:hover { background: #FEE2E2; }
 .filters-modal-body {

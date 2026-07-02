@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
     // Global Filters State
     window.globalFilters = {
+        agrupamentoPeriodo: 'mes',
         canal: 'TOTAL',
         genero: 'TODOS',
         idade: 'TODAS'
@@ -19,12 +20,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     };
 
     window.clearFilters = function() {
+        document.getElementById('globalAgrupamento').value = 'mes';
         document.getElementById('globalCanal').value = 'TOTAL';
         document.getElementById('globalGenero').value = 'TODOS';
         document.getElementById('globalIdade').value = 'TODAS';
     };
 
     window.applyGlobalFilters = function() {
+        window.globalFilters.agrupamentoPeriodo = document.getElementById('globalAgrupamento').value;
         window.globalFilters.canal = document.getElementById('globalCanal').value;
         window.globalFilters.genero = document.getElementById('globalGenero').value;
         window.globalFilters.idade = document.getElementById('globalIdade').value;
@@ -553,15 +556,58 @@ document.addEventListener('DOMContentLoaded', async () => {
                 });
             }
 
-            // Extract unique sorted months
-            let uniqueMonths = [...new Set(rawData.map(d => d.mes))].sort();
-            const formatMonth = (dateStr) => {
-                const parts = dateStr.split('-');
-                if (parts.length < 3) return dateStr;
-                const date = new Date(parts[0], parseInt(parts[1]) - 1, parts[2]);
-                return date.toLocaleDateString('pt-BR', { month: 'short', year: '2-digit' }).replace('. de ', '/').replace(' de ', '/').toLowerCase().replace(/(?:^|\s)\S/g, a => a.toUpperCase());
+                        const aggregateData = (data, agrupamento) => {
+                if (agrupamento === 'mes' || !agrupamento) {
+                    return data.map(d => {
+                        const parts = d.mes.split('-');
+                        if (parts.length < 3) return { ...d, label: d.mes };
+                        const date = new Date(parts[0], parseInt(parts[1]) - 1, parts[2]);
+                        const label = date.toLocaleDateString('pt-BR', { month: 'short', year: '2-digit' }).replace('. de ', '/').replace(' de ', '/').toLowerCase().replace(/(?:^|\s)\S/g, a => a.toUpperCase());
+                        return { ...d, periodKey: d.mes, label };
+                    });
+                }
+                
+                const getPeriod = (mes) => {
+                    const parts = mes.split('-');
+                    if (parts.length < 3) return { key: mes, label: mes };
+                    const date = new Date(parts[0], parseInt(parts[1]) - 1, parts[2]);
+                    const month = date.getMonth(); 
+                    const year = date.getFullYear().toString().slice(-2);
+                    
+                    if (agrupamento === 'trimestre') {
+                        const q = Math.floor(month / 3) + 1;
+                        return { key: `2026-Q${q}`, label: `${q}T${year}` };
+                    } else if (agrupamento === 'semestre') {
+                        const s = Math.floor(month / 6) + 1;
+                        return { key: `2026-S${s}`, label: `${s}S ${date.getFullYear()}` };
+                    }
+                    return { key: mes, label: mes };
+                };
+
+                const grouped = {};
+                data.forEach(d => {
+                    const p = getPeriod(d.mes);
+                    const key = `${p.key}_${d.canal}`;
+                    if (!grouped[key]) {
+                        grouped[key] = { periodKey: p.key, label: p.label, canal: d.canal, freq: 0, ticket: 0, recompra: 0, dias: 0, count: 0 };
+                    }
+                    grouped[key].freq += d.freq;
+                    grouped[key].ticket += d.ticket;
+                    grouped[key].recompra += d.recompra;
+                    grouped[key].dias += d.dias;
+                    grouped[key].count += 1;
+                });
+
+                return Object.values(grouped).map(g => ({
+                    periodKey: g.periodKey,
+                    label: g.label,
+                    canal: g.canal,
+                    freq: g.freq / g.count,
+                    ticket: g.ticket / g.count,
+                    recompra: g.recompra / g.count,
+                    dias: g.dias / g.count
+                }));
             };
-            const labels = uniqueMonths.map(formatMonth);
 
             const getChannelName = (c) => {
                 if (c === 'LOJA_F') return 'Loja Física';
@@ -572,7 +618,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             };
 
             const renderFrequenciaDashboard = (selectedCanal) => {
-                const channelData = rawData.filter(d => d.canal === selectedCanal).sort((a, b) => a.mes.localeCompare(b.mes));
+                const aggregatedData = aggregateData(rawData, window.globalFilters.agrupamentoPeriodo);
+                let uniquePeriods = [...new Set(aggregatedData.map(d => d.periodKey))].sort();
+                const labels = uniquePeriods.map(pk => aggregatedData.find(d => d.periodKey === pk).label);
+
+                const channelData = aggregatedData.filter(d => d.canal === selectedCanal).sort((a, b) => a.periodKey.localeCompare(b.periodKey));
                 
                 if (channelData.length >= 2) {
                     const current = channelData[channelData.length - 1];
@@ -588,10 +638,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                         let arrow = '';
 
                         if (isPct) {
-                            // Points percentuais
                             deltaStr = (delta > 0 ? '+' : '') + delta.toFixed(1).replace('.', ',') + ' p.p.';
                         } else {
-                            // Percentual change
                             deltaStr = (deltaPct > 0 ? '+' : '') + deltaPct.toFixed(1).replace('.', ',') + '%';
                         }
 
@@ -608,7 +656,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
                         const el = document.getElementById(idDelta);
                         el.className = `freq-kpi-delta ${colorClass}`;
-                        el.innerHTML = `${arrow} ${deltaStr} <span style="color:#6B7280; font-weight:500;">vs mês anterior</span>`;
+                        el.innerHTML = `${arrow} ${deltaStr} <span style="color:#6B7280; font-weight:500;">vs per. ant.</span>`;
                     };
 
                     renderKpi('kpi-freq', 'delta-freq', current.freq, prev.freq, false, false, 2, '');
@@ -620,17 +668,16 @@ document.addEventListener('DOMContentLoaded', async () => {
                     const deltaDiasEl = document.getElementById('delta-dias');
                     if (deltaDias > 0) {
                         deltaDiasEl.className = 'freq-kpi-delta negative';
-                        deltaDiasEl.innerHTML = `&#9650; +${deltaDias.toFixed(1).replace('.', ',')} dias <span style="color:#6B7280; font-weight:500;">vs mês anterior</span>`;
+                        deltaDiasEl.innerHTML = `&#9650; +${deltaDias.toFixed(1).replace('.', ',')} dias <span style="color:#6B7280; font-weight:500;">vs per. ant.</span>`;
                     } else if (deltaDias < 0) {
                         deltaDiasEl.className = 'freq-kpi-delta positive';
-                        deltaDiasEl.innerHTML = `&#9660; ${deltaDias.toFixed(1).replace('.', ',')} dias <span style="color:#6B7280; font-weight:500;">vs mês anterior</span>`;
+                        deltaDiasEl.innerHTML = `&#9660; ${deltaDias.toFixed(1).replace('.', ',')} dias <span style="color:#6B7280; font-weight:500;">vs per. ant.</span>`;
                     } else {
                         deltaDiasEl.className = 'freq-kpi-delta subtext';
-                        deltaDiasEl.innerHTML = `- 0 dias <span style="color:#6B7280; font-weight:500;">vs mês anterior</span>`;
+                        deltaDiasEl.innerHTML = `- 0 dias <span style="color:#6B7280; font-weight:500;">vs per. ant.</span>`;
                     }
                 }
 
-                // Render Charts
                 const commonOptions = {
                     responsive: true,
                     maintainAspectRatio: false,
@@ -673,7 +720,187 @@ document.addEventListener('DOMContentLoaded', async () => {
                     });
                 };
 
-                const chartData = uniqueMonths.map(m => channelData.find(d => d.mes === m) || { freq: 0, ticket: 0, recompra: 0, dias: 0 });
+                const chartData = uniquePeriods.map(pk => channelData.find(d => d.periodKey === pk) || { freq: 0, ticket: 0, recompra: 0, dias: 0 });
+                
+                try { createChart('chart-freq', chartData.map(d => d.freq), '#0D6EFD', { formatter: v => v.toFixed(2).replace('.', ',') }); } catch (e) { console.error('Error freq chart', e); }
+                try { createChart('chart-ticket', chartData.map(d => d.ticket), '#10B981', { formatter: v => (v||0).toFixed(2).replace('.', ',') }); } catch (e) { console.error('Error ticket chart', e); }
+                try { createChart('chart-recompra', chartData.map(d => d.recompra * 100), '#8B5CF6', { formatter: v => (v||0).toFixed(1).replace('.', ',') + '%' }); } catch (e) { console.error('Error recompra chart', e); }
+                
+                // Média dias is bar chart
+                try {
+                    if (window.chart_dias) window.chart_dias.destroy();
+                    const ctxDias = document.getElementById('chart-dias').getContext('2d');
+                    window.chart_dias = new Chart(ctxDias, {
+                        type: 'bar',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                data: chartData.map(d => d.dias),
+                                backgroundColor: '#F59E0B',
+                                barPercentage: 0.4
+                            }]
+                        },
+                        options: {
+                            ...commonOptions,
+                            plugins: {
+                                legend: { display: false },
+                                datalabels: {
+                                    display: true, anchor: 'end', align: 'top', color: '#111827', font: { family: "'Inter', sans-serif", size: 10, weight: 600 }, formatter: v => (v||0).toFixed(1).replace('.', ',')
+                                }
+                            },
+                            scales: {
+                                y: { grace: '20%', beginAtZero: true, grid: { color: '#F3F4F6' }, ticks: { color: '#9CA3AF' } },
+                                x: { grid: { display: false } }
+                            }
+                        }
+                    });
+                } catch (e) { console.error('Error dias chart', e); }
+            };
+
+            // Calculate Comparison Table
+            const channelsToCompare = ['LOJA_F', 'CANAIS_VIRTUAIS', 'TELEVENDAS'];
+            const averages = {};
+
+            channelsToCompare.forEach(c => {
+                const cData = rawData.filter(d => d.canal === c);
+                if (cData.length > 0) {
+                    averages[c] = {
+                        freq: cData.reduce((s, d) => s + d.freq, 0) / cData.length,
+                        ticket: cData.reduce((s, d) => s + d.ticket, 0) / cData.length,
+                        recompra: cData.reduce((s, d) => s + d.recompra, 0) / cData.length,
+                        dias: cData.reduce((s, d) => s + d.dias, 0) / cData.length
+                    };
+                }
+            });
+
+            const tbody = document.getElementById('comp-table-body');
+            let html = '';
+            
+            const ref = averages['LOJA_F'];
+            
+            channelsToCompare.forEach((c, idx) => {
+                if (!averages[c]) return;
+                const avg = averages[c];
+                
+                const getBadge = (val, refVal, isInverse) => {
+                    if (c === 'LOJA_F') return `<div style="height:18px;"></div>`;
+                    if (refVal === 0) return '';
+                    
+                    let ratio = val / refVal;
+                    let text = '';
+                    let badgeClass = '';
+                    
+                    if (ratio > 1) {
+                        text = `${ratio.toFixed(2).replace('.', ',')}x maior que Loja Física`;
+                        badgeClass = isInverse ? 'red' : 'green';
+                    } else if (ratio < 1) {
+                        text = `${ratio.toFixed(2).replace('.', ',')}x da Loja Física`;
+                        badgeClass = isInverse ? 'green' : 'red';
+                    } else {
+                        return `<div style="height:18px;"></div>`;
+                    }
+                    return `<div class="comp-badge ${badgeClass}">${text}</div>`;
+                };
+
+                let icon = '';
+                if (c === 'LOJA_F') icon = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>`;
+                if (c === 'CANAIS_VIRTUAIS') icon = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>`;
+                if (c === 'TELEVENDAS') icon = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>`;
+
+                html += `<tr>
+                    <td>
+                        <div style="display:flex; align-items:center; gap:12px;">
+                            <div style="width:40px; height:40px; background:#EFF6FF; border-radius:8px; display:flex; align-items:center; justify-content:center;">${icon}</div>
+                            <div>
+                                <div class="comp-channel-name">${getChannelName(c)}</div>
+                                <div class="comp-channel-sub">${c === 'LOJA_F' ? '(referência)' : (c === 'CANAIS_VIRTUAIS' ? '(APP, SITE, iFood)' : '')}</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="comp-value">${avg.freq.toFixed(2).replace('.', ',')}</div>
+                        ${getBadge(avg.freq, ref.freq, false)}
+                        <div style="width: 100%; height: 4px; background: #E2E8F0; border-radius: 2px; margin-top: 8px;"><div style="width: ${(avg.freq / 2.5)*100}%; height: 100%; background: #3B82F6; border-radius: 2px;"></div></div>
+                    </td>
+                    <td>
+                        <div class="comp-value">R$ ${avg.ticket.toFixed(2).replace('.', ',')}</div>
+                        ${getBadge(avg.ticket, ref.ticket, false)}
+                        <div style="width: 100%; height: 4px; background: #E2E8F0; border-radius: 2px; margin-top: 8px;"><div style="width: ${(avg.ticket / 150)*100}%; height: 100%; background: #10B981; border-radius: 2px;"></div></div>
+                    </td>
+                    <td>
+                        <div class="comp-value">${(avg.recompra * 100).toFixed(1).replace('.', ',')}%</div>
+                        ${getBadge(avg.recompra, ref.recompra, false)}
+                        <div style="width: 100%; height: 4px; background: #E2E8F0; border-radius: 2px; margin-top: 8px;"><div style="width: ${(avg.recompra * 100)}%; height: 100%; background: #8B5CF6; border-radius: 2px;"></div></div>
+                    </td>
+                    <td>
+                        <div class="comp-value">${avg.dias.toFixed(1).replace('.', ',')}</div>
+                        ${getBadge(avg.dias, ref.dias, true)}
+                        <div style="width: 100%; height: 4px; background: #E2E8F0; border-radius: 2px; margin-top: 8px;"><div style="width: ${(avg.dias / 15)*100}%; height: 100%; background: #F59E0B; border-radius: 2px;"></div></div>
+                    </td>
+                </tr>`;
+            });
+            tbody.innerHTML = html;
+
+            const filterEl = document.getElementById('channel-filter');
+            filterEl.addEventListener('change', (e) => {
+                renderFrequenciaDashboard(e.target.value);
+            });
+
+            // Initial render
+            window.renderFrequenciaTicket = () => {
+                renderFrequenciaDashboard(window.globalFilters.canal);
+            };
+            window.renderFrequenciaTicket();
+
+            // Render Multi-line Comparativo Charts
+                        const createMultiChart = (id, propertyKey, isPercentage) => {
+                const aggregatedData = aggregateData(rawData, window.globalFilters.agrupamentoPeriodo);
+                let uniquePeriods = [...new Set(aggregatedData.map(d => d.periodKey))].sort();
+                const labels = uniquePeriods.map(pk => aggregatedData.find(d => d.periodKey === pk).label);
+
+                const ctx = document.getElementById(id).getContext('2d');
+                if (window[`chart_${id}`]) window[`chart_${id}`].destroy();
+
+                const channels = ['LOJA_F', 'CANAIS_VIRTUAIS', 'TELEVENDAS'];
+                const channelColors = {
+                    'LOJA_F': '#0D6EFD',
+                    'CANAIS_VIRTUAIS': '#8B5CF6',
+                    'TELEVENDAS': '#F59E0B'
+                };
+                
+                const datasets = channels.map(c => {
+                    const chData = uniquePeriods.map(pk => {
+                        const row = aggregatedData.find(d => d.periodKey === pk && d.canal === c);
+                        return row ? row[propertyKey] * (isPercentage ? 100 : 1) : null;
+                    });
+                    
+                    return {
+                        label: getChannelName(c),
+                        data: chData,
+                        borderColor: channelColors[c],
+                        backgroundColor: channelColors[c],
+                        borderWidth: 2,
+                        tension: 0.3,
+                        pointRadius: 4,
+                        pointHoverRadius: 6
+                    };
+                });
+
+                window[`chart_${id}`] = new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                data: dataArr,
+                                borderColor: color,
+                                backgroundColor: color,
+                            }]
+                        },
+                        options: opts
+                    });
+                };
+
+                const chartData = uniquePeriods.map(pk => channelData.find(d => d.periodKey === pk) || { freq: 0, ticket: 0, recompra: 0, dias: 0 });
                 
                 try { createChart('chart-freq', chartData.map(d => d.freq), '#0D6EFD', { formatter: v => v.toFixed(2).replace('.', ',') }); } catch (e) { console.error('Error freq chart', e); }
                 try { createChart('chart-ticket', chartData.map(d => d.ticket), '#10B981', { formatter: v => (v||0).toFixed(2).replace('.', ',') }); } catch (e) { console.error('Error ticket chart', e); }
