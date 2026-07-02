@@ -123,7 +123,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const div = document.createElement('div');
                 div.className = 'segment-row';
                 div.innerHTML = `
-                    <div class="segment-name" title="${item.name}">${item.name}</div>
+                    <div class="segment-name" title="${item.name}">
+                        ${item.name} 
+                        <span style="color:#9CA3AF; font-size:0.85em; font-weight:400; margin-left:4px;">(X dias sem compras)</span>
+                    </div>
                     <div class="progress-bar-bg" style="height: 12px; border-radius: 6px;">
                         <div class="progress-bar-fill" style="width: ${pct}%; background-color: ${color}; height: 100%; border-radius: 6px;"></div>
                     </div>
@@ -459,7 +462,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const overallPctM = (totalM / totalGender * 100).toFixed(2).replace('.', ',');
                 const overallPctF = (totalF / totalGender * 100).toFixed(2).replace('.', ',');
                 
-                perfilTfoot.innerHTML = `<tr>
+                if (document.getElementById('kpiPctMasc')) document.getElementById('kpiPctMasc').textContent = overallPctM + '%';
+                if (document.getElementById('kpiPctFem')) document.getElementById('kpiPctFem').textContent = overallPctF + '%';
+
+                perfilTfoot.innerHTML = `<tr style="border-top: 1px solid #E2E8F0; background: #F8FAFC;">
                     <td style="text-align: left; padding: 6px 2px;">TOTAL</td>
                     <td style="padding: 6px 2px;">${formatNumber(totalM)}</td>
                     <td style="padding: 6px 2px;"></td>

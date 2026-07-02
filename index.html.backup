@@ -210,17 +210,11 @@
             <!-- Gender KPI (Now a table) -->
             <div style="min-width: 0;">
                 <div class="kpi-card-simple fade-in delay-2" style="margin-bottom: 0; padding: 12px; height: 100%;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 12px;">
-                        <div style="font-size: 11px; font-weight: 700; color: #1E3A8A; text-transform: uppercase; display: flex; align-items: center; gap: 6px;">
-                            Perfil de Clientes <span style="color: #9CA3AF; margin: 0 2px;">|</span> Faixa Etária × Sexo
-                            <span title="Clientes cadastrados a partir de 2026-01-01" style="cursor: help; color: #64748B; display: flex; align-items: center;">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-                            </span>
-                        </div>
-                        <div style="display: flex; gap: 16px; font-size: 11px; font-weight: 700;">
-                            <div style="color: #0D6EFD;">% MASC: <span id="kpiPctMasc">--</span></div>
-                            <div style="color: #F68712;">% FEM: <span id="kpiPctFem">--</span></div>
-                        </div>
+                    <div style="font-size: 11px; font-weight: 700; color: #1E3A8A; margin-bottom: 12px; text-transform: uppercase; display: flex; align-items: center; gap: 6px;">
+                        Perfil de Clientes <span style="color: #9CA3AF; margin: 0 2px;">|</span> Faixa Etária × Sexo
+                        <span title="Clientes cadastrados a partir de 2026-01-01" style="cursor: help; color: #64748B; display: flex; align-items: center;">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                        </span>
                     </div>
                     <div style="overflow-x: auto;">
                         <table style="width: 100%; border-collapse: collapse; font-size: 9px; text-align: right;">
@@ -655,60 +649,7 @@
                     </div>
                 </div> <!-- Fechando tab-4 -->
                 
-            
-            <!-- Tab 5: Campanhas -->
-            <div id="tab-5" class="tab-pane">
-                <div class="kpi-grid mt-24" style="grid-template-columns: repeat(2, 1fr);">
-
-                <div class="card mt-24">
-                    <div class="card-header">
-                        <h2 class="card-title" style="text-transform: uppercase;">Clientes Contatáveis</h2>
-                    </div>
-                    <div style="height: 200px; display: flex; align-items: center; justify-content: center; color: #9CA3AF; background-color: #F8FAFC; border-radius: 8px; margin-top: 16px;">
-                        <div style="text-align: center;">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin: 0 auto 8px auto;">
-                                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-                            </svg>
-                            <div>Dado em construção</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card mt-24">
-                    <div class="card-header">
-                        <h2 class="card-title" style="text-transform: uppercase;">% opt-out por canal</h2>
-                    </div>
-                    <div style="height: 200px; display: flex; align-items: center; justify-content: center; color: #9CA3AF; background-color: #F8FAFC; border-radius: 8px; margin-top: 16px;">
-                        <div style="text-align: center;">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin: 0 auto 8px auto;">
-                                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-                            </svg>
-                            <div>Dado em construção</div>
-                        </div>
-                    </div>
-                </div>
-                </div>
-            </div>
-
-            <!-- Tab 6: Multicanais -->
-            <div id="tab-6" class="tab-pane">
-
-                <div class="card mt-24">
-                    <div class="card-header">
-                        <h2 class="card-title" style="text-transform: uppercase;">Clientes novos: Geral, Física e virtual</h2>
-                    </div>
-                    <div style="height: 200px; display: flex; align-items: center; justify-content: center; color: #9CA3AF; background-color: #F8FAFC; border-radius: 8px; margin-top: 16px;">
-                        <div style="text-align: center;">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin: 0 auto 8px auto;">
-                                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-                            </svg>
-                            <div>Dado em construção</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-                </main>
+            </main>
         </div> <!-- Fechando main-content -->
     </div> <!-- Fechando app-container -->
 
