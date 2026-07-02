@@ -444,10 +444,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                         <td style="padding: 6px 2px;">
                             <div style="display: flex; align-items: center; justify-content: center; height: 16px; width: 100%;">
                                 <div style="flex: 1; display: flex; justify-content: flex-end; height: 100%; border-right: 1px solid #FFFFFF;">
-                                    <div style="background: #3B82F6; width: ${barPctM}%; border-radius: 4px 0 0 4px;"></div>
+                                    <div style="background: #0D6EFD; width: ${barPctM}%; border-radius: 4px 0 0 4px;"></div>
                                 </div>
                                 <div style="flex: 1; display: flex; justify-content: flex-start; height: 100%; border-left: 1px solid #FFFFFF;">
-                                    <div style="background: #F472B6; width: ${barPctF}%; border-radius: 0 4px 4px 0;"></div>
+                                    <div style="background: #ED1C24; width: ${barPctF}%; border-radius: 0 4px 4px 0;"></div>
                                 </div>
                             </div>
                         </td>
@@ -464,6 +464,16 @@ document.addEventListener('DOMContentLoaded', async () => {
                 
                 if (document.getElementById('kpiPctMasc')) document.getElementById('kpiPctMasc').textContent = overallPctM + '%';
                 if (document.getElementById('kpiPctFem')) document.getElementById('kpiPctFem').textContent = overallPctF + '%';
+
+                const overallPctM_oneDec = (totalM / totalGender * 100).toFixed(1).replace('.', ',');
+                const overallPctF_oneDec = (totalF / totalGender * 100).toFixed(1).replace('.', ',');
+                const numM = (totalM / totalGender * 100);
+                const numF = (totalF / totalGender * 100);
+
+                if (document.getElementById('gender-pct-masc-big')) document.getElementById('gender-pct-masc-big').textContent = overallPctM_oneDec + '%';
+                if (document.getElementById('gender-pct-fem-big')) document.getElementById('gender-pct-fem-big').textContent = overallPctF_oneDec + '%';
+                if (document.getElementById('gender-bar-masc')) document.getElementById('gender-bar-masc').style.width = numM + '%';
+                if (document.getElementById('gender-bar-fem')) document.getElementById('gender-bar-fem').style.width = numF + '%';
 
                 perfilTfoot.innerHTML = `<tr style="border-top: 1px solid #E2E8F0; background: #F8FAFC;">
                     <td style="text-align: left; padding: 6px 2px;">TOTAL</td>

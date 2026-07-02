@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRM Analytics | Farmácias São João</title>
     <meta name="description" content="Dashboard de clientes e segmentos.">
-    <link rel="stylesheet" href="styles.css?v=8">
+    <link rel="stylesheet" href="styles.css?v=9">
     <!-- Chart.js for beautiful charts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -222,8 +222,8 @@
             </div>
         </div>
 
-        <!-- Row: Gender and Heatmap Side by Side -->
-        <div style="display: grid; grid-template-columns: 1fr; gap: 1.5rem; align-items: flex-start; margin-bottom: 2rem;">
+        <!-- Row: Gender Table and Distribution Card -->
+        <div style="display: grid; grid-template-columns: 2.2fr 1fr; gap: 1.5rem; align-items: flex-start; margin-bottom: 2rem;">
             <!-- Gender KPI (Now a table) -->
             <div style="min-width: 0;">
                 <div class="kpi-card-simple fade-in delay-2" style="margin-bottom: 0; padding: 12px; height: 100%;">
@@ -271,8 +271,35 @@
                 </div>
             </div>
 
-            <!-- Heatmap Card -->
-            <div style="flex: 1 1 auto; min-width: 0;">
+            <!-- Gender Distribution Card -->
+            <div class="kpi-card-simple fade-in delay-2" style="margin-bottom: 0; padding: 20px; height: 100%; display: flex; flex-direction: column; justify-content: space-between; min-height: 250px;">
+                <div style="font-size: 11px; font-weight: 700; color: #1E3A8A; text-transform: uppercase; margin-bottom: 16px; text-align: center; font-family: 'Montserrat', sans-serif;">
+                    Distribuição de Gênero da Base
+                </div>
+                <div style="display: flex; justify-content: space-around; align-items: center; margin-bottom: 16px; flex: 1;">
+                    <!-- Masculino -->
+                    <div style="text-align: center;">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="#0D6EFD" style="margin: 0 auto 8px auto; display: block;"><path d="M12 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm2 7H10c-1.1 0-2 .9-2 2v6h2v5h4v-5h2v-6c0-1.1-.9-2-2-2z"/></svg>
+                        <div style="font-size: 20px; font-weight: 800; color: #0D6EFD;" id="gender-pct-masc-big">--%</div>
+                        <div style="font-size: 9px; font-weight: 700; color: #0D6EFD; letter-spacing: 0.5px; text-transform: uppercase; margin-top: 4px;">Masculino</div>
+                    </div>
+                    <!-- Feminino -->
+                    <div style="text-align: center;">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="#ED1C24" style="margin: 0 auto 8px auto; display: block;"><path d="M12 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm2.4 9H9.6c-.6 0-1 .4-1 1v6h2v4h4v-4h2v-6c0-.6-.4-1-1-1z"/></svg>
+                        <div style="font-size: 20px; font-weight: 800; color: #ED1C24;" id="gender-pct-fem-big">--%</div>
+                        <div style="font-size: 9px; font-weight: 700; color: #ED1C24; letter-spacing: 0.5px; text-transform: uppercase; margin-top: 4px;">Feminino</div>
+                    </div>
+                </div>
+                <!-- Progress Bar split in two -->
+                <div style="width: 100%; height: 12px; background: #E2E8F0; border-radius: 6px; display: flex; overflow: hidden; margin-top: auto;">
+                    <div id="gender-bar-masc" style="background: #0D6EFD; width: 50%; height: 100%; transition: width 0.3s;"></div>
+                    <div id="gender-bar-fem" style="background: #ED1C24; width: 50%; height: 100%; transition: width 0.3s;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Heatmap Card (Full Width) -->
+        <div style="margin-bottom: 2rem; width: 100%;">
                 <style>
                     /* Inline style to make heatmap smaller as requested */
                     .heatmap-card { padding: 12px; height: 100%; }
@@ -329,9 +356,8 @@
                 </div>
             </div>
         </div>
-            </div>
-        </div>
-                </div> <!-- Fechando tab-2 -->
+    </div>
+</div> <!-- Fechando tab-2 -->
 
                 <!-- Tab 3: RFV -->
                 <div id="tab-3" class="tab-pane">
@@ -807,7 +833,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
-    <script src="app.js?v=16"></script>
+    <script src="app.js?v=17"></script>
 
     <!-- Script for Tabs Navigation -->
     <script>
