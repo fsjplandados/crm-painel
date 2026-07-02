@@ -795,7 +795,6 @@ main {
   .freq-kpi-row { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* Global Filters Bar - Pill Design */
 .global-filters-bar {
     display: inline-flex;
     align-items: center;
@@ -804,6 +803,7 @@ main {
     box-shadow: 0 4px 10px rgba(0,0,0,0.03);
     border-radius: 40px;
     padding: 8px 24px 8px 8px;
+    margin-top: 1.5rem;
     margin-bottom: 24px;
 }
 
