@@ -47,6 +47,19 @@
             </header>
 
             <main style="padding: 0 2rem;">
+                
+                <!-- Global Filters Bar -->
+                <div class="global-filters-bar">
+                    <div class="global-filters-period">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                        <span>Período: <strong>1S 2026</strong></span>
+                    </div>
+                    <button class="global-filters-btn" onclick="openFiltersModal()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
+                        Filtros
+                    </button>
+                </div>
+
                 <!-- Tab 1: Visão Geral -->
                 <div id="tab-1" class="tab-pane active">
         <div class="fade-in" style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1.5rem;">
@@ -188,7 +201,7 @@
         </div>
 
         <!-- Row: Gender and Heatmap Side by Side -->
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: flex-start; margin-bottom: 2rem;">
+        <div style="display: grid; grid-template-columns: 1fr; gap: 1.5rem; align-items: flex-start; margin-bottom: 2rem;">
             <!-- Gender KPI (Now a table) -->
             <div style="min-width: 0;">
                 <div class="kpi-card-simple fade-in delay-2" style="margin-bottom: 0; padding: 12px; height: 100%;">
@@ -647,6 +660,68 @@
             <h2 style="font-size: 1.25rem; font-family: 'Montserrat', sans-serif; font-weight: 700; color: #1E293B; margin-bottom: 8px;">Dados e filtros em construção</h2>
             <p style="color: #64748B; font-size: 0.875rem; margin-bottom: 24px;">Números ainda sendo inseridos</p>
             <button onclick="document.getElementById('construction-popup').style.display = 'none'" style="width: 100%; padding: 12px; background: #1E3A8A; color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.background='#1E40AF'" onmouseout="this.style.background='#1E3A8A'">Entendi</button>
+        </div>
+    </div>
+
+    <!-- Filters Modal -->
+    <div class="filters-modal-overlay" id="filtersModal">
+        <div class="filters-modal">
+            <div class="filters-modal-header">
+                <div class="filters-modal-title">Filtros</div>
+                <button class="filters-close-btn" onclick="closeFiltersModal()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+            <div class="filters-modal-body">
+                <div class="filters-period-box">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                        <span>1S 2026</span>
+                    </div>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                </div>
+
+                <div class="filters-grid">
+                    <div class="filter-group">
+                        <label class="filter-label">Canal de Vendas</label>
+                        <select class="filter-select" id="globalCanal">
+                            <option value="TODOS">Todos os Canais</option>
+                            <option value="LOJA_F">Loja Física</option>
+                            <option value="CANAIS_VIRTUAIS">Canais Virtuais</option>
+                            <option value="TELEVENDAS">Televendas</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label class="filter-label">Gênero</label>
+                        <select class="filter-select" id="globalGenero">
+                            <option value="TODOS">Todos os Gêneros</option>
+                            <option value="Feminino">Feminino</option>
+                            <option value="Masculino">Masculino</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label class="filter-label">Faixa Etária</label>
+                        <select class="filter-select" id="globalIdade">
+                            <option value="TODAS">Todas as Idades</option>
+                            <option value="<18">&lt; 18</option>
+                            <option value="18-24">18-24</option>
+                            <option value="25-34">25-34</option>
+                            <option value="35-44">35-44</option>
+                            <option value="45-54">45-54</option>
+                            <option value="55-64">55-64</option>
+                            <option value="65-74">65-74</option>
+                            <option value="75+">75+</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="filters-modal-footer">
+                    <button class="filters-btn-clear" onclick="clearFilters()">Limpar filtros</button>
+                    <button class="filters-btn-apply" onclick="applyGlobalFilters()">Gere relatório</button>
+                </div>
+            </div>
         </div>
     </div>
 

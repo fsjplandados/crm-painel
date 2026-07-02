@@ -1,4 +1,43 @@
 document.addEventListener('DOMContentLoaded', async () => {
+    // Global Filters State
+    window.globalFilters = {
+        canal: 'TODOS',
+        genero: 'TODOS',
+        idade: 'TODAS'
+    };
+
+    // Global Modal Functions
+    window.openFiltersModal = function() {
+        document.getElementById('filtersModal').style.display = 'flex';
+        document.getElementById('globalCanal').value = window.globalFilters.canal;
+        document.getElementById('globalGenero').value = window.globalFilters.genero;
+        document.getElementById('globalIdade').value = window.globalFilters.idade;
+    };
+
+    window.closeFiltersModal = function() {
+        document.getElementById('filtersModal').style.display = 'none';
+    };
+
+    window.clearFilters = function() {
+        document.getElementById('globalCanal').value = 'TODOS';
+        document.getElementById('globalGenero').value = 'TODOS';
+        document.getElementById('globalIdade').value = 'TODAS';
+    };
+
+    window.applyGlobalFilters = function() {
+        window.globalFilters.canal = document.getElementById('globalCanal').value;
+        window.globalFilters.genero = document.getElementById('globalGenero').value;
+        window.globalFilters.idade = document.getElementById('globalIdade').value;
+        window.closeFiltersModal();
+        
+        // Re-render everything that depends on these filters
+        loadBaseTotal();
+        loadActiveClients();
+        loadHeatmap();
+        loadFrequenciaTicket();
+        loadCategorias();
+    };
+
     // Elements for First KPI (Base Total)
     const totalClientsEl = document.getElementById('total-clients');
     const segmentsList = document.getElementById('kpi-segments-list');
@@ -761,7 +800,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
 
             // Initial render
-            renderFrequenciaDashboard('TOTAL');
+            window.renderFrequenciaTicket = () => {
+                renderFrequenciaDashboard(window.globalFilters.canal);
+            };
+            window.renderFrequenciaTicket();
 
             // Render Multi-line Comparativo Charts
             const createMultiChart = (id, propertyKey, isPercentage) => {
@@ -899,14 +941,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     window.applyCategoriasFilters = function() {
         if (categoriasData.length === 0) return;
 
-        const gen = document.getElementById('filter-genero').value;
-        const ida = document.getElementById('filter-idade').value;
+        const gen = window.globalFilters.genero;
+        const ida = window.globalFilters.idade;
 
         // Filter data
         let filtered = categoriasData.filter(d => {
             let pass = true;
-            if (gen !== 'Todos' && d.sexo !== gen) pass = false;
-            if (ida !== 'Todos' && d.idade !== ida) pass = false;
+            if (gen !== 'TODOS' && d.sexo !== gen) pass = false;
+            if (ida !== 'TODAS' && d.idade !== ida) pass = false;
             return pass;
         });
 
