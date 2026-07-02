@@ -795,39 +795,45 @@ main {
   .freq-kpi-row { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* Global Filters Bar */
+/* Global Filters Bar - Pill Design */
 .global-filters-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #FFFFFF;
-  border-radius: 20px;
-  padding: 8px 16px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-  margin-bottom: 2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 32px;
+    background-color: #F4F4F5;
+    border-radius: 40px;
+    padding: 8px 24px 8px 8px;
+    margin-bottom: 24px;
 }
-.global-filters-period {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: #111827;
-  font-size: 14px;
+
+.filter-icon-circle {
+    width: 32px;
+    height: 32px;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
 }
+
 .global-filters-btn {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: none;
-  border: none;
-  font-size: 14px;
-  font-weight: 600;
-  color: #4B5563;
-  cursor: pointer;
-  padding: 8px 16px;
-  border-radius: 12px;
-  transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: none;
+    border: none;
+    font-size: 14px;
+    font-weight: 700;
+    color: #1E293B;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.2s;
 }
-.global-filters-btn:hover { background: #F3F4F6; }
+
+.global-filters-btn:hover .filter-icon-circle {
+    background-color: #E5E7EB;
+}
 
 /* Global Filters Modal */
 .filters-modal-overlay {

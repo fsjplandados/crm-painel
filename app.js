@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
     // Global Filters State
     window.globalFilters = {
-        canal: 'TODOS',
+        canal: 'TOTAL',
         genero: 'TODOS',
         idade: 'TODAS'
     };
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     };
 
     window.clearFilters = function() {
-        document.getElementById('globalCanal').value = 'TODOS';
+        document.getElementById('globalCanal').value = 'TOTAL';
         document.getElementById('globalGenero').value = 'TODOS';
         document.getElementById('globalIdade').value = 'TODAS';
     };
