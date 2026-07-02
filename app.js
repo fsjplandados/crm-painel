@@ -537,7 +537,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             };
 
             renderTable('heatmap-m', pctDataM, maxM, '59, 130, 246'); // Blue
-            renderTable('heatmap-f', pctDataF, maxF, '236, 72, 153'); // Pink
+            renderTable('heatmap-f', pctDataF, maxF, '237, 28, 36'); // Red
 
         } catch (error) {
             console.error('Error loading Heatmap:', error);
@@ -810,9 +810,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             tbody.innerHTML = html;
 
             const filterEl = document.getElementById('channel-filter');
-            filterEl.addEventListener('change', (e) => {
-                renderFrequenciaDashboard(e.target.value);
-            });
+            if (filterEl) {
+                filterEl.addEventListener('change', (e) => {
+                    renderFrequenciaDashboard(e.target.value);
+                });
+            }
 
             // Initial render
             window.renderFrequenciaTicket = () => {

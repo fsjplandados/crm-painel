@@ -351,7 +351,7 @@ main {
   font-size: 12px;
   font-weight: 600;
   color: #111827;
-  white-space: nowrap;
+  white-space: normal;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -514,8 +514,8 @@ main {
   gap: 8px;
 }
 
-.heatmap-section-title.blue { color: #00A650; }
-.heatmap-section-title.pink { color: #DB2777; }
+.heatmap-section-title.blue { color: #0D6EFD; }
+.heatmap-section-title.pink { color: #ED1C24; }
 
 .heatmap-table {
   width: 100%;
@@ -542,7 +542,7 @@ main {
   font-weight: 600;
   color: #111827;
   background: transparent;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .heatmap-cell {
@@ -577,7 +577,7 @@ main {
 }
 
 .legend-bar.pink-gradient {
-  background: linear-gradient(to right, rgba(236, 72, 153, 0.1), rgba(236, 72, 153, 1));
+  background: linear-gradient(to right, rgba(237, 28, 36, 0.1), rgba(237, 28, 36, 1));
 }
 
 /* Animations */
