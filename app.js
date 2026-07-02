@@ -9,7 +9,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Global Modal Functions
     window.openFiltersModal = function() {
-        document.getElementById('filtersModal').style.display = 'flex';
+        const modal = document.getElementById('filtersModal');
+        modal.style.display = 'flex';
+        setTimeout(() => modal.classList.add('active'), 10);
         document.getElementById('globalAgrupamento').value = window.globalFilters.agrupamentoPeriodo || 'mes';
         document.getElementById('globalCanal').value = window.globalFilters.canal;
         document.getElementById('globalGenero').value = window.globalFilters.genero;
@@ -17,7 +19,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     };
 
     window.closeFiltersModal = function() {
-        document.getElementById('filtersModal').style.display = 'none';
+        const modal = document.getElementById('filtersModal');
+        modal.classList.remove('active');
+        setTimeout(() => modal.style.display = 'none', 200);
     };
 
     window.clearFilters = function() {
@@ -32,7 +36,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         window.globalFilters.genero = document.getElementById('globalGenero').value;
         window.globalFilters.idade = document.getElementById('globalIdade').value;
 
-        closeFiltersModal();
+        window.closeFiltersModal();
         
         if (skipRender !== true) {
             loadBaseTotal();
