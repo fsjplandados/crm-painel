@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRM Analytics | Farmácias São João</title>
     <meta name="description" content="Dashboard de clientes e segmentos.">
-    <link rel="stylesheet" href="styles.css?v=9">
+    <link rel="stylesheet" href="styles.css?v=10">
     <!-- Chart.js for beautiful charts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -27,6 +27,12 @@
             </button>
             <button class="sidebar-item" onclick="switchTab('tab-4', this)" title="4. Clientes por Categoria">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+            </button>
+            <button class="sidebar-item" onclick="switchTab('tab-5', this)" title="5. Campanhas CRM">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+            </button>
+            <button class="sidebar-item" onclick="switchTab('tab-6', this)" title="6. Multicanal">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" height="18" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M547.6 103.8L490.3 13.1C485.2 5 476.1 0 466.4 0L109.6 0C99.9 0 90.8 5 85.7 13.1L28.3 103.8c-29.6 46.8-3.4 111.9 51.9 119.4c4 .5 8.1 .8 12.1 .8c26.1 0 49.3-11.4 65.2-29c15.9 17.6 39.1 29 65.2 29c26.1 0 49.3-11.4 65.2-29c15.9 17.6 39.1 29 65.2 29c26.2 0 49.3-11.4 65.2-29c16 17.6 39.1 29 65.2 29c4.1 0 8.1-.3 12.1-.8c55.5-7.4 81.8-72.5 52.1-119.4zM499.7 254.9c0 0 0 0-.1 0c-5.3 .7-10.7 1.1-16.2 1.1c-12.4 0-24.3-1.9-35.4-5.3L448 384l-320 0 0-133.4c-11.2 3.5-23.2 5.4-35.6 5.4c-5.5 0-11-.4-16.3-1.1l-.1 0c-4.1-.6-8.1-1.3-12-2.3L64 384l0 64c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-64 0-131.4c-4 1-8 1.8-12.3 2.3z"></path></svg>
             </button>
         </div>
 
@@ -688,54 +694,78 @@
             
             <!-- Tab 5: Campanhas -->
             <div id="tab-5" class="tab-pane">
-                <div class="kpi-grid mt-24" style="grid-template-columns: repeat(2, 1fr);">
-
-                <div class="card mt-24">
-                    <div class="card-header">
-                        <h2 class="card-title" style="text-transform: uppercase;">Clientes Contatáveis</h2>
-                    </div>
-                    <div style="height: 200px; display: flex; align-items: center; justify-content: center; color: #9CA3AF; background-color: #F8FAFC; border-radius: 8px; margin-top: 16px;">
-                        <div style="text-align: center;">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin: 0 auto 8px auto;">
-                                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-                            </svg>
-                            <div>Dado em construção</div>
-                        </div>
-                    </div>
+        <div class="fade-in" style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1.5rem;">
+            <div>
+                <h1 class="dashboard-title">5. Campanhas CRM</h1>
+                <p class="dashboard-subtitle">Acompanhe o engajamento e canais de contato das campanhas.</p>
+            </div>
+            <div style="font-size: 12px; color: #6B7280; font-weight: 500; display: flex; flex-direction: column; align-items: flex-end; gap: 4px;">
+                <div style="display: flex; align-items: center; gap: 6px;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    Período: Clientes criados a partir de jan/2026
                 </div>
+                <div style="font-size: 10px;">Dados extraídos via Snowflake</div>
+            </div>
+        </div>
 
-                <div class="card mt-24">
-                    <div class="card-header">
-                        <h2 class="card-title" style="text-transform: uppercase;">% opt-out por canal</h2>
-                    </div>
-                    <div style="height: 200px; display: flex; align-items: center; justify-content: center; color: #9CA3AF; background-color: #F8FAFC; border-radius: 8px; margin-top: 16px;">
-                        <div style="text-align: center;">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin: 0 auto 8px auto;">
-                                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-                            </svg>
-                            <div>Dado em construção</div>
-                        </div>
-                    </div>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 1rem;">
+            <!-- Clientes Contatáveis -->
+            <div class="segmentation-card fade-in delay-1" style="height: 100%; display: flex; flex-direction: column; padding: 20px;">
+                <div class="segmentation-header" style="margin-bottom: 16px;">
+                    <div class="segmentation-title" style="text-transform: uppercase; color: #1E3A8A; font-family: 'Montserrat', sans-serif;">Clientes Contatáveis</div>
                 </div>
+                <div style="min-height: 200px; flex: 1; display: flex; align-items: center; justify-content: center; background: #F8FAFC; border: 1px dashed #CBD5E1; border-radius: 8px;">
+                    <div style="text-align: center; color: #64748B;">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom: 8px; opacity: 0.5;"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                        <div style="font-size: 12px; font-weight: 500;">Dado em construção</div>
+                    </div>
                 </div>
             </div>
-
-            <!-- Tab 6: Multicanais -->
-            <div id="tab-6" class="tab-pane">
-
-                <div class="card mt-24">
-                    <div class="card-header">
-                        <h2 class="card-title" style="text-transform: uppercase;">Clientes novos: Geral, Física e virtual</h2>
-                    </div>
-                    <div style="height: 200px; display: flex; align-items: center; justify-content: center; color: #9CA3AF; background-color: #F8FAFC; border-radius: 8px; margin-top: 16px;">
-                        <div style="text-align: center;">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin: 0 auto 8px auto;">
-                                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-                            </svg>
-                            <div>Dado em construção</div>
-                        </div>
+            
+            <!-- % opt-out por canal -->
+            <div class="segmentation-card fade-in delay-1" style="height: 100%; display: flex; flex-direction: column; padding: 20px;">
+                <div class="segmentation-header" style="margin-bottom: 16px;">
+                    <div class="segmentation-title" style="text-transform: uppercase; color: #1E3A8A; font-family: 'Montserrat', sans-serif;">% opt-out por canal</div>
+                </div>
+                <div style="min-height: 200px; flex: 1; display: flex; align-items: center; justify-content: center; background: #F8FAFC; border: 1px dashed #CBD5E1; border-radius: 8px;">
+                    <div style="text-align: center; color: #64748B;">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom: 8px; opacity: 0.5;"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                        <div style="font-size: 12px; font-weight: 500;">Dado em construção</div>
                     </div>
                 </div>
+            </div>
+        </div>
+            </div>
+
+            <!-- Tab 6: Multicanal -->
+            <div id="tab-6" class="tab-pane">
+        <div class="fade-in" style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1.5rem;">
+            <div>
+                <h1 class="dashboard-title">6. Multicanal</h1>
+                <p class="dashboard-subtitle">Acompanhe a omnicanalidade e comportamento de canais dos clientes.</p>
+            </div>
+            <div style="font-size: 12px; color: #6B7280; font-weight: 500; display: flex; flex-direction: column; align-items: flex-end; gap: 4px;">
+                <div style="display: flex; align-items: center; gap: 6px;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    Período: Clientes criados a partir de jan/2026
+                </div>
+                <div style="font-size: 10px;">Dados extraídos via Snowflake</div>
+            </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 1rem;">
+            <div class="segmentation-card fade-in delay-1" style="height: 100%; display: flex; flex-direction: column; padding: 20px;">
+                <div class="segmentation-header" style="margin-bottom: 16px;">
+                    <div class="segmentation-title" style="text-transform: uppercase; color: #1E3A8A; font-family: 'Montserrat', sans-serif;">Clientes omni</div>
+                </div>
+                <div style="min-height: 250px; flex: 1; display: flex; align-items: center; justify-content: center; background: #F8FAFC; border: 1px dashed #CBD5E1; border-radius: 8px;">
+                    <div style="text-align: center; color: #64748B;">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom: 8px; opacity: 0.5;"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                        <div style="font-size: 12px; font-weight: 500;">Dado em construção</div>
+                    </div>
+                </div>
+            </div>
+        </div>
             </div>
 
                 </main>
@@ -833,7 +863,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
-    <script src="app.js?v=17"></script>
+    <script src="app.js?v=18"></script>
 
     <!-- Script for Tabs Navigation -->
     <script>
@@ -863,7 +893,7 @@
                     canal.disabled = true;
                     genero.disabled = true;
                     idade.disabled = true;
-                } else if (tabId === 'tab-2' || tabId === 'tab-3') {
+                } else if (tabId === 'tab-2' || tabId === 'tab-3' || tabId === 'tab-5' || tabId === 'tab-6') {
                     ag.value = 'mes';
                     
                     ag.disabled = false;
