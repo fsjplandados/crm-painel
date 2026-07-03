@@ -99,8 +99,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             window.baseTotalData = [];
             window.selectedSegments = new Set();
             window.selectedStatuses = new Set();
-            window.selectedYears = new Set();
-            window.selectedMonths = new Set();
+            if (!window.selectedYears) window.selectedYears = new Set();
+            if (!window.selectedMonths) window.selectedMonths = new Set();
             window.availablePeriods = new Set();
             
             const dataBySegment = {};
@@ -1099,9 +1099,13 @@ document.addEventListener('DOMContentLoaded', async () => {
             const rowsSet = new Set();
             for (let i = 1; i < lines.length; i++) {
                 const cols = lines[i].split(',');
-                if (cols.length < 4) continue;
-                const ageStr = cols[0].trim();
-                const ticketStr = cols[1].trim();
+                if (cols.length < 6) continue;
+                const uf = cols[0].trim().toUpperCase();
+                const statusVal = cols[1].trim();
+                const ageStr = cols[2].trim();
+                const ticketStr = cols[3].trim();
+                
+                if (!['RS', 'SC', 'PR'].includes(uf) && uf !== 'TOTAL') continue;
                 
                 if (ageStr !== 'TOTAL') agesSet.add(ageStr);
                 if (ticketStr !== 'TOTAL') rowsSet.add(ticketStr);
@@ -1129,24 +1133,42 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             for (let i = 1; i < lines.length; i++) {
                 const cols = lines[i].split(',');
-                if (cols.length < 4) continue;
+                if (cols.length < 6) continue;
                 
-                let ageStr = cols[0].trim();
-                let ticketStr = cols[1].trim();
-                let mCount = parseInt(cols[2], 10) || 0;
-                let fCount = parseInt(cols[3], 10) || 0;
+                let uf = cols[0].trim().toUpperCase();
+                let statusVal = cols[1].trim();
+                let ageStr = cols[2].trim();
+                let ticketStr = cols[3].trim();
+                let mCount = parseInt(cols[4], 10) || 0;
+                let fCount = parseInt(cols[5], 10) || 0;
 
+                // Handle global UF filter if applied (defaults to 'TODAS')
+                let matchUF = true;
+                const ufSelect = document.getElementById('globalUF');
+                if (ufSelect && ufSelect.value !== 'TODAS') {
+                    if (ufSelect.value !== uf) matchUF = false;
+                }
+                
+                // Handle global Status filter if applied (defaults to 'TODOS')
+                let matchStatus = true;
+                const statusSelect = document.getElementById('globalStatus');
+                if (statusSelect && statusSelect.value !== 'TODOS') {
+                    if (statusSelect.value !== statusVal) matchStatus = false;
+                }
+                
+                // Allow only RS, SC, PR as requested
+                if (!['RS', 'SC', 'PR'].includes(uf) && uf !== 'TOTAL') continue;
+
+                // Ignore pre-calculated TOTAL rows from CSV to avoid double counting or filter mismatches
                 if (ageStr === 'TOTAL' || ticketStr === 'TOTAL') {
-                    if (ageStr === 'TOTAL' && ticketStr === 'TOTAL') {
-                        totalM = mCount;
-                        totalF = fCount;
-                    }
                     continue;
                 }
 
-                if (data.MASCULINO[ticketStr] !== undefined && data.MASCULINO[ticketStr][ageStr] !== undefined) {
+                if (matchUF && matchStatus && data.MASCULINO[ticketStr] !== undefined && data.MASCULINO[ticketStr][ageStr] !== undefined) {
                     data.MASCULINO[ticketStr][ageStr] += mCount;
                     data.FEMININO[ticketStr][ageStr] += fCount;
+                    totalM += mCount;
+                    totalF += fCount;
                 }
             }
 

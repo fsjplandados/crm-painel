@@ -920,21 +920,44 @@
                             <option value="35-44">35-44</option>
                             <option value="45-54">45-54</option>
                             <option value="55-64">55-64</option>
-                            <option value="65-74">65-74</option>
-                            <option value="75+">75+</option>
+                            <option value="65+">65+</option>
                         </select>
                     </div>
+
+                    <div class="filter-group" id="uf-filter-group" style="display: none;">
+                        <label class="filter-label">UF</label>
+                        <select class="filter-select" id="globalUF">
+                            <option value="TODAS">Todas as UFs</option>
+                            <option value="RS">RS</option>
+                            <option value="SC">SC</option>
+                            <option value="PR">PR</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group" id="status-filter-group" style="display: none;">
+                        <label class="filter-label">Status</label>
+                        <select class="filter-select" id="globalStatus">
+                            <option value="TODOS">Todos os Status</option>
+                            <option value="Ativo">Ativo</option>
+                            <option value="Dormente">Dormente</option>
+                            <option value="Inativo">Inativo</option>
+                            <option value="Churn">Churn</option>
+                            <option value="Não Ativado">Não Ativado</option>
+                        </select>
+                    </div>
+
                 </div>
 
                 <div class="filters-modal-footer">
                     <button class="filters-btn-clear" onclick="clearFilters()">Limpar filtros</button>
+                    <button class="filters-btn-apply" onclick="window.applyGlobalFilters()">Aplicar</button>
                 </div>
             </div>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
-    <script src="app.js?v=55"></script>
+    <script src="app.js?v=59"></script>
 
     <!-- Script for Tabs Navigation -->
     <script>
@@ -952,6 +975,22 @@
             const canal = document.getElementById('globalCanal');
             const genero = document.getElementById('globalGenero');
             const idade = document.getElementById('globalIdade');
+            const ufGroup = document.getElementById('uf-filter-group');
+            const statusGroup = document.getElementById('status-filter-group');
+            
+            if (ufGroup && statusGroup) {
+                if (tabId === 'tab-2') {
+                    ufGroup.style.display = 'block';
+                    statusGroup.style.display = 'block';
+                } else {
+                    ufGroup.style.display = 'none';
+                    statusGroup.style.display = 'none';
+                    const ufSelect = document.getElementById('globalUF');
+                    const statusSelect = document.getElementById('globalStatus');
+                    if (ufSelect) ufSelect.value = 'TODAS';
+                    if (statusSelect) statusSelect.value = 'TODOS';
+                }
+            }
             
             if (ag && canal && genero && idade) {
                 if (tabId === 'tab-1' || tabId === 'tab-4') {
