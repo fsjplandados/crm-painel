@@ -425,7 +425,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 div.innerHTML = `
                     <div class="segment-name" title="${item.name}">
                         ${item.name} 
-                        <span style="color:#9CA3AF; font-size:0.85em; font-weight:400; margin-left:4px;">(X dias sem compras)</span>
                     </div>
                     <div class="progress-bar-bg" style="height: 12px; border-radius: 6px;">
                         <div class="progress-bar-fill" style="width: ${pct}%; background-color: ${color}; height: 100%; border-radius: 6px;"></div>
