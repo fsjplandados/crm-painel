@@ -1,12 +1,4212 @@
-﻿SEGMENTO,QTD_CLIENTES
-,7478165
-Clientes Fieis,2125563
-Potencial Fiel,1899510
-Campeao,1722210
-Em Risco,780879
-Hibernando,556209
-Quase Dormindo,476623
-Novos Clientes,284978
-Precisa de Atencao,253916
-Clientes Promissores,247852
-Nao Perder!,3954
+ANO_MES,STATUS,SEGMENTO,QTD_CLIENTES,CLIENTES_ATIVOS_30_DIAS,CLIENTES_ATIVOS_60_DIAS,CLIENTES_ATIVOS_90_DIAS
+2014-04-01,Ativo,Campeao,2927,2901,2927,2927
+2014-04-01,Ativo,Clientes Fieis,1222,1193,1222,1222
+2014-04-01,Ativo,Novos Clientes,57,54,57,57
+2014-04-01,Ativo,Potencial Fiel,642,621,641,641
+2014-04-01,Ativo,,28,28,28,28
+2014-04-01,Churn,Em Risco,70,0,0,0
+2014-04-01,Churn,Hibernando,3,0,0,0
+2014-04-01,Churn,Nao Perder!,2,0,0,0
+2014-04-01,Churn,Perdido,439,0,0,0
+2014-04-01,Churn,,1579,0,0,0
+2014-04-01,Dormente,Campeao,19,0,19,19
+2014-04-01,Dormente,Clientes Fieis,859,3,681,854
+2014-04-01,Dormente,Clientes Promissores,78,0,72,78
+2014-04-01,Dormente,Novos Clientes,6,0,6,6
+2014-04-01,Dormente,Potencial Fiel,475,0,455,473
+2014-04-01,Dormente,Precisa de Atencao,149,0,0,140
+2014-04-01,Dormente,Quase Dormindo,174,0,0,169
+2014-04-01,Inativo,Clientes Fieis,1,0,0,0
+2014-04-01,Inativo,Em Risco,301,1,1,1
+2014-04-01,Inativo,Hibernando,202,0,0,0
+2014-04-01,Inativo,Perdido,156,0,0,0
+2014-04-01,Inativo,Precisa de Atencao,2,0,0,0
+2014-04-01,Inativo,Quase Dormindo,3,0,0,0
+2014-04-01,Não Ativado,,83,9,9,9
+2014-05-01,Ativo,Campeao,598,587,598,598
+2014-05-01,Ativo,Clientes Fieis,317,310,317,317
+2014-05-01,Ativo,Novos Clientes,21,21,21,21
+2014-05-01,Ativo,Potencial Fiel,166,159,165,166
+2014-05-01,Ativo,,2,2,2,2
+2014-05-01,Churn,Em Risco,15,0,0,0
+2014-05-01,Churn,Nao Perder!,1,0,0,0
+2014-05-01,Churn,Perdido,109,0,0,0
+2014-05-01,Churn,,357,0,0,0
+2014-05-01,Dormente,Campeao,7,0,7,7
+2014-05-01,Dormente,Clientes Fieis,202,2,154,201
+2014-05-01,Dormente,Clientes Promissores,19,0,19,19
+2014-05-01,Dormente,Potencial Fiel,100,1,95,100
+2014-05-01,Dormente,Precisa de Atencao,45,0,0,44
+2014-05-01,Dormente,Quase Dormindo,39,0,0,38
+2014-05-01,Inativo,Clientes Fieis,1,0,0,0
+2014-05-01,Inativo,Em Risco,64,0,0,1
+2014-05-01,Inativo,Hibernando,69,0,0,0
+2014-05-01,Inativo,Perdido,37,0,0,0
+2014-05-01,Inativo,Precisa de Atencao,2,0,0,0
+2014-05-01,Inativo,Quase Dormindo,1,0,0,0
+2014-05-01,Não Ativado,,33,1,1,1
+2014-06-01,Ativo,Campeao,66,66,66,66
+2014-06-01,Ativo,Clientes Fieis,27,27,27,27
+2014-06-01,Ativo,Potencial Fiel,15,14,15,15
+2014-06-01,Churn,Em Risco,3,0,0,0
+2014-06-01,Churn,Perdido,6,0,0,0
+2014-06-01,Churn,,47,0,0,0
+2014-06-01,Dormente,Clientes Fieis,23,0,17,23
+2014-06-01,Dormente,Potencial Fiel,3,0,3,3
+2014-06-01,Dormente,Precisa de Atencao,1,0,0,1
+2014-06-01,Dormente,Quase Dormindo,6,0,0,5
+2014-06-01,Inativo,Em Risco,5,0,0,0
+2014-06-01,Inativo,Hibernando,7,0,0,0
+2014-06-01,Inativo,Perdido,3,0,0,0
+2014-06-01,Não Ativado,,17,0,0,0
+2014-07-01,Ativo,Campeao,24,24,24,24
+2014-07-01,Ativo,Clientes Fieis,4,4,4,4
+2014-07-01,Ativo,Potencial Fiel,2,2,2,2
+2014-07-01,Churn,Em Risco,1,0,0,0
+2014-07-01,Churn,Perdido,2,0,0,0
+2014-07-01,Churn,,19,0,0,0
+2014-07-01,Dormente,Clientes Fieis,1,0,1,1
+2014-07-01,Inativo,Hibernando,2,0,0,0
+2014-07-01,Não Ativado,,5,0,0,0
+2014-08-01,Ativo,Campeao,91,91,91,91
+2014-08-01,Ativo,Clientes Fieis,32,31,32,32
+2014-08-01,Ativo,Novos Clientes,8,7,8,8
+2014-08-01,Ativo,Potencial Fiel,18,18,18,18
+2014-08-01,Churn,Em Risco,1,0,0,0
+2014-08-01,Churn,Perdido,12,0,0,0
+2014-08-01,Churn,,69,0,0,0
+2014-08-01,Dormente,Clientes Fieis,26,0,18,25
+2014-08-01,Dormente,Clientes Promissores,2,0,2,2
+2014-08-01,Dormente,Potencial Fiel,12,0,12,12
+2014-08-01,Dormente,Precisa de Atencao,1,0,0,1
+2014-08-01,Dormente,Quase Dormindo,4,0,0,3
+2014-08-01,Inativo,Em Risco,7,0,0,0
+2014-08-01,Inativo,Hibernando,3,0,0,0
+2014-08-01,Inativo,Perdido,8,0,0,0
+2014-08-01,Inativo,Precisa de Atencao,1,0,0,0
+2014-08-01,Não Ativado,,24,1,1,1
+2014-09-01,Ativo,Campeao,156,156,156,156
+2014-09-01,Ativo,Clientes Fieis,60,59,60,60
+2014-09-01,Ativo,Novos Clientes,3,3,3,3
+2014-09-01,Ativo,Potencial Fiel,21,20,21,21
+2014-09-01,Churn,Em Risco,4,0,0,0
+2014-09-01,Churn,Nao Perder!,1,0,0,0
+2014-09-01,Churn,Perdido,22,0,0,0
+2014-09-01,Churn,,93,0,0,0
+2014-09-01,Dormente,Campeao,3,0,3,3
+2014-09-01,Dormente,Clientes Fieis,32,0,23,32
+2014-09-01,Dormente,Clientes Promissores,1,0,1,1
+2014-09-01,Dormente,Potencial Fiel,12,0,11,12
+2014-09-01,Dormente,Precisa de Atencao,8,0,0,8
+2014-09-01,Dormente,Quase Dormindo,5,0,0,5
+2014-09-01,Inativo,Em Risco,17,0,0,0
+2014-09-01,Inativo,Hibernando,8,0,0,0
+2014-09-01,Inativo,Perdido,8,0,0,0
+2014-09-01,Inativo,Precisa de Atencao,1,0,0,0
+2014-09-01,Não Ativado,,45,0,0,0
+2014-10-01,Ativo,Campeao,196,191,196,196
+2014-10-01,Ativo,Clientes Fieis,73,72,73,73
+2014-10-01,Ativo,Novos Clientes,4,4,4,4
+2014-10-01,Ativo,Potencial Fiel,31,29,31,31
+2014-10-01,Ativo,,1,1,1,1
+2014-10-01,Churn,Em Risco,3,0,0,0
+2014-10-01,Churn,Hibernando,1,0,0,0
+2014-10-01,Churn,Perdido,19,0,0,0
+2014-10-01,Churn,,93,0,0,0
+2014-10-01,Dormente,Clientes Fieis,55,0,46,55
+2014-10-01,Dormente,Clientes Promissores,3,0,3,3
+2014-10-01,Dormente,Novos Clientes,1,0,1,1
+2014-10-01,Dormente,Potencial Fiel,16,0,16,16
+2014-10-01,Dormente,Precisa de Atencao,12,0,0,12
+2014-10-01,Dormente,Quase Dormindo,10,0,0,10
+2014-10-01,Inativo,Em Risco,16,0,0,0
+2014-10-01,Inativo,Hibernando,12,0,0,0
+2014-10-01,Inativo,Perdido,12,0,0,0
+2014-10-01,Não Ativado,,43,0,0,0
+2014-11-01,Ativo,Campeao,113,112,113,113
+2014-11-01,Ativo,Clientes Fieis,52,49,52,52
+2014-11-01,Ativo,Novos Clientes,3,2,3,3
+2014-11-01,Ativo,Potencial Fiel,23,21,23,23
+2014-11-01,Churn,Em Risco,2,0,0,0
+2014-11-01,Churn,Perdido,16,0,0,0
+2014-11-01,Churn,,71,0,0,0
+2014-11-01,Dormente,Clientes Fieis,37,1,26,37
+2014-11-01,Dormente,Clientes Promissores,7,0,7,7
+2014-11-01,Dormente,Potencial Fiel,8,0,7,8
+2014-11-01,Dormente,Precisa de Atencao,7,0,0,7
+2014-11-01,Dormente,Quase Dormindo,4,0,0,4
+2014-11-01,Inativo,Em Risco,11,0,0,0
+2014-11-01,Inativo,Hibernando,10,0,0,0
+2014-11-01,Inativo,Perdido,6,0,0,0
+2014-11-01,Não Ativado,,35,0,0,0
+2014-12-01,Ativo,Campeao,132,131,132,132
+2014-12-01,Ativo,Clientes Fieis,31,29,31,31
+2014-12-01,Ativo,Novos Clientes,4,4,4,4
+2014-12-01,Ativo,Potencial Fiel,23,21,22,22
+2014-12-01,Churn,Em Risco,2,0,0,0
+2014-12-01,Churn,Perdido,15,0,0,0
+2014-12-01,Churn,,65,0,0,0
+2014-12-01,Dormente,Campeao,1,0,1,1
+2014-12-01,Dormente,Clientes Fieis,29,1,24,28
+2014-12-01,Dormente,Clientes Promissores,2,0,1,2
+2014-12-01,Dormente,Potencial Fiel,11,0,10,11
+2014-12-01,Dormente,Precisa de Atencao,6,0,0,6
+2014-12-01,Dormente,Quase Dormindo,4,0,0,3
+2014-12-01,Inativo,Em Risco,8,0,0,0
+2014-12-01,Inativo,Hibernando,8,0,0,0
+2014-12-01,Inativo,Perdido,8,0,0,0
+2014-12-01,Não Ativado,,33,0,0,0
+2015-01-01,Ativo,Campeao,106,105,106,106
+2015-01-01,Ativo,Clientes Fieis,40,39,40,40
+2015-01-01,Ativo,Novos Clientes,3,3,3,3
+2015-01-01,Ativo,Potencial Fiel,21,21,21,21
+2015-01-01,Churn,Em Risco,2,0,0,0
+2015-01-01,Churn,Nao Perder!,2,0,0,0
+2015-01-01,Churn,Perdido,13,0,0,0
+2015-01-01,Churn,,66,0,0,0
+2015-01-01,Dormente,Clientes Fieis,27,0,22,27
+2015-01-01,Dormente,Clientes Promissores,2,0,2,2
+2015-01-01,Dormente,Potencial Fiel,12,0,12,12
+2015-01-01,Dormente,Precisa de Atencao,4,0,0,4
+2015-01-01,Dormente,Quase Dormindo,2,0,0,2
+2015-01-01,Inativo,Clientes Fieis,1,0,0,0
+2015-01-01,Inativo,Em Risco,9,0,0,0
+2015-01-01,Inativo,Hibernando,8,0,0,0
+2015-01-01,Inativo,Perdido,6,0,0,0
+2015-01-01,Inativo,Precisa de Atencao,1,0,0,0
+2015-01-01,Não Ativado,,38,2,2,2
+2015-02-01,Ativo,Campeao,78,77,78,78
+2015-02-01,Ativo,Clientes Fieis,31,31,31,31
+2015-02-01,Ativo,Potencial Fiel,17,16,17,17
+2015-02-01,Ativo,,1,1,1,1
+2015-02-01,Churn,Em Risco,5,0,0,0
+2015-02-01,Churn,Perdido,8,0,0,0
+2015-02-01,Churn,,49,0,0,0
+2015-02-01,Dormente,Clientes Fieis,19,0,13,19
+2015-02-01,Dormente,Clientes Promissores,3,0,3,3
+2015-02-01,Dormente,Potencial Fiel,10,0,9,10
+2015-02-01,Dormente,Precisa de Atencao,2,0,0,2
+2015-02-01,Dormente,Quase Dormindo,2,0,0,2
+2015-02-01,Inativo,Em Risco,6,0,0,0
+2015-02-01,Inativo,Hibernando,5,0,0,0
+2015-02-01,Inativo,Perdido,5,0,0,0
+2015-02-01,Não Ativado,,26,1,1,1
+2015-03-01,Ativo,Campeao,87,86,87,87
+2015-03-01,Ativo,Clientes Fieis,38,36,38,38
+2015-03-01,Ativo,Novos Clientes,4,4,4,4
+2015-03-01,Ativo,Potencial Fiel,10,10,10,10
+2015-03-01,Ativo,,1,1,1,1
+2015-03-01,Churn,Em Risco,1,0,0,0
+2015-03-01,Churn,Perdido,15,0,0,0
+2015-03-01,Churn,,60,0,0,0
+2015-03-01,Dormente,Campeao,2,0,2,2
+2015-03-01,Dormente,Clientes Fieis,22,0,20,22
+2015-03-01,Dormente,Potencial Fiel,14,0,13,14
+2015-03-01,Dormente,Precisa de Atencao,5,0,0,5
+2015-03-01,Dormente,Quase Dormindo,4,0,0,4
+2015-03-01,Inativo,Em Risco,8,0,0,0
+2015-03-01,Inativo,Hibernando,5,0,0,0
+2015-03-01,Inativo,Perdido,5,0,0,0
+2015-03-01,Não Ativado,,26,0,0,0
+2015-04-01,Ativo,Campeao,1592,1581,1591,1592
+2015-04-01,Ativo,Clientes Fieis,651,636,651,651
+2015-04-01,Ativo,Novos Clientes,41,40,40,40
+2015-04-01,Ativo,Potencial Fiel,321,306,321,321
+2015-04-01,Ativo,,7,7,7,7
+2015-04-01,Churn,Em Risco,43,0,0,0
+2015-04-01,Churn,Nao Perder!,1,0,0,0
+2015-04-01,Churn,Perdido,208,0,0,0
+2015-04-01,Churn,,910,1,1,1
+2015-04-01,Dormente,Campeao,14,0,14,14
+2015-04-01,Dormente,Clientes Fieis,429,1,330,427
+2015-04-01,Dormente,Clientes Promissores,40,1,37,40
+2015-04-01,Dormente,Novos Clientes,2,0,2,2
+2015-04-01,Dormente,Potencial Fiel,221,0,210,220
+2015-04-01,Dormente,Precisa de Atencao,90,0,0,88
+2015-04-01,Dormente,Quase Dormindo,97,0,0,94
+2015-04-01,Dormente,,1,0,0,1
+2015-04-01,Inativo,Em Risco,137,0,0,0
+2015-04-01,Inativo,Hibernando,109,0,0,0
+2015-04-01,Inativo,Perdido,84,0,0,0
+2015-04-01,Inativo,Precisa de Atencao,5,0,0,0
+2015-04-01,Inativo,Quase Dormindo,4,0,0,0
+2015-04-01,Não Ativado,,178,5,5,5
+2015-05-01,Ativo,Campeao,3697,3660,3697,3697
+2015-05-01,Ativo,Clientes Fieis,1404,1367,1403,1403
+2015-05-01,Ativo,Novos Clientes,61,58,61,61
+2015-05-01,Ativo,Potencial Fiel,629,608,629,629
+2015-05-01,Ativo,,21,21,21,21
+2015-05-01,Churn,Em Risco,81,0,0,0
+2015-05-01,Churn,Hibernando,2,0,0,0
+2015-05-01,Churn,Nao Perder!,4,0,0,0
+2015-05-01,Churn,Perdido,394,1,1,1
+2015-05-01,Churn,,1555,1,1,1
+2015-05-01,Dormente,Campeao,32,0,32,32
+2015-05-01,Dormente,Clientes Fieis,915,6,733,909
+2015-05-01,Dormente,Clientes Promissores,59,0,55,59
+2015-05-01,Dormente,Novos Clientes,1,0,1,1
+2015-05-01,Dormente,Potencial Fiel,424,2,405,423
+2015-05-01,Dormente,Precisa de Atencao,140,0,0,133
+2015-05-01,Dormente,Quase Dormindo,147,0,0,139
+2015-05-01,Inativo,Clientes Fieis,2,0,0,0
+2015-05-01,Inativo,Em Risco,334,0,1,1
+2015-05-01,Inativo,Hibernando,197,0,0,0
+2015-05-01,Inativo,Perdido,154,0,0,0
+2015-05-01,Inativo,Precisa de Atencao,4,0,0,0
+2015-05-01,Inativo,Quase Dormindo,5,0,0,0
+2015-05-01,Não Ativado,,225,15,15,15
+2015-06-01,Ativo,Campeao,326,321,326,326
+2015-06-01,Ativo,Clientes Fieis,157,152,157,157
+2015-06-01,Ativo,Novos Clientes,16,16,16,16
+2015-06-01,Ativo,Potencial Fiel,111,108,111,111
+2015-06-01,Ativo,,1,1,1,1
+2015-06-01,Churn,Em Risco,17,0,0,0
+2015-06-01,Churn,Perdido,99,0,0,0
+2015-06-01,Churn,,513,0,0,0
+2015-06-01,Dormente,Campeao,1,0,1,1
+2015-06-01,Dormente,Clientes Fieis,102,0,74,101
+2015-06-01,Dormente,Clientes Promissores,26,0,26,26
+2015-06-01,Dormente,Potencial Fiel,67,1,64,67
+2015-06-01,Dormente,Precisa de Atencao,27,0,0,26
+2015-06-01,Dormente,Quase Dormindo,36,0,0,34
+2015-06-01,Inativo,Em Risco,56,0,0,0
+2015-06-01,Inativo,Hibernando,41,0,0,0
+2015-06-01,Inativo,Perdido,42,0,0,0
+2015-06-01,Inativo,Precisa de Atencao,1,0,0,0
+2015-06-01,Não Ativado,,150,1,1,1
+2015-07-01,Ativo,Campeao,613,604,613,613
+2015-07-01,Ativo,Clientes Fieis,238,231,238,238
+2015-07-01,Ativo,Novos Clientes,18,18,18,18
+2015-07-01,Ativo,Potencial Fiel,123,119,123,123
+2015-07-01,Ativo,,1,1,1,1
+2015-07-01,Churn,Em Risco,15,0,0,0
+2015-07-01,Churn,Perdido,108,0,0,0
+2015-07-01,Churn,,544,0,0,0
+2015-07-01,Dormente,Campeao,4,0,4,4
+2015-07-01,Dormente,Clientes Fieis,169,1,131,168
+2015-07-01,Dormente,Clientes Promissores,20,0,18,20
+2015-07-01,Dormente,Potencial Fiel,94,0,90,94
+2015-07-01,Dormente,Precisa de Atencao,37,0,0,37
+2015-07-01,Dormente,Quase Dormindo,34,0,0,34
+2015-07-01,Inativo,Clientes Fieis,2,0,0,0
+2015-07-01,Inativo,Em Risco,74,0,0,0
+2015-07-01,Inativo,Hibernando,58,0,0,0
+2015-07-01,Inativo,Perdido,53,0,0,0
+2015-07-01,Inativo,Precisa de Atencao,4,0,0,0
+2015-07-01,Não Ativado,,180,2,2,2
+2015-08-01,Ativo,Campeao,44999,44533,44997,44998
+2015-08-01,Ativo,Clientes Fieis,23080,22543,23075,23077
+2015-08-01,Ativo,Novos Clientes,2507,2422,2505,2505
+2015-08-01,Ativo,Potencial Fiel,15480,14955,15471,15472
+2015-08-01,Ativo,,308,308,308,308
+2015-08-01,Churn,Em Risco,1917,2,2,2
+2015-08-01,Churn,Hibernando,46,0,0,0
+2015-08-01,Churn,Nao Perder!,41,0,0,0
+2015-08-01,Churn,Perdido,13501,10,11,11
+2015-08-01,Churn,,51355,11,11,12
+2015-08-01,Dormente,Campeao,335,3,335,335
+2015-08-01,Dormente,Clientes Fieis,15313,79,11587,15202
+2015-08-01,Dormente,Clientes Promissores,2335,5,2198,2333
+2015-08-01,Dormente,Novos Clientes,82,0,82,82
+2015-08-01,Dormente,Potencial Fiel,10159,21,9658,10154
+2015-08-01,Dormente,Precisa de Atencao,3234,5,6,3103
+2015-08-01,Dormente,Quase Dormindo,4872,6,6,4653
+2015-08-01,Dormente,,7,1,4,7
+2015-08-01,Inativo,Clientes Fieis,71,0,0,0
+2015-08-01,Inativo,Em Risco,7271,14,16,16
+2015-08-01,Inativo,Hibernando,5917,4,4,5
+2015-08-01,Inativo,Perdido,5842,6,7,7
+2015-08-01,Inativo,Precisa de Atencao,80,0,0,0
+2015-08-01,Inativo,Quase Dormindo,155,0,0,0
+2015-08-01,Inativo,,1,0,0,0
+2015-08-01,Não Ativado,Clientes Fieis,1,1,1,1
+2015-08-01,Não Ativado,Clientes Promissores,1,0,1,1
+2015-08-01,Não Ativado,Perdido,1,0,0,0
+2015-08-01,Não Ativado,Quase Dormindo,2,0,0,2
+2015-08-01,Não Ativado,,41522,222,224,226
+2015-09-01,Ativo,Campeao,1912,1894,1912,1912
+2015-09-01,Ativo,Clientes Fieis,800,778,800,800
+2015-09-01,Ativo,Novos Clientes,50,45,50,50
+2015-09-01,Ativo,Potencial Fiel,435,422,435,435
+2015-09-01,Ativo,,13,13,13,13
+2015-09-01,Churn,Em Risco,58,0,0,0
+2015-09-01,Churn,Hibernando,2,0,0,0
+2015-09-01,Churn,Nao Perder!,3,0,0,0
+2015-09-01,Churn,Perdido,336,2,2,2
+2015-09-01,Churn,,1339,0,0,0
+2015-09-01,Dormente,Campeao,14,0,14,14
+2015-09-01,Dormente,Clientes Fieis,550,0,425,546
+2015-09-01,Dormente,Clientes Promissores,52,0,52,52
+2015-09-01,Dormente,Novos Clientes,5,0,5,5
+2015-09-01,Dormente,Potencial Fiel,299,1,288,298
+2015-09-01,Dormente,Precisa de Atencao,98,0,0,95
+2015-09-01,Dormente,Quase Dormindo,122,0,0,112
+2015-09-01,Inativo,Clientes Fieis,4,0,0,0
+2015-09-01,Inativo,Em Risco,207,1,1,1
+2015-09-01,Inativo,Hibernando,144,0,0,1
+2015-09-01,Inativo,Perdido,124,0,0,0
+2015-09-01,Inativo,Precisa de Atencao,3,0,0,0
+2015-09-01,Inativo,Quase Dormindo,4,0,0,0
+2015-09-01,Não Ativado,,398,11,12,12
+2015-10-01,Ativo,Campeao,1147,1133,1147,1147
+2015-10-01,Ativo,Clientes Fieis,563,555,563,563
+2015-10-01,Ativo,Novos Clientes,47,47,47,47
+2015-10-01,Ativo,Potencial Fiel,326,316,326,326
+2015-10-01,Ativo,,8,8,8,8
+2015-10-01,Churn,Em Risco,37,0,0,0
+2015-10-01,Churn,Hibernando,2,0,0,0
+2015-10-01,Churn,Nao Perder!,1,0,0,0
+2015-10-01,Churn,Perdido,266,0,0,0
+2015-10-01,Churn,,1086,0,0,0
+2015-10-01,Dormente,Campeao,10,1,10,10
+2015-10-01,Dormente,Clientes Fieis,381,3,296,377
+2015-10-01,Dormente,Clientes Promissores,55,0,52,54
+2015-10-01,Dormente,Novos Clientes,1,0,1,1
+2015-10-01,Dormente,Potencial Fiel,220,0,210,220
+2015-10-01,Dormente,Precisa de Atencao,59,1,1,57
+2015-10-01,Dormente,Quase Dormindo,109,0,0,106
+2015-10-01,Dormente,,1,0,1,1
+2015-10-01,Inativo,Clientes Fieis,1,0,0,0
+2015-10-01,Inativo,Em Risco,165,0,0,0
+2015-10-01,Inativo,Hibernando,127,0,0,0
+2015-10-01,Inativo,Perdido,112,0,0,0
+2015-10-01,Inativo,Precisa de Atencao,2,0,0,0
+2015-10-01,Inativo,Quase Dormindo,2,0,0,0
+2015-10-01,Não Ativado,Nao Perder!,1,0,0,0
+2015-10-01,Não Ativado,,407,2,2,2
+2015-11-01,Ativo,Campeao,961,952,961,961
+2015-11-01,Ativo,Clientes Fieis,460,448,460,460
+2015-11-01,Ativo,Novos Clientes,38,38,38,38
+2015-11-01,Ativo,Potencial Fiel,260,248,260,260
+2015-11-01,Ativo,,10,10,10,10
+2015-11-01,Churn,Em Risco,37,0,0,0
+2015-11-01,Churn,Nao Perder!,2,0,0,0
+2015-11-01,Churn,Perdido,228,0,0,0
+2015-11-01,Churn,,856,0,0,0
+2015-11-01,Dormente,Campeao,8,0,8,8
+2015-11-01,Dormente,Clientes Fieis,288,5,215,287
+2015-11-01,Dormente,Clientes Promissores,48,0,46,48
+2015-11-01,Dormente,Potencial Fiel,188,0,182,187
+2015-11-01,Dormente,Precisa de Atencao,57,0,0,56
+2015-11-01,Dormente,Quase Dormindo,77,0,0,75
+2015-11-01,Inativo,Clientes Fieis,3,0,0,0
+2015-11-01,Inativo,Em Risco,122,0,0,0
+2015-11-01,Inativo,Hibernando,86,0,0,0
+2015-11-01,Inativo,Perdido,66,0,0,0
+2015-11-01,Inativo,Precisa de Atencao,1,0,0,0
+2015-11-01,Inativo,Quase Dormindo,3,0,0,0
+2015-11-01,Não Ativado,Nao Perder!,1,0,0,0
+2015-11-01,Não Ativado,,328,4,4,4
+2015-12-01,Ativo,Campeao,16705,16524,16705,16705
+2015-12-01,Ativo,Clientes Fieis,9101,8868,9101,9101
+2015-12-01,Ativo,Novos Clientes,727,684,727,727
+2015-12-01,Ativo,Potencial Fiel,5363,5169,5360,5360
+2015-12-01,Ativo,,118,118,118,118
+2015-12-01,Churn,Em Risco,674,1,1,1
+2015-12-01,Churn,Hibernando,15,0,0,0
+2015-12-01,Churn,Nao Perder!,13,0,0,0
+2015-12-01,Churn,Perdido,4043,1,1,1
+2015-12-01,Churn,,13397,4,4,4
+2015-12-01,Dormente,Campeao,154,2,154,154
+2015-12-01,Dormente,Clientes Fieis,5816,32,4435,5780
+2015-12-01,Dormente,Clientes Promissores,748,0,713,748
+2015-12-01,Dormente,Novos Clientes,32,0,32,32
+2015-12-01,Dormente,Potencial Fiel,3564,4,3425,3560
+2015-12-01,Dormente,Precisa de Atencao,1152,4,4,1114
+2015-12-01,Dormente,Quase Dormindo,1504,3,3,1440
+2015-12-01,Dormente,,4,0,3,4
+2015-12-01,Inativo,Clientes Fieis,22,0,0,0
+2015-12-01,Inativo,Em Risco,2670,10,10,11
+2015-12-01,Inativo,Hibernando,1845,2,2,2
+2015-12-01,Inativo,Perdido,1648,0,0,0
+2015-12-01,Inativo,Precisa de Atencao,24,0,0,0
+2015-12-01,Inativo,Quase Dormindo,46,0,0,0
+2015-12-01,Inativo,,1,0,0,0
+2015-12-01,Não Ativado,Em Risco,1,0,0,0
+2015-12-01,Não Ativado,,884,103,104,104
+2016-01-01,Ativo,Campeao,35820,35433,35820,35820
+2016-01-01,Ativo,Clientes Fieis,17955,17532,17954,17954
+2016-01-01,Ativo,Novos Clientes,1316,1266,1316,1316
+2016-01-01,Ativo,Potencial Fiel,10212,9879,10209,10211
+2016-01-01,Ativo,,245,244,245,245
+2016-01-01,Churn,Em Risco,1149,2,2,2
+2016-01-01,Churn,Hibernando,30,0,0,0
+2016-01-01,Churn,Nao Perder!,31,0,0,0
+2016-01-01,Churn,Perdido,7040,6,6,6
+2016-01-01,Churn,,24074,4,5,6
+2016-01-01,Dormente,Campeao,290,3,290,290
+2016-01-01,Dormente,Clientes Fieis,11751,58,8960,11688
+2016-01-01,Dormente,Clientes Promissores,1188,0,1123,1187
+2016-01-01,Dormente,Novos Clientes,39,0,39,39
+2016-01-01,Dormente,Potencial Fiel,6673,17,6392,6670
+2016-01-01,Dormente,Precisa de Atencao,2259,8,8,2177
+2016-01-01,Dormente,Quase Dormindo,2759,4,4,2613
+2016-01-01,Dormente,,8,1,5,8
+2016-01-01,Inativo,Clientes Fieis,45,1,1,1
+2016-01-01,Inativo,Em Risco,4824,6,6,8
+2016-01-01,Inativo,Hibernando,3413,4,4,4
+2016-01-01,Inativo,Perdido,2812,1,1,1
+2016-01-01,Inativo,Precisa de Atencao,53,0,0,0
+2016-01-01,Inativo,Quase Dormindo,70,0,0,0
+2016-01-01,Inativo,,3,0,0,0
+2016-01-01,Não Ativado,Em Risco,1,0,0,0
+2016-01-01,Não Ativado,Nao Perder!,2,0,0,0
+2016-01-01,Não Ativado,,1547,180,185,186
+2016-02-01,Ativo,Campeao,14150,14026,14150,14150
+2016-02-01,Ativo,Clientes Fieis,7071,6903,7070,7070
+2016-02-01,Ativo,Novos Clientes,496,474,495,495
+2016-02-01,Ativo,Potencial Fiel,4034,3897,4033,4033
+2016-02-01,Ativo,,86,85,86,86
+2016-02-01,Churn,Em Risco,467,1,1,2
+2016-02-01,Churn,Hibernando,10,0,0,0
+2016-02-01,Churn,Nao Perder!,15,0,0,0
+2016-02-01,Churn,Perdido,2794,2,2,4
+2016-02-01,Churn,,9713,0,0,0
+2016-02-01,Dormente,Campeao,120,3,120,120
+2016-02-01,Dormente,Clientes Fieis,4577,29,3495,4542
+2016-02-01,Dormente,Clientes Promissores,477,2,442,476
+2016-02-01,Dormente,Novos Clientes,22,0,22,22
+2016-02-01,Dormente,Potencial Fiel,2692,8,2582,2690
+2016-02-01,Dormente,Precisa de Atencao,900,1,2,878
+2016-02-01,Dormente,Quase Dormindo,1039,2,2,994
+2016-02-01,Dormente,,4,0,4,4
+2016-02-01,Inativo,Clientes Fieis,26,0,0,0
+2016-02-01,Inativo,Em Risco,1905,5,5,5
+2016-02-01,Inativo,Hibernando,1437,3,4,4
+2016-02-01,Inativo,Perdido,1166,3,3,3
+2016-02-01,Inativo,Precisa de Atencao,15,0,0,0
+2016-02-01,Inativo,Quase Dormindo,34,0,0,0
+2016-02-01,Não Ativado,Precisa de Atencao,1,0,0,1
+2016-02-01,Não Ativado,,1344,81,84,85
+2016-03-01,Ativo,Campeao,6158,6089,6158,6158
+2016-03-01,Ativo,Clientes Fieis,2919,2850,2919,2919
+2016-03-01,Ativo,Novos Clientes,209,200,208,208
+2016-03-01,Ativo,Potencial Fiel,1598,1533,1596,1596
+2016-03-01,Ativo,,35,35,35,35
+2016-03-01,Churn,Em Risco,222,0,0,0
+2016-03-01,Churn,Hibernando,5,0,0,0
+2016-03-01,Churn,Nao Perder!,7,0,0,0
+2016-03-01,Churn,Perdido,1065,0,0,0
+2016-03-01,Churn,,4935,0,0,1
+2016-03-01,Dormente,Campeao,45,2,45,45
+2016-03-01,Dormente,Clientes Fieis,1750,7,1311,1734
+2016-03-01,Dormente,Clientes Promissores,187,1,180,187
+2016-03-01,Dormente,Novos Clientes,11,0,11,11
+2016-03-01,Dormente,Potencial Fiel,994,2,944,994
+2016-03-01,Dormente,Precisa de Atencao,340,0,0,335
+2016-03-01,Dormente,Quase Dormindo,407,1,1,392
+2016-03-01,Dormente,,1,0,1,1
+2016-03-01,Inativo,Clientes Fieis,10,0,0,0
+2016-03-01,Inativo,Em Risco,835,2,2,2
+2016-03-01,Inativo,Hibernando,488,0,0,1
+2016-03-01,Inativo,Perdido,455,0,0,0
+2016-03-01,Inativo,Precisa de Atencao,6,0,0,0
+2016-03-01,Inativo,Quase Dormindo,13,0,0,0
+2016-03-01,Não Ativado,,1261,18,18,18
+2016-04-01,Ativo,Campeao,7611,7536,7611,7611
+2016-04-01,Ativo,Clientes Fieis,3520,3427,3520,3520
+2016-04-01,Ativo,Novos Clientes,222,212,222,222
+2016-04-01,Ativo,Potencial Fiel,1912,1848,1908,1908
+2016-04-01,Ativo,,25,25,25,25
+2016-04-01,Churn,Em Risco,288,0,0,0
+2016-04-01,Churn,Hibernando,3,0,0,0
+2016-04-01,Churn,Nao Perder!,7,0,0,0
+2016-04-01,Churn,Perdido,1304,0,0,1
+2016-04-01,Churn,,5734,1,1,1
+2016-04-01,Dormente,Campeao,49,0,49,49
+2016-04-01,Dormente,Clientes Fieis,2165,15,1607,2156
+2016-04-01,Dormente,Clientes Promissores,209,1,195,209
+2016-04-01,Dormente,Novos Clientes,9,0,9,9
+2016-04-01,Dormente,Potencial Fiel,1228,0,1164,1227
+2016-04-01,Dormente,Precisa de Atencao,357,0,0,345
+2016-04-01,Dormente,Quase Dormindo,475,0,0,450
+2016-04-01,Dormente,,1,0,0,1
+2016-04-01,Inativo,Clientes Fieis,9,0,0,0
+2016-04-01,Inativo,Em Risco,935,2,2,2
+2016-04-01,Inativo,Hibernando,616,0,0,1
+2016-04-01,Inativo,Perdido,537,0,0,0
+2016-04-01,Inativo,Precisa de Atencao,4,0,0,0
+2016-04-01,Inativo,Quase Dormindo,12,0,0,0
+2016-04-01,Não Ativado,,1799,17,17,17
+2016-05-01,Ativo,Campeao,12660,12525,12660,12660
+2016-05-01,Ativo,Clientes Fieis,5795,5621,5795,5795
+2016-05-01,Ativo,Novos Clientes,426,411,425,425
+2016-05-01,Ativo,Potencial Fiel,3265,3173,3264,3264
+2016-05-01,Ativo,,37,37,37,37
+2016-05-01,Churn,Em Risco,423,0,0,0
+2016-05-01,Churn,Hibernando,14,0,0,0
+2016-05-01,Churn,Nao Perder!,12,0,0,0
+2016-05-01,Churn,Perdido,2320,0,0,0
+2016-05-01,Churn,,9542,0,0,1
+2016-05-01,Dormente,Campeao,105,0,105,105
+2016-05-01,Dormente,Clientes Fieis,3850,22,2959,3835
+2016-05-01,Dormente,Clientes Promissores,348,1,326,348
+2016-05-01,Dormente,Novos Clientes,16,0,16,16
+2016-05-01,Dormente,Potencial Fiel,2155,10,2060,2155
+2016-05-01,Dormente,Precisa de Atencao,711,2,2,678
+2016-05-01,Dormente,Quase Dormindo,839,1,2,801
+2016-05-01,Dormente,,2,0,2,2
+2016-05-01,Inativo,Clientes Fieis,11,0,0,0
+2016-05-01,Inativo,Em Risco,1660,5,6,7
+2016-05-01,Inativo,Hibernando,1148,2,3,3
+2016-05-01,Inativo,Perdido,908,2,2,2
+2016-05-01,Inativo,Precisa de Atencao,15,0,0,0
+2016-05-01,Inativo,Quase Dormindo,31,0,0,0
+2016-05-01,Não Ativado,Quase Dormindo,1,0,0,1
+2016-05-01,Não Ativado,,3127,13,15,17
+2016-06-01,Ativo,Campeao,13061,12923,13061,13061
+2016-06-01,Ativo,Clientes Fieis,5956,5806,5955,5955
+2016-06-01,Ativo,Novos Clientes,390,377,390,390
+2016-06-01,Ativo,Potencial Fiel,3292,3172,3292,3292
+2016-06-01,Ativo,,36,36,36,36
+2016-06-01,Churn,Em Risco,461,0,0,0
+2016-06-01,Churn,Hibernando,14,0,0,0
+2016-06-01,Churn,Nao Perder!,17,0,0,0
+2016-06-01,Churn,Perdido,2394,0,0,0
+2016-06-01,Churn,,10771,2,2,3
+2016-06-01,Dormente,Campeao,105,2,105,105
+2016-06-01,Dormente,Clientes Fieis,3698,25,2830,3679
+2016-06-01,Dormente,Clientes Promissores,416,0,386,415
+2016-06-01,Dormente,Novos Clientes,14,0,14,14
+2016-06-01,Dormente,Potencial Fiel,2137,12,2050,2135
+2016-06-01,Dormente,Precisa de Atencao,693,1,1,674
+2016-06-01,Dormente,Quase Dormindo,851,1,1,819
+2016-06-01,Dormente,,3,0,3,3
+2016-06-01,Inativo,Clientes Fieis,4,0,0,0
+2016-06-01,Inativo,Em Risco,1595,3,3,3
+2016-06-01,Inativo,Hibernando,1085,1,1,1
+2016-06-01,Inativo,Perdido,978,0,0,0
+2016-06-01,Inativo,Precisa de Atencao,11,0,0,0
+2016-06-01,Inativo,Quase Dormindo,19,0,0,0
+2016-06-01,Inativo,,3,0,0,0
+2016-06-01,Não Ativado,Clientes Fieis,1,0,0,0
+2016-06-01,Não Ativado,,3552,15,16,18
+2016-07-01,Ativo,Campeao,10730,10626,10730,10730
+2016-07-01,Ativo,Clientes Fieis,5217,5100,5215,5216
+2016-07-01,Ativo,Novos Clientes,415,400,415,415
+2016-07-01,Ativo,Potencial Fiel,3024,2912,3024,3024
+2016-07-01,Ativo,,34,34,34,34
+2016-07-01,Churn,Em Risco,445,0,0,0
+2016-07-01,Churn,Hibernando,9,0,0,0
+2016-07-01,Churn,Nao Perder!,10,0,0,0
+2016-07-01,Churn,Perdido,2334,2,3,3
+2016-07-01,Churn,,9730,3,4,4
+2016-07-01,Dormente,Campeao,91,1,91,91
+2016-07-01,Dormente,Clientes Fieis,3450,13,2654,3424
+2016-07-01,Dormente,Clientes Promissores,357,0,344,356
+2016-07-01,Dormente,Novos Clientes,11,0,11,11
+2016-07-01,Dormente,Potencial Fiel,1960,5,1873,1957
+2016-07-01,Dormente,Precisa de Atencao,626,1,1,601
+2016-07-01,Dormente,Quase Dormindo,805,1,1,762
+2016-07-01,Dormente,,3,0,2,3
+2016-07-01,Inativo,Clientes Fieis,9,0,0,0
+2016-07-01,Inativo,Em Risco,1447,5,5,5
+2016-07-01,Inativo,Hibernando,999,2,2,2
+2016-07-01,Inativo,Perdido,879,1,1,1
+2016-07-01,Inativo,Precisa de Atencao,15,0,0,0
+2016-07-01,Inativo,Quase Dormindo,27,0,0,0
+2016-07-01,Não Ativado,Novos Clientes,1,0,1,1
+2016-07-01,Não Ativado,Perdido,2,0,0,0
+2016-07-01,Não Ativado,Potencial Fiel,1,1,1,1
+2016-07-01,Não Ativado,Quase Dormindo,1,0,0,1
+2016-07-01,Não Ativado,,4520,23,25,25
+2016-08-01,Ativo,Campeao,10401,10295,10400,10401
+2016-08-01,Ativo,Clientes Fieis,5114,4988,5114,5114
+2016-08-01,Ativo,Novos Clientes,418,406,418,418
+2016-08-01,Ativo,Potencial Fiel,2998,2886,2996,2996
+2016-08-01,Ativo,,39,39,39,39
+2016-08-01,Churn,Em Risco,440,2,3,3
+2016-08-01,Churn,Hibernando,12,0,0,0
+2016-08-01,Churn,Nao Perder!,10,0,0,0
+2016-08-01,Churn,Perdido,2301,2,2,2
+2016-08-01,Churn,,9489,1,1,1
+2016-08-01,Dormente,Campeao,96,0,96,96
+2016-08-01,Dormente,Clientes Fieis,3488,23,2639,3472
+2016-08-01,Dormente,Clientes Promissores,396,0,375,396
+2016-08-01,Dormente,Novos Clientes,10,0,10,10
+2016-08-01,Dormente,Potencial Fiel,2042,5,1932,2038
+2016-08-01,Dormente,Precisa de Atencao,631,1,1,606
+2016-08-01,Dormente,Quase Dormindo,812,0,0,768
+2016-08-01,Dormente,,1,0,1,1
+2016-08-01,Inativo,Clientes Fieis,15,0,0,0
+2016-08-01,Inativo,Em Risco,1552,2,3,4
+2016-08-01,Inativo,Hibernando,1082,0,0,1
+2016-08-01,Inativo,Perdido,891,4,4,4
+2016-08-01,Inativo,Precisa de Atencao,18,0,0,0
+2016-08-01,Inativo,Quase Dormindo,23,0,0,0
+2016-08-01,Inativo,,1,0,0,0
+2016-08-01,Não Ativado,Em Risco,2,0,0,0
+2016-08-01,Não Ativado,Perdido,1,0,0,0
+2016-08-01,Não Ativado,,4119,21,21,21
+2016-09-01,Ativo,Campeao,8372,8295,8372,8372
+2016-09-01,Ativo,Clientes Fieis,4150,4041,4148,4149
+2016-09-01,Ativo,Novos Clientes,373,354,373,373
+2016-09-01,Ativo,Potencial Fiel,2650,2548,2646,2647
+2016-09-01,Ativo,,28,28,28,28
+2016-09-01,Churn,Em Risco,364,1,1,1
+2016-09-01,Churn,Hibernando,8,0,0,0
+2016-09-01,Churn,Nao Perder!,3,0,0,0
+2016-09-01,Churn,Perdido,1996,3,3,4
+2016-09-01,Churn,,8378,4,4,4
+2016-09-01,Dormente,Campeao,57,1,57,57
+2016-09-01,Dormente,Clientes Fieis,2829,8,2124,2802
+2016-09-01,Dormente,Clientes Promissores,311,0,299,311
+2016-09-01,Dormente,Novos Clientes,13,0,13,13
+2016-09-01,Dormente,Potencial Fiel,1687,4,1599,1683
+2016-09-01,Dormente,Precisa de Atencao,577,0,0,556
+2016-09-01,Dormente,Quase Dormindo,668,2,2,642
+2016-09-01,Dormente,,6,0,6,6
+2016-09-01,Inativo,Clientes Fieis,11,0,0,0
+2016-09-01,Inativo,Em Risco,1310,2,2,3
+2016-09-01,Inativo,Hibernando,970,2,2,2
+2016-09-01,Inativo,Perdido,821,0,0,0
+2016-09-01,Inativo,Precisa de Atencao,23,0,0,0
+2016-09-01,Inativo,Quase Dormindo,24,0,0,0
+2016-09-01,Não Ativado,Hibernando,1,0,0,0
+2016-09-01,Não Ativado,Perdido,3,0,0,0
+2016-09-01,Não Ativado,,3655,23,25,25
+2016-10-01,Ativo,Campeao,14407,14243,14406,14406
+2016-10-01,Ativo,Clientes Fieis,7465,7286,7464,7464
+2016-10-01,Ativo,Novos Clientes,575,559,575,575
+2016-10-01,Ativo,Potencial Fiel,4171,4019,4169,4169
+2016-10-01,Ativo,,46,46,46,46
+2016-10-01,Churn,Em Risco,563,0,0,0
+2016-10-01,Churn,Hibernando,8,0,0,0
+2016-10-01,Churn,Nao Perder!,8,0,0,0
+2016-10-01,Churn,Perdido,3180,1,1,1
+2016-10-01,Churn,,14289,2,2,2
+2016-10-01,Dormente,Campeao,112,1,112,112
+2016-10-01,Dormente,Clientes Fieis,4568,18,3425,4542
+2016-10-01,Dormente,Clientes Promissores,543,2,504,543
+2016-10-01,Dormente,Novos Clientes,22,0,22,22
+2016-10-01,Dormente,Potencial Fiel,2716,4,2597,2714
+2016-10-01,Dormente,Precisa de Atencao,885,3,3,858
+2016-10-01,Dormente,Quase Dormindo,1189,2,2,1146
+2016-10-01,Dormente,,2,0,2,2
+2016-10-01,Inativo,Clientes Fieis,22,1,1,1
+2016-10-01,Inativo,Em Risco,2100,2,2,3
+2016-10-01,Inativo,Hibernando,1496,1,1,1
+2016-10-01,Inativo,Perdido,1263,0,0,2
+2016-10-01,Inativo,Precisa de Atencao,19,0,0,0
+2016-10-01,Inativo,Quase Dormindo,33,0,0,0
+2016-10-01,Inativo,,5,0,0,0
+2016-10-01,Não Ativado,Perdido,1,0,0,0
+2016-10-01,Não Ativado,Quase Dormindo,1,0,0,1
+2016-10-01,Não Ativado,,4905,17,19,19
+2016-11-01,Ativo,Campeao,12978,12813,12978,12978
+2016-11-01,Ativo,Clientes Fieis,6654,6479,6651,6653
+2016-11-01,Ativo,Novos Clientes,548,528,547,547
+2016-11-01,Ativo,Potencial Fiel,4037,3905,4035,4036
+2016-11-01,Ativo,,37,37,37,37
+2016-11-01,Churn,Em Risco,503,0,0,0
+2016-11-01,Churn,Hibernando,19,0,0,0
+2016-11-01,Churn,Nao Perder!,20,0,0,0
+2016-11-01,Churn,Perdido,3057,1,2,2
+2016-11-01,Churn,,13358,2,2,2
+2016-11-01,Dormente,Campeao,93,0,93,93
+2016-11-01,Dormente,Clientes Fieis,4368,23,3290,4334
+2016-11-01,Dormente,Clientes Promissores,487,0,470,487
+2016-11-01,Dormente,Novos Clientes,12,0,12,12
+2016-11-01,Dormente,Potencial Fiel,2544,7,2411,2542
+2016-11-01,Dormente,Precisa de Atencao,849,4,4,822
+2016-11-01,Dormente,Quase Dormindo,1135,1,1,1077
+2016-11-01,Dormente,,1,0,0,1
+2016-11-01,Inativo,Clientes Fieis,22,0,0,0
+2016-11-01,Inativo,Em Risco,1934,4,4,4
+2016-11-01,Inativo,Hibernando,1431,1,1,1
+2016-11-01,Inativo,Perdido,1220,1,1,1
+2016-11-01,Inativo,Precisa de Atencao,12,0,0,0
+2016-11-01,Inativo,Quase Dormindo,29,0,0,0
+2016-11-01,Inativo,,5,0,0,0
+2016-11-01,Não Ativado,Campeao,1,1,1,1
+2016-11-01,Não Ativado,Clientes Fieis,2,2,2,2
+2016-11-01,Não Ativado,Perdido,1,0,0,0
+2016-11-01,Não Ativado,Potencial Fiel,1,0,1,1
+2016-11-01,Não Ativado,Quase Dormindo,1,0,0,1
+2016-11-01,Não Ativado,,4995,14,14,16
+2016-12-01,Ativo,Campeao,11753,11641,11753,11753
+2016-12-01,Ativo,Clientes Fieis,6257,6084,6256,6257
+2016-12-01,Ativo,Novos Clientes,496,477,496,496
+2016-12-01,Ativo,Potencial Fiel,3758,3631,3756,3756
+2016-12-01,Ativo,,42,41,42,42
+2016-12-01,Churn,Em Risco,481,0,0,0
+2016-12-01,Churn,Hibernando,10,0,0,0
+2016-12-01,Churn,Nao Perder!,12,0,0,0
+2016-12-01,Churn,Perdido,3055,3,4,4
+2016-12-01,Churn,,12242,1,1,2
+2016-12-01,Dormente,Campeao,91,0,91,91
+2016-12-01,Dormente,Clientes Fieis,4021,26,3078,4000
+2016-12-01,Dormente,Clientes Promissores,455,2,422,455
+2016-12-01,Dormente,Novos Clientes,21,0,21,21
+2016-12-01,Dormente,Potencial Fiel,2532,6,2406,2528
+2016-12-01,Dormente,Precisa de Atencao,860,0,0,827
+2016-12-01,Dormente,Quase Dormindo,1111,1,1,1061
+2016-12-01,Dormente,,4,0,2,4
+2016-12-01,Inativo,Clientes Fieis,13,0,0,0
+2016-12-01,Inativo,Em Risco,1905,0,1,1
+2016-12-01,Inativo,Hibernando,1396,1,1,1
+2016-12-01,Inativo,Perdido,1193,0,0,0
+2016-12-01,Inativo,Precisa de Atencao,18,0,0,0
+2016-12-01,Inativo,Quase Dormindo,29,0,0,0
+2016-12-01,Inativo,,3,0,0,0
+2016-12-01,Não Ativado,Hibernando,1,0,0,0
+2016-12-01,Não Ativado,Nao Perder!,1,0,0,0
+2016-12-01,Não Ativado,Perdido,2,0,0,0
+2016-12-01,Não Ativado,Quase Dormindo,1,0,0,1
+2016-12-01,Não Ativado,,4970,25,25,26
+2017-01-01,Ativo,Campeao,10206,10101,10206,10206
+2017-01-01,Ativo,Clientes Fieis,5476,5347,5475,5476
+2017-01-01,Ativo,Novos Clientes,466,454,464,464
+2017-01-01,Ativo,Potencial Fiel,3300,3187,3295,3296
+2017-01-01,Ativo,,38,37,38,38
+2017-01-01,Churn,Em Risco,416,2,2,2
+2017-01-01,Churn,Hibernando,8,0,0,0
+2017-01-01,Churn,Nao Perder!,8,0,0,0
+2017-01-01,Churn,Perdido,2714,3,3,4
+2017-01-01,Churn,,10846,0,1,2
+2017-01-01,Dormente,Campeao,76,1,76,76
+2017-01-01,Dormente,Clientes Fieis,3694,20,2797,3677
+2017-01-01,Dormente,Clientes Promissores,413,1,377,413
+2017-01-01,Dormente,Novos Clientes,18,0,18,18
+2017-01-01,Dormente,Potencial Fiel,2203,7,2115,2201
+2017-01-01,Dormente,Precisa de Atencao,691,1,2,665
+2017-01-01,Dormente,Quase Dormindo,933,1,2,897
+2017-01-01,Dormente,,4,0,3,4
+2017-01-01,Inativo,Clientes Fieis,15,0,0,0
+2017-01-01,Inativo,Em Risco,1797,1,1,2
+2017-01-01,Inativo,Hibernando,1203,0,0,0
+2017-01-01,Inativo,Perdido,1078,1,1,1
+2017-01-01,Inativo,Precisa de Atencao,21,0,0,0
+2017-01-01,Inativo,Quase Dormindo,22,0,0,0
+2017-01-01,Não Ativado,Clientes Promissores,1,0,1,1
+2017-01-01,Não Ativado,Hibernando,1,0,0,0
+2017-01-01,Não Ativado,Perdido,1,0,0,0
+2017-01-01,Não Ativado,,4645,29,30,30
+2017-02-01,Ativo,Campeao,9226,9121,9226,9226
+2017-02-01,Ativo,Clientes Fieis,5056,4911,5054,5055
+2017-02-01,Ativo,Novos Clientes,444,429,443,443
+2017-02-01,Ativo,Potencial Fiel,3157,3058,3153,3153
+2017-02-01,Ativo,,38,38,38,38
+2017-02-01,Churn,Em Risco,405,1,1,1
+2017-02-01,Churn,Hibernando,13,0,0,0
+2017-02-01,Churn,Nao Perder!,10,0,0,0
+2017-02-01,Churn,Perdido,2574,0,0,0
+2017-02-01,Churn,,9832,0,0,1
+2017-02-01,Dormente,Campeao,88,0,88,88
+2017-02-01,Dormente,Clientes Fieis,3303,24,2429,3287
+2017-02-01,Dormente,Clientes Promissores,381,1,347,381
+2017-02-01,Dormente,Novos Clientes,17,0,17,17
+2017-02-01,Dormente,Potencial Fiel,2091,5,1989,2088
+2017-02-01,Dormente,Precisa de Atencao,739,1,1,713
+2017-02-01,Dormente,Quase Dormindo,920,2,2,870
+2017-02-01,Dormente,,1,0,1,1
+2017-02-01,Inativo,Clientes Fieis,14,0,0,0
+2017-02-01,Inativo,Em Risco,1570,5,5,6
+2017-02-01,Inativo,Hibernando,1256,2,3,3
+2017-02-01,Inativo,Perdido,1046,0,0,0
+2017-02-01,Inativo,Precisa de Atencao,15,0,0,0
+2017-02-01,Inativo,Quase Dormindo,34,0,0,0
+2017-02-01,Inativo,,5,0,0,0
+2017-02-01,Não Ativado,Novos Clientes,1,1,1,1
+2017-02-01,Não Ativado,,4196,16,16,18
+2017-03-01,Ativo,Campeao,11583,11455,11583,11583
+2017-03-01,Ativo,Clientes Fieis,6375,6240,6374,6374
+2017-03-01,Ativo,Novos Clientes,497,480,497,497
+2017-03-01,Ativo,Potencial Fiel,3916,3764,3912,3912
+2017-03-01,Ativo,,53,53,53,53
+2017-03-01,Churn,Em Risco,512,0,0,0
+2017-03-01,Churn,Hibernando,11,0,0,0
+2017-03-01,Churn,Nao Perder!,7,0,0,0
+2017-03-01,Churn,Perdido,3061,2,2,2
+2017-03-01,Churn,,11751,0,0,2
+2017-03-01,Dormente,Campeao,86,0,86,86
+2017-03-01,Dormente,Clientes Fieis,4090,26,3096,4067
+2017-03-01,Dormente,Clientes Promissores,504,0,473,504
+2017-03-01,Dormente,Novos Clientes,16,1,16,16
+2017-03-01,Dormente,Potencial Fiel,2655,5,2532,2652
+2017-03-01,Dormente,Precisa de Atencao,868,1,2,840
+2017-03-01,Dormente,Quase Dormindo,1136,1,1,1087
+2017-03-01,Dormente,,6,0,3,6
+2017-03-01,Inativo,Clientes Fieis,22,0,0,0
+2017-03-01,Inativo,Em Risco,1915,3,4,4
+2017-03-01,Inativo,Hibernando,1418,3,3,3
+2017-03-01,Inativo,Perdido,1236,0,0,0
+2017-03-01,Inativo,Precisa de Atencao,21,0,0,0
+2017-03-01,Inativo,Quase Dormindo,30,0,0,0
+2017-03-01,Inativo,,1,0,0,0
+2017-03-01,Não Ativado,Clientes Promissores,1,0,1,1
+2017-03-01,Não Ativado,Perdido,2,0,0,0
+2017-03-01,Não Ativado,Potencial Fiel,1,1,1,1
+2017-03-01,Não Ativado,,4873,31,32,32
+2017-04-01,Ativo,Campeao,10061,9972,10061,10061
+2017-04-01,Ativo,Clientes Fieis,5479,5352,5479,5479
+2017-04-01,Ativo,Novos Clientes,437,422,437,437
+2017-04-01,Ativo,Potencial Fiel,3427,3321,3426,3426
+2017-04-01,Ativo,,38,38,38,38
+2017-04-01,Churn,Em Risco,430,1,1,1
+2017-04-01,Churn,Hibernando,9,0,0,0
+2017-04-01,Churn,Nao Perder!,6,0,0,0
+2017-04-01,Churn,Perdido,2674,0,0,0
+2017-04-01,Churn,,10290,0,0,0
+2017-04-01,Dormente,Campeao,82,0,82,82
+2017-04-01,Dormente,Clientes Fieis,3572,13,2691,3546
+2017-04-01,Dormente,Clientes Promissores,433,1,401,433
+2017-04-01,Dormente,Novos Clientes,16,0,16,16
+2017-04-01,Dormente,Potencial Fiel,2253,9,2162,2250
+2017-04-01,Dormente,Precisa de Atencao,729,1,2,698
+2017-04-01,Dormente,Quase Dormindo,988,1,1,949
+2017-04-01,Dormente,,3,0,1,3
+2017-04-01,Inativo,Clientes Fieis,18,0,0,0
+2017-04-01,Inativo,Em Risco,1716,5,5,5
+2017-04-01,Inativo,Hibernando,1243,0,0,1
+2017-04-01,Inativo,Perdido,1075,0,0,0
+2017-04-01,Inativo,Precisa de Atencao,20,0,0,0
+2017-04-01,Inativo,Quase Dormindo,41,0,0,0
+2017-04-01,Inativo,,3,0,0,0
+2017-04-01,Não Ativado,Potencial Fiel,1,0,1,1
+2017-04-01,Não Ativado,,4237,24,26,27
+2017-05-01,Ativo,Campeao,10824,10725,10824,10824
+2017-05-01,Ativo,Clientes Fieis,6095,5953,6095,6095
+2017-05-01,Ativo,Novos Clientes,521,504,521,521
+2017-05-01,Ativo,Potencial Fiel,3684,3566,3683,3683
+2017-05-01,Ativo,,40,40,40,40
+2017-05-01,Churn,Em Risco,499,0,0,0
+2017-05-01,Churn,Hibernando,8,0,0,0
+2017-05-01,Churn,Nao Perder!,8,0,0,0
+2017-05-01,Churn,Perdido,2883,6,6,6
+2017-05-01,Churn,,11272,3,3,3
+2017-05-01,Dormente,Campeao,84,2,84,84
+2017-05-01,Dormente,Clientes Fieis,3880,27,2933,3863
+2017-05-01,Dormente,Clientes Promissores,490,0,460,489
+2017-05-01,Dormente,Novos Clientes,16,0,16,16
+2017-05-01,Dormente,Potencial Fiel,2389,6,2281,2384
+2017-05-01,Dormente,Precisa de Atencao,771,3,3,745
+2017-05-01,Dormente,Quase Dormindo,1052,0,0,1011
+2017-05-01,Dormente,,4,0,2,4
+2017-05-01,Inativo,Clientes Fieis,14,0,0,0
+2017-05-01,Inativo,Em Risco,1837,3,3,4
+2017-05-01,Inativo,Hibernando,1337,0,0,0
+2017-05-01,Inativo,Perdido,1131,0,0,0
+2017-05-01,Inativo,Precisa de Atencao,14,0,0,0
+2017-05-01,Inativo,Quase Dormindo,36,0,0,0
+2017-05-01,Não Ativado,Novos Clientes,1,1,1,1
+2017-05-01,Não Ativado,Perdido,1,0,0,0
+2017-05-01,Não Ativado,Potencial Fiel,1,1,1,1
+2017-05-01,Não Ativado,,4869,25,28,28
+2017-06-01,Ativo,Campeao,10829,10719,10829,10829
+2017-06-01,Ativo,Clientes Fieis,6171,6026,6169,6170
+2017-06-01,Ativo,Novos Clientes,539,519,538,538
+2017-06-01,Ativo,Potencial Fiel,3758,3625,3753,3753
+2017-06-01,Ativo,,45,45,45,45
+2017-06-01,Churn,Em Risco,518,1,1,1
+2017-06-01,Churn,Hibernando,12,0,0,0
+2017-06-01,Churn,Nao Perder!,4,0,0,0
+2017-06-01,Churn,Perdido,2808,0,0,1
+2017-06-01,Churn,,11195,2,2,2
+2017-06-01,Dormente,Campeao,94,0,94,94
+2017-06-01,Dormente,Clientes Fieis,4057,19,3058,4028
+2017-06-01,Dormente,Clientes Promissores,497,0,473,497
+2017-06-01,Dormente,Novos Clientes,18,0,18,18
+2017-06-01,Dormente,Potencial Fiel,2472,3,2350,2471
+2017-06-01,Dormente,Precisa de Atencao,753,1,1,717
+2017-06-01,Dormente,Quase Dormindo,994,0,1,960
+2017-06-01,Dormente,,3,0,2,3
+2017-06-01,Inativo,Clientes Fieis,14,0,0,0
+2017-06-01,Inativo,Em Risco,1828,3,3,5
+2017-06-01,Inativo,Hibernando,1415,0,0,1
+2017-06-01,Inativo,Perdido,1185,1,1,1
+2017-06-01,Inativo,Precisa de Atencao,31,0,0,0
+2017-06-01,Inativo,Quase Dormindo,31,0,0,0
+2017-06-01,Inativo,,2,0,0,0
+2017-06-01,Não Ativado,Perdido,1,0,0,0
+2017-06-01,Não Ativado,,4283,26,27,27
+2017-07-01,Ativo,Campeao,13781,13637,13781,13781
+2017-07-01,Ativo,Clientes Fieis,7739,7577,7739,7739
+2017-07-01,Ativo,Novos Clientes,724,700,723,723
+2017-07-01,Ativo,Potencial Fiel,4944,4761,4941,4941
+2017-07-01,Ativo,,34,34,34,34
+2017-07-01,Churn,Em Risco,616,0,0,0
+2017-07-01,Churn,Hibernando,18,0,0,0
+2017-07-01,Churn,Nao Perder!,10,0,0,0
+2017-07-01,Churn,Perdido,4061,4,5,5
+2017-07-01,Churn,,14304,3,3,3
+2017-07-01,Dormente,Campeao,97,2,97,97
+2017-07-01,Dormente,Clientes Fieis,5228,40,3920,5188
+2017-07-01,Dormente,Clientes Promissores,645,1,605,642
+2017-07-01,Dormente,Novos Clientes,26,0,26,26
+2017-07-01,Dormente,Potencial Fiel,3287,4,3140,3283
+2017-07-01,Dormente,Precisa de Atencao,1106,4,4,1062
+2017-07-01,Dormente,Quase Dormindo,1485,1,1,1414
+2017-07-01,Dormente,,2,0,0,2
+2017-07-01,Inativo,Clientes Fieis,21,0,0,0
+2017-07-01,Inativo,Em Risco,2537,6,6,6
+2017-07-01,Inativo,Hibernando,1848,3,4,4
+2017-07-01,Inativo,Perdido,1539,0,0,1
+2017-07-01,Inativo,Precisa de Atencao,25,0,0,0
+2017-07-01,Inativo,Quase Dormindo,47,0,0,0
+2017-07-01,Inativo,,3,0,0,0
+2017-07-01,Não Ativado,Clientes Fieis,1,1,1,1
+2017-07-01,Não Ativado,Clientes Promissores,1,0,1,1
+2017-07-01,Não Ativado,Nao Perder!,1,0,0,0
+2017-07-01,Não Ativado,,5891,21,21,25
+2017-08-01,Ativo,Campeao,14947,14801,14947,14947
+2017-08-01,Ativo,Clientes Fieis,8823,8585,8821,8821
+2017-08-01,Ativo,Novos Clientes,804,771,803,803
+2017-08-01,Ativo,Potencial Fiel,5468,5294,5462,5462
+2017-08-01,Ativo,,48,48,48,48
+2017-08-01,Churn,Em Risco,771,2,2,2
+2017-08-01,Churn,Hibernando,24,0,0,0
+2017-08-01,Churn,Nao Perder!,14,0,0,0
+2017-08-01,Churn,Perdido,4615,2,2,2
+2017-08-01,Churn,,16155,1,1,1
+2017-08-01,Dormente,Campeao,135,5,135,135
+2017-08-01,Dormente,Clientes Fieis,6062,38,4527,6012
+2017-08-01,Dormente,Clientes Promissores,677,2,633,677
+2017-08-01,Dormente,Novos Clientes,33,0,33,33
+2017-08-01,Dormente,Potencial Fiel,3733,6,3564,3729
+2017-08-01,Dormente,Precisa de Atencao,1260,3,4,1214
+2017-08-01,Dormente,Quase Dormindo,1658,0,0,1582
+2017-08-01,Dormente,,4,0,3,4
+2017-08-01,Inativo,Clientes Fieis,33,0,0,0
+2017-08-01,Inativo,Em Risco,3068,7,7,11
+2017-08-01,Inativo,Hibernando,2146,1,1,1
+2017-08-01,Inativo,Perdido,1793,0,0,0
+2017-08-01,Inativo,Precisa de Atencao,40,0,0,0
+2017-08-01,Inativo,Quase Dormindo,78,0,0,0
+2017-08-01,Inativo,,2,0,0,0
+2017-08-01,Não Ativado,Perdido,3,0,0,0
+2017-08-01,Não Ativado,Potencial Fiel,1,1,1,1
+2017-08-01,Não Ativado,,5664,30,32,34
+2017-09-01,Ativo,Campeao,10692,10582,10692,10692
+2017-09-01,Ativo,Clientes Fieis,6008,5863,6007,6007
+2017-09-01,Ativo,Novos Clientes,559,530,559,559
+2017-09-01,Ativo,Potencial Fiel,3819,3688,3816,3816
+2017-09-01,Ativo,,29,29,29,29
+2017-09-01,Churn,Em Risco,483,0,0,0
+2017-09-01,Churn,Hibernando,11,0,0,0
+2017-09-01,Churn,Nao Perder!,15,0,0,0
+2017-09-01,Churn,Perdido,3201,0,1,1
+2017-09-01,Churn,,12066,1,1,1
+2017-09-01,Dormente,Campeao,78,0,78,78
+2017-09-01,Dormente,Clientes Fieis,3998,21,3019,3967
+2017-09-01,Dormente,Clientes Promissores,514,0,485,512
+2017-09-01,Dormente,Novos Clientes,23,0,23,23
+2017-09-01,Dormente,Potencial Fiel,2547,6,2428,2543
+2017-09-01,Dormente,Precisa de Atencao,916,3,3,884
+2017-09-01,Dormente,Quase Dormindo,1110,0,0,1055
+2017-09-01,Dormente,,5,0,2,5
+2017-09-01,Inativo,Clientes Fieis,26,0,0,0
+2017-09-01,Inativo,Em Risco,1884,8,8,8
+2017-09-01,Inativo,Hibernando,1476,1,2,2
+2017-09-01,Inativo,Perdido,1245,0,0,0
+2017-09-01,Inativo,Precisa de Atencao,26,0,0,0
+2017-09-01,Inativo,Quase Dormindo,35,0,0,0
+2017-09-01,Inativo,,4,0,0,0
+2017-09-01,Não Ativado,Campeao,1,1,1,1
+2017-09-01,Não Ativado,Clientes Promissores,1,0,0,1
+2017-09-01,Não Ativado,Perdido,3,0,0,0
+2017-09-01,Não Ativado,,4350,23,25,26
+2017-10-01,Ativo,Campeao,22603,22374,22602,22602
+2017-10-01,Ativo,Clientes Fieis,11542,11260,11536,11538
+2017-10-01,Ativo,Novos Clientes,798,777,797,797
+2017-10-01,Ativo,Potencial Fiel,6631,6424,6628,6628
+2017-10-01,Ativo,,50,50,50,50
+2017-10-01,Churn,Em Risco,846,1,2,3
+2017-10-01,Churn,Hibernando,22,0,0,0
+2017-10-01,Churn,Nao Perder!,24,0,0,0
+2017-10-01,Churn,Perdido,4907,3,3,3
+2017-10-01,Churn,,19690,4,5,5
+2017-10-01,Dormente,Campeao,183,0,183,183
+2017-10-01,Dormente,Clientes Fieis,7838,48,5902,7793
+2017-10-01,Dormente,Clientes Promissores,789,0,734,789
+2017-10-01,Dormente,Novos Clientes,26,0,26,26
+2017-10-01,Dormente,Potencial Fiel,4340,13,4127,4334
+2017-10-01,Dormente,Precisa de Atencao,1551,2,2,1489
+2017-10-01,Dormente,Quase Dormindo,1792,1,1,1726
+2017-10-01,Dormente,,5,0,1,5
+2017-10-01,Inativo,Clientes Fieis,29,0,0,0
+2017-10-01,Inativo,Em Risco,3563,8,9,12
+2017-10-01,Inativo,Hibernando,2344,0,0,0
+2017-10-01,Inativo,Perdido,1914,1,2,2
+2017-10-01,Inativo,Precisa de Atencao,34,0,0,0
+2017-10-01,Inativo,Quase Dormindo,51,0,0,0
+2017-10-01,Inativo,,2,0,0,0
+2017-10-01,Não Ativado,Em Risco,2,0,0,0
+2017-10-01,Não Ativado,Perdido,1,0,0,0
+2017-10-01,Não Ativado,Potencial Fiel,1,1,1,1
+2017-10-01,Não Ativado,Quase Dormindo,1,0,0,1
+2017-10-01,Não Ativado,,5238,41,42,42
+2017-11-01,Ativo,Campeao,34170,33837,34166,34170
+2017-11-01,Ativo,Clientes Fieis,17115,16703,17111,17113
+2017-11-01,Ativo,Novos Clientes,1337,1293,1334,1334
+2017-11-01,Ativo,Potencial Fiel,10198,9869,10187,10187
+2017-11-01,Ativo,,79,79,79,79
+2017-11-01,Churn,Em Risco,1441,0,0,0
+2017-11-01,Churn,Hibernando,42,0,0,0
+2017-11-01,Churn,Nao Perder!,25,0,0,0
+2017-11-01,Churn,Perdido,8125,4,4,5
+2017-11-01,Churn,,32377,9,10,12
+2017-11-01,Dormente,Campeao,269,2,268,269
+2017-11-01,Dormente,Clientes Fieis,12382,58,9258,12293
+2017-11-01,Dormente,Clientes Promissores,1267,1,1198,1261
+2017-11-01,Dormente,Novos Clientes,46,0,46,46
+2017-11-01,Dormente,Potencial Fiel,7119,15,6763,7104
+2017-11-01,Dormente,Precisa de Atencao,2493,8,9,2407
+2017-11-01,Dormente,Quase Dormindo,2880,2,3,2751
+2017-11-01,Dormente,,10,0,5,10
+2017-11-01,Inativo,Clientes Fieis,51,0,0,0
+2017-11-01,Inativo,Em Risco,5773,9,11,14
+2017-11-01,Inativo,Hibernando,4029,7,7,8
+2017-11-01,Inativo,Perdido,3183,2,3,3
+2017-11-01,Inativo,Precisa de Atencao,50,0,0,0
+2017-11-01,Inativo,Quase Dormindo,85,0,0,0
+2017-11-01,Inativo,,3,0,0,0
+2017-11-01,Não Ativado,Clientes Fieis,2,1,2,2
+2017-11-01,Não Ativado,Perdido,1,0,0,0
+2017-11-01,Não Ativado,Potencial Fiel,2,0,2,2
+2017-11-01,Não Ativado,Quase Dormindo,1,0,0,1
+2017-11-01,Não Ativado,,8785,57,58,58
+2017-12-01,Ativo,Campeao,15688,15524,15687,15688
+2017-12-01,Ativo,Clientes Fieis,8688,8478,8688,8688
+2017-12-01,Ativo,Novos Clientes,740,713,739,739
+2017-12-01,Ativo,Potencial Fiel,5460,5295,5456,5456
+2017-12-01,Ativo,,54,54,54,54
+2017-12-01,Churn,Em Risco,746,0,0,0
+2017-12-01,Churn,Hibernando,22,0,0,0
+2017-12-01,Churn,Nao Perder!,16,0,0,0
+2017-12-01,Churn,Perdido,4591,4,4,4
+2017-12-01,Churn,,18132,2,3,3
+2017-12-01,Dormente,Campeao,126,2,126,126
+2017-12-01,Dormente,Clientes Fieis,5979,32,4510,5936
+2017-12-01,Dormente,Clientes Promissores,739,1,700,739
+2017-12-01,Dormente,Novos Clientes,28,0,28,28
+2017-12-01,Dormente,Potencial Fiel,3675,9,3490,3669
+2017-12-01,Dormente,Precisa de Atencao,1225,3,3,1182
+2017-12-01,Dormente,Quase Dormindo,1616,3,3,1538
+2017-12-01,Dormente,,5,0,3,5
+2017-12-01,Inativo,Clientes Fieis,21,0,0,0
+2017-12-01,Inativo,Em Risco,2937,4,4,6
+2017-12-01,Inativo,Hibernando,2115,2,2,2
+2017-12-01,Inativo,Perdido,1727,3,3,4
+2017-12-01,Inativo,Precisa de Atencao,31,0,0,0
+2017-12-01,Inativo,Quase Dormindo,43,0,0,0
+2017-12-01,Inativo,,1,0,0,0
+2017-12-01,Não Ativado,Clientes Promissores,1,0,1,1
+2017-12-01,Não Ativado,Nao Perder!,1,0,0,0
+2017-12-01,Não Ativado,Perdido,3,0,0,0
+2017-12-01,Não Ativado,Potencial Fiel,1,1,1,1
+2017-12-01,Não Ativado,,6018,29,29,29
+2018-01-01,Ativo,Campeao,13201,13055,13200,13201
+2018-01-01,Ativo,Clientes Fieis,7786,7587,7784,7784
+2018-01-01,Ativo,Novos Clientes,720,691,717,717
+2018-01-01,Ativo,Potencial Fiel,4946,4788,4944,4944
+2018-01-01,Ativo,,53,53,53,53
+2018-01-01,Churn,Em Risco,664,0,0,0
+2018-01-01,Churn,Hibernando,17,0,0,0
+2018-01-01,Churn,Nao Perder!,13,0,0,0
+2018-01-01,Churn,Perdido,4196,5,5,6
+2018-01-01,Churn,,21025,4,4,5
+2018-01-01,Dormente,Campeao,111,1,111,111
+2018-01-01,Dormente,Clientes Fieis,5242,41,3897,5200
+2018-01-01,Dormente,Clientes Promissores,657,1,617,656
+2018-01-01,Dormente,Novos Clientes,27,0,27,27
+2018-01-01,Dormente,Potencial Fiel,3394,11,3238,3390
+2018-01-01,Dormente,Precisa de Atencao,1175,0,0,1141
+2018-01-01,Dormente,Quase Dormindo,1492,4,4,1429
+2018-01-01,Dormente,,5,0,4,5
+2018-01-01,Inativo,Clientes Fieis,22,0,0,0
+2018-01-01,Inativo,Em Risco,2672,8,13,13
+2018-01-01,Inativo,Hibernando,1956,2,2,3
+2018-01-01,Inativo,Perdido,1575,0,0,0
+2018-01-01,Inativo,Precisa de Atencao,30,0,0,0
+2018-01-01,Inativo,Quase Dormindo,45,0,0,0
+2018-01-01,Inativo,,5,0,0,0
+2018-01-01,Não Ativado,Clientes Fieis,1,0,0,1
+2018-01-01,Não Ativado,,1551,21,21,21
+2018-02-01,Ativo,Campeao,11839,11696,11839,11839
+2018-02-01,Ativo,Clientes Fieis,7059,6885,7057,7059
+2018-02-01,Ativo,Novos Clientes,782,751,782,782
+2018-02-01,Ativo,Potencial Fiel,4756,4597,4752,4752
+2018-02-01,Ativo,,40,40,40,40
+2018-02-01,Churn,Em Risco,560,1,1,1
+2018-02-01,Churn,Hibernando,17,0,0,0
+2018-02-01,Churn,Nao Perder!,11,0,0,0
+2018-02-01,Churn,Perdido,4299,4,4,4
+2018-02-01,Churn,,20740,2,2,3
+2018-02-01,Dormente,Campeao,100,0,100,100
+2018-02-01,Dormente,Clientes Fieis,4735,20,3520,4701
+2018-02-01,Dormente,Clientes Promissores,644,1,599,644
+2018-02-01,Dormente,Novos Clientes,25,0,25,25
+2018-02-01,Dormente,Potencial Fiel,3128,5,2979,3125
+2018-02-01,Dormente,Precisa de Atencao,1102,2,2,1056
+2018-02-01,Dormente,Quase Dormindo,1473,1,1,1425
+2018-02-01,Dormente,,8,0,3,8
+2018-02-01,Inativo,Clientes Fieis,23,0,0,0
+2018-02-01,Inativo,Em Risco,2424,7,8,8
+2018-02-01,Inativo,Hibernando,1926,5,5,5
+2018-02-01,Inativo,Perdido,1705,0,1,1
+2018-02-01,Inativo,Precisa de Atencao,25,0,0,0
+2018-02-01,Inativo,Quase Dormindo,53,0,0,0
+2018-02-01,Não Ativado,Clientes Fieis,1,0,0,1
+2018-02-01,Não Ativado,Perdido,1,0,0,0
+2018-02-01,Não Ativado,Potencial Fiel,1,1,1,1
+2018-02-01,Não Ativado,,6419,31,32,33
+2018-03-01,Ativo,Campeao,12809,12701,12807,12808
+2018-03-01,Ativo,Clientes Fieis,7890,7693,7889,7890
+2018-03-01,Ativo,Novos Clientes,678,651,676,676
+2018-03-01,Ativo,Potencial Fiel,4937,4775,4936,4936
+2018-03-01,Ativo,,54,54,54,54
+2018-03-01,Churn,Em Risco,666,0,0,0
+2018-03-01,Churn,Hibernando,12,0,0,0
+2018-03-01,Churn,Nao Perder!,18,0,0,0
+2018-03-01,Churn,Perdido,4098,2,2,3
+2018-03-01,Churn,,21051,5,6,6
+2018-03-01,Dormente,Campeao,102,0,102,102
+2018-03-01,Dormente,Clientes Fieis,5068,33,3784,5033
+2018-03-01,Dormente,Clientes Promissores,624,0,593,623
+2018-03-01,Dormente,Novos Clientes,19,0,19,19
+2018-03-01,Dormente,Potencial Fiel,3349,8,3199,3348
+2018-03-01,Dormente,Precisa de Atencao,1058,2,2,1010
+2018-03-01,Dormente,Quase Dormindo,1367,1,1,1307
+2018-03-01,Dormente,,3,1,2,3
+2018-03-01,Inativo,Clientes Fieis,23,0,0,0
+2018-03-01,Inativo,Em Risco,2523,7,8,9
+2018-03-01,Inativo,Hibernando,1856,7,7,7
+2018-03-01,Inativo,Perdido,1582,0,0,0
+2018-03-01,Inativo,Precisa de Atencao,22,0,0,0
+2018-03-01,Inativo,Quase Dormindo,38,0,0,0
+2018-03-01,Inativo,,2,0,0,0
+2018-03-01,Não Ativado,Campeao,1,1,1,1
+2018-03-01,Não Ativado,Clientes Promissores,1,0,1,1
+2018-03-01,Não Ativado,Perdido,2,0,0,0
+2018-03-01,Não Ativado,Potencial Fiel,1,1,1,1
+2018-03-01,Não Ativado,Quase Dormindo,1,0,0,1
+2018-03-01,Não Ativado,,23548,35,38,40
+2018-04-01,Ativo,Campeao,12059,11944,12058,12059
+2018-04-01,Ativo,Clientes Fieis,7006,6831,7004,7005
+2018-04-01,Ativo,Novos Clientes,639,625,639,639
+2018-04-01,Ativo,Potencial Fiel,4532,4351,4527,4528
+2018-04-01,Ativo,,28,28,28,28
+2018-04-01,Churn,Em Risco,654,0,0,0
+2018-04-01,Churn,Hibernando,14,0,0,0
+2018-04-01,Churn,Nao Perder!,9,0,0,0
+2018-04-01,Churn,Perdido,3867,2,2,2
+2018-04-01,Churn,,19630,5,5,6
+2018-04-01,Dormente,Campeao,95,0,95,95
+2018-04-01,Dormente,Clientes Fieis,4624,32,3469,4596
+2018-04-01,Dormente,Clientes Promissores,616,0,579,615
+2018-04-01,Dormente,Novos Clientes,26,0,26,26
+2018-04-01,Dormente,Potencial Fiel,3020,8,2872,3017
+2018-04-01,Dormente,Precisa de Atencao,1095,4,5,1056
+2018-04-01,Dormente,Quase Dormindo,1339,1,1,1275
+2018-04-01,Dormente,,4,0,1,4
+2018-04-01,Inativo,Clientes Fieis,27,0,0,0
+2018-04-01,Inativo,Em Risco,2356,10,12,12
+2018-04-01,Inativo,Hibernando,1729,2,3,4
+2018-04-01,Inativo,Perdido,1455,0,0,0
+2018-04-01,Inativo,Precisa de Atencao,17,0,0,0
+2018-04-01,Inativo,Quase Dormindo,35,0,0,0
+2018-04-01,Inativo,,2,0,0,0
+2018-04-01,Não Ativado,Perdido,2,0,0,0
+2018-04-01,Não Ativado,Precisa de Atencao,1,0,0,1
+2018-04-01,Não Ativado,Quase Dormindo,2,0,0,2
+2018-04-01,Não Ativado,,674,16,17,18
+2018-05-01,Ativo,Campeao,13093,12965,13093,13093
+2018-05-01,Ativo,Clientes Fieis,7703,7529,7702,7703
+2018-05-01,Ativo,Novos Clientes,769,730,766,766
+2018-05-01,Ativo,Potencial Fiel,5019,4839,5012,5014
+2018-05-01,Ativo,,41,41,41,41
+2018-05-01,Churn,Em Risco,680,1,1,1
+2018-05-01,Churn,Hibernando,24,0,0,0
+2018-05-01,Churn,Nao Perder!,12,0,0,0
+2018-05-01,Churn,Perdido,4271,5,5,6
+2018-05-01,Churn,,21213,1,1,1
+2018-05-01,Dormente,Campeao,90,0,90,90
+2018-05-01,Dormente,Clientes Fieis,5289,22,3913,5248
+2018-05-01,Dormente,Clientes Promissores,689,0,652,687
+2018-05-01,Dormente,Novos Clientes,18,0,18,18
+2018-05-01,Dormente,Potencial Fiel,3456,13,3271,3455
+2018-05-01,Dormente,Precisa de Atencao,1148,3,4,1103
+2018-05-01,Dormente,Quase Dormindo,1530,0,0,1463
+2018-05-01,Dormente,,6,0,4,6
+2018-05-01,Inativo,Clientes Fieis,20,0,0,0
+2018-05-01,Inativo,Em Risco,2641,9,11,11
+2018-05-01,Inativo,Hibernando,1978,4,4,5
+2018-05-01,Inativo,Perdido,1715,1,1,1
+2018-05-01,Inativo,Precisa de Atencao,27,0,0,0
+2018-05-01,Inativo,Quase Dormindo,30,0,0,0
+2018-05-01,Inativo,,4,0,0,0
+2018-05-01,Não Ativado,Clientes Fieis,2,2,2,2
+2018-05-01,Não Ativado,Em Risco,1,0,0,0
+2018-05-01,Não Ativado,Hibernando,1,0,0,0
+2018-05-01,Não Ativado,Perdido,2,0,0,0
+2018-05-01,Não Ativado,Potencial Fiel,1,1,1,1
+2018-05-01,Não Ativado,,1256,19,21,22
+2018-06-01,Ativo,Campeao,27712,27436,27711,27711
+2018-06-01,Ativo,Clientes Fieis,16157,15750,16153,16154
+2018-06-01,Ativo,Novos Clientes,1393,1341,1391,1391
+2018-06-01,Ativo,Potencial Fiel,10095,9756,10082,10086
+2018-06-01,Ativo,,88,88,88,88
+2018-06-01,Churn,Em Risco,1220,1,1,1
+2018-06-01,Churn,Hibernando,27,0,0,0
+2018-06-01,Churn,Nao Perder!,20,0,0,0
+2018-06-01,Churn,Perdido,8092,2,3,6
+2018-06-01,Churn,,35676,12,13,13
+2018-06-01,Dormente,Campeao,222,3,222,222
+2018-06-01,Dormente,Clientes Fieis,10779,67,8091,10712
+2018-06-01,Dormente,Clientes Promissores,1293,3,1223,1289
+2018-06-01,Dormente,Novos Clientes,51,0,51,51
+2018-06-01,Dormente,Potencial Fiel,6838,22,6528,6835
+2018-06-01,Dormente,Precisa de Atencao,2267,3,3,2174
+2018-06-01,Dormente,Quase Dormindo,2893,2,2,2760
+2018-06-01,Dormente,,12,1,9,12
+2018-06-01,Inativo,Clientes Fieis,58,0,0,0
+2018-06-01,Inativo,Em Risco,4930,9,10,11
+2018-06-01,Inativo,Hibernando,3847,5,5,5
+2018-06-01,Inativo,Perdido,3014,1,1,1
+2018-06-01,Inativo,Precisa de Atencao,55,0,0,0
+2018-06-01,Inativo,Quase Dormindo,82,0,0,0
+2018-06-01,Inativo,,6,0,0,0
+2018-06-01,Não Ativado,Campeao,1,1,1,1
+2018-06-01,Não Ativado,Hibernando,1,0,0,0
+2018-06-01,Não Ativado,Perdido,1,0,0,0
+2018-06-01,Não Ativado,Potencial Fiel,1,0,1,1
+2018-06-01,Não Ativado,Quase Dormindo,1,0,0,1
+2018-06-01,Não Ativado,,2601,59,66,73
+2018-07-01,Ativo,Campeao,75492,74750,75491,75491
+2018-07-01,Ativo,Clientes Fieis,44696,43653,44689,44691
+2018-07-01,Ativo,Novos Clientes,3721,3588,3720,3720
+2018-07-01,Ativo,Potencial Fiel,27653,26766,27636,27639
+2018-07-01,Ativo,,257,254,257,257
+2018-07-01,Churn,Em Risco,3170,5,7,8
+2018-07-01,Churn,Hibernando,92,0,0,0
+2018-07-01,Churn,Nao Perder!,53,0,0,0
+2018-07-01,Churn,Perdido,21078,14,14,17
+2018-07-01,Churn,,80740,13,16,19
+2018-07-01,Dormente,Campeao,639,4,639,639
+2018-07-01,Dormente,Clientes Fieis,29456,185,22211,29268
+2018-07-01,Dormente,Clientes Promissores,3396,4,3198,3393
+2018-07-01,Dormente,Novos Clientes,117,0,117,117
+2018-07-01,Dormente,Potencial Fiel,18449,45,17566,18434
+2018-07-01,Dormente,Precisa de Atencao,6130,17,19,5900
+2018-07-01,Dormente,Quase Dormindo,7816,13,15,7445
+2018-07-01,Dormente,,25,0,20,25
+2018-07-01,Inativo,Clientes Fieis,138,0,0,0
+2018-07-01,Inativo,Em Risco,13459,28,33,35
+2018-07-01,Inativo,Hibernando,9934,17,17,17
+2018-07-01,Inativo,Perdido,8332,8,8,8
+2018-07-01,Inativo,Precisa de Atencao,188,0,0,0
+2018-07-01,Inativo,Quase Dormindo,249,0,0,0
+2018-07-01,Inativo,,3,0,0,0
+2018-07-01,Não Ativado,Campeao,1,1,1,1
+2018-07-01,Não Ativado,Clientes Fieis,2,1,1,2
+2018-07-01,Não Ativado,Em Risco,1,0,0,0
+2018-07-01,Não Ativado,Hibernando,2,0,0,0
+2018-07-01,Não Ativado,Perdido,6,0,0,0
+2018-07-01,Não Ativado,Potencial Fiel,1,1,1,1
+2018-07-01,Não Ativado,,2154,141,149,154
+2018-08-01,Ativo,Campeao,33899,33517,33897,33899
+2018-08-01,Ativo,Clientes Fieis,21712,21200,21708,21710
+2018-08-01,Ativo,Novos Clientes,2078,1996,2075,2075
+2018-08-01,Ativo,Potencial Fiel,14536,13999,14527,14527
+2018-08-01,Ativo,,121,120,121,121
+2018-08-01,Churn,Em Risco,1760,2,2,3
+2018-08-01,Churn,Hibernando,53,0,0,0
+2018-08-01,Churn,Nao Perder!,33,0,0,0
+2018-08-01,Churn,Perdido,12293,5,5,6
+2018-08-01,Churn,,51219,10,11,13
+2018-08-01,Dormente,Campeao,326,3,326,326
+2018-08-01,Dormente,Clientes Fieis,14522,89,10805,14421
+2018-08-01,Dormente,Clientes Promissores,1953,4,1844,1951
+2018-08-01,Dormente,Novos Clientes,69,0,69,69
+2018-08-01,Dormente,Potencial Fiel,10032,29,9510,10022
+2018-08-01,Dormente,Precisa de Atencao,3250,17,19,3136
+2018-08-01,Dormente,Quase Dormindo,4344,5,5,4167
+2018-08-01,Dormente,,8,0,7,8
+2018-08-01,Inativo,Clientes Fieis,65,1,1,1
+2018-08-01,Inativo,Em Risco,7046,14,15,21
+2018-08-01,Inativo,Hibernando,5774,10,10,10
+2018-08-01,Inativo,Perdido,4930,3,3,3
+2018-08-01,Inativo,Precisa de Atencao,82,0,0,0
+2018-08-01,Inativo,Quase Dormindo,130,0,0,0
+2018-08-01,Inativo,,3,0,0,0
+2018-08-01,Não Ativado,Clientes Fieis,1,0,1,1
+2018-08-01,Não Ativado,Nao Perder!,1,0,0,0
+2018-08-01,Não Ativado,Perdido,2,0,0,0
+2018-08-01,Não Ativado,,8832,58,60,62
+2018-09-01,Ativo,Campeao,16102,15906,16101,16102
+2018-09-01,Ativo,Clientes Fieis,10313,10032,10306,10310
+2018-09-01,Ativo,Novos Clientes,1044,1007,1041,1041
+2018-09-01,Ativo,Potencial Fiel,6882,6665,6878,6879
+2018-09-01,Ativo,,59,59,59,59
+2018-09-01,Churn,Em Risco,927,1,1,1
+2018-09-01,Churn,Hibernando,30,0,0,0
+2018-09-01,Churn,Nao Perder!,11,0,0,0
+2018-09-01,Churn,Perdido,6121,4,5,6
+2018-09-01,Churn,,27941,1,2,2
+2018-09-01,Dormente,Campeao,137,2,137,137
+2018-09-01,Dormente,Clientes Fieis,7035,54,5306,6985
+2018-09-01,Dormente,Clientes Promissores,933,1,869,931
+2018-09-01,Dormente,Novos Clientes,31,0,31,31
+2018-09-01,Dormente,Potencial Fiel,4766,11,4530,4761
+2018-09-01,Dormente,Precisa de Atencao,1523,3,4,1463
+2018-09-01,Dormente,Quase Dormindo,2072,1,1,1981
+2018-09-01,Dormente,,11,0,8,11
+2018-09-01,Inativo,Clientes Fieis,37,0,0,0
+2018-09-01,Inativo,Em Risco,3479,9,9,13
+2018-09-01,Inativo,Hibernando,2766,6,7,7
+2018-09-01,Inativo,Perdido,2296,3,3,3
+2018-09-01,Inativo,Precisa de Atencao,32,0,0,0
+2018-09-01,Inativo,Quase Dormindo,76,0,0,0
+2018-09-01,Inativo,,2,0,0,0
+2018-09-01,Não Ativado,Em Risco,1,0,0,0
+2018-09-01,Não Ativado,Perdido,1,0,0,0
+2018-09-01,Não Ativado,Quase Dormindo,1,0,0,1
+2018-09-01,Não Ativado,,942,37,40,43
+2018-10-01,Ativo,Campeao,16405,16232,16403,16404
+2018-10-01,Ativo,Clientes Fieis,10655,10409,10654,10655
+2018-10-01,Ativo,Novos Clientes,1146,1114,1145,1145
+2018-10-01,Ativo,Potencial Fiel,7234,7016,7229,7229
+2018-10-01,Ativo,,62,61,62,62
+2018-10-01,Churn,Em Risco,940,1,2,2
+2018-10-01,Churn,Hibernando,19,0,0,0
+2018-10-01,Churn,Nao Perder!,17,0,0,0
+2018-10-01,Churn,Perdido,6843,2,3,4
+2018-10-01,Churn,,30952,4,4,5
+2018-10-01,Dormente,Campeao,131,1,131,131
+2018-10-01,Dormente,Clientes Fieis,7081,30,5312,7055
+2018-10-01,Dormente,Clientes Promissores,1094,2,1034,1093
+2018-10-01,Dormente,Novos Clientes,43,0,43,43
+2018-10-01,Dormente,Potencial Fiel,4865,5,4614,4858
+2018-10-01,Dormente,Precisa de Atencao,1599,3,3,1550
+2018-10-01,Dormente,Quase Dormindo,2367,1,1,2276
+2018-10-01,Dormente,,4,1,2,4
+2018-10-01,Inativo,Clientes Fieis,29,0,0,0
+2018-10-01,Inativo,Em Risco,3682,6,7,9
+2018-10-01,Inativo,Hibernando,2958,3,3,4
+2018-10-01,Inativo,Perdido,2605,1,3,3
+2018-10-01,Inativo,Precisa de Atencao,30,0,0,0
+2018-10-01,Inativo,Quase Dormindo,69,0,0,0
+2018-10-01,Inativo,,4,0,0,0
+2018-10-01,Não Ativado,Campeao,1,1,1,1
+2018-10-01,Não Ativado,Perdido,3,0,0,0
+2018-10-01,Não Ativado,Quase Dormindo,1,0,0,1
+2018-10-01,Não Ativado,,7513,31,34,35
+2018-11-01,Ativo,Campeao,21206,20968,21206,21206
+2018-11-01,Ativo,Clientes Fieis,13483,13150,13482,13482
+2018-11-01,Ativo,Novos Clientes,1276,1226,1274,1274
+2018-11-01,Ativo,Potencial Fiel,8982,8700,8976,8976
+2018-11-01,Ativo,,86,85,86,86
+2018-11-01,Churn,Em Risco,1144,1,1,1
+2018-11-01,Churn,Hibernando,35,0,0,0
+2018-11-01,Churn,Nao Perder!,20,0,0,0
+2018-11-01,Churn,Perdido,7491,3,4,4
+2018-11-01,Churn,,33678,7,8,10
+2018-11-01,Dormente,Campeao,181,3,181,181
+2018-11-01,Dormente,Clientes Fieis,9087,53,6788,9021
+2018-11-01,Dormente,Clientes Promissores,1240,1,1169,1240
+2018-11-01,Dormente,Novos Clientes,48,0,48,48
+2018-11-01,Dormente,Potencial Fiel,6059,14,5757,6052
+2018-11-01,Dormente,Precisa de Atencao,2067,6,6,1989
+2018-11-01,Dormente,Quase Dormindo,2657,6,6,2544
+2018-11-01,Dormente,,9,0,7,8
+2018-11-01,Inativo,Clientes Fieis,44,0,0,0
+2018-11-01,Inativo,Em Risco,4414,10,10,11
+2018-11-01,Inativo,Hibernando,3355,1,2,2
+2018-11-01,Inativo,Perdido,2907,2,2,3
+2018-11-01,Inativo,Precisa de Atencao,59,1,1,1
+2018-11-01,Inativo,Quase Dormindo,90,0,0,0
+2018-11-01,Inativo,,4,0,0,0
+2018-11-01,Não Ativado,Perdido,1,0,0,0
+2018-11-01,Não Ativado,Quase Dormindo,1,0,0,1
+2018-11-01,Não Ativado,,1349,38,40,40
+2018-12-01,Ativo,Campeao,18968,18767,18968,18968
+2018-12-01,Ativo,Clientes Fieis,12397,12058,12396,12396
+2018-12-01,Ativo,Novos Clientes,1208,1155,1207,1207
+2018-12-01,Ativo,Potencial Fiel,8095,7820,8090,8091
+2018-12-01,Ativo,,71,71,71,71
+2018-12-01,Churn,Em Risco,1050,2,2,2
+2018-12-01,Churn,Hibernando,23,0,0,0
+2018-12-01,Churn,Nao Perder!,18,0,0,0
+2018-12-01,Churn,Perdido,6958,12,14,14
+2018-12-01,Churn,,30853,5,5,6
+2018-12-01,Dormente,Campeao,159,4,158,158
+2018-12-01,Dormente,Clientes Fieis,8071,52,6022,8007
+2018-12-01,Dormente,Clientes Promissores,1067,1,999,1064
+2018-12-01,Dormente,Novos Clientes,40,0,40,40
+2018-12-01,Dormente,Potencial Fiel,5437,14,5168,5432
+2018-12-01,Dormente,Precisa de Atencao,1880,4,5,1802
+2018-12-01,Dormente,Quase Dormindo,2438,5,6,2312
+2018-12-01,Dormente,,18,0,11,18
+2018-12-01,Inativo,Clientes Fieis,36,0,0,0
+2018-12-01,Inativo,Em Risco,4129,8,9,12
+2018-12-01,Inativo,Hibernando,3229,6,6,7
+2018-12-01,Inativo,Perdido,2711,6,6,6
+2018-12-01,Inativo,Precisa de Atencao,48,0,0,0
+2018-12-01,Inativo,Quase Dormindo,81,0,0,0
+2018-12-01,Inativo,,3,0,0,0
+2018-12-01,Não Ativado,Clientes Fieis,1,1,1,1
+2018-12-01,Não Ativado,Em Risco,1,0,0,0
+2018-12-01,Não Ativado,Perdido,3,0,0,0
+2018-12-01,Não Ativado,,1373,50,53,55
+2019-01-01,Ativo,Campeao,16419,16243,16417,16418
+2019-01-01,Ativo,Clientes Fieis,10695,10426,10692,10693
+2019-01-01,Ativo,Novos Clientes,1029,990,1028,1028
+2019-01-01,Ativo,Potencial Fiel,7143,6916,7133,7135
+2019-01-01,Ativo,,69,68,69,69
+2019-01-01,Churn,Em Risco,911,0,0,0
+2019-01-01,Churn,Hibernando,27,0,0,0
+2019-01-01,Churn,Nao Perder!,12,0,0,0
+2019-01-01,Churn,Perdido,6113,7,7,8
+2019-01-01,Churn,,28275,5,5,6
+2019-01-01,Dormente,Campeao,119,5,119,119
+2019-01-01,Dormente,Clientes Fieis,7020,49,5289,6965
+2019-01-01,Dormente,Clientes Promissores,968,1,913,966
+2019-01-01,Dormente,Novos Clientes,50,0,50,50
+2019-01-01,Dormente,Potencial Fiel,4873,18,4640,4870
+2019-01-01,Dormente,Precisa de Atencao,1546,7,7,1492
+2019-01-01,Dormente,Quase Dormindo,2162,2,3,2062
+2019-01-01,Dormente,,12,0,9,11
+2019-01-01,Inativo,Clientes Fieis,34,0,0,0
+2019-01-01,Inativo,Em Risco,3719,5,7,9
+2019-01-01,Inativo,Hibernando,2912,2,2,3
+2019-01-01,Inativo,Perdido,2404,1,1,1
+2019-01-01,Inativo,Precisa de Atencao,46,0,0,0
+2019-01-01,Inativo,Quase Dormindo,64,0,0,0
+2019-01-01,Inativo,,2,0,0,0
+2019-01-01,Não Ativado,Clientes Fieis,2,0,2,2
+2019-01-01,Não Ativado,Novos Clientes,1,0,1,1
+2019-01-01,Não Ativado,Perdido,3,0,0,0
+2019-01-01,Não Ativado,Precisa de Atencao,1,0,0,1
+2019-01-01,Não Ativado,,1281,42,43,45
+2019-02-01,Ativo,Campeao,13840,13685,13840,13840
+2019-02-01,Ativo,Clientes Fieis,9190,8949,9188,9189
+2019-02-01,Ativo,Novos Clientes,912,871,911,911
+2019-02-01,Ativo,Potencial Fiel,6088,5902,6082,6083
+2019-02-01,Ativo,,60,60,60,60
+2019-02-01,Churn,Em Risco,783,1,3,3
+2019-02-01,Churn,Hibernando,21,0,0,0
+2019-02-01,Churn,Nao Perder!,8,0,0,0
+2019-02-01,Churn,Perdido,5213,7,7,8
+2019-02-01,Churn,,23714,3,5,6
+2019-02-01,Dormente,Campeao,117,1,117,117
+2019-02-01,Dormente,Clientes Fieis,5983,28,4479,5925
+2019-02-01,Dormente,Clientes Promissores,830,1,782,828
+2019-02-01,Dormente,Novos Clientes,33,0,33,33
+2019-02-01,Dormente,Potencial Fiel,4151,6,3947,4145
+2019-02-01,Dormente,Precisa de Atencao,1353,9,9,1293
+2019-02-01,Dormente,Quase Dormindo,1836,4,4,1758
+2019-02-01,Dormente,,10,0,4,10
+2019-02-01,Inativo,Clientes Fieis,34,0,0,0
+2019-02-01,Inativo,Em Risco,3146,5,5,9
+2019-02-01,Inativo,Hibernando,2506,3,3,3
+2019-02-01,Inativo,Perdido,2052,1,1,1
+2019-02-01,Inativo,Precisa de Atencao,44,1,1,1
+2019-02-01,Inativo,Quase Dormindo,49,0,0,0
+2019-02-01,Inativo,,2,0,0,0
+2019-02-01,Não Ativado,Clientes Fieis,1,0,1,1
+2019-02-01,Não Ativado,Nao Perder!,2,0,0,0
+2019-02-01,Não Ativado,Perdido,1,0,0,0
+2019-02-01,Não Ativado,Potencial Fiel,2,1,2,2
+2019-02-01,Não Ativado,,1016,30,31,31
+2019-03-01,Ativo,Campeao,9889,9792,9889,9889
+2019-03-01,Ativo,Clientes Fieis,6971,6791,6971,6971
+2019-03-01,Ativo,Novos Clientes,763,738,763,763
+2019-03-01,Ativo,Potencial Fiel,4883,4693,4880,4880
+2019-03-01,Ativo,,49,49,49,49
+2019-03-01,Churn,Em Risco,564,0,0,0
+2019-03-01,Churn,Hibernando,23,0,0,0
+2019-03-01,Churn,Nao Perder!,11,0,0,0
+2019-03-01,Churn,Perdido,4401,2,2,2
+2019-03-01,Churn,,20757,2,3,3
+2019-03-01,Dormente,Campeao,83,1,83,83
+2019-03-01,Dormente,Clientes Fieis,4537,26,3363,4508
+2019-03-01,Dormente,Clientes Promissores,651,0,624,650
+2019-03-01,Dormente,Novos Clientes,26,0,26,26
+2019-03-01,Dormente,Potencial Fiel,3295,13,3155,3293
+2019-03-01,Dormente,Precisa de Atencao,1092,5,5,1044
+2019-03-01,Dormente,Quase Dormindo,1481,5,5,1419
+2019-03-01,Dormente,,7,0,3,7
+2019-03-01,Inativo,Clientes Fieis,17,0,0,0
+2019-03-01,Inativo,Em Risco,2388,9,12,14
+2019-03-01,Inativo,Hibernando,1927,1,1,1
+2019-03-01,Inativo,Perdido,1720,1,1,1
+2019-03-01,Inativo,Precisa de Atencao,27,0,0,0
+2019-03-01,Inativo,Quase Dormindo,42,0,0,0
+2019-03-01,Não Ativado,Clientes Fieis,1,1,1,1
+2019-03-01,Não Ativado,Novos Clientes,1,1,1,1
+2019-03-01,Não Ativado,Perdido,1,0,0,0
+2019-03-01,Não Ativado,Precisa de Atencao,1,0,0,1
+2019-03-01,Não Ativado,,1370,31,34,36
+2019-04-01,Ativo,Campeao,10081,9967,10079,10081
+2019-04-01,Ativo,Clientes Fieis,7001,6853,7001,7001
+2019-04-01,Ativo,Novos Clientes,823,808,823,823
+2019-04-01,Ativo,Potencial Fiel,5089,4929,5087,5087
+2019-04-01,Ativo,,48,48,48,48
+2019-04-01,Churn,Em Risco,649,0,0,0
+2019-04-01,Churn,Hibernando,20,0,0,0
+2019-04-01,Churn,Nao Perder!,11,0,0,0
+2019-04-01,Churn,Perdido,4566,4,5,6
+2019-04-01,Churn,,22047,5,5,5
+2019-04-01,Dormente,Campeao,78,1,78,78
+2019-04-01,Dormente,Clientes Fieis,4712,33,3498,4668
+2019-04-01,Dormente,Clientes Promissores,735,0,690,735
+2019-04-01,Dormente,Novos Clientes,24,0,24,24
+2019-04-01,Dormente,Potencial Fiel,3459,7,3281,3454
+2019-04-01,Dormente,Precisa de Atencao,1109,2,2,1065
+2019-04-01,Dormente,Quase Dormindo,1562,2,2,1497
+2019-04-01,Dormente,,11,0,8,11
+2019-04-01,Inativo,Clientes Fieis,23,0,0,0
+2019-04-01,Inativo,Em Risco,2428,7,7,7
+2019-04-01,Inativo,Hibernando,2034,2,2,3
+2019-04-01,Inativo,Perdido,1757,1,1,1
+2019-04-01,Inativo,Precisa de Atencao,31,0,0,0
+2019-04-01,Inativo,Quase Dormindo,46,0,0,0
+2019-04-01,Não Ativado,Clientes Fieis,1,1,1,1
+2019-04-01,Não Ativado,Hibernando,1,0,0,0
+2019-04-01,Não Ativado,Perdido,1,0,0,0
+2019-04-01,Não Ativado,Potencial Fiel,2,0,2,2
+2019-04-01,Não Ativado,,2025,34,37,38
+2019-05-01,Ativo,Campeao,9753,9649,9753,9753
+2019-05-01,Ativo,Clientes Fieis,7103,6925,7102,7102
+2019-05-01,Ativo,Novos Clientes,835,794,834,834
+2019-05-01,Ativo,Potencial Fiel,5036,4858,5031,5031
+2019-05-01,Ativo,,48,48,48,48
+2019-05-01,Churn,Em Risco,644,1,1,1
+2019-05-01,Churn,Hibernando,13,0,0,0
+2019-05-01,Churn,Nao Perder!,13,0,0,0
+2019-05-01,Churn,Perdido,4697,2,2,3
+2019-05-01,Churn,,22659,1,1,1
+2019-05-01,Dormente,Campeao,79,0,79,79
+2019-05-01,Dormente,Clientes Fieis,4744,26,3517,4713
+2019-05-01,Dormente,Clientes Promissores,694,2,655,693
+2019-05-01,Dormente,Novos Clientes,29,0,29,29
+2019-05-01,Dormente,Potencial Fiel,3452,14,3293,3448
+2019-05-01,Dormente,Precisa de Atencao,1142,4,4,1099
+2019-05-01,Dormente,Quase Dormindo,1584,1,1,1526
+2019-05-01,Dormente,,8,0,7,8
+2019-05-01,Inativo,Clientes Fieis,28,1,1,1
+2019-05-01,Inativo,Em Risco,2349,2,2,2
+2019-05-01,Inativo,Hibernando,2048,0,0,0
+2019-05-01,Inativo,Perdido,1857,2,2,2
+2019-05-01,Inativo,Precisa de Atencao,32,0,0,0
+2019-05-01,Inativo,Quase Dormindo,43,0,0,0
+2019-05-01,Inativo,,2,0,0,0
+2019-05-01,Não Ativado,Em Risco,1,0,0,0
+2019-05-01,Não Ativado,Perdido,4,0,0,0
+2019-05-01,Não Ativado,Potencial Fiel,1,1,1,1
+2019-05-01,Não Ativado,,2525,25,29,30
+2019-06-01,Ativo,Campeao,9340,9240,9340,9340
+2019-06-01,Ativo,Clientes Fieis,6754,6579,6748,6749
+2019-06-01,Ativo,Novos Clientes,747,715,747,747
+2019-06-01,Ativo,Potencial Fiel,4869,4703,4867,4867
+2019-06-01,Ativo,,44,44,44,44
+2019-06-01,Churn,Em Risco,600,1,1,1
+2019-06-01,Churn,Hibernando,21,0,0,0
+2019-06-01,Churn,Nao Perder!,14,0,0,0
+2019-06-01,Churn,Perdido,4481,5,5,6
+2019-06-01,Churn,,21583,3,3,3
+2019-06-01,Dormente,Campeao,86,0,86,86
+2019-06-01,Dormente,Clientes Fieis,4291,28,3204,4259
+2019-06-01,Dormente,Clientes Promissores,720,1,689,720
+2019-06-01,Dormente,Novos Clientes,23,0,23,23
+2019-06-01,Dormente,Potencial Fiel,3266,11,3103,3264
+2019-06-01,Dormente,Precisa de Atencao,1022,5,5,990
+2019-06-01,Dormente,Quase Dormindo,1531,0,0,1467
+2019-06-01,Dormente,,7,0,6,7
+2019-06-01,Inativo,Clientes Fieis,20,0,0,0
+2019-06-01,Inativo,Em Risco,2321,8,8,8
+2019-06-01,Inativo,Hibernando,1939,2,4,4
+2019-06-01,Inativo,Perdido,1720,3,4,4
+2019-06-01,Inativo,Precisa de Atencao,27,0,0,0
+2019-06-01,Inativo,Quase Dormindo,40,0,0,0
+2019-06-01,Inativo,,2,0,0,0
+2019-06-01,Não Ativado,Campeao,1,1,1,1
+2019-06-01,Não Ativado,Perdido,4,0,0,0
+2019-06-01,Não Ativado,,1550,20,21,22
+2019-07-01,Ativo,Campeao,9947,9843,9946,9947
+2019-07-01,Ativo,Clientes Fieis,6975,6826,6971,6972
+2019-07-01,Ativo,Novos Clientes,785,748,785,785
+2019-07-01,Ativo,Potencial Fiel,5172,5018,5169,5169
+2019-07-01,Ativo,,43,43,43,43
+2019-07-01,Churn,Em Risco,596,1,1,1
+2019-07-01,Churn,Hibernando,18,0,0,0
+2019-07-01,Churn,Nao Perder!,8,0,0,0
+2019-07-01,Churn,Perdido,4768,2,3,3
+2019-07-01,Churn,,22606,4,6,6
+2019-07-01,Dormente,Campeao,92,2,92,92
+2019-07-01,Dormente,Clientes Fieis,4681,23,3519,4654
+2019-07-01,Dormente,Clientes Promissores,772,1,733,770
+2019-07-01,Dormente,Novos Clientes,27,0,27,27
+2019-07-01,Dormente,Potencial Fiel,3434,12,3293,3432
+2019-07-01,Dormente,Precisa de Atencao,1186,4,4,1133
+2019-07-01,Dormente,Quase Dormindo,1593,1,1,1532
+2019-07-01,Dormente,,8,0,5,8
+2019-07-01,Inativo,Clientes Fieis,25,1,1,1
+2019-07-01,Inativo,Em Risco,2374,5,5,5
+2019-07-01,Inativo,Hibernando,2131,2,2,3
+2019-07-01,Inativo,Perdido,1843,3,4,4
+2019-07-01,Inativo,Precisa de Atencao,33,0,0,0
+2019-07-01,Inativo,Quase Dormindo,39,0,0,0
+2019-07-01,Não Ativado,Campeao,1,1,1,1
+2019-07-01,Não Ativado,Clientes Fieis,1,0,1,1
+2019-07-01,Não Ativado,Nao Perder!,1,0,0,0
+2019-07-01,Não Ativado,Perdido,1,0,0,0
+2019-07-01,Não Ativado,Potencial Fiel,1,0,1,1
+2019-07-01,Não Ativado,Quase Dormindo,1,0,0,1
+2019-07-01,Não Ativado,,1538,22,23,23
+2019-08-01,Ativo,Campeao,10297,10198,10297,10297
+2019-08-01,Ativo,Clientes Fieis,7211,7031,7210,7210
+2019-08-01,Ativo,Novos Clientes,773,741,773,773
+2019-08-01,Ativo,Potencial Fiel,5112,4964,5110,5110
+2019-08-01,Ativo,,44,44,44,44
+2019-08-01,Churn,Em Risco,623,0,0,1
+2019-08-01,Churn,Hibernando,17,0,0,0
+2019-08-01,Churn,Nao Perder!,15,0,0,0
+2019-08-01,Churn,Perdido,4717,3,3,3
+2019-08-01,Churn,,21640,1,2,2
+2019-08-01,Dormente,Campeao,107,0,107,107
+2019-08-01,Dormente,Clientes Fieis,4793,25,3607,4756
+2019-08-01,Dormente,Clientes Promissores,760,0,713,759
+2019-08-01,Dormente,Novos Clientes,26,0,26,26
+2019-08-01,Dormente,Potencial Fiel,3371,5,3200,3369
+2019-08-01,Dormente,Precisa de Atencao,1135,5,7,1090
+2019-08-01,Dormente,Quase Dormindo,1532,2,2,1477
+2019-08-01,Dormente,,7,0,4,7
+2019-08-01,Inativo,Clientes Fieis,27,0,0,0
+2019-08-01,Inativo,Em Risco,2413,7,8,8
+2019-08-01,Inativo,Hibernando,1997,3,3,4
+2019-08-01,Inativo,Perdido,1741,2,2,2
+2019-08-01,Inativo,Precisa de Atencao,34,0,0,0
+2019-08-01,Inativo,Quase Dormindo,51,0,0,0
+2019-08-01,Inativo,,2,0,0,0
+2019-08-01,Não Ativado,Perdido,1,0,0,0
+2019-08-01,Não Ativado,,1885,35,35,36
+2019-09-01,Ativo,Campeao,9274,9174,9274,9274
+2019-09-01,Ativo,Clientes Fieis,7063,6905,7061,7062
+2019-09-01,Ativo,Novos Clientes,817,774,816,816
+2019-09-01,Ativo,Potencial Fiel,5137,4972,5134,5135
+2019-09-01,Ativo,,38,38,38,38
+2019-09-01,Churn,Em Risco,655,1,1,1
+2019-09-01,Churn,Hibernando,16,0,0,0
+2019-09-01,Churn,Nao Perder!,6,0,0,0
+2019-09-01,Churn,Perdido,4641,2,2,3
+2019-09-01,Churn,,20947,2,2,3
+2019-09-01,Dormente,Campeao,59,1,59,59
+2019-09-01,Dormente,Clientes Fieis,4587,32,3442,4560
+2019-09-01,Dormente,Clientes Promissores,780,0,739,779
+2019-09-01,Dormente,Novos Clientes,22,0,22,22
+2019-09-01,Dormente,Potencial Fiel,3458,11,3288,3455
+2019-09-01,Dormente,Precisa de Atencao,1170,4,5,1131
+2019-09-01,Dormente,Quase Dormindo,1700,1,1,1625
+2019-09-01,Dormente,,8,0,3,7
+2019-09-01,Inativo,Clientes Fieis,22,1,1,1
+2019-09-01,Inativo,Em Risco,2547,7,7,7
+2019-09-01,Inativo,Hibernando,2142,1,1,1
+2019-09-01,Inativo,Perdido,1895,3,3,4
+2019-09-01,Inativo,Precisa de Atencao,27,1,1,1
+2019-09-01,Inativo,Quase Dormindo,53,0,0,0
+2019-09-01,Inativo,,7,0,0,0
+2019-09-01,Não Ativado,Campeao,1,1,1,1
+2019-09-01,Não Ativado,Clientes Promissores,1,0,1,1
+2019-09-01,Não Ativado,Em Risco,1,0,0,0
+2019-09-01,Não Ativado,Hibernando,2,0,0,0
+2019-09-01,Não Ativado,,1887,32,33,34
+2019-10-01,Ativo,Campeao,9319,9232,9319,9319
+2019-10-01,Ativo,Clientes Fieis,6882,6718,6881,6882
+2019-10-01,Ativo,Novos Clientes,852,816,851,851
+2019-10-01,Ativo,Potencial Fiel,5277,5086,5272,5272
+2019-10-01,Ativo,,48,47,48,48
+2019-10-01,Churn,Em Risco,704,1,1,1
+2019-10-01,Churn,Hibernando,16,0,0,0
+2019-10-01,Churn,Nao Perder!,13,0,0,0
+2019-10-01,Churn,Perdido,5175,5,5,6
+2019-10-01,Churn,,24476,2,3,3
+2019-10-01,Dormente,Campeao,94,0,94,94
+2019-10-01,Dormente,Clientes Fieis,4610,29,3393,4572
+2019-10-01,Dormente,Clientes Promissores,823,0,771,821
+2019-10-01,Dormente,Novos Clientes,25,0,25,25
+2019-10-01,Dormente,Potencial Fiel,3524,11,3359,3521
+2019-10-01,Dormente,Precisa de Atencao,1192,6,7,1145
+2019-10-01,Dormente,Quase Dormindo,1702,0,1,1624
+2019-10-01,Dormente,,5,0,1,5
+2019-10-01,Inativo,Clientes Fieis,26,0,0,0
+2019-10-01,Inativo,Em Risco,2534,11,12,12
+2019-10-01,Inativo,Hibernando,2198,1,3,3
+2019-10-01,Inativo,Perdido,2035,4,4,4
+2019-10-01,Inativo,Precisa de Atencao,35,1,1,1
+2019-10-01,Inativo,Quase Dormindo,52,0,0,0
+2019-10-01,Inativo,,4,0,0,0
+2019-10-01,Não Ativado,Clientes Fieis,1,1,1,1
+2019-10-01,Não Ativado,Clientes Promissores,2,0,2,2
+2019-10-01,Não Ativado,Em Risco,1,0,0,0
+2019-10-01,Não Ativado,Perdido,1,0,0,0
+2019-10-01,Não Ativado,Potencial Fiel,1,1,1,1
+2019-10-01,Não Ativado,,58879,44,45,50
+2019-11-01,Ativo,Campeao,8589,8484,8589,8589
+2019-11-01,Ativo,Clientes Fieis,6315,6161,6313,6313
+2019-11-01,Ativo,Novos Clientes,690,665,690,690
+2019-11-01,Ativo,Potencial Fiel,4611,4470,4607,4610
+2019-11-01,Ativo,,50,50,50,50
+2019-11-01,Churn,Em Risco,591,0,0,0
+2019-11-01,Churn,Hibernando,21,0,0,0
+2019-11-01,Churn,Nao Perder!,4,0,0,0
+2019-11-01,Churn,Perdido,4107,4,4,5
+2019-11-01,Churn,,19102,4,5,5
+2019-11-01,Dormente,Campeao,80,2,80,80
+2019-11-01,Dormente,Clientes Fieis,4085,27,3000,4053
+2019-11-01,Dormente,Clientes Promissores,672,0,624,670
+2019-11-01,Dormente,Novos Clientes,27,0,27,27
+2019-11-01,Dormente,Potencial Fiel,3122,8,2970,3120
+2019-11-01,Dormente,Precisa de Atencao,973,1,1,933
+2019-11-01,Dormente,Quase Dormindo,1397,1,1,1346
+2019-11-01,Dormente,,10,0,6,10
+2019-11-01,Inativo,Clientes Fieis,20,0,0,0
+2019-11-01,Inativo,Em Risco,2177,6,6,7
+2019-11-01,Inativo,Hibernando,1817,1,1,2
+2019-11-01,Inativo,Perdido,1612,0,0,0
+2019-11-01,Inativo,Precisa de Atencao,34,0,0,0
+2019-11-01,Inativo,Quase Dormindo,39,0,0,0
+2019-11-01,Inativo,,5,0,0,0
+2019-11-01,Não Ativado,Em Risco,1,0,0,0
+2019-11-01,Não Ativado,Novos Clientes,1,1,1,1
+2019-11-01,Não Ativado,Perdido,2,0,0,0
+2019-11-01,Não Ativado,Potencial Fiel,1,0,1,1
+2019-11-01,Não Ativado,,1205,19,20,20
+2019-12-01,Ativo,Campeao,8827,8725,8827,8827
+2019-12-01,Ativo,Clientes Fieis,6579,6414,6577,6577
+2019-12-01,Ativo,Novos Clientes,953,919,952,952
+2019-12-01,Ativo,Potencial Fiel,5283,5114,5277,5277
+2019-12-01,Ativo,,57,57,57,57
+2019-12-01,Churn,Em Risco,674,0,1,1
+2019-12-01,Churn,Hibernando,25,0,0,0
+2019-12-01,Churn,Nao Perder!,8,0,0,0
+2019-12-01,Churn,Perdido,5692,6,7,7
+2019-12-01,Churn,,25922,7,7,9
+2019-12-01,Dormente,Campeao,66,0,66,66
+2019-12-01,Dormente,Clientes Fieis,4599,28,3388,4570
+2019-12-01,Dormente,Clientes Promissores,877,1,823,877
+2019-12-01,Dormente,Novos Clientes,28,0,28,28
+2019-12-01,Dormente,Potencial Fiel,3572,14,3412,3571
+2019-12-01,Dormente,Precisa de Atencao,1144,6,6,1096
+2019-12-01,Dormente,Quase Dormindo,1872,2,2,1777
+2019-12-01,Dormente,,11,0,4,10
+2019-12-01,Inativo,Clientes Fieis,18,0,0,0
+2019-12-01,Inativo,Em Risco,2591,3,3,3
+2019-12-01,Inativo,Hibernando,2322,2,2,3
+2019-12-01,Inativo,Perdido,2207,1,1,1
+2019-12-01,Inativo,Precisa de Atencao,31,0,0,0
+2019-12-01,Inativo,Quase Dormindo,73,0,0,0
+2019-12-01,Inativo,,6,0,0,0
+2019-12-01,Não Ativado,Potencial Fiel,1,1,1,1
+2019-12-01,Não Ativado,,14587,43,44,44
+2020-01-01,Ativo,Campeao,9035,8955,9035,9035
+2020-01-01,Ativo,Clientes Fieis,6573,6407,6570,6571
+2020-01-01,Ativo,Novos Clientes,696,672,694,694
+2020-01-01,Ativo,Potencial Fiel,4811,4647,4806,4806
+2020-01-01,Ativo,,50,50,50,50
+2020-01-01,Churn,Em Risco,668,0,0,0
+2020-01-01,Churn,Hibernando,22,0,0,0
+2020-01-01,Churn,Nao Perder!,8,0,0,0
+2020-01-01,Churn,Perdido,4568,2,3,3
+2020-01-01,Churn,,20129,3,3,3
+2020-01-01,Dormente,Campeao,86,0,86,86
+2020-01-01,Dormente,Clientes Fieis,4425,27,3271,4399
+2020-01-01,Dormente,Clientes Promissores,723,1,684,722
+2020-01-01,Dormente,Novos Clientes,27,0,27,27
+2020-01-01,Dormente,Potencial Fiel,3269,5,3110,3267
+2020-01-01,Dormente,Precisa de Atencao,1080,1,1,1035
+2020-01-01,Dormente,Quase Dormindo,1534,0,1,1470
+2020-01-01,Dormente,,16,1,11,16
+2020-01-01,Inativo,Clientes Fieis,31,0,0,0
+2020-01-01,Inativo,Em Risco,2481,8,8,9
+2020-01-01,Inativo,Hibernando,2118,1,1,1
+2020-01-01,Inativo,Perdido,1817,2,2,2
+2020-01-01,Inativo,Precisa de Atencao,42,1,1,1
+2020-01-01,Inativo,Quase Dormindo,61,0,0,0
+2020-01-01,Inativo,,5,0,0,0
+2020-01-01,Não Ativado,Em Risco,1,0,0,0
+2020-01-01,Não Ativado,Perdido,5,0,0,0
+2020-01-01,Não Ativado,Potencial Fiel,1,1,1,1
+2020-01-01,Não Ativado,,2312,29,32,32
+2020-02-01,Ativo,Campeao,11493,11377,11493,11493
+2020-02-01,Ativo,Clientes Fieis,8721,8508,8719,8720
+2020-02-01,Ativo,Novos Clientes,1127,1084,1126,1126
+2020-02-01,Ativo,Potencial Fiel,6581,6370,6576,6576
+2020-02-01,Ativo,,65,65,65,65
+2020-02-01,Churn,Em Risco,857,0,0,0
+2020-02-01,Churn,Hibernando,19,0,0,0
+2020-02-01,Churn,Nao Perder!,9,0,0,0
+2020-02-01,Churn,Perdido,6512,7,7,7
+2020-02-01,Churn,,27757,3,3,3
+2020-02-01,Dormente,Campeao,96,0,96,96
+2020-02-01,Dormente,Clientes Fieis,5857,38,4298,5815
+2020-02-01,Dormente,Clientes Promissores,1082,2,1029,1081
+2020-02-01,Dormente,Novos Clientes,31,0,31,31
+2020-02-01,Dormente,Potencial Fiel,4627,17,4373,4622
+2020-02-01,Dormente,Precisa de Atencao,1524,8,8,1460
+2020-02-01,Dormente,Quase Dormindo,2257,4,4,2145
+2020-02-01,Dormente,,10,0,5,9
+2020-02-01,Inativo,Clientes Fieis,27,0,0,0
+2020-02-01,Inativo,Em Risco,3262,7,9,9
+2020-02-01,Inativo,Hibernando,2904,4,4,4
+2020-02-01,Inativo,Perdido,2610,2,2,2
+2020-02-01,Inativo,Precisa de Atencao,41,0,0,0
+2020-02-01,Inativo,Quase Dormindo,72,0,0,0
+2020-02-01,Inativo,,4,0,0,0
+2020-02-01,Não Ativado,Nao Perder!,1,0,0,0
+2020-02-01,Não Ativado,Perdido,2,0,0,0
+2020-02-01,Não Ativado,,4431,38,40,40
+2020-03-01,Ativo,Campeao,15267,15097,15267,15267
+2020-03-01,Ativo,Clientes Fieis,11740,11484,11738,11738
+2020-03-01,Ativo,Novos Clientes,1639,1581,1639,1639
+2020-03-01,Ativo,Potencial Fiel,9537,9228,9528,9533
+2020-03-01,Ativo,,80,80,80,80
+2020-03-01,Churn,Em Risco,1173,2,3,4
+2020-03-01,Churn,Hibernando,45,0,0,0
+2020-03-01,Churn,Nao Perder!,14,0,0,0
+2020-03-01,Churn,Perdido,9903,11,12,14
+2020-03-01,Churn,,41748,10,10,11
+2020-03-01,Dormente,Campeao,142,4,142,142
+2020-03-01,Dormente,Clientes Fieis,7939,53,5791,7884
+2020-03-01,Dormente,Clientes Promissores,1566,3,1463,1566
+2020-03-01,Dormente,Novos Clientes,50,0,50,50
+2020-03-01,Dormente,Potencial Fiel,6526,19,6204,6518
+2020-03-01,Dormente,Precisa de Atencao,2112,4,4,2044
+2020-03-01,Dormente,Quase Dormindo,3340,6,7,3165
+2020-03-01,Dormente,,9,0,3,9
+2020-03-01,Inativo,Clientes Fieis,41,1,1,1
+2020-03-01,Inativo,Em Risco,4474,17,19,21
+2020-03-01,Inativo,Hibernando,4068,1,1,2
+2020-03-01,Inativo,Perdido,3832,3,3,3
+2020-03-01,Inativo,Precisa de Atencao,73,0,0,0
+2020-03-01,Inativo,Quase Dormindo,137,0,0,0
+2020-03-01,Inativo,,5,0,0,0
+2020-03-01,Não Ativado,Em Risco,1,0,0,0
+2020-03-01,Não Ativado,Perdido,1,0,0,0
+2020-03-01,Não Ativado,Quase Dormindo,1,0,0,1
+2020-03-01,Não Ativado,,6419,51,52,57
+2020-04-01,Ativo,Campeao,10990,10869,10989,10990
+2020-04-01,Ativo,Clientes Fieis,9016,8803,9015,9015
+2020-04-01,Ativo,Novos Clientes,1351,1306,1349,1349
+2020-04-01,Ativo,Potencial Fiel,7401,7186,7396,7396
+2020-04-01,Ativo,,58,56,58,58
+2020-04-01,Churn,Em Risco,916,2,2,2
+2020-04-01,Churn,Hibernando,32,0,0,0
+2020-04-01,Churn,Nao Perder!,15,0,0,0
+2020-04-01,Churn,Perdido,7695,7,7,7
+2020-04-01,Churn,,32088,8,9,9
+2020-04-01,Dormente,Campeao,88,1,88,88
+2020-04-01,Dormente,Clientes Fieis,5879,28,4295,5832
+2020-04-01,Dormente,Clientes Promissores,1228,1,1147,1228
+2020-04-01,Dormente,Novos Clientes,50,0,50,50
+2020-04-01,Dormente,Potencial Fiel,5169,14,4915,5166
+2020-04-01,Dormente,Precisa de Atencao,1611,10,10,1550
+2020-04-01,Dormente,Quase Dormindo,2721,0,2,2580
+2020-04-01,Dormente,,9,0,6,9
+2020-04-01,Inativo,Clientes Fieis,47,0,0,0
+2020-04-01,Inativo,Em Risco,3546,13,15,20
+2020-04-01,Inativo,Hibernando,3299,7,7,7
+2020-04-01,Inativo,Perdido,3125,2,2,2
+2020-04-01,Inativo,Precisa de Atencao,47,0,0,0
+2020-04-01,Inativo,Quase Dormindo,95,0,0,0
+2020-04-01,Inativo,,5,0,0,0
+2020-04-01,Não Ativado,Perdido,1,0,0,0
+2020-04-01,Não Ativado,,2194,36,39,41
+2020-05-01,Ativo,Campeao,14428,14283,14428,14428
+2020-05-01,Ativo,Clientes Fieis,11518,11247,11516,11517
+2020-05-01,Ativo,Novos Clientes,1604,1543,1603,1603
+2020-05-01,Ativo,Potencial Fiel,9173,8883,9169,9170
+2020-05-01,Ativo,,61,61,61,61
+2020-05-01,Churn,Em Risco,1098,0,0,0
+2020-05-01,Churn,Hibernando,39,0,0,0
+2020-05-01,Churn,Nao Perder!,12,0,0,0
+2020-05-01,Churn,Perdido,9384,1,2,2
+2020-05-01,Churn,,39113,10,12,12
+2020-05-01,Dormente,Campeao,133,2,133,133
+2020-05-01,Dormente,Clientes Fieis,7602,59,5609,7548
+2020-05-01,Dormente,Clientes Promissores,1435,0,1343,1434
+2020-05-01,Dormente,Novos Clientes,61,0,61,61
+2020-05-01,Dormente,Potencial Fiel,6288,21,5997,6286
+2020-05-01,Dormente,Precisa de Atencao,1948,6,6,1879
+2020-05-01,Dormente,Quase Dormindo,3153,5,7,2982
+2020-05-01,Dormente,,10,0,7,10
+2020-05-01,Inativo,Clientes Fieis,49,0,0,0
+2020-05-01,Inativo,Em Risco,4323,13,16,18
+2020-05-01,Inativo,Hibernando,4007,5,5,5
+2020-05-01,Inativo,Perdido,3697,8,9,9
+2020-05-01,Inativo,Precisa de Atencao,63,0,0,0
+2020-05-01,Inativo,Quase Dormindo,114,0,0,0
+2020-05-01,Inativo,,2,0,0,0
+2020-05-01,Não Ativado,Clientes Promissores,1,0,1,1
+2020-05-01,Não Ativado,Quase Dormindo,1,0,0,1
+2020-05-01,Não Ativado,,1336,46,52,55
+2020-06-01,Ativo,Campeao,56562,56011,56560,56562
+2020-06-01,Ativo,Clientes Fieis,44160,43219,44155,44158
+2020-06-01,Ativo,Novos Clientes,4701,4519,4698,4698
+2020-06-01,Ativo,Potencial Fiel,31932,30942,31919,31920
+2020-06-01,Ativo,,316,316,316,316
+2020-06-01,Churn,Em Risco,3382,10,10,10
+2020-06-01,Churn,Hibernando,73,0,0,0
+2020-06-01,Churn,Nao Perder!,53,0,0,0
+2020-06-01,Churn,Perdido,26262,17,19,21
+2020-06-01,Churn,,88264,23,25,26
+2020-06-01,Dormente,Campeao,467,6,467,467
+2020-06-01,Dormente,Clientes Fieis,27918,186,20642,27706
+2020-06-01,Dormente,Clientes Promissores,4530,9,4293,4530
+2020-06-01,Dormente,Novos Clientes,142,0,142,142
+2020-06-01,Dormente,Potencial Fiel,21481,84,20515,21469
+2020-06-01,Dormente,Precisa de Atencao,7044,23,25,6767
+2020-06-01,Dormente,Quase Dormindo,9728,16,17,9272
+2020-06-01,Dormente,,34,0,27,33
+2020-06-01,Inativo,Clientes Fieis,152,0,0,0
+2020-06-01,Inativo,Em Risco,13935,33,38,43
+2020-06-01,Inativo,Hibernando,12196,19,19,19
+2020-06-01,Inativo,Perdido,10562,10,10,12
+2020-06-01,Inativo,Precisa de Atencao,194,0,0,0
+2020-06-01,Inativo,Quase Dormindo,298,1,1,1
+2020-06-01,Inativo,,14,0,0,0
+2020-06-01,Não Ativado,Campeao,1,1,1,1
+2020-06-01,Não Ativado,Clientes Fieis,3,1,2,3
+2020-06-01,Não Ativado,Em Risco,1,0,0,0
+2020-06-01,Não Ativado,Nao Perder!,2,0,0,0
+2020-06-01,Não Ativado,Perdido,2,0,0,0
+2020-06-01,Não Ativado,Potencial Fiel,1,1,1,1
+2020-06-01,Não Ativado,Precisa de Atencao,1,0,0,1
+2020-06-01,Não Ativado,Quase Dormindo,1,0,0,1
+2020-06-01,Não Ativado,,3198,195,209,220
+2020-07-01,Ativo,Campeao,48956,48490,48956,48956
+2020-07-01,Ativo,Clientes Fieis,42712,41797,42706,42707
+2020-07-01,Ativo,Novos Clientes,5292,5109,5287,5288
+2020-07-01,Ativo,Potencial Fiel,33382,32352,33370,33371
+2020-07-01,Ativo,,293,291,293,293
+2020-07-01,Churn,Em Risco,3526,4,4,4
+2020-07-01,Churn,Hibernando,124,0,0,0
+2020-07-01,Churn,Nao Perder!,46,0,1,1
+2020-07-01,Churn,Perdido,29056,21,23,24
+2020-07-01,Churn,,97249,31,31,32
+2020-07-01,Dormente,Campeao,407,5,407,407
+2020-07-01,Dormente,Clientes Fieis,27084,173,20013,26891
+2020-07-01,Dormente,Clientes Promissores,4984,6,4706,4982
+2020-07-01,Dormente,Novos Clientes,183,2,183,183
+2020-07-01,Dormente,Potencial Fiel,22963,87,21835,22945
+2020-07-01,Dormente,Precisa de Atencao,7616,22,22,7365
+2020-07-01,Dormente,Quase Dormindo,10706,23,23,10227
+2020-07-01,Dormente,,35,0,28,35
+2020-07-01,Inativo,Clientes Fieis,104,0,0,0
+2020-07-01,Inativo,Em Risco,14741,39,42,49
+2020-07-01,Inativo,Hibernando,13223,18,19,21
+2020-07-01,Inativo,Perdido,11968,11,13,13
+2020-07-01,Inativo,Precisa de Atencao,224,1,1,1
+2020-07-01,Inativo,Quase Dormindo,369,2,2,2
+2020-07-01,Inativo,,11,0,0,0
+2020-07-01,Não Ativado,Campeao,2,2,2,2
+2020-07-01,Não Ativado,Clientes Fieis,2,2,2,2
+2020-07-01,Não Ativado,Hibernando,1,0,0,0
+2020-07-01,Não Ativado,Nao Perder!,1,0,0,0
+2020-07-01,Não Ativado,Perdido,2,0,0,0
+2020-07-01,Não Ativado,Potencial Fiel,2,2,2,2
+2020-07-01,Não Ativado,,1988,192,204,216
+2020-08-01,Ativo,Campeao,34569,34230,34566,34569
+2020-08-01,Ativo,Clientes Fieis,32320,31579,32311,32316
+2020-08-01,Ativo,Novos Clientes,4516,4350,4514,4514
+2020-08-01,Ativo,Potencial Fiel,26873,26005,26859,26861
+2020-08-01,Ativo,,225,224,225,225
+2020-08-01,Churn,Em Risco,2922,6,6,8
+2020-08-01,Churn,Hibernando,88,0,0,0
+2020-08-01,Churn,Nao Perder!,34,0,0,0
+2020-08-01,Churn,Perdido,24794,19,22,24
+2020-08-01,Churn,,87878,21,22,23
+2020-08-01,Dormente,Campeao,313,4,313,313
+2020-08-01,Dormente,Clientes Fieis,20461,124,15168,20325
+2020-08-01,Dormente,Clientes Promissores,4203,10,3975,4199
+2020-08-01,Dormente,Novos Clientes,139,0,139,139
+2020-08-01,Dormente,Potencial Fiel,18551,56,17605,18541
+2020-08-01,Dormente,Precisa de Atencao,5945,19,20,5715
+2020-08-01,Dormente,Quase Dormindo,9010,10,10,8640
+2020-08-01,Dormente,,17,0,14,17
+2020-08-01,Inativo,Clientes Fieis,101,0,0,0
+2020-08-01,Inativo,Em Risco,11856,31,31,35
+2020-08-01,Inativo,Hibernando,11243,14,15,16
+2020-08-01,Inativo,Perdido,10275,7,7,8
+2020-08-01,Inativo,Precisa de Atencao,205,0,0,0
+2020-08-01,Inativo,Quase Dormindo,281,0,0,0
+2020-08-01,Inativo,,9,0,0,0
+2020-08-01,Não Ativado,Clientes Fieis,1,1,1,1
+2020-08-01,Não Ativado,Nao Perder!,1,0,0,0
+2020-08-01,Não Ativado,Perdido,2,0,0,0
+2020-08-01,Não Ativado,Precisa de Atencao,1,0,0,1
+2020-08-01,Não Ativado,Quase Dormindo,1,0,0,1
+2020-08-01,Não Ativado,,4988,163,169,175
+2020-09-01,Ativo,Campeao,25246,24973,25244,25245
+2020-09-01,Ativo,Clientes Fieis,24334,23791,24329,24332
+2020-09-01,Ativo,Novos Clientes,3747,3601,3744,3744
+2020-09-01,Ativo,Potencial Fiel,21688,21018,21677,21678
+2020-09-01,Ativo,,178,178,178,178
+2020-09-01,Churn,Em Risco,2323,3,3,3
+2020-09-01,Churn,Hibernando,90,0,0,0
+2020-09-01,Churn,Nao Perder!,29,0,0,0
+2020-09-01,Churn,Perdido,21272,17,18,20
+2020-09-01,Churn,,81112,22,22,24
+2020-09-01,Dormente,Campeao,228,1,227,228
+2020-09-01,Dormente,Clientes Fieis,15609,114,11455,15494
+2020-09-01,Dormente,Clientes Promissores,3606,7,3411,3602
+2020-09-01,Dormente,Novos Clientes,99,1,99,99
+2020-09-01,Dormente,Potencial Fiel,14543,37,13874,14536
+2020-09-01,Dormente,Precisa de Atencao,4742,10,10,4570
+2020-09-01,Dormente,Quase Dormindo,7302,16,16,6976
+2020-09-01,Dormente,,23,0,15,23
+2020-09-01,Inativo,Clientes Fieis,78,0,0,0
+2020-09-01,Inativo,Em Risco,9297,20,22,25
+2020-09-01,Inativo,Hibernando,8968,19,20,21
+2020-09-01,Inativo,Perdido,8593,8,8,8
+2020-09-01,Inativo,Precisa de Atencao,122,1,1,1
+2020-09-01,Inativo,Quase Dormindo,242,1,1,1
+2020-09-01,Inativo,,7,0,0,0
+2020-09-01,Não Ativado,Perdido,2,0,0,0
+2020-09-01,Não Ativado,Potencial Fiel,1,1,1,1
+2020-09-01,Não Ativado,Precisa de Atencao,1,0,0,1
+2020-09-01,Não Ativado,Quase Dormindo,1,0,0,1
+2020-09-01,Não Ativado,,3007,105,114,118
+2020-10-01,Ativo,Campeao,22736,22511,22735,22735
+2020-10-01,Ativo,Clientes Fieis,22610,22120,22606,22609
+2020-10-01,Ativo,Novos Clientes,3728,3588,3725,3725
+2020-10-01,Ativo,Potencial Fiel,20904,20243,20895,20896
+2020-10-01,Ativo,,143,141,143,143
+2020-10-01,Churn,Em Risco,2288,2,2,2
+2020-10-01,Churn,Hibernando,89,0,0,0
+2020-10-01,Churn,Nao Perder!,22,0,0,0
+2020-10-01,Churn,Perdido,21434,21,24,28
+2020-10-01,Churn,,85620,18,19,23
+2020-10-01,Dormente,Campeao,216,4,216,216
+2020-10-01,Dormente,Clientes Fieis,14498,97,10632,14393
+2020-10-01,Dormente,Clientes Promissores,3397,0,3181,3396
+2020-10-01,Dormente,Novos Clientes,122,0,122,122
+2020-10-01,Dormente,Potencial Fiel,14263,36,13583,14256
+2020-10-01,Dormente,Precisa de Atencao,4595,11,11,4412
+2020-10-01,Dormente,Quase Dormindo,7224,6,8,6902
+2020-10-01,Dormente,,11,0,8,11
+2020-10-01,Inativo,Clientes Fieis,74,1,1,2
+2020-10-01,Inativo,Em Risco,9129,20,23,26
+2020-10-01,Inativo,Hibernando,8940,16,16,17
+2020-10-01,Inativo,Perdido,8469,7,7,7
+2020-10-01,Inativo,Precisa de Atencao,118,0,0,1
+2020-10-01,Inativo,Quase Dormindo,273,0,0,0
+2020-10-01,Inativo,,7,0,0,0
+2020-10-01,Não Ativado,Campeao,1,1,1,1
+2020-10-01,Não Ativado,Clientes Fieis,2,1,1,1
+2020-10-01,Não Ativado,Em Risco,1,0,0,0
+2020-10-01,Não Ativado,Novos Clientes,2,2,2,2
+2020-10-01,Não Ativado,Perdido,1,0,0,0
+2020-10-01,Não Ativado,Precisa de Atencao,2,0,0,2
+2020-10-01,Não Ativado,,2992,109,112,116
+2020-11-01,Ativo,Campeao,19815,19587,19814,19815
+2020-11-01,Ativo,Clientes Fieis,20086,19636,20084,20085
+2020-11-01,Ativo,Novos Clientes,3549,3446,3546,3546
+2020-11-01,Ativo,Potencial Fiel,19126,18509,19115,19117
+2020-11-01,Ativo,,142,140,142,142
+2020-11-01,Churn,Em Risco,2192,4,4,4
+2020-11-01,Churn,Hibernando,74,1,1,1
+2020-11-01,Churn,Nao Perder!,20,0,0,0
+2020-11-01,Churn,Perdido,20345,15,16,17
+2020-11-01,Churn,,85862,30,31,32
+2020-11-01,Dormente,Campeao,175,2,175,175
+2020-11-01,Dormente,Clientes Fieis,12908,70,9441,12815
+2020-11-01,Dormente,Clientes Promissores,3304,5,3127,3302
+2020-11-01,Dormente,Novos Clientes,110,0,110,110
+2020-11-01,Dormente,Potencial Fiel,13054,41,12467,13053
+2020-11-01,Dormente,Precisa de Atencao,4084,12,13,3924
+2020-11-01,Dormente,Quase Dormindo,6963,9,12,6618
+2020-11-01,Dormente,,24,0,21,24
+2020-11-01,Inativo,Clientes Fieis,66,0,0,0
+2020-11-01,Inativo,Em Risco,8399,23,23,25
+2020-11-01,Inativo,Hibernando,8603,10,12,12
+2020-11-01,Inativo,Perdido,8282,3,3,4
+2020-11-01,Inativo,Precisa de Atencao,119,1,1,1
+2020-11-01,Inativo,Quase Dormindo,245,0,0,0
+2020-11-01,Inativo,,9,0,0,0
+2020-11-01,Não Ativado,Perdido,1,0,0,0
+2020-11-01,Não Ativado,,3086,106,120,130
+2020-12-01,Ativo,Campeao,21108,20874,21105,21107
+2020-12-01,Ativo,Clientes Fieis,21555,21098,21550,21552
+2020-12-01,Ativo,Novos Clientes,4170,3986,4167,4168
+2020-12-01,Ativo,Potencial Fiel,21429,20707,21417,21419
+2020-12-01,Ativo,,153,152,153,153
+2020-12-01,Churn,Em Risco,2667,6,7,8
+2020-12-01,Churn,Hibernando,107,1,1,1
+2020-12-01,Churn,Nao Perder!,28,0,0,0
+2020-12-01,Churn,Perdido,24588,22,22,23
+2020-12-01,Churn,,106097,20,23,24
+2020-12-01,Dormente,Campeao,207,4,207,207
+2020-12-01,Dormente,Clientes Fieis,14146,97,10205,14021
+2020-12-01,Dormente,Clientes Promissores,3827,2,3621,3824
+2020-12-01,Dormente,Novos Clientes,136,0,136,136
+2020-12-01,Dormente,Potencial Fiel,14762,31,14057,14755
+2020-12-01,Dormente,Precisa de Atencao,4741,11,14,4564
+2020-12-01,Dormente,Quase Dormindo,8135,5,5,7762
+2020-12-01,Dormente,,29,0,20,29
+2020-12-01,Inativo,Clientes Fieis,67,0,0,0
+2020-12-01,Inativo,Em Risco,9774,28,30,33
+2020-12-01,Inativo,Hibernando,9861,14,15,15
+2020-12-01,Inativo,Perdido,9674,6,7,7
+2020-12-01,Inativo,Precisa de Atencao,145,1,1,1
+2020-12-01,Inativo,Quase Dormindo,330,0,0,0
+2020-12-01,Inativo,,15,0,0,0
+2020-12-01,Não Ativado,Clientes Fieis,1,0,1,1
+2020-12-01,Não Ativado,Em Risco,2,0,0,0
+2020-12-01,Não Ativado,Hibernando,1,0,0,0
+2020-12-01,Não Ativado,Nao Perder!,2,0,0,0
+2020-12-01,Não Ativado,Perdido,2,0,0,0
+2020-12-01,Não Ativado,Quase Dormindo,2,0,0,2
+2020-12-01,Não Ativado,,8482,114,124,133
+2021-01-01,Ativo,Campeao,17118,16918,17118,17118
+2021-01-01,Ativo,Clientes Fieis,18420,18032,18417,18420
+2021-01-01,Ativo,Novos Clientes,3908,3765,3908,3908
+2021-01-01,Ativo,Potencial Fiel,18838,18257,18836,18836
+2021-01-01,Ativo,,126,126,126,126
+2021-01-01,Churn,Em Risco,2311,2,4,4
+2021-01-01,Churn,Hibernando,83,0,0,0
+2021-01-01,Churn,Nao Perder!,20,0,0,0
+2021-01-01,Churn,Perdido,21614,14,15,16
+2021-01-01,Churn,,93418,19,23,26
+2021-01-01,Dormente,Campeao,139,3,139,139
+2021-01-01,Dormente,Clientes Fieis,11814,87,8466,11743
+2021-01-01,Dormente,Clientes Promissores,3560,2,3350,3559
+2021-01-01,Dormente,Novos Clientes,105,0,105,105
+2021-01-01,Dormente,Potencial Fiel,12952,44,12336,12938
+2021-01-01,Dormente,Precisa de Atencao,4068,6,7,3922
+2021-01-01,Dormente,Quase Dormindo,7272,15,15,6925
+2021-01-01,Dormente,,23,0,16,23
+2021-01-01,Inativo,Clientes Fieis,60,1,1,1
+2021-01-01,Inativo,Em Risco,8467,21,25,26
+2021-01-01,Inativo,Hibernando,8903,13,15,16
+2021-01-01,Inativo,Perdido,8949,8,10,11
+2021-01-01,Inativo,Precisa de Atencao,129,0,0,0
+2021-01-01,Inativo,Quase Dormindo,261,0,0,0
+2021-01-01,Inativo,,10,0,0,0
+2021-01-01,Não Ativado,Clientes Fieis,1,0,1,1
+2021-01-01,Não Ativado,Nao Perder!,1,0,0,0
+2021-01-01,Não Ativado,Novos Clientes,1,1,1,1
+2021-01-01,Não Ativado,Perdido,2,0,0,0
+2021-01-01,Não Ativado,Quase Dormindo,3,0,0,3
+2021-01-01,Não Ativado,,17979,75,84,90
+2021-02-01,Ativo,Campeao,14366,14215,14365,14366
+2021-02-01,Ativo,Clientes Fieis,15006,14658,15003,15006
+2021-02-01,Ativo,Novos Clientes,3246,3147,3245,3245
+2021-02-01,Ativo,Potencial Fiel,15683,15220,15676,15677
+2021-02-01,Ativo,,92,92,92,92
+2021-02-01,Churn,Em Risco,1890,3,3,3
+2021-02-01,Churn,Hibernando,73,1,1,1
+2021-02-01,Churn,Nao Perder!,16,0,0,0
+2021-02-01,Churn,Perdido,18165,10,13,14
+2021-02-01,Churn,,83675,20,22,25
+2021-02-01,Dormente,Campeao,121,2,121,121
+2021-02-01,Dormente,Clientes Fieis,9836,49,7019,9760
+2021-02-01,Dormente,Clientes Promissores,3044,2,2869,3043
+2021-02-01,Dormente,Novos Clientes,84,0,83,83
+2021-02-01,Dormente,Potencial Fiel,11020,28,10441,11013
+2021-02-01,Dormente,Precisa de Atencao,3362,9,9,3238
+2021-02-01,Dormente,Quase Dormindo,6007,6,7,5772
+2021-02-01,Dormente,,14,0,11,14
+2021-02-01,Inativo,Clientes Fieis,57,0,0,0
+2021-02-01,Inativo,Em Risco,6971,16,16,17
+2021-02-01,Inativo,Hibernando,7516,8,8,8
+2021-02-01,Inativo,Perdido,7409,5,5,5
+2021-02-01,Inativo,Precisa de Atencao,111,0,0,0
+2021-02-01,Inativo,Quase Dormindo,209,0,0,0
+2021-02-01,Inativo,,7,0,0,0
+2021-02-01,Não Ativado,Clientes Fieis,1,1,1,1
+2021-02-01,Não Ativado,Em Risco,1,0,0,0
+2021-02-01,Não Ativado,Hibernando,2,0,0,0
+2021-02-01,Não Ativado,Perdido,3,0,0,0
+2021-02-01,Não Ativado,Potencial Fiel,2,1,2,2
+2021-02-01,Não Ativado,,3157,90,100,101
+2021-03-01,Ativo,Campeao,12581,12457,12581,12581
+2021-03-01,Ativo,Clientes Fieis,13590,13268,13589,13589
+2021-03-01,Ativo,Novos Clientes,3135,3026,3134,3134
+2021-03-01,Ativo,Potencial Fiel,14212,13811,14206,14206
+2021-03-01,Ativo,,105,102,105,105
+2021-03-01,Churn,Em Risco,1762,3,4,4
+2021-03-01,Churn,Hibernando,44,0,0,0
+2021-03-01,Churn,Nao Perder!,13,0,0,0
+2021-03-01,Churn,Perdido,17524,17,17,18
+2021-03-01,Churn,,79487,22,22,23
+2021-03-01,Dormente,Campeao,108,1,108,108
+2021-03-01,Dormente,Clientes Fieis,8734,63,6337,8669
+2021-03-01,Dormente,Clientes Promissores,2834,3,2681,2833
+2021-03-01,Dormente,Novos Clientes,100,0,100,100
+2021-03-01,Dormente,Potencial Fiel,9913,26,9418,9909
+2021-03-01,Dormente,Precisa de Atencao,3096,11,13,2994
+2021-03-01,Dormente,Quase Dormindo,5847,6,8,5623
+2021-03-01,Dormente,,16,0,11,16
+2021-03-01,Inativo,Clientes Fieis,58,0,0,0
+2021-03-01,Inativo,Em Risco,6536,16,17,21
+2021-03-01,Inativo,Hibernando,6855,7,7,8
+2021-03-01,Inativo,Perdido,7155,8,8,8
+2021-03-01,Inativo,Precisa de Atencao,84,0,0,0
+2021-03-01,Inativo,Quase Dormindo,188,1,1,1
+2021-03-01,Inativo,,8,0,0,0
+2021-03-01,Não Ativado,Clientes Fieis,1,0,1,1
+2021-03-01,Não Ativado,Perdido,2,0,0,0
+2021-03-01,Não Ativado,Potencial Fiel,1,0,1,1
+2021-03-01,Não Ativado,,4492,64,74,75
+2021-04-01,Ativo,Campeao,11183,11071,11181,11183
+2021-04-01,Ativo,Clientes Fieis,12169,11893,12168,12168
+2021-04-01,Ativo,Novos Clientes,2817,2720,2817,2817
+2021-04-01,Ativo,Potencial Fiel,12687,12262,12677,12679
+2021-04-01,Ativo,,75,74,75,75
+2021-04-01,Churn,Em Risco,1604,2,4,4
+2021-04-01,Churn,Hibernando,57,0,0,0
+2021-04-01,Churn,Nao Perder!,23,0,0,0
+2021-04-01,Churn,Perdido,15597,12,12,12
+2021-04-01,Churn,,72760,13,15,17
+2021-04-01,Dormente,Campeao,107,2,107,107
+2021-04-01,Dormente,Clientes Fieis,8052,38,5759,7990
+2021-04-01,Dormente,Clientes Promissores,2534,2,2387,2534
+2021-04-01,Dormente,Novos Clientes,90,0,90,90
+2021-04-01,Dormente,Potencial Fiel,8915,17,8455,8908
+2021-04-01,Dormente,Precisa de Atencao,2735,4,7,2636
+2021-04-01,Dormente,Quase Dormindo,5108,13,15,4870
+2021-04-01,Dormente,,19,1,15,19
+2021-04-01,Inativo,Clientes Fieis,43,0,0,0
+2021-04-01,Inativo,Em Risco,5615,10,11,12
+2021-04-01,Inativo,Hibernando,6109,15,15,15
+2021-04-01,Inativo,Perdido,6318,3,3,3
+2021-04-01,Inativo,Precisa de Atencao,73,0,1,1
+2021-04-01,Inativo,Quase Dormindo,181,0,0,0
+2021-04-01,Inativo,,6,0,0,0
+2021-04-01,Não Ativado,Em Risco,1,0,0,0
+2021-04-01,Não Ativado,Hibernando,1,0,0,0
+2021-04-01,Não Ativado,Perdido,2,0,0,0
+2021-04-01,Não Ativado,Potencial Fiel,1,0,1,1
+2021-04-01,Não Ativado,,2756,71,77,84
+2021-05-01,Ativo,Campeao,11669,11542,11669,11669
+2021-05-01,Ativo,Clientes Fieis,13331,13041,13330,13330
+2021-05-01,Ativo,Novos Clientes,3263,3156,3262,3262
+2021-05-01,Ativo,Potencial Fiel,14510,14082,14503,14504
+2021-05-01,Ativo,,88,87,88,88
+2021-05-01,Churn,Em Risco,1832,2,2,2
+2021-05-01,Churn,Hibernando,62,0,0,0
+2021-05-01,Churn,Nao Perder!,17,0,0,0
+2021-05-01,Churn,Perdido,18502,8,9,11
+2021-05-01,Churn,,87824,16,17,18
+2021-05-01,Dormente,Campeao,107,1,107,107
+2021-05-01,Dormente,Clientes Fieis,8670,57,6203,8600
+2021-05-01,Dormente,Clientes Promissores,3056,5,2876,3053
+2021-05-01,Dormente,Novos Clientes,123,0,122,122
+2021-05-01,Dormente,Potencial Fiel,10119,22,9654,10116
+2021-05-01,Dormente,Precisa de Atencao,3146,11,13,3028
+2021-05-01,Dormente,Quase Dormindo,5922,12,12,5642
+2021-05-01,Dormente,,14,0,12,14
+2021-05-01,Inativo,Clientes Fieis,43,0,0,0
+2021-05-01,Inativo,Em Risco,6357,23,23,23
+2021-05-01,Inativo,Hibernando,7057,10,11,11
+2021-05-01,Inativo,Perdido,7275,5,6,6
+2021-05-01,Inativo,Precisa de Atencao,80,0,0,0
+2021-05-01,Inativo,Quase Dormindo,194,0,0,0
+2021-05-01,Inativo,,12,0,0,0
+2021-05-01,Não Ativado,Campeao,1,1,1,1
+2021-05-01,Não Ativado,Clientes Fieis,2,0,1,2
+2021-05-01,Não Ativado,Em Risco,1,0,0,0
+2021-05-01,Não Ativado,Perdido,3,0,0,0
+2021-05-01,Não Ativado,Quase Dormindo,2,0,0,2
+2021-05-01,Não Ativado,,7487,70,76,81
+2021-06-01,Ativo,Campeao,10202,10079,10202,10202
+2021-06-01,Ativo,Clientes Fieis,11712,11429,11709,11710
+2021-06-01,Ativo,Novos Clientes,3079,2985,3076,3076
+2021-06-01,Ativo,Potencial Fiel,13134,12759,13123,13127
+2021-06-01,Ativo,,92,92,92,92
+2021-06-01,Churn,Em Risco,1701,2,2,2
+2021-06-01,Churn,Hibernando,65,0,0,0
+2021-06-01,Churn,Nao Perder!,21,0,0,0
+2021-06-01,Churn,Perdido,16979,8,8,10
+2021-06-01,Churn,,88113,19,19,24
+2021-06-01,Dormente,Campeao,97,5,97,97
+2021-06-01,Dormente,Clientes Fieis,7548,48,5443,7480
+2021-06-01,Dormente,Clientes Promissores,2787,5,2623,2784
+2021-06-01,Dormente,Novos Clientes,78,1,77,77
+2021-06-01,Dormente,Potencial Fiel,9294,34,8827,9285
+2021-06-01,Dormente,Precisa de Atencao,2923,8,10,2820
+2021-06-01,Dormente,Quase Dormindo,5391,7,7,5172
+2021-06-01,Dormente,,18,0,11,18
+2021-06-01,Inativo,Clientes Fieis,41,0,0,0
+2021-06-01,Inativo,Em Risco,5892,18,19,20
+2021-06-01,Inativo,Hibernando,6643,9,11,12
+2021-06-01,Inativo,Perdido,6854,8,9,9
+2021-06-01,Inativo,Precisa de Atencao,88,0,0,0
+2021-06-01,Inativo,Quase Dormindo,196,0,0,0
+2021-06-01,Inativo,,5,0,0,0
+2021-06-01,Não Ativado,Campeao,2,2,2,2
+2021-06-01,Não Ativado,Clientes Fieis,1,1,1,1
+2021-06-01,Não Ativado,Hibernando,1,0,0,0
+2021-06-01,Não Ativado,Perdido,1,0,0,0
+2021-06-01,Não Ativado,Potencial Fiel,1,0,1,1
+2021-06-01,Não Ativado,Quase Dormindo,1,0,0,1
+2021-06-01,Não Ativado,,4415,59,65,76
+2021-07-01,Ativo,Campeao,9778,9648,9778,9778
+2021-07-01,Ativo,Clientes Fieis,11371,11117,11370,11370
+2021-07-01,Ativo,Novos Clientes,2991,2893,2987,2987
+2021-07-01,Ativo,Potencial Fiel,12809,12376,12800,12800
+2021-07-01,Ativo,,80,80,80,80
+2021-07-01,Churn,Em Risco,1677,5,5,5
+2021-07-01,Churn,Hibernando,64,0,0,0
+2021-07-01,Churn,Nao Perder!,22,0,0,0
+2021-07-01,Churn,Perdido,16631,11,11,11
+2021-07-01,Churn,,89118,20,22,22
+2021-07-01,Dormente,Campeao,89,2,89,89
+2021-07-01,Dormente,Clientes Fieis,7504,45,5396,7443
+2021-07-01,Dormente,Clientes Promissores,2729,1,2560,2727
+2021-07-01,Dormente,Novos Clientes,76,0,76,76
+2021-07-01,Dormente,Potencial Fiel,9037,22,8562,9031
+2021-07-01,Dormente,Precisa de Atencao,2730,9,9,2634
+2021-07-01,Dormente,Quase Dormindo,5288,3,5,5045
+2021-07-01,Dormente,,24,1,18,24
+2021-07-01,Inativo,Clientes Fieis,45,0,0,0
+2021-07-01,Inativo,Em Risco,5774,14,14,15
+2021-07-01,Inativo,Hibernando,6345,13,13,14
+2021-07-01,Inativo,Perdido,6718,4,4,4
+2021-07-01,Inativo,Precisa de Atencao,91,0,0,0
+2021-07-01,Inativo,Quase Dormindo,163,1,1,1
+2021-07-01,Inativo,,16,0,0,0
+2021-07-01,Não Ativado,Clientes Fieis,1,0,0,1
+2021-07-01,Não Ativado,Clientes Promissores,1,0,0,1
+2021-07-01,Não Ativado,Nao Perder!,1,0,0,0
+2021-07-01,Não Ativado,Novos Clientes,1,1,1,1
+2021-07-01,Não Ativado,Perdido,1,0,0,0
+2021-07-01,Não Ativado,Quase Dormindo,1,0,0,1
+2021-07-01,Não Ativado,,16096,65,71,74
+2021-08-01,Ativo,Campeao,7193,7110,7193,7193
+2021-08-01,Ativo,Clientes Fieis,8269,8068,8266,8267
+2021-08-01,Ativo,Novos Clientes,2147,2077,2144,2144
+2021-08-01,Ativo,Potencial Fiel,9051,8786,9045,9047
+2021-08-01,Ativo,,75,73,75,75
+2021-08-01,Churn,Em Risco,1248,2,2,3
+2021-08-01,Churn,Hibernando,54,0,0,0
+2021-08-01,Churn,Nao Perder!,11,0,0,0
+2021-08-01,Churn,Perdido,12179,10,10,11
+2021-08-01,Churn,,61996,12,13,17
+2021-08-01,Dormente,Campeao,68,1,68,68
+2021-08-01,Dormente,Clientes Fieis,5582,43,4035,5547
+2021-08-01,Dormente,Clientes Promissores,1988,3,1882,1986
+2021-08-01,Dormente,Novos Clientes,73,0,73,73
+2021-08-01,Dormente,Potencial Fiel,6647,9,6315,6640
+2021-08-01,Dormente,Precisa de Atencao,1971,7,9,1890
+2021-08-01,Dormente,Quase Dormindo,3922,8,8,3762
+2021-08-01,Dormente,,20,0,14,19
+2021-08-01,Inativo,Clientes Fieis,26,0,0,0
+2021-08-01,Inativo,Em Risco,4146,11,14,17
+2021-08-01,Inativo,Hibernando,4556,6,6,6
+2021-08-01,Inativo,Perdido,4847,2,2,2
+2021-08-01,Inativo,Precisa de Atencao,53,0,0,0
+2021-08-01,Inativo,Quase Dormindo,130,0,0,0
+2021-08-01,Inativo,,12,0,0,0
+2021-08-01,Não Ativado,Campeao,1,1,1,1
+2021-08-01,Não Ativado,Clientes Fieis,1,1,1,1
+2021-08-01,Não Ativado,Novos Clientes,2,1,2,2
+2021-08-01,Não Ativado,Perdido,3,0,0,0
+2021-08-01,Não Ativado,,38197,48,53,60
+2021-09-01,Ativo,Campeao,7184,7111,7184,7184
+2021-09-01,Ativo,Clientes Fieis,8188,8029,8188,8188
+2021-09-01,Ativo,Novos Clientes,2076,2000,2072,2074
+2021-09-01,Ativo,Potencial Fiel,9263,8979,9258,9260
+2021-09-01,Ativo,,60,59,60,60
+2021-09-01,Churn,Em Risco,1212,1,1,1
+2021-09-01,Churn,Hibernando,46,0,0,0
+2021-09-01,Churn,Nao Perder!,12,0,0,0
+2021-09-01,Churn,Perdido,12139,6,6,8
+2021-09-01,Churn,,62260,14,14,14
+2021-09-01,Dormente,Campeao,65,0,65,65
+2021-09-01,Dormente,Clientes Fieis,5406,35,3911,5356
+2021-09-01,Dormente,Clientes Promissores,1984,0,1859,1983
+2021-09-01,Dormente,Novos Clientes,83,0,83,83
+2021-09-01,Dormente,Potencial Fiel,6432,21,6123,6428
+2021-09-01,Dormente,Precisa de Atencao,2015,3,4,1935
+2021-09-01,Dormente,Quase Dormindo,3856,10,14,3689
+2021-09-01,Dormente,,15,2,6,14
+2021-09-01,Inativo,Clientes Fieis,32,0,0,0
+2021-09-01,Inativo,Em Risco,3972,7,9,11
+2021-09-01,Inativo,Hibernando,4566,5,6,7
+2021-09-01,Inativo,Perdido,4795,3,3,4
+2021-09-01,Inativo,Precisa de Atencao,59,0,0,0
+2021-09-01,Inativo,Quase Dormindo,133,0,0,0
+2021-09-01,Inativo,,8,0,0,0
+2021-09-01,Não Ativado,Em Risco,1,0,0,0
+2021-09-01,Não Ativado,Hibernando,1,0,0,0
+2021-09-01,Não Ativado,Perdido,4,0,0,0
+2021-09-01,Não Ativado,Quase Dormindo,1,0,0,1
+2021-09-01,Não Ativado,,18402,63,66,69
+2021-10-01,Ativo,Campeao,7299,7220,7299,7299
+2021-10-01,Ativo,Clientes Fieis,8598,8387,8595,8596
+2021-10-01,Ativo,Novos Clientes,2233,2139,2231,2231
+2021-10-01,Ativo,Potencial Fiel,9874,9562,9869,9869
+2021-10-01,Ativo,,76,74,76,76
+2021-10-01,Churn,Em Risco,1277,3,3,3
+2021-10-01,Churn,Hibernando,59,0,0,0
+2021-10-01,Churn,Nao Perder!,16,0,0,0
+2021-10-01,Churn,Perdido,13125,9,9,9
+2021-10-01,Churn,,64351,16,18,18
+2021-10-01,Dormente,Campeao,67,0,67,67
+2021-10-01,Dormente,Clientes Fieis,5629,36,4085,5579
+2021-10-01,Dormente,Clientes Promissores,2150,3,2026,2147
+2021-10-01,Dormente,Novos Clientes,63,0,63,63
+2021-10-01,Dormente,Potencial Fiel,6950,25,6576,6944
+2021-10-01,Dormente,Precisa de Atencao,2214,4,4,2131
+2021-10-01,Dormente,Quase Dormindo,4003,4,4,3838
+2021-10-01,Dormente,,26,0,17,24
+2021-10-01,Inativo,Clientes Fieis,24,0,0,0
+2021-10-01,Inativo,Em Risco,4456,15,17,18
+2021-10-01,Inativo,Hibernando,4970,7,7,7
+2021-10-01,Inativo,Perdido,5264,4,4,5
+2021-10-01,Inativo,Precisa de Atencao,62,0,0,0
+2021-10-01,Inativo,Quase Dormindo,154,0,0,0
+2021-10-01,Inativo,,6,0,0,0
+2021-10-01,Não Ativado,Clientes Fieis,1,0,1,1
+2021-10-01,Não Ativado,Nao Perder!,1,0,0,0
+2021-10-01,Não Ativado,Novos Clientes,1,1,1,1
+2021-10-01,Não Ativado,Perdido,3,0,0,0
+2021-10-01,Não Ativado,Potencial Fiel,2,1,2,2
+2021-10-01,Não Ativado,,64858,51,56,59
+2021-11-01,Ativo,Campeao,6675,6595,6675,6675
+2021-11-01,Ativo,Clientes Fieis,7955,7748,7955,7955
+2021-11-01,Ativo,Novos Clientes,2005,1936,2003,2003
+2021-11-01,Ativo,Potencial Fiel,8961,8687,8957,8958
+2021-11-01,Ativo,,74,74,74,74
+2021-11-01,Churn,Em Risco,1178,0,0,0
+2021-11-01,Churn,Hibernando,43,0,0,0
+2021-11-01,Churn,Nao Perder!,17,0,0,0
+2021-11-01,Churn,Perdido,11805,9,9,12
+2021-11-01,Churn,,60377,10,11,11
+2021-11-01,Dormente,Campeao,85,0,85,85
+2021-11-01,Dormente,Clientes Fieis,5249,22,3668,5207
+2021-11-01,Dormente,Clientes Promissores,1891,1,1779,1891
+2021-11-01,Dormente,Novos Clientes,75,0,75,75
+2021-11-01,Dormente,Potencial Fiel,6245,10,5921,6239
+2021-11-01,Dormente,Precisa de Atencao,1916,3,3,1842
+2021-11-01,Dormente,Quase Dormindo,3710,5,5,3528
+2021-11-01,Dormente,,13,0,7,13
+2021-11-01,Inativo,Clientes Fieis,29,0,1,1
+2021-11-01,Inativo,Em Risco,4017,4,4,5
+2021-11-01,Inativo,Hibernando,4601,4,4,5
+2021-11-01,Inativo,Perdido,4722,4,4,4
+2021-11-01,Inativo,Precisa de Atencao,49,0,0,0
+2021-11-01,Inativo,Quase Dormindo,128,0,0,0
+2021-11-01,Inativo,,7,0,0,0
+2021-11-01,Não Ativado,Clientes Promissores,1,0,1,1
+2021-11-01,Não Ativado,Em Risco,2,0,0,0
+2021-11-01,Não Ativado,Nao Perder!,2,0,0,0
+2021-11-01,Não Ativado,Perdido,2,0,0,0
+2021-11-01,Não Ativado,Potencial Fiel,1,1,1,1
+2021-11-01,Não Ativado,Quase Dormindo,2,0,0,2
+2021-11-01,Não Ativado,,2773,59,64,67
+2021-12-01,Ativo,Campeao,7905,7821,7905,7905
+2021-12-01,Ativo,Clientes Fieis,9501,9292,9500,9500
+2021-12-01,Ativo,Novos Clientes,2558,2470,2556,2556
+2021-12-01,Ativo,Potencial Fiel,10849,10519,10843,10845
+2021-12-01,Ativo,,99,98,99,99
+2021-12-01,Churn,Em Risco,1525,1,1,1
+2021-12-01,Churn,Hibernando,68,0,0,0
+2021-12-01,Churn,Nao Perder!,9,0,0,0
+2021-12-01,Churn,Perdido,15280,11,12,14
+2021-12-01,Churn,,77505,16,16,16
+2021-12-01,Dormente,Campeao,85,2,85,85
+2021-12-01,Dormente,Clientes Fieis,6476,38,4642,6422
+2021-12-01,Dormente,Clientes Promissores,2292,3,2132,2291
+2021-12-01,Dormente,Novos Clientes,88,0,88,88
+2021-12-01,Dormente,Potencial Fiel,7758,20,7369,7752
+2021-12-01,Dormente,Precisa de Atencao,2403,4,5,2309
+2021-12-01,Dormente,Quase Dormindo,4618,5,6,4397
+2021-12-01,Dormente,,22,0,13,22
+2021-12-01,Inativo,Clientes Fieis,35,0,0,0
+2021-12-01,Inativo,Em Risco,5139,8,9,12
+2021-12-01,Inativo,Hibernando,5770,8,8,8
+2021-12-01,Inativo,Perdido,5994,9,9,9
+2021-12-01,Inativo,Precisa de Atencao,81,0,0,0
+2021-12-01,Inativo,Quase Dormindo,161,0,0,0
+2021-12-01,Inativo,,10,0,0,0
+2021-12-01,Não Ativado,Campeao,1,1,1,1
+2021-12-01,Não Ativado,Em Risco,1,0,0,0
+2021-12-01,Não Ativado,Hibernando,1,0,0,0
+2021-12-01,Não Ativado,Perdido,1,0,0,0
+2021-12-01,Não Ativado,,2822,62,71,78
+2022-01-01,Ativo,Campeao,8450,8370,8450,8450
+2022-01-01,Ativo,Clientes Fieis,10215,10013,10214,10214
+2022-01-01,Ativo,Novos Clientes,2952,2843,2948,2948
+2022-01-01,Ativo,Potencial Fiel,12136,11725,12128,12129
+2022-01-01,Ativo,,85,85,85,85
+2022-01-01,Churn,Em Risco,1652,2,2,2
+2022-01-01,Churn,Hibernando,80,0,0,0
+2022-01-01,Churn,Nao Perder!,21,0,0,0
+2022-01-01,Churn,Perdido,17285,12,12,13
+2022-01-01,Churn,,90471,20,22,25
+2022-01-01,Dormente,Campeao,70,1,70,70
+2022-01-01,Dormente,Clientes Fieis,6864,39,4935,6808
+2022-01-01,Dormente,Clientes Promissores,2728,1,2570,2726
+2022-01-01,Dormente,Novos Clientes,84,0,84,84
+2022-01-01,Dormente,Potencial Fiel,8675,27,8182,8668
+2022-01-01,Dormente,Precisa de Atencao,2724,7,7,2612
+2022-01-01,Dormente,Quase Dormindo,5386,9,9,5134
+2022-01-01,Dormente,,22,0,11,21
+2022-01-01,Inativo,Clientes Fieis,49,0,0,0
+2022-01-01,Inativo,Em Risco,5580,17,18,20
+2022-01-01,Inativo,Hibernando,6743,9,11,12
+2022-01-01,Inativo,Perdido,7159,3,4,4
+2022-01-01,Inativo,Precisa de Atencao,80,1,1,1
+2022-01-01,Inativo,Quase Dormindo,205,0,0,0
+2022-01-01,Inativo,,13,0,0,0
+2022-01-01,Não Ativado,Hibernando,2,0,0,0
+2022-01-01,Não Ativado,Nao Perder!,1,0,0,0
+2022-01-01,Não Ativado,Novos Clientes,1,0,1,1
+2022-01-01,Não Ativado,Perdido,2,0,0,0
+2022-01-01,Não Ativado,Potencial Fiel,1,0,1,1
+2022-01-01,Não Ativado,Quase Dormindo,1,0,0,1
+2022-01-01,Não Ativado,,6383,72,80,88
+2022-02-01,Ativo,Campeao,6380,6314,6380,6380
+2022-02-01,Ativo,Clientes Fieis,7664,7482,7664,7664
+2022-02-01,Ativo,Novos Clientes,2109,2020,2108,2108
+2022-02-01,Ativo,Potencial Fiel,8776,8521,8774,8775
+2022-02-01,Ativo,,79,79,79,79
+2022-02-01,Churn,Em Risco,1131,1,1,2
+2022-02-01,Churn,Hibernando,51,0,0,0
+2022-02-01,Churn,Nao Perder!,12,0,0,0
+2022-02-01,Churn,Perdido,11774,10,10,10
+2022-02-01,Churn,,59288,16,17,18
+2022-02-01,Dormente,Campeao,67,0,67,67
+2022-02-01,Dormente,Clientes Fieis,5050,35,3537,5011
+2022-02-01,Dormente,Clientes Promissores,1888,3,1788,1887
+2022-02-01,Dormente,Novos Clientes,53,0,53,53
+2022-02-01,Dormente,Potencial Fiel,6128,13,5807,6123
+2022-02-01,Dormente,Precisa de Atencao,1906,6,7,1841
+2022-02-01,Dormente,Quase Dormindo,3799,2,3,3614
+2022-02-01,Dormente,,11,0,8,11
+2022-02-01,Inativo,Clientes Fieis,25,0,0,0
+2022-02-01,Inativo,Em Risco,4064,6,9,12
+2022-02-01,Inativo,Hibernando,4602,7,7,7
+2022-02-01,Inativo,Perdido,4810,8,9,9
+2022-02-01,Inativo,Precisa de Atencao,62,0,0,1
+2022-02-01,Inativo,Quase Dormindo,143,0,0,0
+2022-02-01,Inativo,,9,0,0,0
+2022-02-01,Não Ativado,Campeao,1,1,1,1
+2022-02-01,Não Ativado,Clientes Fieis,1,0,0,1
+2022-02-01,Não Ativado,Em Risco,3,0,0,0
+2022-02-01,Não Ativado,Perdido,2,0,0,0
+2022-02-01,Não Ativado,,2251,74,80,81
+2022-03-01,Ativo,Campeao,5928,5873,5928,5928
+2022-03-01,Ativo,Clientes Fieis,7244,7086,7244,7244
+2022-03-01,Ativo,Novos Clientes,2086,2008,2086,2086
+2022-03-01,Ativo,Potencial Fiel,8519,8263,8514,8515
+2022-03-01,Ativo,,62,61,62,62
+2022-03-01,Churn,Em Risco,1214,1,1,2
+2022-03-01,Churn,Hibernando,41,0,0,0
+2022-03-01,Churn,Nao Perder!,14,0,0,0
+2022-03-01,Churn,Perdido,11766,3,3,4
+2022-03-01,Churn,,58861,13,14,14
+2022-03-01,Dormente,Campeao,54,2,54,54
+2022-03-01,Dormente,Clientes Fieis,4819,38,3429,4780
+2022-03-01,Dormente,Clientes Promissores,1870,0,1759,1870
+2022-03-01,Dormente,Novos Clientes,67,0,67,67
+2022-03-01,Dormente,Potencial Fiel,5999,23,5688,5994
+2022-03-01,Dormente,Precisa de Atencao,1840,3,4,1774
+2022-03-01,Dormente,Quase Dormindo,3701,12,12,3550
+2022-03-01,Dormente,,19,0,11,19
+2022-03-01,Inativo,Clientes Fieis,33,0,0,0
+2022-03-01,Inativo,Em Risco,3845,10,11,11
+2022-03-01,Inativo,Hibernando,4341,5,6,6
+2022-03-01,Inativo,Perdido,4776,6,6,6
+2022-03-01,Inativo,Precisa de Atencao,57,0,0,0
+2022-03-01,Inativo,Quase Dormindo,140,0,0,0
+2022-03-01,Inativo,,14,0,0,0
+2022-03-01,Não Ativado,Perdido,1,0,0,0
+2022-03-01,Não Ativado,Potencial Fiel,2,1,2,2
+2022-03-01,Não Ativado,,6383,53,58,62
+2022-04-01,Ativo,Campeao,5788,5733,5788,5788
+2022-04-01,Ativo,Clientes Fieis,7154,7014,7151,7151
+2022-04-01,Ativo,Novos Clientes,2105,2034,2105,2105
+2022-04-01,Ativo,Potencial Fiel,8597,8316,8592,8594
+2022-04-01,Ativo,,66,66,66,66
+2022-04-01,Churn,Em Risco,1212,4,4,4
+2022-04-01,Churn,Hibernando,53,0,0,0
+2022-04-01,Churn,Nao Perder!,10,0,0,0
+2022-04-01,Churn,Perdido,11975,8,8,8
+2022-04-01,Churn,,61089,18,20,22
+2022-04-01,Dormente,Campeao,50,0,50,50
+2022-04-01,Dormente,Clientes Fieis,4729,28,3343,4693
+2022-04-01,Dormente,Clientes Promissores,1978,1,1851,1978
+2022-04-01,Dormente,Novos Clientes,59,0,59,59
+2022-04-01,Dormente,Potencial Fiel,6049,16,5747,6038
+2022-04-01,Dormente,Precisa de Atencao,1929,8,8,1850
+2022-04-01,Dormente,Quase Dormindo,3823,5,6,3663
+2022-04-01,Dormente,,19,1,13,19
+2022-04-01,Inativo,Clientes Fieis,29,0,0,0
+2022-04-01,Inativo,Em Risco,3889,7,10,12
+2022-04-01,Inativo,Hibernando,4475,10,10,11
+2022-04-01,Inativo,Perdido,4909,6,6,6
+2022-04-01,Inativo,Precisa de Atencao,58,1,1,1
+2022-04-01,Inativo,Quase Dormindo,128,0,0,0
+2022-04-01,Inativo,,11,0,0,0
+2022-04-01,Não Ativado,Nao Perder!,1,0,0,0
+2022-04-01,Não Ativado,Perdido,1,0,0,0
+2022-04-01,Não Ativado,Quase Dormindo,2,0,0,2
+2022-04-01,Não Ativado,,6419,46,48,50
+2022-05-01,Ativo,Campeao,6384,6307,6383,6384
+2022-05-01,Ativo,Clientes Fieis,7841,7645,7838,7839
+2022-05-01,Ativo,Novos Clientes,2339,2264,2337,2337
+2022-05-01,Ativo,Potencial Fiel,9554,9259,9547,9548
+2022-05-01,Ativo,,83,82,83,83
+2022-05-01,Churn,Em Risco,1238,0,0,0
+2022-05-01,Churn,Hibernando,40,0,0,0
+2022-05-01,Churn,Nao Perder!,16,0,0,0
+2022-05-01,Churn,Perdido,13345,11,12,13
+2022-05-01,Churn,,68854,18,21,25
+2022-05-01,Dormente,Campeao,55,0,55,55
+2022-05-01,Dormente,Clientes Fieis,5131,35,3657,5100
+2022-05-01,Dormente,Clientes Promissores,2141,3,2002,2139
+2022-05-01,Dormente,Novos Clientes,82,0,82,82
+2022-05-01,Dormente,Potencial Fiel,6820,24,6458,6816
+2022-05-01,Dormente,Precisa de Atencao,1935,7,7,1857
+2022-05-01,Dormente,Quase Dormindo,4253,8,8,4078
+2022-05-01,Dormente,,21,0,15,21
+2022-05-01,Inativo,Clientes Fieis,29,0,0,0
+2022-05-01,Inativo,Em Risco,4163,6,7,7
+2022-05-01,Inativo,Hibernando,4978,4,4,4
+2022-05-01,Inativo,Perdido,5382,6,6,6
+2022-05-01,Inativo,Precisa de Atencao,54,0,0,0
+2022-05-01,Inativo,Quase Dormindo,132,0,0,0
+2022-05-01,Inativo,,12,0,0,0
+2022-05-01,Não Ativado,Clientes Fieis,1,0,0,1
+2022-05-01,Não Ativado,Clientes Promissores,1,0,1,1
+2022-05-01,Não Ativado,Nao Perder!,1,0,0,0
+2022-05-01,Não Ativado,Novos Clientes,1,1,1,1
+2022-05-01,Não Ativado,Perdido,1,0,0,0
+2022-05-01,Não Ativado,Potencial Fiel,2,0,2,2
+2022-05-01,Não Ativado,,17037,50,57,59
+2022-06-01,Ativo,Campeao,5377,5311,5377,5377
+2022-06-01,Ativo,Clientes Fieis,6788,6644,6787,6787
+2022-06-01,Ativo,Novos Clientes,2107,2038,2106,2106
+2022-06-01,Ativo,Potencial Fiel,8543,8280,8540,8540
+2022-06-01,Ativo,,71,71,71,71
+2022-06-01,Churn,Em Risco,1129,0,0,0
+2022-06-01,Churn,Hibernando,38,0,0,0
+2022-06-01,Churn,Nao Perder!,16,0,0,0
+2022-06-01,Churn,Perdido,12354,8,9,9
+2022-06-01,Churn,,65268,8,8,8
+2022-06-01,Dormente,Campeao,51,1,51,51
+2022-06-01,Dormente,Clientes Fieis,4529,32,3237,4479
+2022-06-01,Dormente,Clientes Promissores,1980,3,1861,1979
+2022-06-01,Dormente,Novos Clientes,56,0,56,56
+2022-06-01,Dormente,Potencial Fiel,5972,22,5691,5967
+2022-06-01,Dormente,Precisa de Atencao,1697,6,6,1638
+2022-06-01,Dormente,Quase Dormindo,3803,6,7,3641
+2022-06-01,Dormente,,9,0,7,9
+2022-06-01,Inativo,Clientes Fieis,27,0,0,0
+2022-06-01,Inativo,Em Risco,3706,11,12,12
+2022-06-01,Inativo,Hibernando,4467,6,6,6
+2022-06-01,Inativo,Perdido,4768,2,2,2
+2022-06-01,Inativo,Precisa de Atencao,62,2,2,2
+2022-06-01,Inativo,Quase Dormindo,114,1,1,1
+2022-06-01,Inativo,,16,0,0,0
+2022-06-01,Não Ativado,Campeao,1,1,1,1
+2022-06-01,Não Ativado,Clientes Fieis,1,0,0,1
+2022-06-01,Não Ativado,Clientes Promissores,1,0,1,1
+2022-06-01,Não Ativado,Em Risco,3,0,0,0
+2022-06-01,Não Ativado,Perdido,5,0,0,0
+2022-06-01,Não Ativado,Potencial Fiel,1,0,1,1
+2022-06-01,Não Ativado,,8946,37,44,47
+2022-07-01,Ativo,Campeao,5296,5217,5296,5296
+2022-07-01,Ativo,Clientes Fieis,6816,6676,6816,6816
+2022-07-01,Ativo,Novos Clientes,2078,2006,2078,2078
+2022-07-01,Ativo,Potencial Fiel,8352,8057,8347,8348
+2022-07-01,Ativo,,60,59,60,60
+2022-07-01,Churn,Em Risco,1193,1,2,2
+2022-07-01,Churn,Hibernando,43,0,0,0
+2022-07-01,Churn,Nao Perder!,14,0,0,0
+2022-07-01,Churn,Perdido,12232,8,9,10
+2022-07-01,Churn,,65242,12,13,14
+2022-07-01,Dormente,Campeao,66,1,66,66
+2022-07-01,Dormente,Clientes Fieis,4290,30,3019,4256
+2022-07-01,Dormente,Clientes Promissores,1890,3,1779,1890
+2022-07-01,Dormente,Novos Clientes,72,0,72,72
+2022-07-01,Dormente,Potencial Fiel,5838,15,5550,5832
+2022-07-01,Dormente,Precisa de Atencao,1736,9,10,1677
+2022-07-01,Dormente,Quase Dormindo,3780,2,2,3630
+2022-07-01,Dormente,,17,0,14,17
+2022-07-01,Inativo,Clientes Fieis,27,1,1,1
+2022-07-01,Inativo,Em Risco,3742,3,5,5
+2022-07-01,Inativo,Hibernando,4472,7,7,8
+2022-07-01,Inativo,Perdido,4893,1,1,2
+2022-07-01,Inativo,Precisa de Atencao,50,0,0,0
+2022-07-01,Inativo,Quase Dormindo,133,3,3,3
+2022-07-01,Inativo,,17,0,0,0
+2022-07-01,Não Ativado,Clientes Fieis,1,0,0,1
+2022-07-01,Não Ativado,Novos Clientes,1,0,1,1
+2022-07-01,Não Ativado,Perdido,2,0,0,0
+2022-07-01,Não Ativado,Potencial Fiel,3,3,3,3
+2022-07-01,Não Ativado,,5550,62,72,77
+2022-08-01,Ativo,Campeao,5689,5626,5689,5689
+2022-08-01,Ativo,Clientes Fieis,7125,6967,7125,7125
+2022-08-01,Ativo,Novos Clientes,2137,2061,2134,2134
+2022-08-01,Ativo,Potencial Fiel,8393,8119,8386,8386
+2022-08-01,Ativo,,87,85,87,87
+2022-08-01,Churn,Em Risco,1188,3,3,3
+2022-08-01,Churn,Hibernando,47,0,0,0
+2022-08-01,Churn,Nao Perder!,10,0,0,0
+2022-08-01,Churn,Perdido,11841,7,7,8
+2022-08-01,Churn,,60369,17,17,19
+2022-08-01,Dormente,Campeao,55,1,55,55
+2022-08-01,Dormente,Clientes Fieis,4561,25,3237,4529
+2022-08-01,Dormente,Clientes Promissores,1906,2,1790,1903
+2022-08-01,Dormente,Novos Clientes,67,0,67,67
+2022-08-01,Dormente,Potencial Fiel,5598,5,5306,5597
+2022-08-01,Dormente,Precisa de Atencao,1761,4,5,1689
+2022-08-01,Dormente,Quase Dormindo,3612,3,3,3456
+2022-08-01,Dormente,,23,0,15,23
+2022-08-01,Inativo,Clientes Fieis,34,0,0,0
+2022-08-01,Inativo,Em Risco,3658,2,4,4
+2022-08-01,Inativo,Hibernando,4265,9,9,9
+2022-08-01,Inativo,Perdido,4872,1,1,1
+2022-08-01,Inativo,Precisa de Atencao,58,0,0,0
+2022-08-01,Inativo,Quase Dormindo,132,0,0,0
+2022-08-01,Inativo,,10,0,0,0
+2022-08-01,Não Ativado,Em Risco,1,0,0,0
+2022-08-01,Não Ativado,Perdido,2,0,0,0
+2022-08-01,Não Ativado,Quase Dormindo,2,0,0,1
+2022-08-01,Não Ativado,,15913,61,70,73
+2022-09-01,Ativo,Campeao,5202,5134,5201,5202
+2022-09-01,Ativo,Clientes Fieis,6591,6461,6590,6590
+2022-09-01,Ativo,Novos Clientes,2075,2004,2071,2071
+2022-09-01,Ativo,Potencial Fiel,7998,7764,7992,7993
+2022-09-01,Ativo,,71,71,71,71
+2022-09-01,Churn,Em Risco,1140,2,2,2
+2022-09-01,Churn,Hibernando,48,0,0,0
+2022-09-01,Churn,Nao Perder!,14,0,0,0
+2022-09-01,Churn,Perdido,11970,8,8,10
+2022-09-01,Churn,,58755,16,18,18
+2022-09-01,Dormente,Campeao,54,0,54,54
+2022-09-01,Dormente,Clientes Fieis,4186,19,2924,4155
+2022-09-01,Dormente,Clientes Promissores,1869,2,1749,1868
+2022-09-01,Dormente,Novos Clientes,65,1,64,65
+2022-09-01,Dormente,Potencial Fiel,5534,16,5303,5533
+2022-09-01,Dormente,Precisa de Atencao,1614,4,5,1559
+2022-09-01,Dormente,Quase Dormindo,3578,4,4,3422
+2022-09-01,Dormente,,18,0,12,17
+2022-09-01,Inativo,Clientes Fieis,21,0,0,0
+2022-09-01,Inativo,Em Risco,3566,7,9,12
+2022-09-01,Inativo,Hibernando,4153,3,4,4
+2022-09-01,Inativo,Perdido,4677,8,8,8
+2022-09-01,Inativo,Precisa de Atencao,50,0,0,0
+2022-09-01,Inativo,Quase Dormindo,135,0,0,0
+2022-09-01,Inativo,,23,0,0,0
+2022-09-01,Não Ativado,Campeao,1,1,1,1
+2022-09-01,Não Ativado,Hibernando,1,0,0,0
+2022-09-01,Não Ativado,Novos Clientes,1,1,1,1
+2022-09-01,Não Ativado,Perdido,3,0,0,0
+2022-09-01,Não Ativado,,14547,52,59,63
+2022-10-01,Ativo,Campeao,5314,5258,5314,5314
+2022-10-01,Ativo,Clientes Fieis,6851,6698,6849,6849
+2022-10-01,Ativo,Novos Clientes,2369,2295,2368,2368
+2022-10-01,Ativo,Potencial Fiel,8847,8561,8843,8844
+2022-10-01,Ativo,,84,83,84,84
+2022-10-01,Churn,Em Risco,1148,0,0,0
+2022-10-01,Churn,Hibernando,48,0,0,0
+2022-10-01,Churn,Nao Perder!,10,0,0,0
+2022-10-01,Churn,Perdido,13326,14,14,14
+2022-10-01,Churn,,62586,18,19,22
+2022-10-01,Dormente,Campeao,36,2,36,36
+2022-10-01,Dormente,Clientes Fieis,4520,32,3174,4487
+2022-10-01,Dormente,Clientes Promissores,2107,5,1982,2105
+2022-10-01,Dormente,Novos Clientes,87,0,87,87
+2022-10-01,Dormente,Potencial Fiel,6238,19,5926,6235
+2022-10-01,Dormente,Precisa de Atencao,1849,2,3,1776
+2022-10-01,Dormente,Quase Dormindo,3958,4,4,3795
+2022-10-01,Dormente,,29,1,19,29
+2022-10-01,Inativo,Clientes Fieis,24,0,0,0
+2022-10-01,Inativo,Em Risco,3896,8,9,10
+2022-10-01,Inativo,Hibernando,4642,8,9,10
+2022-10-01,Inativo,Perdido,5336,4,4,5
+2022-10-01,Inativo,Precisa de Atencao,57,0,0,0
+2022-10-01,Inativo,Quase Dormindo,154,1,1,1
+2022-10-01,Inativo,,13,0,0,0
+2022-10-01,Não Ativado,Clientes Fieis,1,0,0,1
+2022-10-01,Não Ativado,Em Risco,2,0,0,0
+2022-10-01,Não Ativado,Hibernando,1,0,0,0
+2022-10-01,Não Ativado,Novos Clientes,1,1,1,1
+2022-10-01,Não Ativado,Perdido,2,0,0,0
+2022-10-01,Não Ativado,Quase Dormindo,1,0,0,1
+2022-10-01,Não Ativado,,30947,50,61,66
+2022-11-01,Ativo,Campeao,4958,4920,4958,4958
+2022-11-01,Ativo,Clientes Fieis,6231,6068,6230,6230
+2022-11-01,Ativo,Novos Clientes,2013,1955,2013,2013
+2022-11-01,Ativo,Potencial Fiel,7891,7654,7888,7888
+2022-11-01,Ativo,,73,72,73,73
+2022-11-01,Churn,Em Risco,1095,2,2,2
+2022-11-01,Churn,Hibernando,48,0,0,0
+2022-11-01,Churn,Nao Perder!,13,0,0,0
+2022-11-01,Churn,Perdido,11744,13,13,15
+2022-11-01,Churn,,59473,13,13,15
+2022-11-01,Dormente,Campeao,37,1,37,37
+2022-11-01,Dormente,Clientes Fieis,4235,22,2974,4196
+2022-11-01,Dormente,Clientes Promissores,1888,4,1763,1885
+2022-11-01,Dormente,Novos Clientes,61,0,61,61
+2022-11-01,Dormente,Potencial Fiel,5563,13,5265,5561
+2022-11-01,Dormente,Precisa de Atencao,1646,5,5,1576
+2022-11-01,Dormente,Quase Dormindo,3551,5,5,3407
+2022-11-01,Dormente,,27,0,19,27
+2022-11-01,Inativo,Clientes Fieis,18,1,1,1
+2022-11-01,Inativo,Em Risco,3455,8,11,12
+2022-11-01,Inativo,Hibernando,4098,9,9,9
+2022-11-01,Inativo,Perdido,4726,3,6,6
+2022-11-01,Inativo,Precisa de Atencao,40,0,0,0
+2022-11-01,Inativo,Quase Dormindo,129,0,0,0
+2022-11-01,Inativo,,10,0,0,0
+2022-11-01,Não Ativado,Clientes Fieis,1,1,1,1
+2022-11-01,Não Ativado,Clientes Promissores,1,0,1,1
+2022-11-01,Não Ativado,Hibernando,1,0,0,0
+2022-11-01,Não Ativado,Nao Perder!,3,0,0,0
+2022-11-01,Não Ativado,Perdido,5,0,0,0
+2022-11-01,Não Ativado,,24872,56,65,70
+2022-12-01,Ativo,Campeao,6552,6470,6552,6552
+2022-12-01,Ativo,Clientes Fieis,7503,7337,7501,7502
+2022-12-01,Ativo,Novos Clientes,2228,2147,2227,2227
+2022-12-01,Ativo,Potencial Fiel,8659,8391,8656,8656
+2022-12-01,Ativo,,92,92,92,92
+2022-12-01,Churn,Em Risco,1300,1,1,1
+2022-12-01,Churn,Hibernando,63,0,0,0
+2022-12-01,Churn,Nao Perder!,14,1,1,1
+2022-12-01,Churn,Perdido,13052,8,8,10
+2022-12-01,Churn,,66664,12,12,12
+2022-12-01,Dormente,Campeao,58,0,58,58
+2022-12-01,Dormente,Clientes Fieis,4847,36,3410,4806
+2022-12-01,Dormente,Clientes Promissores,1979,1,1857,1977
+2022-12-01,Dormente,Novos Clientes,69,0,69,69
+2022-12-01,Dormente,Potencial Fiel,6014,20,5712,6012
+2022-12-01,Dormente,Precisa de Atencao,1926,5,5,1859
+2022-12-01,Dormente,Quase Dormindo,3902,6,7,3723
+2022-12-01,Dormente,,24,0,14,24
+2022-12-01,Inativo,Clientes Fieis,35,0,0,0
+2022-12-01,Inativo,Em Risco,3926,11,11,11
+2022-12-01,Inativo,Hibernando,4597,6,7,8
+2022-12-01,Inativo,Perdido,5147,9,10,11
+2022-12-01,Inativo,Precisa de Atencao,64,0,0,0
+2022-12-01,Inativo,Quase Dormindo,148,1,1,1
+2022-12-01,Inativo,,11,0,0,0
+2022-12-01,Não Ativado,Em Risco,1,0,0,0
+2022-12-01,Não Ativado,Hibernando,1,0,0,0
+2022-12-01,Não Ativado,Perdido,7,0,0,0
+2022-12-01,Não Ativado,Potencial Fiel,4,1,4,4
+2022-12-01,Não Ativado,Precisa de Atencao,1,0,0,1
+2022-12-01,Não Ativado,Quase Dormindo,1,0,0,1
+2022-12-01,Não Ativado,,28736,70,76,85
+2023-01-01,Ativo,Campeao,7883,7785,7883,7883
+2023-01-01,Ativo,Clientes Fieis,7565,7401,7563,7563
+2023-01-01,Ativo,Novos Clientes,1745,1674,1744,1744
+2023-01-01,Ativo,Potencial Fiel,7778,7521,7772,7774
+2023-01-01,Ativo,,84,83,84,84
+2023-01-01,Churn,Em Risco,1132,3,3,3
+2023-01-01,Churn,Hibernando,42,0,0,0
+2023-01-01,Churn,Nao Perder!,12,0,0,0
+2023-01-01,Churn,Perdido,10660,10,10,10
+2023-01-01,Churn,,56060,8,10,10
+2023-01-01,Dormente,Campeao,65,2,65,65
+2023-01-01,Dormente,Clientes Fieis,5018,27,3635,4978
+2023-01-01,Dormente,Clientes Promissores,1588,0,1477,1587
+2023-01-01,Dormente,Novos Clientes,70,0,69,69
+2023-01-01,Dormente,Potencial Fiel,5454,26,5150,5449
+2023-01-01,Dormente,Precisa de Atencao,1729,4,5,1659
+2023-01-01,Dormente,Quase Dormindo,3277,3,4,3138
+2023-01-01,Dormente,,17,0,11,17
+2023-01-01,Inativo,Clientes Fieis,34,0,0,0
+2023-01-01,Inativo,Em Risco,3923,10,11,12
+2023-01-01,Inativo,Hibernando,4225,5,5,5
+2023-01-01,Inativo,Perdido,4554,6,6,6
+2023-01-01,Inativo,Precisa de Atencao,52,0,0,0
+2023-01-01,Inativo,Quase Dormindo,140,0,0,1
+2023-01-01,Inativo,,15,0,0,0
+2023-01-01,Não Ativado,Em Risco,1,0,0,0
+2023-01-01,Não Ativado,Nao Perder!,1,0,0,0
+2023-01-01,Não Ativado,Perdido,1,0,0,0
+2023-01-01,Não Ativado,Quase Dormindo,1,0,0,1
+2023-01-01,Não Ativado,,12638,67,74,78
+2023-02-01,Ativo,Campeao,7836,7759,7836,7836
+2023-02-01,Ativo,Clientes Fieis,7731,7543,7728,7731
+2023-02-01,Ativo,Novos Clientes,1922,1853,1921,1921
+2023-02-01,Ativo,Potencial Fiel,8141,7869,8140,8140
+2023-02-01,Ativo,,86,85,86,86
+2023-02-01,Churn,Em Risco,1130,3,4,5
+2023-02-01,Churn,Hibernando,38,0,0,0
+2023-02-01,Churn,Nao Perder!,13,0,0,0
+2023-02-01,Churn,Perdido,11171,7,8,9
+2023-02-01,Churn,,51778,12,13,14
+2023-02-01,Dormente,Campeao,73,2,73,73
+2023-02-01,Dormente,Clientes Fieis,5144,38,3651,5102
+2023-02-01,Dormente,Clientes Promissores,1798,0,1680,1797
+2023-02-01,Dormente,Novos Clientes,64,0,64,64
+2023-02-01,Dormente,Potencial Fiel,5715,18,5460,5711
+2023-02-01,Dormente,Precisa de Atencao,1746,5,5,1691
+2023-02-01,Dormente,Quase Dormindo,3430,8,9,3283
+2023-02-01,Dormente,,30,1,19,30
+2023-02-01,Inativo,Clientes Fieis,31,0,0,0
+2023-02-01,Inativo,Em Risco,3885,6,9,12
+2023-02-01,Inativo,Hibernando,4206,8,9,9
+2023-02-01,Inativo,Perdido,4577,2,2,2
+2023-02-01,Inativo,Precisa de Atencao,49,0,0,0
+2023-02-01,Inativo,Quase Dormindo,139,0,0,0
+2023-02-01,Inativo,,13,0,0,0
+2023-02-01,Não Ativado,Nao Perder!,1,0,0,0
+2023-02-01,Não Ativado,Perdido,3,0,0,0
+2023-02-01,Não Ativado,Potencial Fiel,1,1,1,1
+2023-02-01,Não Ativado,,28870,78,83,92
+2023-03-01,Ativo,Campeao,7099,7011,7099,7099
+2023-03-01,Ativo,Clientes Fieis,7608,7431,7607,7607
+2023-03-01,Ativo,Novos Clientes,1973,1908,1973,1973
+2023-03-01,Ativo,Potencial Fiel,8753,8488,8752,8752
+2023-03-01,Ativo,,80,80,80,80
+2023-03-01,Churn,Em Risco,1233,4,6,6
+2023-03-01,Churn,Hibernando,48,0,0,0
+2023-03-01,Churn,Nao Perder!,17,0,0,0
+2023-03-01,Churn,Perdido,12273,8,9,10
+2023-03-01,Churn,,59198,15,16,18
+2023-03-01,Dormente,Campeao,72,2,72,72
+2023-03-01,Dormente,Clientes Fieis,5172,33,3632,5137
+2023-03-01,Dormente,Clientes Promissores,1981,3,1861,1978
+2023-03-01,Dormente,Novos Clientes,65,0,65,65
+2023-03-01,Dormente,Potencial Fiel,5952,25,5665,5948
+2023-03-01,Dormente,Precisa de Atencao,1788,1,1,1715
+2023-03-01,Dormente,Quase Dormindo,3738,6,7,3589
+2023-03-01,Dormente,,28,1,16,26
+2023-03-01,Inativo,Clientes Fieis,43,1,1,1
+2023-03-01,Inativo,Em Risco,4124,10,10,11
+2023-03-01,Inativo,Hibernando,4479,9,10,11
+2023-03-01,Inativo,Perdido,4932,8,10,10
+2023-03-01,Inativo,Precisa de Atencao,58,0,0,0
+2023-03-01,Inativo,Quase Dormindo,120,0,0,0
+2023-03-01,Inativo,,9,0,0,0
+2023-03-01,Não Ativado,Nao Perder!,3,0,0,0
+2023-03-01,Não Ativado,Novos Clientes,1,1,1,1
+2023-03-01,Não Ativado,Perdido,5,0,0,0
+2023-03-01,Não Ativado,Potencial Fiel,1,1,1,1
+2023-03-01,Não Ativado,,30593,81,95,98
+2023-04-01,Ativo,Campeao,7606,7515,7606,7606
+2023-04-01,Ativo,Clientes Fieis,8019,7863,8017,8018
+2023-04-01,Ativo,Novos Clientes,2059,1979,2059,2059
+2023-04-01,Ativo,Potencial Fiel,8709,8442,8704,8705
+2023-04-01,Ativo,,91,90,91,91
+2023-04-01,Churn,Em Risco,1313,2,2,2
+2023-04-01,Churn,Hibernando,51,0,0,0
+2023-04-01,Churn,Nao Perder!,18,0,0,0
+2023-04-01,Churn,Perdido,11831,11,11,12
+2023-04-01,Churn,,59070,12,12,12
+2023-04-01,Dormente,Campeao,68,0,68,68
+2023-04-01,Dormente,Clientes Fieis,5381,40,3789,5337
+2023-04-01,Dormente,Clientes Promissores,1958,2,1847,1957
+2023-04-01,Dormente,Novos Clientes,70,0,70,70
+2023-04-01,Dormente,Potencial Fiel,6081,16,5798,6078
+2023-04-01,Dormente,Precisa de Atencao,1871,8,8,1809
+2023-04-01,Dormente,Quase Dormindo,3677,9,9,3520
+2023-04-01,Dormente,,29,1,21,29
+2023-04-01,Inativo,Clientes Fieis,41,0,0,0
+2023-04-01,Inativo,Em Risco,4109,6,8,10
+2023-04-01,Inativo,Hibernando,4413,10,10,10
+2023-04-01,Inativo,Perdido,4665,3,3,3
+2023-04-01,Inativo,Precisa de Atencao,53,0,0,1
+2023-04-01,Inativo,Quase Dormindo,142,0,0,0
+2023-04-01,Inativo,,13,0,0,0
+2023-04-01,Não Ativado,Em Risco,1,0,0,0
+2023-04-01,Não Ativado,Hibernando,1,0,0,0
+2023-04-01,Não Ativado,Nao Perder!,3,0,0,0
+2023-04-01,Não Ativado,Perdido,3,0,0,0
+2023-04-01,Não Ativado,Potencial Fiel,1,1,1,1
+2023-04-01,Não Ativado,Quase Dormindo,1,0,0,1
+2023-04-01,Não Ativado,,3580,86,92,97
+2023-05-01,Ativo,Campeao,7132,7059,7132,7132
+2023-05-01,Ativo,Clientes Fieis,7636,7481,7634,7634
+2023-05-01,Ativo,Novos Clientes,2189,2099,2189,2189
+2023-05-01,Ativo,Potencial Fiel,8841,8547,8834,8835
+2023-05-01,Ativo,,88,87,88,88
+2023-05-01,Churn,Em Risco,1268,1,1,1
+2023-05-01,Churn,Hibernando,40,0,0,0
+2023-05-01,Churn,Nao Perder!,18,0,0,0
+2023-05-01,Churn,Perdido,12641,10,10,11
+2023-05-01,Churn,,63396,13,15,16
+2023-05-01,Dormente,Campeao,72,1,72,72
+2023-05-01,Dormente,Clientes Fieis,5154,43,3719,5119
+2023-05-01,Dormente,Clientes Promissores,1879,0,1766,1877
+2023-05-01,Dormente,Novos Clientes,66,0,66,66
+2023-05-01,Dormente,Potencial Fiel,6324,25,6028,6320
+2023-05-01,Dormente,Precisa de Atencao,1767,1,1,1709
+2023-05-01,Dormente,Quase Dormindo,3784,6,6,3616
+2023-05-01,Dormente,,27,0,18,27
+2023-05-01,Inativo,Clientes Fieis,40,0,0,0
+2023-05-01,Inativo,Em Risco,4112,13,15,18
+2023-05-01,Inativo,Hibernando,4645,4,5,7
+2023-05-01,Inativo,Perdido,5023,0,0,0
+2023-05-01,Inativo,Precisa de Atencao,58,0,0,0
+2023-05-01,Inativo,Quase Dormindo,141,0,0,0
+2023-05-01,Inativo,,13,0,0,0
+2023-05-01,Não Ativado,Clientes Fieis,2,1,2,2
+2023-05-01,Não Ativado,Em Risco,2,0,0,0
+2023-05-01,Não Ativado,Hibernando,1,0,0,0
+2023-05-01,Não Ativado,Perdido,2,0,0,0
+2023-05-01,Não Ativado,Quase Dormindo,1,0,0,1
+2023-05-01,Não Ativado,,17943,74,83,87
+2023-06-01,Ativo,Campeao,6197,6128,6197,6197
+2023-06-01,Ativo,Clientes Fieis,6834,6682,6833,6834
+2023-06-01,Ativo,Novos Clientes,1951,1868,1949,1949
+2023-06-01,Ativo,Potencial Fiel,7960,7721,7958,7959
+2023-06-01,Ativo,,106,105,106,106
+2023-06-01,Churn,Em Risco,1104,1,1,1
+2023-06-01,Churn,Hibernando,35,0,0,0
+2023-06-01,Churn,Nao Perder!,13,0,0,0
+2023-06-01,Churn,Perdido,11262,5,6,6
+2023-06-01,Churn,,57229,10,11,13
+2023-06-01,Dormente,Campeao,56,0,56,56
+2023-06-01,Dormente,Clientes Fieis,4572,30,3210,4534
+2023-06-01,Dormente,Clientes Promissores,1813,3,1705,1813
+2023-06-01,Dormente,Novos Clientes,75,0,75,75
+2023-06-01,Dormente,Potencial Fiel,5438,19,5186,5430
+2023-06-01,Dormente,Precisa de Atencao,1696,2,2,1638
+2023-06-01,Dormente,Quase Dormindo,3377,9,10,3220
+2023-06-01,Dormente,,22,1,11,22
+2023-06-01,Inativo,Clientes Fieis,25,0,0,0
+2023-06-01,Inativo,Em Risco,3614,5,7,8
+2023-06-01,Inativo,Hibernando,4043,6,7,7
+2023-06-01,Inativo,Perdido,4448,4,4,5
+2023-06-01,Inativo,Precisa de Atencao,49,0,0,0
+2023-06-01,Inativo,Quase Dormindo,118,0,0,0
+2023-06-01,Inativo,,18,0,0,0
+2023-06-01,Não Ativado,Hibernando,1,0,0,0
+2023-06-01,Não Ativado,Nao Perder!,2,0,0,0
+2023-06-01,Não Ativado,Perdido,1,0,0,0
+2023-06-01,Não Ativado,Potencial Fiel,3,1,3,3
+2023-06-01,Não Ativado,Quase Dormindo,2,0,0,2
+2023-06-01,Não Ativado,,16378,62,66,77
+2023-07-01,Ativo,Campeao,9370,9256,9370,9370
+2023-07-01,Ativo,Clientes Fieis,9279,9078,9279,9279
+2023-07-01,Ativo,Novos Clientes,2424,2369,2424,2424
+2023-07-01,Ativo,Potencial Fiel,9744,9454,9738,9739
+2023-07-01,Ativo,,99,98,99,99
+2023-07-01,Churn,Em Risco,1412,1,1,1
+2023-07-01,Churn,Hibernando,52,0,0,0
+2023-07-01,Churn,Nao Perder!,22,0,0,0
+2023-07-01,Churn,Perdido,13817,13,13,14
+2023-07-01,Churn,,65849,10,10,10
+2023-07-01,Dormente,Campeao,82,1,82,82
+2023-07-01,Dormente,Clientes Fieis,6147,48,4433,6096
+2023-07-01,Dormente,Clientes Promissores,2155,5,2041,2152
+2023-07-01,Dormente,Novos Clientes,78,0,78,78
+2023-07-01,Dormente,Potencial Fiel,6704,14,6347,6699
+2023-07-01,Dormente,Precisa de Atencao,2120,6,8,2032
+2023-07-01,Dormente,Quase Dormindo,4097,8,8,3943
+2023-07-01,Dormente,,25,0,16,25
+2023-07-01,Inativo,Clientes Fieis,25,0,0,0
+2023-07-01,Inativo,Em Risco,4634,7,10,13
+2023-07-01,Inativo,Hibernando,5136,9,10,10
+2023-07-01,Inativo,Perdido,5369,7,7,9
+2023-07-01,Inativo,Precisa de Atencao,60,1,1,1
+2023-07-01,Inativo,Quase Dormindo,161,0,0,0
+2023-07-01,Inativo,,7,0,0,0
+2023-07-01,Não Ativado,Campeao,1,1,1,1
+2023-07-01,Não Ativado,Em Risco,2,0,0,0
+2023-07-01,Não Ativado,Nao Perder!,1,0,0,0
+2023-07-01,Não Ativado,Novos Clientes,1,1,1,1
+2023-07-01,Não Ativado,Perdido,4,0,0,0
+2023-07-01,Não Ativado,Potencial Fiel,1,0,1,1
+2023-07-01,Não Ativado,Quase Dormindo,1,0,0,1
+2023-07-01,Não Ativado,,69938,84,93,99
+2023-08-01,Ativo,Campeao,28428,28164,28426,28427
+2023-08-01,Ativo,Clientes Fieis,21313,20870,21305,21308
+2023-08-01,Ativo,Novos Clientes,3180,3049,3178,3178
+2023-08-01,Ativo,Potencial Fiel,17609,17063,17599,17600
+2023-08-01,Ativo,,228,227,228,228
+2023-08-01,Churn,Em Risco,2477,3,3,3
+2023-08-01,Churn,Hibernando,78,0,0,0
+2023-08-01,Churn,Nao Perder!,42,0,0,0
+2023-08-01,Churn,Perdido,19233,20,21,22
+2023-08-01,Churn,,74850,18,19,19
+2023-08-01,Dormente,Campeao,208,0,208,208
+2023-08-01,Dormente,Clientes Fieis,14504,110,10602,14397
+2023-08-01,Dormente,Clientes Promissores,2951,4,2785,2948
+2023-08-01,Dormente,Novos Clientes,102,0,102,102
+2023-08-01,Dormente,Potencial Fiel,11806,34,11199,11797
+2023-08-01,Dormente,Precisa de Atencao,3989,8,12,3844
+2023-08-01,Dormente,Quase Dormindo,6218,8,8,5954
+2023-08-01,Dormente,,43,2,33,43
+2023-08-01,Inativo,Clientes Fieis,82,0,0,0
+2023-08-01,Inativo,Em Risco,8603,29,31,33
+2023-08-01,Inativo,Hibernando,7923,19,20,23
+2023-08-01,Inativo,Perdido,7493,11,11,11
+2023-08-01,Inativo,Precisa de Atencao,96,0,0,0
+2023-08-01,Inativo,Quase Dormindo,202,0,0,0
+2023-08-01,Inativo,,13,0,0,0
+2023-08-01,Não Ativado,Clientes Fieis,3,2,3,3
+2023-08-01,Não Ativado,Em Risco,5,0,0,0
+2023-08-01,Não Ativado,Nao Perder!,2,0,0,0
+2023-08-01,Não Ativado,Perdido,3,0,0,0
+2023-08-01,Não Ativado,,79788,166,177,189
+2023-09-01,Ativo,Campeao,18340,18149,18340,18340
+2023-09-01,Ativo,Clientes Fieis,14828,14478,14823,14825
+2023-09-01,Ativo,Novos Clientes,2598,2509,2596,2596
+2023-09-01,Ativo,Potencial Fiel,13124,12730,13115,13117
+2023-09-01,Ativo,,143,143,143,143
+2023-09-01,Churn,Em Risco,1809,1,1,1
+2023-09-01,Churn,Hibernando,46,0,0,0
+2023-09-01,Churn,Nao Perder!,33,0,0,0
+2023-09-01,Churn,Perdido,15548,14,14,14
+2023-09-01,Churn,,63740,22,23,24
+2023-09-01,Dormente,Campeao,157,4,157,157
+2023-09-01,Dormente,Clientes Fieis,9933,78,7116,9867
+2023-09-01,Dormente,Clientes Promissores,2374,2,2240,2371
+2023-09-01,Dormente,Novos Clientes,67,0,67,67
+2023-09-01,Dormente,Potencial Fiel,9004,21,8538,8999
+2023-09-01,Dormente,Precisa de Atencao,2948,12,12,2819
+2023-09-01,Dormente,Quase Dormindo,5015,8,8,4805
+2023-09-01,Dormente,,26,0,19,26
+2023-09-01,Inativo,Clientes Fieis,63,0,0,0
+2023-09-01,Inativo,Em Risco,6394,18,18,19
+2023-09-01,Inativo,Hibernando,6041,7,7,8
+2023-09-01,Inativo,Perdido,6066,2,2,3
+2023-09-01,Inativo,Precisa de Atencao,77,0,0,0
+2023-09-01,Inativo,Quase Dormindo,177,0,0,0
+2023-09-01,Inativo,,11,0,0,0
+2023-09-01,Não Ativado,Clientes Fieis,2,2,2,2
+2023-09-01,Não Ativado,Em Risco,3,0,0,0
+2023-09-01,Não Ativado,Nao Perder!,1,0,0,0
+2023-09-01,Não Ativado,Perdido,4,0,0,0
+2023-09-01,Não Ativado,Quase Dormindo,1,0,0,1
+2023-09-01,Não Ativado,,43218,134,149,154
+2023-10-01,Ativo,Campeao,22074,21854,22074,22074
+2023-10-01,Ativo,Clientes Fieis,17415,17016,17411,17413
+2023-10-01,Ativo,Novos Clientes,3058,2959,3058,3058
+2023-10-01,Ativo,Potencial Fiel,15591,15133,15584,15585
+2023-10-01,Ativo,,167,166,167,167
+2023-10-01,Churn,Em Risco,2154,1,2,2
+2023-10-01,Churn,Hibernando,71,1,1,1
+2023-10-01,Churn,Nao Perder!,34,0,0,0
+2023-10-01,Churn,Perdido,17945,9,10,14
+2023-10-01,Churn,,68682,20,21,21
+2023-10-01,Dormente,Campeao,195,1,195,195
+2023-10-01,Dormente,Clientes Fieis,11758,84,8539,11677
+2023-10-01,Dormente,Clientes Promissores,2792,3,2629,2790
+2023-10-01,Dormente,Novos Clientes,97,0,97,97
+2023-10-01,Dormente,Potencial Fiel,10506,25,10022,10498
+2023-10-01,Dormente,Precisa de Atencao,3264,13,13,3144
+2023-10-01,Dormente,Quase Dormindo,5697,7,8,5448
+2023-10-01,Dormente,,40,1,31,39
+2023-10-01,Inativo,Clientes Fieis,75,0,0,0
+2023-10-01,Inativo,Em Risco,7344,14,15,17
+2023-10-01,Inativo,Hibernando,6964,17,17,18
+2023-10-01,Inativo,Perdido,6947,6,6,6
+2023-10-01,Inativo,Precisa de Atencao,119,1,1,1
+2023-10-01,Inativo,Quase Dormindo,222,0,0,0
+2023-10-01,Inativo,,14,1,1,1
+2023-10-01,Não Ativado,Clientes Fieis,1,0,0,1
+2023-10-01,Não Ativado,Em Risco,1,0,0,0
+2023-10-01,Não Ativado,Nao Perder!,3,0,0,0
+2023-10-01,Não Ativado,Perdido,5,0,0,0
+2023-10-01,Não Ativado,Potencial Fiel,1,0,1,1
+2023-10-01,Não Ativado,,250753,150,162,165
+2023-11-01,Ativo,Campeao,7418,7358,7418,7418
+2023-11-01,Ativo,Clientes Fieis,8280,8081,8279,8279
+2023-11-01,Ativo,Novos Clientes,2447,2372,2446,2446
+2023-11-01,Ativo,Potencial Fiel,9739,9432,9736,9736
+2023-11-01,Ativo,,99,99,99,99
+2023-11-01,Churn,Em Risco,1353,2,2,2
+2023-11-01,Churn,Hibernando,38,0,0,0
+2023-11-01,Churn,Nao Perder!,34,0,0,0
+2023-11-01,Churn,Perdido,13619,10,11,12
+2023-11-01,Churn,,63140,13,14,16
+2023-11-01,Dormente,Campeao,70,1,70,70
+2023-11-01,Dormente,Clientes Fieis,5696,24,4041,5654
+2023-11-01,Dormente,Clientes Promissores,2192,1,2064,2192
+2023-11-01,Dormente,Novos Clientes,72,0,72,72
+2023-11-01,Dormente,Potencial Fiel,6601,18,6265,6599
+2023-11-01,Dormente,Precisa de Atencao,2091,5,5,2009
+2023-11-01,Dormente,Quase Dormindo,4220,8,9,4021
+2023-11-01,Dormente,,24,0,15,23
+2023-11-01,Inativo,Clientes Fieis,35,0,0,0
+2023-11-01,Inativo,Em Risco,4451,13,13,13
+2023-11-01,Inativo,Hibernando,4911,6,8,9
+2023-11-01,Inativo,Perdido,5493,6,6,6
+2023-11-01,Inativo,Precisa de Atencao,53,0,0,0
+2023-11-01,Inativo,Quase Dormindo,174,0,0,0
+2023-11-01,Inativo,,12,0,0,0
+2023-11-01,Não Ativado,Nao Perder!,1,0,0,0
+2023-11-01,Não Ativado,Perdido,2,0,0,0
+2023-11-01,Não Ativado,,52371,72,83,91
+2023-12-01,Ativo,Campeao,16082,15912,16082,16082
+2023-12-01,Ativo,Clientes Fieis,13680,13359,13679,13679
+2023-12-01,Ativo,Novos Clientes,2971,2881,2971,2971
+2023-12-01,Ativo,Potencial Fiel,13832,13374,13827,13827
+2023-12-01,Ativo,,145,144,145,145
+2023-12-01,Churn,Em Risco,2048,5,5,5
+2023-12-01,Churn,Hibernando,82,0,0,0
+2023-12-01,Churn,Nao Perder!,33,0,0,0
+2023-12-01,Churn,Perdido,18558,10,10,10
+2023-12-01,Churn,,83220,18,19,22
+2023-12-01,Dormente,Campeao,140,1,140,140
+2023-12-01,Dormente,Clientes Fieis,9693,78,6885,9622
+2023-12-01,Dormente,Clientes Promissores,2684,5,2517,2683
+2023-12-01,Dormente,Novos Clientes,81,0,81,81
+2023-12-01,Dormente,Potencial Fiel,9564,31,9064,9558
+2023-12-01,Dormente,Precisa de Atencao,3143,9,9,3003
+2023-12-01,Dormente,Quase Dormindo,5677,12,12,5400
+2023-12-01,Dormente,,31,0,16,31
+2023-12-01,Inativo,Clientes Fieis,56,0,0,0
+2023-12-01,Inativo,Em Risco,7004,8,12,16
+2023-12-01,Inativo,Hibernando,7149,15,19,22
+2023-12-01,Inativo,Perdido,7242,8,8,9
+2023-12-01,Inativo,Precisa de Atencao,118,0,0,0
+2023-12-01,Inativo,Quase Dormindo,231,1,1,1
+2023-12-01,Inativo,,22,0,0,0
+2023-12-01,Não Ativado,Campeao,1,1,1,1
+2023-12-01,Não Ativado,Clientes Fieis,1,0,0,1
+2023-12-01,Não Ativado,Em Risco,2,0,0,0
+2023-12-01,Não Ativado,Hibernando,1,0,0,0
+2023-12-01,Não Ativado,Nao Perder!,1,0,0,0
+2023-12-01,Não Ativado,Novos Clientes,1,1,1,1
+2023-12-01,Não Ativado,Perdido,4,0,0,0
+2023-12-01,Não Ativado,Potencial Fiel,2,1,2,2
+2023-12-01,Não Ativado,,17856,150,164,172
+2024-01-01,Ativo,Campeao,18176,17983,18176,18176
+2024-01-01,Ativo,Clientes Fieis,14346,14005,14343,14343
+2024-01-01,Ativo,Novos Clientes,2608,2546,2606,2606
+2024-01-01,Ativo,Potencial Fiel,12738,12316,12732,12733
+2024-01-01,Ativo,,148,147,148,148
+2024-01-01,Churn,Em Risco,1918,0,0,2
+2024-01-01,Churn,Hibernando,75,0,0,0
+2024-01-01,Churn,Nao Perder!,28,0,0,0
+2024-01-01,Churn,Perdido,16405,15,18,20
+2024-01-01,Churn,,71603,17,19,21
+2024-01-01,Dormente,Campeao,147,1,147,147
+2024-01-01,Dormente,Clientes Fieis,9921,79,7193,9828
+2024-01-01,Dormente,Clientes Promissores,2422,1,2260,2415
+2024-01-01,Dormente,Novos Clientes,63,0,63,63
+2024-01-01,Dormente,Potencial Fiel,9014,27,8582,9004
+2024-01-01,Dormente,Precisa de Atencao,2954,8,8,2842
+2024-01-01,Dormente,Quase Dormindo,4921,10,11,4697
+2024-01-01,Dormente,,36,0,23,35
+2024-01-01,Inativo,Clientes Fieis,71,0,0,0
+2024-01-01,Inativo,Em Risco,6801,20,21,25
+2024-01-01,Inativo,Hibernando,6557,14,14,19
+2024-01-01,Inativo,Perdido,6711,4,4,5
+2024-01-01,Inativo,Precisa de Atencao,97,0,0,0
+2024-01-01,Inativo,Quase Dormindo,168,0,0,0
+2024-01-01,Inativo,,17,0,0,0
+2024-01-01,Não Ativado,Clientes Fieis,1,1,1,1
+2024-01-01,Não Ativado,Clientes Promissores,1,0,1,1
+2024-01-01,Não Ativado,Em Risco,8,0,0,0
+2024-01-01,Não Ativado,Nao Perder!,5,0,0,0
+2024-01-01,Não Ativado,Perdido,4,0,0,0
+2024-01-01,Não Ativado,,14275,112,130,141
+2024-02-01,Ativo,Campeao,5190,5137,5189,5190
+2024-02-01,Ativo,Clientes Fieis,6546,6412,6545,6545
+2024-02-01,Ativo,Novos Clientes,2147,2061,2144,2144
+2024-02-01,Ativo,Potencial Fiel,8184,7945,8179,8180
+2024-02-01,Ativo,,74,74,74,74
+2024-02-01,Churn,Em Risco,1264,2,2,2
+2024-02-01,Churn,Hibernando,52,0,0,0
+2024-02-01,Churn,Nao Perder!,20,0,0,0
+2024-02-01,Churn,Perdido,12406,8,9,10
+2024-02-01,Churn,,58811,14,15,16
+2024-02-01,Dormente,Campeao,49,0,49,49
+2024-02-01,Dormente,Clientes Fieis,4373,32,3047,4334
+2024-02-01,Dormente,Clientes Promissores,1943,2,1819,1943
+2024-02-01,Dormente,Novos Clientes,55,0,55,55
+2024-02-01,Dormente,Potencial Fiel,5692,12,5406,5683
+2024-02-01,Dormente,Precisa de Atencao,1795,7,7,1738
+2024-02-01,Dormente,Quase Dormindo,3755,3,3,3571
+2024-02-01,Dormente,,27,1,14,27
+2024-02-01,Inativo,Clientes Fieis,41,0,0,0
+2024-02-01,Inativo,Em Risco,3755,6,8,10
+2024-02-01,Inativo,Hibernando,4604,7,8,9
+2024-02-01,Inativo,Perdido,5033,3,3,3
+2024-02-01,Inativo,Precisa de Atencao,57,0,0,0
+2024-02-01,Inativo,Quase Dormindo,132,0,0,0
+2024-02-01,Inativo,,10,0,0,0
+2024-02-01,Não Ativado,Clientes Fieis,1,1,1,1
+2024-02-01,Não Ativado,Em Risco,1,0,0,0
+2024-02-01,Não Ativado,Hibernando,1,0,0,0
+2024-02-01,Não Ativado,Nao Perder!,3,0,0,0
+2024-02-01,Não Ativado,Perdido,3,0,0,0
+2024-02-01,Não Ativado,,14185,74,85,89
+2024-03-01,Ativo,Campeao,17080,16890,17079,17079
+2024-03-01,Ativo,Clientes Fieis,14635,14308,14633,14633
+2024-03-01,Ativo,Novos Clientes,2948,2839,2946,2946
+2024-03-01,Ativo,Potencial Fiel,13999,13557,13995,13995
+2024-03-01,Ativo,,162,160,162,162
+2024-03-01,Churn,Em Risco,2063,2,2,2
+2024-03-01,Churn,Hibernando,85,0,0,0
+2024-03-01,Churn,Nao Perder!,33,1,1,1
+2024-03-01,Churn,Perdido,18167,10,10,10
+2024-03-01,Churn,,73721,24,24,27
+2024-03-01,Dormente,Campeao,159,2,159,159
+2024-03-01,Dormente,Clientes Fieis,10072,67,7313,9996
+2024-03-01,Dormente,Clientes Promissores,2699,7,2522,2697
+2024-03-01,Dormente,Novos Clientes,92,0,92,92
+2024-03-01,Dormente,Potencial Fiel,9947,32,9485,9938
+2024-03-01,Dormente,Precisa de Atencao,3152,9,10,3038
+2024-03-01,Dormente,Quase Dormindo,5520,9,10,5295
+2024-03-01,Dormente,,43,0,29,42
+2024-03-01,Inativo,Clientes Fieis,68,0,0,0
+2024-03-01,Inativo,Em Risco,7099,20,23,28
+2024-03-01,Inativo,Hibernando,6927,10,11,13
+2024-03-01,Inativo,Perdido,7007,15,15,15
+2024-03-01,Inativo,Precisa de Atencao,92,1,1,1
+2024-03-01,Inativo,Quase Dormindo,214,0,0,0
+2024-03-01,Inativo,,18,0,0,0
+2024-03-01,Não Ativado,Clientes Fieis,1,0,0,0
+2024-03-01,Não Ativado,Clientes Promissores,1,0,0,1
+2024-03-01,Não Ativado,Em Risco,1,0,0,0
+2024-03-01,Não Ativado,Hibernando,3,0,0,0
+2024-03-01,Não Ativado,Nao Perder!,2,0,0,0
+2024-03-01,Não Ativado,Perdido,3,0,0,0
+2024-03-01,Não Ativado,,9475,135,151,161
+2024-04-01,Ativo,Campeao,4085,4027,4083,4083
+2024-04-01,Ativo,Clientes Fieis,5986,5834,5985,5985
+2024-04-01,Ativo,Novos Clientes,2098,2033,2098,2098
+2024-04-01,Ativo,Potencial Fiel,8182,7924,8179,8179
+2024-04-01,Ativo,,98,98,98,98
+2024-04-01,Churn,Em Risco,1225,0,0,1
+2024-04-01,Churn,Hibernando,33,0,0,0
+2024-04-01,Churn,Nao Perder!,22,0,0,0
+2024-04-01,Churn,Perdido,12909,8,8,10
+2024-04-01,Churn,,61500,18,19,20
+2024-04-01,Dormente,Campeao,38,0,38,38
+2024-04-01,Dormente,Clientes Fieis,3884,16,2706,3847
+2024-04-01,Dormente,Clientes Promissores,1919,2,1815,1917
+2024-04-01,Dormente,Novos Clientes,82,0,82,82
+2024-04-01,Dormente,Potencial Fiel,5598,17,5302,5594
+2024-04-01,Dormente,Precisa de Atencao,1723,4,4,1666
+2024-04-01,Dormente,Quase Dormindo,3868,1,1,3710
+2024-04-01,Dormente,,30,0,21,30
+2024-04-01,Inativo,Clientes Fieis,29,0,0,0
+2024-04-01,Inativo,Em Risco,3717,4,4,6
+2024-04-01,Inativo,Hibernando,4334,6,7,7
+2024-04-01,Inativo,Perdido,4985,9,9,10
+2024-04-01,Inativo,Precisa de Atencao,41,0,0,0
+2024-04-01,Inativo,Quase Dormindo,108,0,0,0
+2024-04-01,Inativo,,16,0,0,0
+2024-04-01,Não Ativado,Clientes Fieis,1,1,1,1
+2024-04-01,Não Ativado,Clientes Promissores,3,0,3,3
+2024-04-01,Não Ativado,Em Risco,1,0,0,0
+2024-04-01,Não Ativado,Nao Perder!,2,0,0,0
+2024-04-01,Não Ativado,Perdido,2,0,0,0
+2024-04-01,Não Ativado,Potencial Fiel,1,1,1,1
+2024-04-01,Não Ativado,,12706,74,87,95
+2024-05-01,Ativo,Campeao,19619,19392,19618,19619
+2024-05-01,Ativo,Clientes Fieis,16349,15971,16344,16345
+2024-05-01,Ativo,Novos Clientes,3080,2962,3078,3078
+2024-05-01,Ativo,Potencial Fiel,14808,14381,14800,14802
+2024-05-01,Ativo,,213,212,213,213
+2024-05-01,Churn,Em Risco,2168,3,3,4
+2024-05-01,Churn,Hibernando,69,0,0,0
+2024-05-01,Churn,Nao Perder!,34,0,0,0
+2024-05-01,Churn,Perdido,18282,15,17,19
+2024-05-01,Churn,,70823,16,17,20
+2024-05-01,Dormente,Campeao,187,1,187,187
+2024-05-01,Dormente,Clientes Fieis,10997,73,7925,10901
+2024-05-01,Dormente,Clientes Promissores,2859,3,2692,2855
+2024-05-01,Dormente,Novos Clientes,105,0,105,105
+2024-05-01,Dormente,Potencial Fiel,10292,31,9754,10282
+2024-05-01,Dormente,Precisa de Atencao,3376,9,9,3249
+2024-05-01,Dormente,Quase Dormindo,5754,7,7,5498
+2024-05-01,Dormente,,37,0,28,37
+2024-05-01,Inativo,Clientes Fieis,66,0,0,0
+2024-05-01,Inativo,Em Risco,7289,16,18,21
+2024-05-01,Inativo,Hibernando,7042,6,6,7
+2024-05-01,Inativo,Perdido,7076,4,4,5
+2024-05-01,Inativo,Precisa de Atencao,97,0,0,0
+2024-05-01,Inativo,Quase Dormindo,202,0,0,0
+2024-05-01,Inativo,,26,0,0,0
+2024-05-01,Não Ativado,Clientes Promissores,1,0,1,1
+2024-05-01,Não Ativado,Em Risco,1,0,0,0
+2024-05-01,Não Ativado,Hibernando,2,0,0,0
+2024-05-01,Não Ativado,Nao Perder!,3,0,0,0
+2024-05-01,Não Ativado,Perdido,6,0,0,0
+2024-05-01,Não Ativado,Potencial Fiel,3,3,3,3
+2024-05-01,Não Ativado,,9764,165,181,192
+2024-06-01,Ativo,Campeao,12514,12381,12514,12514
+2024-06-01,Ativo,Clientes Fieis,11078,10825,11074,11075
+2024-06-01,Ativo,Novos Clientes,2550,2450,2546,2546
+2024-06-01,Ativo,Potencial Fiel,11357,11007,11349,11349
+2024-06-01,Ativo,,125,125,125,125
+2024-06-01,Churn,Em Risco,1664,4,4,4
+2024-06-01,Churn,Hibernando,57,1,1,1
+2024-06-01,Churn,Nao Perder!,29,0,0,0
+2024-06-01,Churn,Perdido,15371,10,10,10
+2024-06-01,Churn,,63018,17,17,20
+2024-06-01,Dormente,Campeao,113,1,113,113
+2024-06-01,Dormente,Clientes Fieis,7441,46,5370,7384
+2024-06-01,Dormente,Clientes Promissores,2393,4,2253,2389
+2024-06-01,Dormente,Novos Clientes,85,0,84,84
+2024-06-01,Dormente,Potencial Fiel,7726,25,7321,7719
+2024-06-01,Dormente,Precisa de Atencao,2483,2,3,2420
+2024-06-01,Dormente,Quase Dormindo,4497,6,7,4304
+2024-06-01,Dormente,,29,0,16,29
+2024-06-01,Inativo,Clientes Fieis,41,1,1,1
+2024-06-01,Inativo,Em Risco,5296,9,11,14
+2024-06-01,Inativo,Hibernando,5540,9,9,9
+2024-06-01,Inativo,Perdido,5857,4,4,4
+2024-06-01,Inativo,Precisa de Atencao,65,0,0,0
+2024-06-01,Inativo,Quase Dormindo,153,0,0,0
+2024-06-01,Inativo,,14,0,0,0
+2024-06-01,Não Ativado,Em Risco,3,0,0,0
+2024-06-01,Não Ativado,Nao Perder!,1,0,0,0
+2024-06-01,Não Ativado,Perdido,3,0,0,0
+2024-06-01,Não Ativado,Potencial Fiel,1,1,1,1
+2024-06-01,Não Ativado,,8925,100,108,120
+2024-07-01,Ativo,Campeao,4256,4209,4256,4256
+2024-07-01,Ativo,Clientes Fieis,5485,5359,5483,5484
+2024-07-01,Ativo,Novos Clientes,2108,2039,2103,2103
+2024-07-01,Ativo,Potencial Fiel,7458,7235,7453,7453
+2024-07-01,Ativo,,74,72,74,74
+2024-07-01,Churn,Em Risco,1106,0,0,1
+2024-07-01,Churn,Hibernando,38,0,0,0
+2024-07-01,Churn,Nao Perder!,15,0,0,0
+2024-07-01,Churn,Perdido,12226,11,11,11
+2024-07-01,Churn,,58783,12,14,15
+2024-07-01,Dormente,Campeao,32,1,32,32
+2024-07-01,Dormente,Clientes Fieis,3686,28,2569,3657
+2024-07-01,Dormente,Clientes Promissores,1854,1,1742,1852
+2024-07-01,Dormente,Novos Clientes,70,0,70,70
+2024-07-01,Dormente,Potencial Fiel,5195,17,4935,5193
+2024-07-01,Dormente,Precisa de Atencao,1570,5,6,1514
+2024-07-01,Dormente,Quase Dormindo,3504,7,8,3369
+2024-07-01,Dormente,,24,0,14,24
+2024-07-01,Inativo,Clientes Fieis,16,0,0,0
+2024-07-01,Inativo,Em Risco,3382,8,8,8
+2024-07-01,Inativo,Hibernando,4166,6,6,7
+2024-07-01,Inativo,Perdido,4762,4,4,4
+2024-07-01,Inativo,Precisa de Atencao,51,0,0,0
+2024-07-01,Inativo,Quase Dormindo,129,0,0,0
+2024-07-01,Inativo,,16,0,0,0
+2024-07-01,Não Ativado,Clientes Fieis,2,0,0,1
+2024-07-01,Não Ativado,Em Risco,4,0,0,0
+2024-07-01,Não Ativado,Hibernando,1,0,0,0
+2024-07-01,Não Ativado,Nao Perder!,5,0,0,0
+2024-07-01,Não Ativado,Novos Clientes,1,1,1,1
+2024-07-01,Não Ativado,Perdido,2,0,0,0
+2024-07-01,Não Ativado,Potencial Fiel,3,3,3,3
+2024-07-01,Não Ativado,,8164,83,90,94
+2024-08-01,Ativo,Campeao,2992,2961,2992,2992
+2024-08-01,Ativo,Clientes Fieis,4800,4685,4798,4798
+2024-08-01,Ativo,Novos Clientes,2022,1948,2021,2021
+2024-08-01,Ativo,Potencial Fiel,7085,6885,7083,7083
+2024-08-01,Ativo,,74,72,74,74
+2024-08-01,Churn,Em Risco,1067,4,4,5
+2024-08-01,Churn,Hibernando,37,0,0,0
+2024-08-01,Churn,Nao Perder!,19,0,0,0
+2024-08-01,Churn,Perdido,12406,6,6,7
+2024-08-01,Churn,,55431,13,13,15
+2024-08-01,Dormente,Campeao,38,0,38,38
+2024-08-01,Dormente,Clientes Fieis,3099,17,2148,3070
+2024-08-01,Dormente,Clientes Promissores,1939,1,1821,1936
+2024-08-01,Dormente,Novos Clientes,60,0,60,60
+2024-08-01,Dormente,Potencial Fiel,4867,19,4605,4861
+2024-08-01,Dormente,Precisa de Atencao,1435,2,3,1384
+2024-08-01,Dormente,Quase Dormindo,3436,2,2,3295
+2024-08-01,Dormente,,30,0,20,30
+2024-08-01,Inativo,Clientes Fieis,15,1,1,1
+2024-08-01,Inativo,Em Risco,3184,6,7,8
+2024-08-01,Inativo,Hibernando,3947,6,7,7
+2024-08-01,Inativo,Perdido,4746,0,0,1
+2024-08-01,Inativo,Precisa de Atencao,35,0,0,0
+2024-08-01,Inativo,Quase Dormindo,113,0,0,0
+2024-08-01,Inativo,,17,0,0,0
+2024-08-01,Não Ativado,Clientes Fieis,1,1,1,1
+2024-08-01,Não Ativado,Clientes Promissores,1,0,1,1
+2024-08-01,Não Ativado,Em Risco,2,0,0,0
+2024-08-01,Não Ativado,Nao Perder!,1,0,0,0
+2024-08-01,Não Ativado,Perdido,4,0,0,0
+2024-08-01,Não Ativado,Potencial Fiel,1,0,1,1
+2024-08-01,Não Ativado,,137975,59,67,75
+2024-09-01,Ativo,Campeao,2861,2835,2861,2861
+2024-09-01,Ativo,Clientes Fieis,4737,4626,4736,4736
+2024-09-01,Ativo,Novos Clientes,1937,1870,1934,1934
+2024-09-01,Ativo,Potencial Fiel,6759,6540,6755,6755
+2024-09-01,Ativo,,67,66,67,67
+2024-09-01,Churn,Em Risco,1140,1,1,1
+2024-09-01,Churn,Hibernando,44,0,0,0
+2024-09-01,Churn,Nao Perder!,16,0,0,0
+2024-09-01,Churn,Perdido,11759,9,12,14
+2024-09-01,Churn,,53208,8,9,10
+2024-09-01,Dormente,Campeao,26,2,26,26
+2024-09-01,Dormente,Clientes Fieis,2976,29,2058,2955
+2024-09-01,Dormente,Clientes Promissores,1769,0,1664,1769
+2024-09-01,Dormente,Novos Clientes,61,0,61,61
+2024-09-01,Dormente,Potencial Fiel,4635,12,4401,4632
+2024-09-01,Dormente,Precisa de Atencao,1388,4,5,1325
+2024-09-01,Dormente,Quase Dormindo,3267,9,10,3155
+2024-09-01,Dormente,,27,0,13,27
+2024-09-01,Inativo,Clientes Fieis,16,1,1,1
+2024-09-01,Inativo,Em Risco,3159,15,15,18
+2024-09-01,Inativo,Hibernando,3712,8,8,8
+2024-09-01,Inativo,Perdido,4478,5,6,7
+2024-09-01,Inativo,Precisa de Atencao,37,0,0,0
+2024-09-01,Inativo,Quase Dormindo,127,1,1,1
+2024-09-01,Inativo,,29,0,0,0
+2024-09-01,Não Ativado,Em Risco,2,0,0,0
+2024-09-01,Não Ativado,Hibernando,1,0,0,0
+2024-09-01,Não Ativado,Nao Perder!,1,0,0,0
+2024-09-01,Não Ativado,Perdido,8,0,0,0
+2024-09-01,Não Ativado,Potencial Fiel,2,1,2,2
+2024-09-01,Não Ativado,,88227,61,73,80
+2024-10-01,Ativo,Campeao,3069,3035,3069,3069
+2024-10-01,Ativo,Clientes Fieis,4467,4365,4466,4466
+2024-10-01,Ativo,Novos Clientes,1919,1865,1918,1918
+2024-10-01,Ativo,Potencial Fiel,6436,6240,6429,6429
+2024-10-01,Ativo,,70,69,70,70
+2024-10-01,Churn,Em Risco,1062,0,0,0
+2024-10-01,Churn,Hibernando,36,0,0,0
+2024-10-01,Churn,Nao Perder!,17,0,0,0
+2024-10-01,Churn,Perdido,11362,7,7,8
+2024-10-01,Churn,,51607,9,11,13
+2024-10-01,Dormente,Campeao,35,1,35,35
+2024-10-01,Dormente,Clientes Fieis,2973,23,2088,2950
+2024-10-01,Dormente,Clientes Promissores,1700,1,1606,1700
+2024-10-01,Dormente,Novos Clientes,65,0,65,65
+2024-10-01,Dormente,Potencial Fiel,4591,10,4339,4589
+2024-10-01,Dormente,Precisa de Atencao,1321,1,1,1268
+2024-10-01,Dormente,Quase Dormindo,3177,2,2,3044
+2024-10-01,Dormente,,28,0,21,28
+2024-10-01,Inativo,Clientes Fieis,20,0,0,0
+2024-10-01,Inativo,Em Risco,2853,10,10,11
+2024-10-01,Inativo,Hibernando,3794,4,5,7
+2024-10-01,Inativo,Perdido,4267,2,2,2
+2024-10-01,Inativo,Precisa de Atencao,38,0,0,0
+2024-10-01,Inativo,Quase Dormindo,106,1,1,1
+2024-10-01,Inativo,,13,0,0,0
+2024-10-01,Não Ativado,Em Risco,3,0,0,0
+2024-10-01,Não Ativado,Hibernando,2,0,0,0
+2024-10-01,Não Ativado,Nao Perder!,4,0,0,0
+2024-10-01,Não Ativado,Novos Clientes,2,2,2,2
+2024-10-01,Não Ativado,Perdido,6,0,0,0
+2024-10-01,Não Ativado,Potencial Fiel,1,0,1,1
+2024-10-01,Não Ativado,Quase Dormindo,1,0,0,1
+2024-10-01,Não Ativado,,26679,64,68,72
+2024-11-01,Ativo,Campeao,3644,3601,3644,3644
+2024-11-01,Ativo,Clientes Fieis,4850,4753,4848,4848
+2024-11-01,Ativo,Novos Clientes,1944,1877,1942,1942
+2024-11-01,Ativo,Potencial Fiel,6808,6584,6802,6803
+2024-11-01,Ativo,,74,73,74,74
+2024-11-01,Churn,Em Risco,1133,3,3,3
+2024-11-01,Churn,Hibernando,31,0,0,0
+2024-11-01,Churn,Nao Perder!,25,0,0,0
+2024-11-01,Churn,Perdido,11858,7,8,8
+2024-11-01,Churn,,53661,10,11,13
+2024-11-01,Dormente,Campeao,29,0,29,29
+2024-11-01,Dormente,Clientes Fieis,3227,16,2251,3205
+2024-11-01,Dormente,Clientes Promissores,1812,2,1694,1809
+2024-11-01,Dormente,Novos Clientes,57,0,57,57
+2024-11-01,Dormente,Potencial Fiel,4782,17,4552,4774
+2024-11-01,Dormente,Precisa de Atencao,1457,11,11,1401
+2024-11-01,Dormente,Quase Dormindo,3276,2,2,3138
+2024-11-01,Dormente,,28,1,20,28
+2024-11-01,Inativo,Clientes Fieis,27,0,0,0
+2024-11-01,Inativo,Em Risco,3160,6,7,9
+2024-11-01,Inativo,Hibernando,3850,2,4,6
+2024-11-01,Inativo,Perdido,4519,3,3,3
+2024-11-01,Inativo,Precisa de Atencao,51,0,0,0
+2024-11-01,Inativo,Quase Dormindo,122,0,0,0
+2024-11-01,Inativo,,23,0,0,0
+2024-11-01,Não Ativado,Campeao,1,1,1,1
+2024-11-01,Não Ativado,Clientes Fieis,1,0,1,1
+2024-11-01,Não Ativado,Clientes Promissores,2,0,2,2
+2024-11-01,Não Ativado,Em Risco,2,0,0,0
+2024-11-01,Não Ativado,Nao Perder!,1,0,0,0
+2024-11-01,Não Ativado,Perdido,2,0,0,0
+2024-11-01,Não Ativado,Potencial Fiel,1,0,1,1
+2024-11-01,Não Ativado,Quase Dormindo,1,0,0,1
+2024-11-01,Não Ativado,,59487,58,68,74
+2024-12-01,Ativo,Campeao,4523,4459,4523,4523
+2024-12-01,Ativo,Clientes Fieis,5791,5656,5788,5788
+2024-12-01,Ativo,Novos Clientes,2222,2157,2221,2221
+2024-12-01,Ativo,Potencial Fiel,7947,7717,7947,7947
+2024-12-01,Ativo,,73,71,73,73
+2024-12-01,Churn,Em Risco,1366,1,1,1
+2024-12-01,Churn,Hibernando,60,0,0,0
+2024-12-01,Churn,Nao Perder!,23,0,0,0
+2024-12-01,Churn,Perdido,14724,12,12,13
+2024-12-01,Churn,,65079,22,24,24
+2024-12-01,Dormente,Campeao,51,0,51,51
+2024-12-01,Dormente,Clientes Fieis,3872,19,2648,3837
+2024-12-01,Dormente,Clientes Promissores,2069,2,1949,2068
+2024-12-01,Dormente,Novos Clientes,91,0,91,91
+2024-12-01,Dormente,Potencial Fiel,5653,16,5357,5647
+2024-12-01,Dormente,Precisa de Atencao,1755,5,5,1684
+2024-12-01,Dormente,Quase Dormindo,3878,7,7,3704
+2024-12-01,Dormente,,41,1,25,41
+2024-12-01,Inativo,Clientes Fieis,26,0,0,0
+2024-12-01,Inativo,Em Risco,3999,5,7,7
+2024-12-01,Inativo,Hibernando,4829,3,5,7
+2024-12-01,Inativo,Perdido,5459,6,6,6
+2024-12-01,Inativo,Precisa de Atencao,52,0,0,0
+2024-12-01,Inativo,Quase Dormindo,173,0,0,0
+2024-12-01,Inativo,,25,0,0,0
+2024-12-01,Não Ativado,Campeao,1,1,1,1
+2024-12-01,Não Ativado,Clientes Fieis,2,0,1,2
+2024-12-01,Não Ativado,Clientes Promissores,1,0,1,1
+2024-12-01,Não Ativado,Em Risco,3,0,0,0
+2024-12-01,Não Ativado,Nao Perder!,3,0,0,0
+2024-12-01,Não Ativado,Perdido,8,0,0,0
+2024-12-01,Não Ativado,Potencial Fiel,1,0,1,1
+2024-12-01,Não Ativado,Quase Dormindo,1,0,0,1
+2024-12-01,Não Ativado,,19662,75,83,92
+2025-01-01,Ativo,Campeao,4111,4055,4109,4110
+2025-01-01,Ativo,Clientes Fieis,5246,5125,5244,5245
+2025-01-01,Ativo,Novos Clientes,1920,1853,1920,1920
+2025-01-01,Ativo,Potencial Fiel,7306,7082,7304,7304
+2025-01-01,Ativo,,73,72,73,73
+2025-01-01,Churn,Em Risco,1294,1,1,3
+2025-01-01,Churn,Hibernando,54,0,0,0
+2025-01-01,Churn,Nao Perder!,26,0,0,0
+2025-01-01,Churn,Perdido,12755,5,5,6
+2025-01-01,Churn,,55438,14,14,14
+2025-01-01,Dormente,Campeao,35,0,35,35
+2025-01-01,Dormente,Clientes Fieis,3674,24,2528,3641
+2025-01-01,Dormente,Clientes Promissores,1808,1,1697,1808
+2025-01-01,Dormente,Novos Clientes,69,0,69,69
+2025-01-01,Dormente,Potencial Fiel,4845,15,4601,4841
+2025-01-01,Dormente,Precisa de Atencao,1593,3,3,1536
+2025-01-01,Dormente,Quase Dormindo,3414,8,8,3274
+2025-01-01,Dormente,,25,0,13,25
+2025-01-01,Inativo,Clientes Fieis,31,1,1,1
+2025-01-01,Inativo,Em Risco,3781,8,9,10
+2025-01-01,Inativo,Hibernando,4557,5,6,7
+2025-01-01,Inativo,Perdido,5082,6,6,7
+2025-01-01,Inativo,Precisa de Atencao,46,0,0,0
+2025-01-01,Inativo,Quase Dormindo,130,0,0,0
+2025-01-01,Inativo,,11,0,0,0
+2025-01-01,Não Ativado,Clientes Fieis,2,0,1,2
+2025-01-01,Não Ativado,Clientes Promissores,2,0,2,2
+2025-01-01,Não Ativado,Em Risco,2,0,0,0
+2025-01-01,Não Ativado,Hibernando,1,0,0,0
+2025-01-01,Não Ativado,Nao Perder!,1,0,0,0
+2025-01-01,Não Ativado,Perdido,7,0,0,0
+2025-01-01,Não Ativado,Potencial Fiel,2,2,2,2
+2025-01-01,Não Ativado,Quase Dormindo,2,0,0,2
+2025-01-01,Não Ativado,,31874,78,85,90
+2025-02-01,Ativo,Campeao,3329,3293,3329,3329
+2025-02-01,Ativo,Clientes Fieis,4375,4269,4374,4374
+2025-02-01,Ativo,Novos Clientes,1690,1639,1689,1689
+2025-02-01,Ativo,Potencial Fiel,6276,6098,6269,6270
+2025-02-01,Ativo,,66,66,66,66
+2025-02-01,Churn,Em Risco,1118,1,1,1
+2025-02-01,Churn,Hibernando,37,0,0,0
+2025-02-01,Churn,Nao Perder!,21,0,0,0
+2025-02-01,Churn,Perdido,10780,12,12,12
+2025-02-01,Churn,,42833,12,12,12
+2025-02-01,Dormente,Campeao,23,0,23,23
+2025-02-01,Dormente,Clientes Fieis,3081,17,2134,3046
+2025-02-01,Dormente,Clientes Promissores,1602,3,1504,1602
+2025-02-01,Dormente,Novos Clientes,55,1,54,54
+2025-02-01,Dormente,Potencial Fiel,4299,5,4077,4297
+2025-02-01,Dormente,Precisa de Atencao,1282,4,5,1216
+2025-02-01,Dormente,Quase Dormindo,2979,3,3,2843
+2025-02-01,Dormente,,21,0,14,21
+2025-02-01,Inativo,Clientes Fieis,23,0,0,0
+2025-02-01,Inativo,Em Risco,3005,15,15,15
+2025-02-01,Inativo,Hibernando,3630,6,6,6
+2025-02-01,Inativo,Perdido,4204,5,5,5
+2025-02-01,Inativo,Precisa de Atencao,30,0,0,0
+2025-02-01,Inativo,Quase Dormindo,79,1,1,1
+2025-02-01,Inativo,,13,0,0,0
+2025-02-01,Não Ativado,Clientes Fieis,2,1,2,2
+2025-02-01,Não Ativado,Em Risco,2,0,0,0
+2025-02-01,Não Ativado,Nao Perder!,3,0,0,0
+2025-02-01,Não Ativado,Novos Clientes,1,1,1,1
+2025-02-01,Não Ativado,Perdido,7,0,0,0
+2025-02-01,Não Ativado,Potencial Fiel,2,2,2,2
+2025-02-01,Não Ativado,,35875,71,78,80
+2025-03-01,Ativo,Campeao,3506,3480,3506,3506
+2025-03-01,Ativo,Clientes Fieis,4841,4715,4840,4840
+2025-03-01,Ativo,Novos Clientes,1779,1728,1778,1778
+2025-03-01,Ativo,Potencial Fiel,6680,6464,6674,6677
+2025-03-01,Ativo,,72,71,72,72
+2025-03-01,Churn,Em Risco,1366,0,1,1
+2025-03-01,Churn,Hibernando,39,0,0,0
+2025-03-01,Churn,Nao Perder!,45,0,0,0
+2025-03-01,Churn,Perdido,12209,10,11,13
+2025-03-01,Churn,,48434,18,20,21
+2025-03-01,Dormente,Campeao,32,1,32,32
+2025-03-01,Dormente,Clientes Fieis,3274,20,2300,3244
+2025-03-01,Dormente,Clientes Promissores,1680,1,1583,1680
+2025-03-01,Dormente,Novos Clientes,54,0,54,54
+2025-03-01,Dormente,Potencial Fiel,4793,22,4548,4789
+2025-03-01,Dormente,Precisa de Atencao,1483,1,1,1431
+2025-03-01,Dormente,Quase Dormindo,3201,5,6,3080
+2025-03-01,Dormente,,18,0,13,18
+2025-03-01,Inativo,Clientes Fieis,31,0,0,0
+2025-03-01,Inativo,Em Risco,3384,10,11,13
+2025-03-01,Inativo,Hibernando,4020,5,6,7
+2025-03-01,Inativo,Perdido,4523,3,4,4
+2025-03-01,Inativo,Precisa de Atencao,49,1,1,1
+2025-03-01,Inativo,Quase Dormindo,119,0,0,0
+2025-03-01,Inativo,,21,0,0,0
+2025-03-01,Não Ativado,Em Risco,2,0,0,0
+2025-03-01,Não Ativado,Hibernando,1,0,0,0
+2025-03-01,Não Ativado,Nao Perder!,2,0,0,0
+2025-03-01,Não Ativado,Perdido,5,0,0,0
+2025-03-01,Não Ativado,Potencial Fiel,1,0,1,1
+2025-03-01,Não Ativado,,13254,77,89,95
+2025-04-01,Ativo,Campeao,3497,3466,3497,3497
+2025-04-01,Ativo,Clientes Fieis,4593,4477,4593,4593
+2025-04-01,Ativo,Novos Clientes,1757,1675,1756,1756
+2025-04-01,Ativo,Potencial Fiel,6458,6254,6451,6453
+2025-04-01,Ativo,,68,67,68,68
+2025-04-01,Churn,Em Risco,1389,2,3,3
+2025-04-01,Churn,Hibernando,47,0,0,0
+2025-04-01,Churn,Nao Perder!,37,0,0,0
+2025-04-01,Churn,Perdido,12210,8,8,10
+2025-04-01,Churn,,46199,14,15,17
+2025-04-01,Dormente,Campeao,39,0,39,39
+2025-04-01,Dormente,Clientes Fieis,3119,11,2089,3081
+2025-04-01,Dormente,Clientes Promissores,1605,4,1504,1604
+2025-04-01,Dormente,Novos Clientes,57,0,57,57
+2025-04-01,Dormente,Potencial Fiel,4613,17,4394,4610
+2025-04-01,Dormente,Precisa de Atencao,1385,1,1,1332
+2025-04-01,Dormente,Quase Dormindo,3184,1,1,3046
+2025-04-01,Dormente,,34,1,21,34
+2025-04-01,Inativo,Clientes Fieis,24,0,0,0
+2025-04-01,Inativo,Em Risco,3354,6,8,9
+2025-04-01,Inativo,Hibernando,3676,8,8,8
+2025-04-01,Inativo,Perdido,4282,1,1,1
+2025-04-01,Inativo,Precisa de Atencao,43,0,0,0
+2025-04-01,Inativo,Quase Dormindo,128,0,0,0
+2025-04-01,Inativo,,14,0,0,0
+2025-04-01,Não Ativado,Perdido,4,0,0,0
+2025-04-01,Não Ativado,Quase Dormindo,1,0,0,0
+2025-04-01,Não Ativado,,17419,68,85,97
+2025-05-01,Ativo,Campeao,3003,2979,3003,3003
+2025-05-01,Ativo,Clientes Fieis,4486,4369,4484,4484
+2025-05-01,Ativo,Novos Clientes,1862,1787,1862,1862
+2025-05-01,Ativo,Potencial Fiel,6610,6378,6605,6606
+2025-05-01,Ativo,,64,63,64,64
+2025-05-01,Churn,Em Risco,1496,0,0,0
+2025-05-01,Churn,Hibernando,24,0,0,0
+2025-05-01,Churn,Nao Perder!,35,0,0,0
+2025-05-01,Churn,Perdido,13077,12,13,13
+2025-05-01,Churn,,47718,7,9,11
+2025-05-01,Dormente,Campeao,33,0,33,33
+2025-05-01,Dormente,Clientes Fieis,3026,17,2064,2990
+2025-05-01,Dormente,Clientes Promissores,1756,4,1643,1751
+2025-05-01,Dormente,Novos Clientes,72,0,72,72
+2025-05-01,Dormente,Potencial Fiel,4704,18,4488,4702
+2025-05-01,Dormente,Precisa de Atencao,1393,2,3,1351
+2025-05-01,Dormente,Quase Dormindo,3135,6,8,2989
+2025-05-01,Dormente,,21,0,12,20
+2025-05-01,Inativo,Clientes Fieis,11,0,0,0
+2025-05-01,Inativo,Em Risco,3260,5,7,11
+2025-05-01,Inativo,Hibernando,3889,4,4,4
+2025-05-01,Inativo,Perdido,4303,2,3,4
+2025-05-01,Inativo,Precisa de Atencao,54,0,0,0
+2025-05-01,Inativo,Quase Dormindo,106,1,1,1
+2025-05-01,Inativo,,13,0,0,0
+2025-05-01,Não Ativado,Clientes Fieis,1,0,1,1
+2025-05-01,Não Ativado,Clientes Promissores,2,0,2,2
+2025-05-01,Não Ativado,Em Risco,4,0,0,0
+2025-05-01,Não Ativado,Novos Clientes,1,1,1,1
+2025-05-01,Não Ativado,Perdido,7,0,0,0
+2025-05-01,Não Ativado,,12138,68,81,91
+2025-06-01,Ativo,Campeao,3602,3563,3601,3602
+2025-06-01,Ativo,Clientes Fieis,5040,4942,5039,5039
+2025-06-01,Ativo,Novos Clientes,2035,1971,2034,2034
+2025-06-01,Ativo,Potencial Fiel,7132,6928,7130,7130
+2025-06-01,Ativo,,69,68,69,69
+2025-06-01,Churn,Em Risco,1670,1,1,2
+2025-06-01,Churn,Hibernando,36,0,0,0
+2025-06-01,Churn,Nao Perder!,59,0,0,0
+2025-06-01,Churn,Perdido,13924,13,13,14
+2025-06-01,Churn,,47381,7,9,9
+2025-06-01,Dormente,Campeao,37,3,37,37
+2025-06-01,Dormente,Clientes Fieis,3345,25,2276,3320
+2025-06-01,Dormente,Clientes Promissores,1708,0,1604,1705
+2025-06-01,Dormente,Novos Clientes,52,1,52,52
+2025-06-01,Dormente,Potencial Fiel,4862,7,4604,4859
+2025-06-01,Dormente,Precisa de Atencao,1489,3,3,1438
+2025-06-01,Dormente,Quase Dormindo,3181,8,8,3037
+2025-06-01,Dormente,,28,1,14,28
+2025-06-01,Inativo,Clientes Fieis,23,0,0,0
+2025-06-01,Inativo,Em Risco,3513,11,14,18
+2025-06-01,Inativo,Hibernando,4039,6,6,8
+2025-06-01,Inativo,Perdido,4231,4,4,4
+2025-06-01,Inativo,Precisa de Atencao,35,0,0,0
+2025-06-01,Inativo,Quase Dormindo,113,1,1,1
+2025-06-01,Inativo,,28,0,0,0
+2025-06-01,Não Ativado,Clientes Fieis,1,0,1,1
+2025-06-01,Não Ativado,Hibernando,3,0,0,0
+2025-06-01,Não Ativado,Perdido,9,0,0,0
+2025-06-01,Não Ativado,Potencial Fiel,2,1,2,2
+2025-06-01,Não Ativado,Quase Dormindo,2,0,0,1
+2025-06-01,Não Ativado,,24521,73,85,97
+2025-07-01,Ativo,Campeao,4530,4488,4529,4529
+2025-07-01,Ativo,Clientes Fieis,5383,5272,5381,5381
+2025-07-01,Ativo,Novos Clientes,1767,1709,1767,1767
+2025-07-01,Ativo,Potencial Fiel,7402,7194,7397,7397
+2025-07-01,Ativo,,90,88,90,90
+2025-07-01,Churn,Em Risco,1912,2,2,2
+2025-07-01,Churn,Hibernando,37,0,0,0
+2025-07-01,Churn,Nao Perder!,64,0,0,1
+2025-07-01,Churn,Perdido,15410,9,9,9
+2025-07-01,Churn,,47677,12,13,13
+2025-07-01,Dormente,Campeao,44,0,44,44
+2025-07-01,Dormente,Clientes Fieis,3503,25,2433,3479
+2025-07-01,Dormente,Clientes Promissores,1604,1,1487,1604
+2025-07-01,Dormente,Novos Clientes,59,0,59,59
+2025-07-01,Dormente,Potencial Fiel,4892,13,4660,4884
+2025-07-01,Dormente,Precisa de Atencao,1564,2,2,1501
+2025-07-01,Dormente,Quase Dormindo,3262,3,4,3100
+2025-07-01,Dormente,,29,0,11,27
+2025-07-01,Inativo,Clientes Fieis,14,0,0,0
+2025-07-01,Inativo,Em Risco,3853,12,13,17
+2025-07-01,Inativo,Hibernando,4144,4,5,5
+2025-07-01,Inativo,Perdido,4131,0,0,0
+2025-07-01,Inativo,Precisa de Atencao,52,2,2,2
+2025-07-01,Inativo,Quase Dormindo,111,0,0,0
+2025-07-01,Inativo,,28,0,0,0
+2025-07-01,Não Ativado,Clientes Fieis,2,0,1,2
+2025-07-01,Não Ativado,Clientes Promissores,1,0,1,1
+2025-07-01,Não Ativado,Em Risco,2,0,0,0
+2025-07-01,Não Ativado,Hibernando,1,0,0,0
+2025-07-01,Não Ativado,Perdido,7,0,0,0
+2025-07-01,Não Ativado,Potencial Fiel,3,1,3,3
+2025-07-01,Não Ativado,Precisa de Atencao,2,0,0,2
+2025-07-01,Não Ativado,Quase Dormindo,2,0,0,2
+2025-07-01,Não Ativado,,15351,55,68,73
+2025-08-01,Ativo,Campeao,4369,4323,4368,4368
+2025-08-01,Ativo,Clientes Fieis,5838,5702,5833,5837
+2025-08-01,Ativo,Novos Clientes,644,623,644,644
+2025-08-01,Ativo,Potencial Fiel,7955,7708,7947,7948
+2025-08-01,Ativo,,103,102,103,103
+2025-08-01,Churn,Em Risco,4067,2,2,3
+2025-08-01,Churn,Hibernando,63,0,0,0
+2025-08-01,Churn,Nao Perder!,66,0,0,0
+2025-08-01,Churn,Perdido,55214,16,16,17
+2025-08-01,Churn,,173,0,0,0
+2025-08-01,Dormente,Campeao,39,0,39,39
+2025-08-01,Dormente,Clientes Fieis,4433,27,2986,4398
+2025-08-01,Dormente,Clientes Promissores,600,1,561,598
+2025-08-01,Dormente,Novos Clientes,27,1,27,27
+2025-08-01,Dormente,Potencial Fiel,5728,19,5372,5719
+2025-08-01,Dormente,Precisa de Atencao,2069,7,7,1986
+2025-08-01,Dormente,Quase Dormindo,2640,4,4,2534
+2025-08-01,Dormente,,39,0,25,38
+2025-08-01,Inativo,Clientes Fieis,31,0,0,0
+2025-08-01,Inativo,Em Risco,5498,9,12,17
+2025-08-01,Inativo,Hibernando,5556,4,5,6
+2025-08-01,Inativo,Perdido,1665,3,3,4
+2025-08-01,Inativo,Precisa de Atencao,66,0,0,0
+2025-08-01,Inativo,Quase Dormindo,69,0,0,0
+2025-08-01,Inativo,,36,0,0,0
+2025-08-01,Não Ativado,Em Risco,2,0,0,0
+2025-08-01,Não Ativado,Hibernando,1,0,0,0
+2025-08-01,Não Ativado,Perdido,54,0,0,0
+2025-08-01,Não Ativado,Potencial Fiel,2,0,2,2
+2025-08-01,Não Ativado,Precisa de Atencao,1,0,0,1
+2025-08-01,Não Ativado,,17153,95,109,116
+2025-09-01,Ativo,Campeao,3536,3498,3535,3536
+2025-09-01,Ativo,Clientes Fieis,5458,5320,5456,5456
+2025-09-01,Ativo,Novos Clientes,811,781,811,811
+2025-09-01,Ativo,Potencial Fiel,8198,7933,8190,8191
+2025-09-01,Ativo,,110,105,110,110
+2025-09-01,Churn,Em Risco,3135,4,6,7
+2025-09-01,Churn,Hibernando,76,1,1,1
+2025-09-01,Churn,Nao Perder!,31,0,0,0
+2025-09-01,Churn,Perdido,53632,21,21,23
+2025-09-01,Churn,,136,1,1,1
+2025-09-01,Dormente,Campeao,25,1,25,25
+2025-09-01,Dormente,Clientes Fieis,3746,23,2561,3717
+2025-09-01,Dormente,Clientes Promissores,731,1,692,730
+2025-09-01,Dormente,Novos Clientes,27,0,27,27
+2025-09-01,Dormente,Potencial Fiel,5970,14,5660,5964
+2025-09-01,Dormente,Precisa de Atencao,2031,6,8,1951
+2025-09-01,Dormente,Quase Dormindo,2985,5,5,2882
+2025-09-01,Dormente,,24,0,15,23
+2025-09-01,Inativo,Clientes Fieis,32,0,0,0
+2025-09-01,Inativo,Em Risco,5127,8,9,10
+2025-09-01,Inativo,Hibernando,5938,8,9,10
+2025-09-01,Inativo,Perdido,2037,2,2,2
+2025-09-01,Inativo,Precisa de Atencao,58,0,0,0
+2025-09-01,Inativo,Quase Dormindo,90,0,0,0
+2025-09-01,Inativo,,17,0,0,0
+2025-09-01,Não Ativado,Clientes Fieis,3,1,2,3
+2025-09-01,Não Ativado,Clientes Promissores,1,0,1,1
+2025-09-01,Não Ativado,Em Risco,5,0,0,0
+2025-09-01,Não Ativado,Hibernando,2,0,0,0
+2025-09-01,Não Ativado,Perdido,56,0,0,0
+2025-09-01,Não Ativado,Potencial Fiel,2,2,2,2
+2025-09-01,Não Ativado,,44273,61,70,80
+2025-10-01,Ativo,Campeao,4596,4549,4596,4596
+2025-10-01,Ativo,Clientes Fieis,5895,5770,5893,5893
+2025-10-01,Ativo,Novos Clientes,744,720,744,744
+2025-10-01,Ativo,Potencial Fiel,8662,8428,8659,8659
+2025-10-01,Ativo,,95,95,95,95
+2025-10-01,Churn,Em Risco,2269,2,2,3
+2025-10-01,Churn,Hibernando,54,0,0,0
+2025-10-01,Churn,Nao Perder!,19,0,0,0
+2025-10-01,Churn,Perdido,56955,20,23,24
+2025-10-01,Churn,,162,0,0,0
+2025-10-01,Dormente,Campeao,25,0,25,25
+2025-10-01,Dormente,Clientes Fieis,3387,13,2303,3362
+2025-10-01,Dormente,Clientes Promissores,713,0,666,712
+2025-10-01,Dormente,Novos Clientes,17,0,17,17
+2025-10-01,Dormente,Potencial Fiel,6201,15,5901,6192
+2025-10-01,Dormente,Precisa de Atencao,1967,3,3,1887
+2025-10-01,Dormente,Quase Dormindo,3149,6,6,3024
+2025-10-01,Dormente,,30,0,17,30
+2025-10-01,Inativo,Clientes Fieis,19,0,0,0
+2025-10-01,Inativo,Em Risco,4601,18,19,20
+2025-10-01,Inativo,Hibernando,6585,7,7,9
+2025-10-01,Inativo,Perdido,1880,3,3,3
+2025-10-01,Inativo,Precisa de Atencao,48,0,0,0
+2025-10-01,Inativo,Quase Dormindo,105,0,0,0
+2025-10-01,Inativo,,24,0,0,0
+2025-10-01,Não Ativado,Clientes Fieis,2,0,1,2
+2025-10-01,Não Ativado,Clientes Promissores,1,0,1,1
+2025-10-01,Não Ativado,Em Risco,7,0,0,0
+2025-10-01,Não Ativado,Hibernando,5,0,0,0
+2025-10-01,Não Ativado,Perdido,76,0,0,0
+2025-10-01,Não Ativado,Potencial Fiel,10,3,10,10
+2025-10-01,Não Ativado,Precisa de Atencao,2,0,0,2
+2025-10-01,Não Ativado,Quase Dormindo,5,0,0,5
+2025-10-01,Não Ativado,,44551,95,109,119
+2025-11-01,Ativo,Campeao,3765,3743,3765,3765
+2025-11-01,Ativo,Clientes Fieis,5555,5435,5552,5553
+2025-11-01,Ativo,Novos Clientes,824,800,823,823
+2025-11-01,Ativo,Potencial Fiel,9551,9249,9547,9547
+2025-11-01,Ativo,,101,99,101,101
+2025-11-01,Churn,Em Risco,1655,1,1,2
+2025-11-01,Churn,Hibernando,78,0,0,0
+2025-11-01,Churn,Nao Perder!,9,0,0,0
+2025-11-01,Churn,Perdido,58832,24,24,26
+2025-11-01,Churn,,119,0,0,0
+2025-11-01,Dormente,Campeao,29,0,29,29
+2025-11-01,Dormente,Clientes Fieis,3010,22,2097,2990
+2025-11-01,Dormente,Clientes Promissores,714,0,673,713
+2025-11-01,Dormente,Novos Clientes,25,0,25,25
+2025-11-01,Dormente,Potencial Fiel,6796,18,6428,6790
+2025-11-01,Dormente,Precisa de Atencao,2039,2,3,1969
+2025-11-01,Dormente,Quase Dormindo,3458,3,3,3334
+2025-11-01,Dormente,,33,0,22,33
+2025-11-01,Inativo,Clientes Fieis,15,0,0,1
+2025-11-01,Inativo,Em Risco,4517,5,6,9
+2025-11-01,Inativo,Hibernando,7689,8,8,8
+2025-11-01,Inativo,Perdido,2271,0,0,0
+2025-11-01,Inativo,Precisa de Atencao,61,0,0,0
+2025-11-01,Inativo,Quase Dormindo,114,0,0,0
+2025-11-01,Inativo,,35,0,0,0
+2025-11-01,Não Ativado,Campeao,1,1,1,1
+2025-11-01,Não Ativado,Clientes Fieis,1,1,1,1
+2025-11-01,Não Ativado,Clientes Promissores,1,0,1,1
+2025-11-01,Não Ativado,Em Risco,5,0,0,0
+2025-11-01,Não Ativado,Hibernando,8,0,0,0
+2025-11-01,Não Ativado,Perdido,83,0,0,0
+2025-11-01,Não Ativado,Potencial Fiel,4,1,4,4
+2025-11-01,Não Ativado,Precisa de Atencao,1,0,0,1
+2025-11-01,Não Ativado,,36312,66,78,92
+2025-12-01,Ativo,Campeao,4181,4138,4181,4181
+2025-12-01,Ativo,Clientes Fieis,5474,5365,5469,5471
+2025-12-01,Ativo,Novos Clientes,864,834,864,864
+2025-12-01,Ativo,Potencial Fiel,10375,10048,10369,10371
+2025-12-01,Ativo,,84,81,84,84
+2025-12-01,Churn,Em Risco,1303,1,1,1
+2025-12-01,Churn,Hibernando,210,0,0,0
+2025-12-01,Churn,Nao Perder!,4,0,0,0
+2025-12-01,Churn,Perdido,70675,23,24,28
+2025-12-01,Churn,,125,0,0,0
+2025-12-01,Dormente,Campeao,30,0,30,30
+2025-12-01,Dormente,Clientes Fieis,2906,17,2002,2871
+2025-12-01,Dormente,Clientes Promissores,785,0,738,785
+2025-12-01,Dormente,Novos Clientes,29,0,29,29
+2025-12-01,Dormente,Potencial Fiel,7320,13,6956,7314
+2025-12-01,Dormente,Precisa de Atencao,2001,5,6,1919
+2025-12-01,Dormente,Quase Dormindo,4033,3,3,3837
+2025-12-01,Dormente,,35,0,24,35
+2025-12-01,Inativo,Clientes Fieis,16,0,0,0
+2025-12-01,Inativo,Em Risco,4684,11,12,15
+2025-12-01,Inativo,Hibernando,9935,13,14,16
+2025-12-01,Inativo,Perdido,2944,0,0,0
+2025-12-01,Inativo,Precisa de Atencao,78,0,0,0
+2025-12-01,Inativo,Quase Dormindo,159,0,0,0
+2025-12-01,Inativo,,38,0,0,0
+2025-12-01,Não Ativado,Campeao,1,1,1,1
+2025-12-01,Não Ativado,Clientes Fieis,1,1,1,1
+2025-12-01,Não Ativado,Em Risco,3,0,0,0
+2025-12-01,Não Ativado,Hibernando,4,0,0,0
+2025-12-01,Não Ativado,Novos Clientes,1,0,1,1
+2025-12-01,Não Ativado,Perdido,93,0,0,0
+2025-12-01,Não Ativado,Potencial Fiel,5,2,5,5
+2025-12-01,Não Ativado,Precisa de Atencao,2,0,0,2
+2025-12-01,Não Ativado,Quase Dormindo,4,0,0,4
+2025-12-01,Não Ativado,,27268,83,93,102
+2026-01-01,Ativo,Campeao,3758,3734,3758,3758
+2026-01-01,Ativo,Clientes Fieis,4921,4825,4921,4921
+2026-01-01,Ativo,Novos Clientes,813,785,813,813
+2026-01-01,Ativo,Potencial Fiel,10098,9797,10089,10089
+2026-01-01,Ativo,,76,76,76,76
+2026-01-01,Churn,Em Risco,65,0,0,0
+2026-01-01,Churn,Hibernando,327,0,1,1
+2026-01-01,Churn,Perdido,6931,1,1,1
+2026-01-01,Churn,,39,0,0,0
+2026-01-01,Dormente,Campeao,23,1,23,23
+2026-01-01,Dormente,Clientes Fieis,2339,18,1692,2324
+2026-01-01,Dormente,Clientes Promissores,838,2,793,837
+2026-01-01,Dormente,Novos Clientes,25,0,25,25
+2026-01-01,Dormente,Potencial Fiel,7005,22,6656,6997
+2026-01-01,Dormente,Precisa de Atencao,1857,3,4,1787
+2026-01-01,Dormente,Quase Dormindo,4134,5,6,3951
+2026-01-01,Dormente,,51,1,35,51
+2026-01-01,Inativo,Clientes Fieis,18,0,0,0
+2026-01-01,Inativo,Em Risco,4156,8,10,10
+2026-01-01,Inativo,Hibernando,17215,11,15,16
+2026-01-01,Inativo,Perdido,49027,17,17,18
+2026-01-01,Inativo,Precisa de Atencao,45,0,0,0
+2026-01-01,Inativo,Quase Dormindo,154,0,0,0
+2026-01-01,Inativo,,120,0,0,0
+2026-01-01,Não Ativado,Clientes Fieis,1,1,1,1
+2026-01-01,Não Ativado,Em Risco,1,0,0,0
+2026-01-01,Não Ativado,Hibernando,14,0,0,0
+2026-01-01,Não Ativado,Perdido,72,0,0,0
+2026-01-01,Não Ativado,Potencial Fiel,4,2,4,4
+2026-01-01,Não Ativado,Precisa de Atencao,2,0,0,2
+2026-01-01,Não Ativado,Quase Dormindo,2,0,0,2
+2026-01-01,Não Ativado,,26288,63,80,91
+2026-02-01,Ativo,Campeao,2485,2464,2485,2485
+2026-02-01,Ativo,Clientes Fieis,3936,3873,3932,3932
+2026-02-01,Ativo,Novos Clientes,1014,986,1014,1014
+2026-02-01,Ativo,Potencial Fiel,9952,9663,9940,9941
+2026-02-01,Ativo,,95,95,95,95
+2026-02-01,Churn,Perdido,10,0,0,0
+2026-02-01,Churn,,83,0,0,0
+2026-02-01,Dormente,Campeao,13,0,13,13
+2026-02-01,Dormente,Clientes Fieis,1638,11,1201,1625
+2026-02-01,Dormente,Clientes Promissores,1031,1,956,1028
+2026-02-01,Dormente,Novos Clientes,30,0,30,30
+2026-02-01,Dormente,Potencial Fiel,6869,20,6537,6859
+2026-02-01,Dormente,Precisa de Atencao,1532,8,10,1478
+2026-02-01,Dormente,Quase Dormindo,4672,4,6,4466
+2026-02-01,Dormente,,52,0,33,52
+2026-02-01,Inativo,Clientes Fieis,3,0,0,0
+2026-02-01,Inativo,Em Risco,2500,5,6,7
+2026-02-01,Inativo,Hibernando,12854,9,10,14
+2026-02-01,Inativo,Perdido,47188,21,23,23
+2026-02-01,Inativo,Precisa de Atencao,46,0,0,0
+2026-02-01,Inativo,Quase Dormindo,162,0,0,0
+2026-02-01,Inativo,,155,0,0,0
+2026-02-01,Não Ativado,Clientes Fieis,3,2,3,3
+2026-02-01,Não Ativado,Hibernando,16,0,0,0
+2026-02-01,Não Ativado,Perdido,56,0,0,0
+2026-02-01,Não Ativado,Potencial Fiel,5,3,5,5
+2026-02-01,Não Ativado,Precisa de Atencao,1,0,0,1
+2026-02-01,Não Ativado,Quase Dormindo,2,0,0,2
+2026-02-01,Não Ativado,,19271,61,81,96
+2026-03-01,Ativo,Campeao,2287,2266,2287,2287
+2026-03-01,Ativo,Clientes Fieis,3596,3531,3594,3594
+2026-03-01,Ativo,Novos Clientes,1376,1321,1375,1375
+2026-03-01,Ativo,Potencial Fiel,12651,12263,12636,12638
+2026-03-01,Ativo,,83,82,83,83
+2026-03-01,Churn,Em Risco,6,0,0,0
+2026-03-01,Churn,Perdido,15,0,0,0
+2026-03-01,Churn,,39,0,0,0
+2026-03-01,Dormente,Campeao,13,0,13,13
+2026-03-01,Dormente,Clientes Fieis,1350,11,982,1336
+2026-03-01,Dormente,Clientes Promissores,1437,4,1331,1437
+2026-03-01,Dormente,Novos Clientes,59,0,59,59
+2026-03-01,Dormente,Potencial Fiel,8371,28,7946,8356
+2026-03-01,Dormente,Precisa de Atencao,1446,3,5,1400
+2026-03-01,Dormente,Quase Dormindo,6573,9,10,6266
+2026-03-01,Dormente,,43,0,25,43
+2026-03-01,Inativo,Clientes Fieis,6,0,0,0
+2026-03-01,Inativo,Em Risco,1382,3,4,5
+2026-03-01,Inativo,Hibernando,10775,7,8,10
+2026-03-01,Inativo,Perdido,54300,32,36,40
+2026-03-01,Inativo,Precisa de Atencao,44,1,1,1
+2026-03-01,Inativo,Quase Dormindo,220,0,0,0
+2026-03-01,Inativo,,132,0,0,0
+2026-03-01,Não Ativado,Clientes Fieis,1,1,1,1
+2026-03-01,Não Ativado,Hibernando,10,0,0,0
+2026-03-01,Não Ativado,Perdido,54,0,0,0
+2026-03-01,Não Ativado,Potencial Fiel,5,4,5,5
+2026-03-01,Não Ativado,Precisa de Atencao,2,0,0,2
+2026-03-01,Não Ativado,Quase Dormindo,1,0,0,0
+2026-03-01,Não Ativado,,14157,64,86,103
+2026-04-01,Ativo,Campeao,1898,1882,1898,1898
+2026-04-01,Ativo,Clientes Fieis,2551,2515,2551,2551
+2026-04-01,Ativo,Novos Clientes,1963,1890,1963,1963
+2026-04-01,Ativo,Potencial Fiel,12879,12474,12869,12871
+2026-04-01,Ativo,,69,68,69,69
+2026-04-01,Churn,Em Risco,2,0,0,0
+2026-04-01,Churn,Perdido,13,0,0,0
+2026-04-01,Churn,,62,0,0,0
+2026-04-01,Dormente,Campeao,16,1,16,16
+2026-04-01,Dormente,Clientes Fieis,920,5,698,914
+2026-04-01,Dormente,Clientes Promissores,2135,0,1999,2134
+2026-04-01,Dormente,Novos Clientes,75,0,75,75
+2026-04-01,Dormente,Potencial Fiel,8405,20,7919,8397
+2026-04-01,Dormente,Precisa de Atencao,1136,3,7,1092
+2026-04-01,Dormente,Quase Dormindo,60990,32,36,58334
+2026-04-01,Dormente,,109,0,20,103
+2026-04-01,Inativo,Clientes Fieis,4,0,0,0
+2026-04-01,Inativo,Em Risco,54,0,0,0
+2026-04-01,Inativo,Hibernando,612,0,0,0
+2026-04-01,Inativo,Perdido,3716,3,3,4
+2026-04-01,Inativo,Precisa de Atencao,10,0,0,0
+2026-04-01,Inativo,Quase Dormindo,2078,2,2,2
+2026-04-01,Inativo,,14,0,0,0
+2026-04-01,Não Ativado,Clientes Fieis,1,0,1,1
+2026-04-01,Não Ativado,Hibernando,1,0,0,0
+2026-04-01,Não Ativado,Perdido,8,0,0,0
+2026-04-01,Não Ativado,Potencial Fiel,13,3,13,13
+2026-04-01,Não Ativado,Precisa de Atencao,1,0,0,1
+2026-04-01,Não Ativado,Quase Dormindo,99,1,1,94
+2026-04-01,Não Ativado,,86546,60,88,350
+2026-05-01,Ativo,Campeao,1918,1909,1918,1918
+2026-05-01,Ativo,Clientes Fieis,1886,1850,1886,1886
+2026-05-01,Ativo,Novos Clientes,2763,2649,2763,2763
+2026-05-01,Ativo,Potencial Fiel,14704,14262,14696,14697
+2026-05-01,Ativo,,62,61,62,62
+2026-05-01,Churn,Perdido,10,0,0,0
+2026-05-01,Churn,,34,0,1,1
+2026-05-01,Dormente,Campeao,13,0,13,13
+2026-05-01,Dormente,Clientes Fieis,643,6,606,642
+2026-05-01,Dormente,Clientes Promissores,60285,53,56710,60186
+2026-05-01,Dormente,Novos Clientes,96,0,96,96
+2026-05-01,Dormente,Potencial Fiel,14702,34,13987,14588
+2026-05-01,Dormente,Precisa de Atencao,54,1,1,50
+2026-05-01,Dormente,Quase Dormindo,4839,2,2,4824
+2026-05-01,Dormente,,108,0,99,108
+2026-05-01,Inativo,Em Risco,8,0,0,0
+2026-05-01,Inativo,Hibernando,8,0,1,1
+2026-05-01,Inativo,Perdido,4,0,0,0
+2026-05-01,Inativo,Precisa de Atencao,1,0,0,0
+2026-05-01,Não Ativado,Clientes Promissores,72,0,70,72
+2026-05-01,Não Ativado,Novos Clientes,2,1,2,2
+2026-05-01,Não Ativado,Potencial Fiel,24,4,24,24
+2026-05-01,Não Ativado,Quase Dormindo,2,0,0,2
+2026-05-01,Não Ativado,,7977,49,285,319
+2026-06-01,Ativo,Campeao,803,801,803,803
+2026-06-01,Ativo,Clientes Fieis,660,654,660,660
+2026-06-01,Ativo,Novos Clientes,67327,64845,67257,67257
+2026-06-01,Ativo,Potencial Fiel,18272,17761,18173,18173
+2026-06-01,Ativo,,114,110,114,114
+2026-06-01,Churn,Em Risco,1,1,1,1
+2026-06-01,Churn,Perdido,5,0,0,0
+2026-06-01,Churn,,69,0,0,0
+2026-06-01,Dormente,Clientes Fieis,25,0,23,25
+2026-06-01,Dormente,Clientes Promissores,2134,2,2131,2131
+2026-06-01,Dormente,Novos Clientes,2061,5,2056,2056
+2026-06-01,Dormente,Potencial Fiel,681,0,673,673
+2026-06-01,Dormente,Precisa de Atencao,3,0,0,3
+2026-06-01,Dormente,Quase Dormindo,1,0,0,1
+2026-06-01,Dormente,,10,0,10,10
+2026-06-01,Inativo,Em Risco,3,0,0,0
+2026-06-01,Inativo,Hibernando,1,0,0,0
+2026-06-01,Não Ativado,Clientes Promissores,2,0,2,2
+2026-06-01,Não Ativado,Novos Clientes,54,53,54,54
+2026-06-01,Não Ativado,Potencial Fiel,13,11,13,13
+2026-06-01,Não Ativado,,100545,259,291,291
+2026-07-01,Ativo,Novos Clientes,4451,4445,4445,4445
+2026-07-01,Ativo,Potencial Fiel,728,721,721,721
+2026-07-01,Ativo,,7,7,7,7
+2026-07-01,Churn,,1,0,0,0
+2026-07-01,Não Ativado,Novos Clientes,4,4,4,4
+2026-07-01,Não Ativado,Potencial Fiel,2,2,2,2
+2026-07-01,Não Ativado,,1465,473,473,473

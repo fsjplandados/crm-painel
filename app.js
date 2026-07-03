@@ -95,21 +95,319 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             const csvText = await response.text();
             
-            const lines = csvText.split('\n').map(line => line.trim()).filter(line => line.length > 0 && !line.includes('2026-06-01') && !line.includes('Jun/26'));
-            let segmentsData = [];
+            const lines = csvText.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+            window.baseTotalData = [];
+            window.selectedSegments = new Set();
+            window.selectedStatuses = new Set();
+            window.selectedYears = new Set();
+            window.selectedMonths = new Set();
+            window.availablePeriods = new Set();
+            
+            const dataBySegment = {};
+            const dataByStatus = {};
 
             for (let i = 1; i < lines.length; i++) {
-                const [segment, qtdStr] = lines[i].split(',');
-                if (!qtdStr) continue;
+                const parts = lines[i].split(',');
+                if (parts.length < 4) continue;
+                
+                let segmentName = parts[2].trim();
+                const qtdStr = parts[3].trim();
                 const qtd = parseInt(qtdStr, 10);
                 
-                let segmentName = segment.trim();
+                if (isNaN(qtd)) continue;
+                
                 if (segmentName === '' || segmentName === '0') {
                     segmentName = 'Sem segmentação';
                 }
 
-                segmentsData.push({ name: segmentName, value: qtd });
-                globalTotalBase += qtd;
+                if (!dataBySegment[segmentName]) {
+                    dataBySegment[segmentName] = 0;
+                }
+                dataBySegment[segmentName] += qtd;
+                
+                let statusName = parts[1].trim();
+                if (statusName === '') statusName = 'Sem Status';
+                
+                if (!dataByStatus[statusName]) {
+                    dataByStatus[statusName] = 0;
+                }
+                dataByStatus[statusName] += qtd;
+                
+                const act30 = parseInt(parts[4] || '0', 10) || 0;
+                const act60 = parseInt(parts[5] || '0', 10) || 0;
+                const act90 = parseInt(parts[6] || '0', 10) || 0;
+                
+                const period = parts[0].trim();
+                if (period) window.availablePeriods.add(period);
+                
+                window.baseTotalData.push({ 
+                    segment: segmentName, 
+                    status: statusName, 
+                    period: period,
+                    qtd: qtd, 
+                    act30: act30, 
+                    act60: act60, 
+                    act90: act90 
+                });
+            }
+            
+            // Populate Custom Period Picker (Multi-select Years and Months)
+            const periodPickerEl = document.getElementById('custom-period-picker');
+            if (periodPickerEl) {
+                periodPickerEl.innerHTML = '';
+                
+                // Extract unique years and months from availablePeriods
+                const uniqueYears = new Set();
+                Array.from(window.availablePeriods).forEach(p => {
+                    uniqueYears.add(p.split('-')[0]);
+                });
+                
+                const sortedYears = Array.from(uniqueYears).sort().reverse();
+                const allMonths = ['01','02','03','04','05','06','07','08','09','10','11','12'];
+                const monthNames = { '01':'Jan', '02':'Fev', '03':'Mar', '04':'Abr', '05':'Mai', '06':'Jun', '07':'Jul', '08':'Ago', '09':'Set', '10':'Out', '11':'Nov', '12':'Dez' };
+                
+                // Clear Filters button
+                const topBar = document.createElement('div');
+                topBar.style.display = 'flex';
+                topBar.style.justifyContent = 'space-between';
+                topBar.style.alignItems = 'center';
+                topBar.style.marginBottom = '8px';
+                
+                const allBtn = document.createElement('button');
+                allBtn.textContent = 'Limpar Período (Todo Histórico)';
+                allBtn.className = 'period-chip';
+                allBtn.style.background = '#F1F5F9';
+                allBtn.style.color = '#475569';
+                allBtn.style.borderColor = '#CBD5E1';
+                allBtn.onclick = () => {
+                    window.selectedYears.clear();
+                    window.selectedMonths.clear();
+                    updatePeriodUI();
+                    window.updateBaseTotalKPI();
+                };
+                topBar.appendChild(allBtn);
+                periodPickerEl.appendChild(topBar);
+                
+                // Years Section
+                const yearsContainer = document.createElement('div');
+                yearsContainer.style.marginBottom = '12px';
+                const yearsTitle = document.createElement('div');
+                yearsTitle.textContent = 'Anos';
+                yearsTitle.style.fontSize = '11px';
+                yearsTitle.style.fontWeight = 'bold';
+                yearsTitle.style.color = '#475569';
+                yearsTitle.style.marginBottom = '4px';
+                yearsContainer.appendChild(yearsTitle);
+                
+                const yearsGrid = document.createElement('div');
+                yearsGrid.style.display = 'flex';
+                yearsGrid.style.flexWrap = 'wrap';
+                yearsGrid.style.gap = '4px';
+                
+                sortedYears.forEach(year => {
+                    const yBtn = document.createElement('button');
+                    yBtn.textContent = year;
+                    yBtn.className = 'period-chip year-chip';
+                    yBtn.dataset.val = year;
+                    yBtn.onclick = () => {
+                        if (window.selectedYears.has(year)) {
+                            window.selectedYears.delete(year);
+                        } else {
+                            window.selectedYears.add(year);
+                        }
+                        updatePeriodUI();
+                        window.updateBaseTotalKPI();
+                    };
+                    yearsGrid.appendChild(yBtn);
+                });
+                yearsContainer.appendChild(yearsGrid);
+                periodPickerEl.appendChild(yearsContainer);
+                
+                // Months Section
+                const monthsContainer = document.createElement('div');
+                const monthsTitle = document.createElement('div');
+                monthsTitle.textContent = 'Meses';
+                monthsTitle.style.fontSize = '11px';
+                monthsTitle.style.fontWeight = 'bold';
+                monthsTitle.style.color = '#475569';
+                monthsTitle.style.marginBottom = '4px';
+                monthsContainer.appendChild(monthsTitle);
+                
+                const monthsGrid = document.createElement('div');
+                monthsGrid.style.display = 'flex';
+                monthsGrid.style.flexWrap = 'wrap';
+                monthsGrid.style.gap = '4px';
+                
+                allMonths.forEach(m => {
+                    const mBtn = document.createElement('button');
+                    mBtn.textContent = monthNames[m];
+                    mBtn.className = 'period-chip month-chip';
+                    mBtn.dataset.val = m;
+                    mBtn.onclick = () => {
+                        if (window.selectedMonths.has(m)) {
+                            window.selectedMonths.delete(m);
+                        } else {
+                            window.selectedMonths.add(m);
+                        }
+                        updatePeriodUI();
+                        window.updateBaseTotalKPI();
+                    };
+                    monthsGrid.appendChild(mBtn);
+                });
+                monthsContainer.appendChild(monthsGrid);
+                periodPickerEl.appendChild(monthsContainer);
+                
+                function updatePeriodUI() {
+                    periodPickerEl.querySelectorAll('.year-chip').forEach(c => {
+                        if (window.selectedYears.has(c.dataset.val)) {
+                            c.style.background = '#1E3A8A';
+                            c.style.color = 'white';
+                            c.style.borderColor = '#1E3A8A';
+                        } else {
+                            c.style.background = 'white';
+                            c.style.color = '#475569';
+                            c.style.borderColor = '#CBD5E1';
+                        }
+                    });
+                    
+                    periodPickerEl.querySelectorAll('.month-chip').forEach(c => {
+                        if (window.selectedMonths.has(c.dataset.val)) {
+                            c.style.background = '#1E3A8A';
+                            c.style.color = 'white';
+                            c.style.borderColor = '#1E3A8A';
+                        } else {
+                            c.style.background = 'white';
+                            c.style.color = '#475569';
+                            c.style.borderColor = '#CBD5E1';
+                        }
+                    });
+                    
+                    const mainPeriodTextEl = document.getElementById('main-period-text');
+                    if (mainPeriodTextEl) {
+                        if (window.selectedYears.size === 0 && window.selectedMonths.size === 0) {
+                            mainPeriodTextEl.textContent = 'Todo Histórico';
+                        } else {
+                            let yText = window.selectedYears.size > 0 ? Array.from(window.selectedYears).join(', ') : 'Todos os Anos';
+                            let mText = window.selectedMonths.size > 0 ? Array.from(window.selectedMonths).map(m => monthNames[m]).join(', ') : 'Todos os Meses';
+                            // Make it compact if too many
+                            if (window.selectedYears.size > 2) yText = window.selectedYears.size + ' Anos';
+                            if (window.selectedMonths.size > 3) mText = window.selectedMonths.size + ' Meses';
+                            mainPeriodTextEl.textContent = `${mText} - ${yText}`;
+                        }
+                    }
+                }
+                
+                // Add CSS for period-chip if not exists
+                if (!document.getElementById('period-chip-style')) {
+                    const style = document.createElement('style');
+                    style.id = 'period-chip-style';
+                    style.textContent = `
+                        .period-chip {
+                            padding: 4px 8px;
+                            font-size: 11px;
+                            border: 1px solid #CBD5E1;
+                            border-radius: 12px;
+                            background: white;
+                            color: #475569;
+                            cursor: pointer;
+                            transition: all 0.2s;
+                            font-family: 'Inter', sans-serif;
+                            font-weight: 500;
+                        }
+                        .period-chip:hover {
+                            border-color: #94A3B8;
+                            background: #F1F5F9;
+                        }
+                    `;
+                    document.head.appendChild(style);
+                }
+                
+                updatePeriodUI();
+            }
+            
+            window.updateBaseTotalKPI = () => {
+                let total = 0;
+                let t30 = 0, t60 = 0, t90 = 0;
+                for (const row of window.baseTotalData) {
+                    const matchSegment = window.selectedSegments.size === 0 || window.selectedSegments.has(row.segment);
+                    const matchStatus = window.selectedStatuses.size === 0 || window.selectedStatuses.has(row.status);
+                    
+                    let matchPeriod = true;
+                    if (window.selectedYears.size > 0 || window.selectedMonths.size > 0) {
+                        const [rowYear, rowMonth] = row.period.split('-');
+                        const matchY = window.selectedYears.size === 0 || window.selectedYears.has(rowYear);
+                        const matchM = window.selectedMonths.size === 0 || window.selectedMonths.has(rowMonth);
+                        matchPeriod = matchY && matchM;
+                    }
+                    
+                    if (matchSegment && matchStatus && matchPeriod) {
+                        total += row.qtd;
+                        t30 += row.act30;
+                        t60 += row.act60;
+                        t90 += row.act90;
+                    }
+                }
+                
+                if (window.updateNovosRecorrentesCharts) {
+                    window.updateNovosRecorrentesCharts();
+                }
+                if (window.updateEvolutionCharts) {
+                    window.updateEvolutionCharts();
+                }
+                totalClientsEl.textContent = formatNumber(total);
+                
+                // Update Top KPIs
+                if (kpi30dEl) kpi30dEl.textContent = formatNumber(t30);
+                if (kpi60dEl) kpi60dEl.textContent = formatNumber(t60);
+                if (kpi90dEl) kpi90dEl.textContent = formatNumber(t90);
+                
+                if (delta60dEl) {
+                    if (t30 > 0) {
+                        const pct = ((t60 - t30) / t30) * 100;
+                        delta60dEl.innerHTML = `<span style="color: ${pct >= 0 ? '#10B981' : '#EF4444'}; font-weight: bold;">${pct > 0 ? '↑' : '↓'} +${Math.abs(pct).toFixed(0)}%</span> vs 30 dias`;
+                    } else {
+                        delta60dEl.innerHTML = `<span>-</span>`;
+                    }
+                }
+                
+                if (delta90dEl) {
+                    if (t60 > 0) {
+                        const pct = ((t90 - t60) / t60) * 100;
+                        delta90dEl.innerHTML = `<span style="color: ${pct >= 0 ? '#10B981' : '#EF4444'}; font-weight: bold;">${pct > 0 ? '↑' : '↓'} +${Math.abs(pct).toFixed(0)}%</span> vs 60 dias`;
+                    } else {
+                        delta90dEl.innerHTML = `<span>-</span>`;
+                    }
+                }
+                
+                // Update Percentages over Base Total
+                if (total > 0) {
+                    const pct30 = ((t30 / total) * 100).toFixed(1);
+                    const pct60 = ((t60 / total) * 100).toFixed(1);
+                    const pct90 = ((t90 / total) * 100).toFixed(1);
+
+                    if (deltaPct30dEl) deltaPct30dEl.textContent = `${pct30}% da base`;
+                    if (deltaPct60dEl) deltaPct60dEl.textContent = `${pct60}% da base`;
+                    if (deltaPct90dEl) deltaPct90dEl.textContent = `${pct90}% da base`;
+
+                    // Update progress bars (might not exist in this version but good to keep)
+                    if (progress30dEl) progress30dEl.style.width = `${pct30}%`;
+                    if (progress60dEl) progress60dEl.style.width = `${pct60}%`;
+                    if (progress90dEl) progress90dEl.style.width = `${pct90}%`;
+
+                    // --- Progressão da Base Logic (Insight) ---
+                    const inativos = total - t90;
+                    const p_inativos = ((inativos / total) * 100).toFixed(1);
+                    const flowFooterPctEl = document.getElementById('flow-footer-pct');
+                    if (flowFooterPctEl) {
+                        flowFooterPctEl.textContent = `${p_inativos}%`;
+                    }
+                }
+            };
+            
+            let segmentsData = [];
+            for (const [segment, value] of Object.entries(dataBySegment)) {
+                segmentsData.push({ name: segment, value: value });
+                globalTotalBase += value;
             }
 
             totalClientsEl.textContent = formatNumber(globalTotalBase);
@@ -122,6 +420,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 
                 const div = document.createElement('div');
                 div.className = 'segment-row';
+                div.style.cursor = 'pointer';
+                div.style.transition = 'all 0.2s';
                 div.innerHTML = `
                     <div class="segment-name" title="${item.name}">
                         ${item.name} 
@@ -133,14 +433,498 @@ document.addEventListener('DOMContentLoaded', async () => {
                     <div class="segment-value">${formatNumber(item.value)}</div>
                     <div class="segment-percent">${pct}%</div>
                 `;
+                
+                div.onclick = () => {
+                    if (window.selectedSegments.has(item.name)) {
+                        window.selectedSegments.delete(item.name);
+                    } else {
+                        window.selectedSegments.add(item.name);
+                    }
+                    
+                    const allRows = segmentsList.querySelectorAll('.segment-row');
+                    if (window.selectedSegments.size > 0) {
+                        allRows.forEach(r => {
+                            const name = r.querySelector('.segment-name').getAttribute('title');
+                            if (window.selectedSegments.has(name)) {
+                                r.style.opacity = '1';
+                                r.style.background = '#f8fafc';
+                                r.style.borderRadius = '4px';
+                            } else {
+                                r.style.opacity = '0.4';
+                                r.style.background = 'transparent';
+                            }
+                        });
+                    } else {
+                        allRows.forEach(r => {
+                            r.style.opacity = '1';
+                            r.style.background = 'transparent';
+                        });
+                    }
+                    
+                    window.updateBaseTotalKPI();
+                };
+                
                 segmentsList.appendChild(div);
             });
+            
+            // Render Status Pie Chart
+            const statusCanvas = document.getElementById('status-pie-chart');
+            if (statusCanvas) {
+                const ctx = statusCanvas.getContext('2d');
+                const labels = Object.keys(dataByStatus);
+                const data = Object.values(dataByStatus);
+                
+                // Brand-aligned colors, negative statuses as reddish/dark
+                const baseColors = labels.map((label, index) => {
+                    const l = label.toLowerCase();
+                    if (l.includes('churn') || l.includes('inativo') || l.includes('perdido') || l.includes('não ativado')) return '#C81D25'; // Dark red for negative
+                    if (l.includes('dormente') || l.includes('risco') || l.includes('atenção')) return '#F97316'; // Orange for warning
+                    if (l.includes('ativo') && !l.includes('inativo')) return '#243685'; // Brand dark blue for active
+                    if (l.includes('novo')) return '#10B981'; // Green
+                    
+                    const palette = ['#1E3A8A', '#DC2626', '#F59E0B', '#10B981', '#8B5CF6', '#EC4899', '#14B8A6'];
+                    return palette[index % palette.length];
+                });
+                
+                if (window.statusPieChartInstance) {
+                    window.statusPieChartInstance.destroy();
+                }
+
+                window.statusPieChartInstance = new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            data: data,
+                            backgroundColor: [...baseColors],
+                            borderWidth: 2,
+                            borderColor: '#ffffff',
+                            borderRadius: 8, // Rounded corners for pie slices
+                            hoverOffset: 4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        layout: {
+                            padding: 20
+                        },
+                        onClick: (event, elements, chart) => {
+                            if (elements.length > 0) {
+                                const index = elements[0].index;
+                                const statusName = chart.data.labels[index];
+                                if (window.selectedStatuses.has(statusName)) {
+                                    window.selectedStatuses.delete(statusName);
+                                } else {
+                                    window.selectedStatuses.add(statusName);
+                                }
+                                
+                                chart.data.datasets[0].backgroundColor = chart.data.labels.map((lbl, i) => {
+                                    if (window.selectedStatuses.size === 0 || window.selectedStatuses.has(lbl)) {
+                                        return baseColors[i];
+                                    }
+                                    const hex = baseColors[i].replace('#', '');
+                                    const r = parseInt(hex.substring(0, 2), 16);
+                                    const g = parseInt(hex.substring(2, 4), 16);
+                                    const b = parseInt(hex.substring(4, 6), 16);
+                                    return `rgba(${r}, ${g}, ${b}, 0.25)`; // Reliable transparency
+                                });
+                                chart.update();
+                                window.updateBaseTotalKPI();
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                position: 'right',
+                                onClick: (e, legendItem, legend) => {
+                                    const index = legendItem.index;
+                                    const chart = legend.chart;
+                                    const statusName = chart.data.labels[index];
+                                    if (window.selectedStatuses.has(statusName)) {
+                                        window.selectedStatuses.delete(statusName);
+                                    } else {
+                                        window.selectedStatuses.add(statusName);
+                                    }
+                                    
+                                    chart.data.datasets[0].backgroundColor = chart.data.labels.map((lbl, i) => {
+                                        if (window.selectedStatuses.size === 0 || window.selectedStatuses.has(lbl)) {
+                                            return baseColors[i];
+                                        }
+                                        const hex = baseColors[i].replace('#', '');
+                                        const r = parseInt(hex.substring(0, 2), 16);
+                                        const g = parseInt(hex.substring(2, 4), 16);
+                                        const b = parseInt(hex.substring(4, 6), 16);
+                                        return `rgba(${r}, ${g}, ${b}, 0.25)`;
+                                    });
+                                    chart.update();
+                                    window.updateBaseTotalKPI();
+                                },
+                                labels: {
+                                    font: { size: 11, family: "'Montserrat', sans-serif" },
+                                    color: '#64748B',
+                                    usePointStyle: true,
+                                    padding: 15
+                                }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        const label = context.label || '';
+                                        const value = context.raw;
+                                        const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                        const percentage = ((value * 100) / total).toFixed(1) + '%';
+                                        return `${label}: ${formatNumber(value)} (${percentage})`;
+                                    }
+                                }
+                            },
+                            datalabels: {
+                                color: '#ffffff',
+                                font: { weight: 'bold', size: 11 },
+                                formatter: (value, context) => {
+                                    const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                    const percentage = (value * 100 / total).toFixed(1);
+                                    return percentage > 4 ? percentage + '%' : '';
+                                }
+                            }
+                        }
+                    },
+                    plugins: [ChartDataLabels]
+                });
+            }
+            
+            // Initial render of KPIs
+            window.updateBaseTotalKPI();
+
         } catch (error) {
             console.error('Error loading Base total:', error);
             totalClientsEl.textContent = 'Erro';
             if (segmentsList) segmentsList.innerHTML = `<div style="color: red; font-size: 11px;">Erro ao carregar 'Base total.csv'.</div>`;
         }
     };
+
+    // ---- Novos Clientes x Recorrentes ----
+    let novosRecorrentesQtdChart = null;
+    let novosRecorrentesShareChart = null;
+    window.novosRecorrentesData = [];
+
+    const loadNovosRecorrentes = async () => {
+        try {
+            const response = await fetch(`Arquivos Jun-2026/Clientes_Novos_Recorrentes.csv?v=${Date.now()}`);
+            if (!response.ok) throw new Error('File not found');
+            const text = await response.text();
+            
+            const lines = text.split('\n');
+            window.novosRecorrentesData = [];
+            for (let i = 1; i < lines.length; i++) {
+                const line = lines[i].trim();
+                if (!line) continue;
+                
+                const parts = line.split(';');
+                let cols = parts;
+                if (parts.length < 9) cols = line.split(',');
+                if (cols.length >= 9) {
+                    let rawMes = cols[0].trim();
+                    let year = '', month = '';
+                    
+                    if (rawMes.includes('/')) {
+                        const dParts = rawMes.split('/');
+                        if (dParts.length === 3) {
+                            year = dParts[2];
+                            month = dParts[1];
+                            rawMes = `${year}-${month}-${dParts[0]}`;
+                        }
+                    } else if (rawMes.includes('-')) {
+                        const dParts = rawMes.split('-');
+                        if (dParts.length >= 2) {
+                            year = dParts[0];
+                            month = dParts[1];
+                        }
+                    }
+                    
+                    window.novosRecorrentesData.push({
+                        rawMes: rawMes,
+                        year: year,
+                        month: month,
+                        mes: `${month}/${year}`,
+                        novosQtd: parseFloat(cols[1]) || 0,
+                        recQtd: parseFloat(cols[2]) || 0,
+                        shareNovosRec: parseFloat(cols[7]) || 0,
+                        shareRecRec: parseFloat(cols[8]) || 0
+                    });
+                }
+            }
+            console.log('Novos x Recorrentes loaded:', window.novosRecorrentesData.length, 'rows');
+            updateNovosRecorrentesCharts();
+            if (window.updateEvolutionCharts) {
+                window.updateEvolutionCharts();
+            }
+        } catch (e) {
+            console.error('Error loading Novos x Recorrentes:', e);
+        }
+    };
+
+    const updateNovosRecorrentesCharts = () => {
+        let filteredData = window.novosRecorrentesData;
+        
+        filteredData = window.novosRecorrentesData.filter(row => {
+            const hasYearFilter = window.selectedYears && window.selectedYears.size > 0;
+            const hasMonthFilter = window.selectedMonths && window.selectedMonths.size > 0;
+            
+            // If no year is selected, default to 2026 to prevent chart clutter
+            const matchY = hasYearFilter ? window.selectedYears.has(row.year) : (row.year === '2026');
+            const matchM = !hasMonthFilter || window.selectedMonths.has(row.month);
+            
+            return matchY && matchM;
+        });
+        
+        filteredData.sort((a,b) => a.rawMes.localeCompare(b.rawMes));
+        
+        const labels = filteredData.map(d => d.mes);
+        const novosQtd = filteredData.map(d => d.novosQtd);
+        const recQtd = filteredData.map(d => d.recQtd);
+        const shareNovosRec = filteredData.map(d => d.shareNovosRec);
+        const shareRecRec = filteredData.map(d => d.shareRecRec);
+
+        const colorNovos = '#00A650'; // Brand green
+        const colorRec = '#1E3A8A'; // Brand dark blue
+
+        const ctxQtd = document.getElementById('novos-recorrentes-qtd-chart');
+        if (ctxQtd) {
+            if (novosRecorrentesQtdChart) novosRecorrentesQtdChart.destroy();
+            novosRecorrentesQtdChart = new Chart(ctxQtd, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        { label: 'Clientes recorrentes', data: recQtd, backgroundColor: colorRec, stack: 'Stack 0' },
+                        { label: 'Novos clientes', data: novosQtd, backgroundColor: colorNovos, stack: 'Stack 0' }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: { x: { stacked: true, grid: { display: false } }, y: { stacked: true, beginAtZero: true, ticks: { callback: function(value) { return formatNumber(value); } } } },
+                    plugins: {
+                        legend: { position: 'bottom', labels: { usePointStyle: true, boxWidth: 8 } },
+                        datalabels: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.dataset.label + ': ' + formatNumber(context.parsed.y);
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        const ctxShare = document.getElementById('novos-recorrentes-share-chart');
+        if (ctxShare) {
+            if (novosRecorrentesShareChart) novosRecorrentesShareChart.destroy();
+            novosRecorrentesShareChart = new Chart(ctxShare, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        { label: 'Clientes recorrentes', data: shareRecRec, backgroundColor: colorRec, stack: 'Stack 0' },
+                        { label: 'Novos clientes', data: shareNovosRec, backgroundColor: colorNovos, stack: 'Stack 0' }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: { 
+                        x: { stacked: true, grid: { display: false } }, 
+                        y: { stacked: true, beginAtZero: true, max: 100, ticks: { callback: function(value) { return value + '%'; } } } 
+                    },
+                    plugins: {
+                        legend: { position: 'bottom', labels: { usePointStyle: true, boxWidth: 8 } },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.dataset.label + ': ' + context.parsed.y.toFixed(1).replace('.', ',') + '%';
+                                }
+                            }
+                        },
+                        datalabels: { display: false }
+                    }
+                }
+            });
+        }
+    };
+    window.updateNovosRecorrentesCharts = updateNovosRecorrentesCharts;
+
+    // ---- Evolução Histórica ----
+    let evolucaoNovosChart = null;
+    let evolucaoFieisChart = null;
+    let evolucaoBaseChart = null;
+    let evolucaoAtivosChart = null;
+
+    const updateEvolutionCharts = () => {
+        // Data for Novos Clientes (from Novos x Recorrentes CSV)
+        let filteredNovos = window.novosRecorrentesData || [];
+        filteredNovos = filteredNovos.filter(row => {
+            const hasYearFilter = window.selectedYears && window.selectedYears.size > 0;
+            const hasMonthFilter = window.selectedMonths && window.selectedMonths.size > 0;
+            const matchY = hasYearFilter ? window.selectedYears.has(row.year) : (row.year === '2026');
+            const matchM = !hasMonthFilter || window.selectedMonths.has(row.month);
+            return matchY && matchM;
+        });
+        filteredNovos.sort((a,b) => a.rawMes.localeCompare(b.rawMes));
+        const labelsNovos = filteredNovos.map(d => d.mes);
+        const dataNovos = filteredNovos.map(d => d.novosQtd);
+
+        // Data for Fiéis, Base Total, and Ativos (from baseTotalData)
+        let filteredBase = window.baseTotalData || [];
+        filteredBase = filteredBase.filter(row => {
+            const pParts = row.period.split('-');
+            const rowYear = pParts[0];
+            const rowMonth = pParts.length >= 2 ? pParts[1] : '';
+            const hasYearFilter = window.selectedYears && window.selectedYears.size > 0;
+            const hasMonthFilter = window.selectedMonths && window.selectedMonths.size > 0;
+            const matchY = hasYearFilter ? window.selectedYears.has(rowYear) : (rowYear === '2026');
+            const matchM = !hasMonthFilter || window.selectedMonths.has(rowMonth);
+            return matchY && matchM;
+        });
+        
+        const mapFieis = {};
+        const mapBase = {};
+        const mapAtivos = {};
+
+        filteredBase.forEach(row => {
+            const p = row.period; // YYYY-MM-DD
+            const pParts = p.split('-');
+            const label = pParts.length >= 2 ? `${pParts[1]}/${pParts[0]}` : p; // MM/YYYY
+            if (!mapBase[p]) {
+                mapBase[p] = { label: label, val: 0 };
+                mapFieis[p] = { label: label, val: 0 };
+                mapAtivos[p] = { label: label, val: 0 };
+            }
+            mapBase[p].val += row.qtd;
+            mapAtivos[p].val += row.act90;
+            if (row.segment === 'Clientes Fieis') {
+                mapFieis[p].val += row.qtd;
+            }
+        });
+
+        const sortedKeys = Object.keys(mapBase).sort();
+        const labelsBase = sortedKeys.map(k => mapBase[k].label);
+        const dataFieis = sortedKeys.map(k => mapFieis[k].val);
+        const dataBase = sortedKeys.map(k => mapBase[k].val);
+        const dataAtivos = sortedKeys.map(k => mapAtivos[k].val);
+
+        const getColors = (dataArray, theme = 'blue') => {
+            if (!dataArray || dataArray.length === 0) return [];
+            const min = Math.min(...dataArray);
+            const max = Math.max(...dataArray);
+            
+            return dataArray.map(val => {
+                let r, g, b;
+                if (theme === 'green') { r = 153; g = 212; b = 32; } // #99D420
+                else { r = 30; g = 58; b = 138; } // #1E3A8A
+                
+                let ratio = max > min ? (val - min) / (max - min) : 1;
+                let intensity = 0.2 + (0.8 * ratio); // 20% to 100% intensity
+                
+                let nr = Math.round(255 + (r - 255) * intensity);
+                let ng = Math.round(255 + (g - 255) * intensity);
+                let nb = Math.round(255 + (b - 255) * intensity);
+                return `rgb(${nr}, ${ng}, ${nb})`;
+            });
+        };
+
+        const getBarOptions = (datasetData) => {
+            return {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: { 
+                    x: { grid: { display: false }, border: { display: false } }, 
+                    y: { display: false, beginAtZero: true, suggestedMax: function(context) { return context.chart.data.datasets[0].data.reduce((a,b) => Math.max(a,b), 0) * 1.1; } } 
+                },
+                plugins: { 
+                    legend: { display: false }, 
+                    tooltip: { 
+                        callbacks: { 
+                            label: function(context) { 
+                                const val = context.parsed.y;
+                                let labelStr = formatNumber(val);
+                                if (context.dataIndex > 0) {
+                                    const prevVal = context.chart.data.datasets[0].data[context.dataIndex - 1];
+                                    if (prevVal > 0) {
+                                        const pct = ((val - prevVal) / prevVal) * 100;
+                                        const sign = pct > 0 ? '+' : '';
+                                        labelStr += ` (${sign}${pct.toFixed(1).replace('.', ',')}%)`;
+                                    }
+                                }
+                                return labelStr;
+                            } 
+                        } 
+                    },
+                    datalabels: {
+                        display: true,
+                        anchor: 'end',
+                        align: 'bottom',
+                        offset: 8,
+                        color: function(context) {
+                            const data = context.dataset.data;
+                            if (!data || data.length === 0) return '#1E293B';
+                            const min = Math.min(...data);
+                            const max = Math.max(...data);
+                            const val = data[context.dataIndex];
+                            const ratio = max > min ? (val - min) / (max - min) : 1;
+                            return ratio > 0.45 ? '#FFFFFF' : '#1E293B';
+                        },
+                        font: { family: "'Inter', sans-serif", weight: 'bold', size: 10 },
+                        formatter: function(value, context) {
+                            let formattedVal = value;
+                            if (value > 1000000) formattedVal = (value / 1000000).toFixed(1).replace('.', ',') + 'M';
+                            else if (value > 1000) formattedVal = (value / 1000).toFixed(1).replace('.', ',') + 'k';
+                            
+                            if (context.dataIndex > 0) {
+                                const prevVal = context.chart.data.datasets[0].data[context.dataIndex - 1];
+                                if (prevVal > 0) {
+                                    const pct = ((value - prevVal) / prevVal) * 100;
+                                    const sign = pct > 0 ? '+' : '';
+                                    return `${formattedVal}\n(${sign}${pct.toFixed(1).replace('.', ',')}%)`;
+                                }
+                            }
+                            return formattedVal;
+                        },
+                        textAlign: 'center'
+                    }
+                }
+            };
+        };
+
+        const renderBarChart = (id, chartVar, labels, data, theme = 'blue') => {
+            const ctx = document.getElementById(id);
+            if (!ctx) return chartVar;
+            if (chartVar) chartVar.destroy();
+            return new Chart(ctx, {
+                type: 'bar',
+                data: { 
+                    labels: labels, 
+                    datasets: [{ 
+                        data: data, 
+                        backgroundColor: getColors(data, theme),
+                        borderRadius: 2
+                    }] 
+                },
+                options: getBarOptions(data)
+            });
+        };
+
+        if (window.ChartDataLabels && Chart.registry.plugins.get('datalabels') === undefined) {
+            Chart.register(window.ChartDataLabels);
+        }
+
+        evolucaoNovosChart = renderBarChart('evolucao-novos-chart', evolucaoNovosChart, labelsNovos, dataNovos, 'green');
+        evolucaoFieisChart = renderBarChart('evolucao-fieis-chart', evolucaoFieisChart, labelsBase, dataFieis, 'blue');
+        evolucaoBaseChart = renderBarChart('evolucao-base-chart', evolucaoBaseChart, labelsBase, dataBase, 'blue');
+        evolucaoAtivosChart = renderBarChart('evolucao-ativos-chart', evolucaoAtivosChart, labelsBase, dataAtivos, 'blue');
+    };
+    window.updateEvolutionCharts = updateEvolutionCharts;
 
     const loadActiveClients = async () => {
         try {
@@ -189,46 +973,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 }
             }
 
-            const delta60 = ((total60d - total30d) / total30d) * 100;
-            const delta90 = ((total90d - total60d) / total60d) * 100;
-
-            // Populate KPIs
-            kpi30dEl.textContent = formatNumber(total30d);
-            kpi60dEl.textContent = formatNumber(total60d);
-            kpi90dEl.textContent = formatNumber(total90d);
-
-            // Populate text deltas
-            if (delta30dEl) delta30dEl.style.display = 'none'; // Not used in new layout for 30d
-            delta60dEl.innerHTML = `&#8593;+${Math.round(delta60)}% <span style="color:#6B7280; font-weight:500;">vs 30 dias</span>`;
-            delta90dEl.innerHTML = `&#8593;+${Math.round(delta90)}% <span style="color:#6B7280; font-weight:500;">vs 60 dias</span>`;
-
-            // Setup % of base and progress bars (Wait for Base Total to be calculated)
-            setTimeout(() => {
-                if (globalTotalBase > 0) {
-                    const pct30 = ((total30d / globalTotalBase) * 100).toFixed(1);
-                    const pct60 = ((total60d / globalTotalBase) * 100).toFixed(1);
-                    const pct90 = ((total90d / globalTotalBase) * 100).toFixed(1);
-
-                    if (deltaPct30dEl) deltaPct30dEl.textContent = `${pct30}% da base`;
-                    if (deltaPct60dEl) deltaPct60dEl.textContent = `${pct60}% da base`;
-                    if (deltaPct90dEl) deltaPct90dEl.textContent = `${pct90}% da base`;
-
-                    setTimeout(() => {
-                        if (progress30dEl) progress30dEl.style.width = `${pct30}%`;
-                        if (progress60dEl) progress60dEl.style.width = `${pct60}%`;
-                        if (progress90dEl) progress90dEl.style.width = `${pct90}%`;
-                    }, 100);
-
-                    // --- Progressão da Base Logic (Insight Only) ---
-                    const inativos = globalTotalBase - total90d;
-                    const p_inativos = ((inativos / globalTotalBase) * 100).toFixed(1);
-
-                    const flowFooterPctEl = document.getElementById('flow-footer-pct');
-                    if (flowFooterPctEl) {
-                        flowFooterPctEl.textContent = `${p_inativos}%`;
-                    }
-                }
-            }, 500);
+            // KPI updates moved to loadBaseTotal dynamic update (window.updateBaseTotalKPI)
 
             // Register ChartDataLabels plugin
             if (typeof ChartDataLabels !== 'undefined') {
@@ -1038,6 +1783,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Initialize all
     loadBaseTotal();
     loadActiveClients();
+    loadNovosRecorrentes();
     loadHeatmap();
     loadFrequenciaTicket();
     loadCategorias();
