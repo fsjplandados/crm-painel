@@ -1,3 +1,23 @@
+
+function createHatchedPattern(baseColor = '#E2E8F0', stripeColor = 'rgba(255,255,255,0.8)') {
+    const canvas = document.createElement('canvas');
+    canvas.width = 10;
+    canvas.height = 10;
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = baseColor;
+    ctx.fillRect(0, 0, 10, 10);
+    ctx.strokeStyle = stripeColor;
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(0, 10);
+    ctx.lineTo(10, 0);
+    ctx.moveTo(-5, 5);
+    ctx.lineTo(5, -5);
+    ctx.moveTo(5, 15);
+    ctx.lineTo(15, 5);
+    ctx.stroke();
+    return ctx.createPattern(canvas, 'repeat');
+}
 document.addEventListener('DOMContentLoaded', async () => {
     // Global Filters State
     window.globalFilters = {
@@ -821,7 +841,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             const min = Math.min(...dataArray);
             const max = Math.max(...dataArray);
             
-            return dataArray.map(val => {
+            return dataArray.map((val, index) => {
+                if (index === dataArray.length - 1) {
+                    return createHatchedPattern();
+                }
                 let r, g, b;
                 if (theme === 'green') { r = 153; g = 212; b = 32; } // #99D420
                 else { r = 30; g = 58; b = 138; } // #1E3A8A
@@ -841,7 +864,23 @@ document.addEventListener('DOMContentLoaded', async () => {
                 responsive: true,
                 maintainAspectRatio: false,
                 scales: { 
-                    x: { grid: { display: false }, border: { display: false } }, 
+                    x: { 
+                        grid: { display: false }, 
+                        border: { display: false },
+                        ticks: {
+                            color: function(context) {
+                                if (context.index === context.chart.data.labels.length - 1) return '#F59E0B';
+                                return '#6B7280';
+                            },
+                            callback: function(value, index, ticks) {
+                                let label = this.getLabelForValue(value);
+                                if (index === ticks.length - 1 && !label.endsWith('*')) {
+                                    return label + '*';
+                                }
+                                return label;
+                            }
+                        }
+                    }, 
                     y: { display: false, beginAtZero: true, suggestedMax: function(context) { return context.chart.data.datasets[0].data.reduce((a,b) => Math.max(a,b), 0) * 1.1; } } 
                 },
                 plugins: { 
@@ -851,7 +890,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                             label: function(context) { 
                                 const val = context.parsed.y;
                                 let labelStr = formatNumber(val);
-                                if (context.dataIndex > 0) {
+                                if (context.dataIndex > 0 && context.dataIndex < context.chart.data.labels.length - 1) {
                                     const prevVal = context.chart.data.datasets[0].data[context.dataIndex - 1];
                                     if (prevVal > 0) {
                                         const pct = ((val - prevVal) / prevVal) * 100;
@@ -883,7 +922,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                             if (value > 1000000) formattedVal = (value / 1000000).toFixed(1).replace('.', ',') + 'M';
                             else if (value > 1000) formattedVal = (value / 1000).toFixed(1).replace('.', ',') + 'k';
                             
-                            if (context.dataIndex > 0) {
+                            if (context.dataIndex > 0 && context.dataIndex < context.chart.data.labels.length - 1) {
                                 const prevVal = context.chart.data.datasets[0].data[context.dataIndex - 1];
                                 if (prevVal > 0) {
                                     const pct = ((value - prevVal) / prevVal) * 100;
@@ -920,6 +959,29 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (window.ChartDataLabels && Chart.registry.plugins.get('datalabels') === undefined) {
             Chart.register(window.ChartDataLabels);
         }
+
+        
+        const updateBadge = (badgeId, dataArray) => {
+            const valEl = document.getElementById(badgeId + '-val');
+            const containerEl = document.getElementById(badgeId + '-container');
+            if (!valEl || !containerEl || dataArray.length < 3) return;
+            
+            const m1 = dataArray[dataArray.length - 2]; // Last complete month
+            const m2 = dataArray[dataArray.length - 3]; // Month before that
+            
+            if (m2 > 0) {
+                const pct = ((m1 - m2) / m2) * 100;
+                const sign = pct > 0 ? '+' : '';
+                valEl.textContent = `${sign}${pct.toFixed(1).replace('.', ',')}%`;
+                valEl.className = 'growth-value ' + (pct >= 0 ? 'positive' : 'negative');
+                containerEl.style.display = 'flex';
+            }
+        };
+
+        updateBadge('badge-novos', dataNovos);
+        updateBadge('badge-fieis', dataFieis);
+        updateBadge('badge-base', dataBase);
+        updateBadge('badge-ativos', dataAtivos);
 
         evolucaoNovosChart = renderBarChart('evolucao-novos-chart', evolucaoNovosChart, labelsNovos, dataNovos, 'green');
         evolucaoFieisChart = renderBarChart('evolucao-fieis-chart', evolucaoFieisChart, labelsBase, dataFieis, 'blue');

@@ -1081,3 +1081,60 @@ main {
 .rfv-matrix-table .col-total { font-weight: 700; color: #00A650 !important; }
 .rfv-matrix-table tr:last-child td { font-weight: 700; background-color: #F9FAFB; }
 .rfv-matrix-table tr:last-child td:first-child { color: #00A650; }
+
+
+/* Growth Badges */
+.growth-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 4px;
+}
+.growth-icon-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.growth-icon-circle svg {
+    width: 18px;
+    height: 18px;
+}
+.growth-icon-circle.green {
+    background-color: #ecfdf5;
+    color: #10B981;
+}
+.growth-icon-circle.purple {
+    background-color: #f3e8ff;
+    color: #8B5CF6;
+}
+.growth-icon-circle.blue {
+    background-color: #eff6ff;
+    color: #3B82F6;
+}
+.growth-icon-circle.teal {
+    background-color: #f0fdfa;
+    color: #14B8A6;
+}
+.growth-info {
+    display: flex;
+    flex-direction: column;
+}
+.growth-value {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.1;
+}
+.growth-value.positive {
+    color: #10B981;
+}
+.growth-value.negative {
+    color: #EF4444;
+}
+.growth-text {
+    font-size: 11px;
+    color: #6B7280;
+    font-weight: 500;
+}
