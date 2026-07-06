@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRM Analytics | Farmácias São João</title>
     <meta name="description" content="Dashboard de clientes e segmentos.">
-    <link rel="stylesheet" href="styles.css?v=10">
+    <link rel="stylesheet" href="styles.css?v=1783340016613">
     <!-- Chart.js for beautiful charts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -307,9 +307,7 @@
                     <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 12px;">
                         <div style="font-size: 11px; font-weight: 700; color: #1E3A8A; text-transform: uppercase; display: flex; align-items: center; gap: 6px;">
                             Perfil de Clientes <span style="color: #9CA3AF; margin: 0 2px;">|</span> Faixa Etária × Sexo
-                            <span title="Clientes cadastrados a partir de 2026-01-01" style="cursor: help; color: #64748B; display: flex; align-items: center;">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-                            </span>
+                            
                         </div>
                         <div style="display: flex; gap: 16px; font-size: 11px; font-weight: 700;">
                             <div style="color: #0D6EFD;">% MASC: <span id="kpiPctMasc">--</span></div>
@@ -391,10 +389,8 @@
                 </style>
                 <div class="heatmap-card fade-in delay-2" style="margin-bottom: 0;">
                     <div class="heatmap-header" style="margin-bottom: 12px;">
-                <h2 class="heatmap-title" style="display: flex; align-items: center; gap: 6px;">Heatmap: Faixa de Valor × Faixa Etária <span style="text-transform:none; font-weight:500; font-size:10px; color:#6B7280;">- Período: 1S 2026</span>
-                    <span title="Clientes cadastrados a partir de 2026-01-01" style="cursor: help; color: #64748B; display: flex; align-items: center;">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-                    </span>
+                <h2 class="heatmap-title" style="display: flex; align-items: center; gap: 6px;">Heatmap: Faixa de Valor × Faixa Etária 
+                    
                 </h2>
                 <p class="heatmap-subtitle"><span style="color: #00A650;">% de clientes dentro de cada faixa de valor</span></p>
             </div>
@@ -446,7 +442,7 @@
             <div style="font-size: 12px; color: #6B7280; font-weight: 500; display: flex; flex-direction: column; align-items: flex-end; gap: 4px;">
                 <div style="display: flex; align-items: center; gap: 6px;">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                    Período: Clientes criados a partir de jan/2026
+                    
                 </div>
                 <div style="font-size: 10px;">Dados extraídos via Snowflake</div>
             </div>
@@ -542,13 +538,39 @@
             </div>
         </div>
 
+        <!-- MATRIZ RFV VALOR -->
+        <div class="kpi-card-simple fade-in delay-2" style="margin-bottom: 24px; padding: 24px;">
+            <div class="chart-header" style="margin-bottom: 16px;">
+                <h2 class="chart-title" style="font-size: 1.1rem; font-family: 'Montserrat', sans-serif; font-weight: 700; color: #1E3A8A; text-transform: uppercase; margin-bottom: 4px;">Frequência de Compra x Recência x Valor</h2>
+            </div>
+            <div style="overflow-x: auto;">
+                <table class="rfv-matrix-table" id="rfv-valor-table">
+                    <thead>
+                        <tr>
+                            <th>Frequência</th>
+                            <th>R5: Até 30 dias</th>
+                            <th>R4: Entre 31 e 60 dias</th>
+                            <th>R3: Entre 61 e 90 dias</th>
+                            <th>R2: Entre 91 e 180 dias</th>
+                            <th>R1: Acima de 181 dias</th>
+                            <th class="col-total">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Injected via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
         <!-- Comparison Table -->
         <div class="freq-table-card fade-in delay-2">
             <div style="margin-bottom: 24px;">
-                <h2 class="chart-title" style="font-size: 1.1rem; font-family: 'Montserrat', sans-serif; font-weight: 700; color: #1E3A8A; text-transform: uppercase; margin-bottom: 4px; display: flex; align-items: center; gap: 8px;">Comparação por Canal <span style="text-transform:none; font-weight:500; font-size:12px; color:#6B7280;">- Período: 1S 2026</span>
-                    <span title="Clientes cadastrados a partir de 2026-01-01" style="cursor: help; color: #64748B; display: flex; align-items: center;">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-                    </span>
+                
+
+
+                <h2 class="chart-title" style="font-size: 1.1rem; font-family: 'Montserrat', sans-serif; font-weight: 700; color: #1E3A8A; text-transform: uppercase; margin-bottom: 4px; display: flex; align-items: center; gap: 8px;">Comparação por Canal 
+                    
                 </h2>
                 <p class="dashboard-subtitle">Compare o desempenho dos canais em relação à Loja Física.</p>
             </div>
@@ -605,9 +627,7 @@
                 <!-- Ticket Médio por Canal -->
                 <div class="freq-chart-card">
                     <div class="freq-chart-title" style="display: flex; align-items: center; gap: 6px;">Ticket Médio por Canal <span style="text-transform:none; font-weight:500; font-size:11px; color:#6B7280;">(R$ por compra)</span>
-                        <span title="Clientes cadastrados a partir de 2026-01-01" style="cursor: help; color: #64748B; display: flex; align-items: center;">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-                        </span>
+                        
                     </div>
                     <div style="position: relative; height: 260px; width: 100%;">
                         <canvas id="chart-ticket-multi"></canvas>
@@ -707,7 +727,7 @@
                         <div style="font-size: 12px; color: #6B7280; font-weight: 500; display: flex; flex-direction: column; align-items: flex-end; gap: 4px;">
                             <div style="display: flex; align-items: center; gap: 6px;">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                                Período: Clientes criados a partir de jan/2026
+                                
                             </div>
                             <div style="font-size: 10px;">Dados extraídos via Snowflake</div>
                         </div>
@@ -717,9 +737,7 @@
                         <div>
                             <h1 class="dashboard-title" style="display: flex; align-items: center; gap: 8px;">
                                 4. Clientes por Categoria
-                                <span title="Clientes cadastrados a partir de 2026-01-01" style="cursor: help; color: #64748B; display: flex; align-items: center;">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-                                </span>
+                                
                             </h1>
                             <p class="dashboard-subtitle">Acompanhe a participação no faturamento e clientes por grupo.</p>
                         </div>
@@ -773,7 +791,7 @@
             <div style="font-size: 12px; color: #6B7280; font-weight: 500; display: flex; flex-direction: column; align-items: flex-end; gap: 4px;">
                 <div style="display: flex; align-items: center; gap: 6px;">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                    Período: Clientes criados a partir de jan/2026
+                    
                 </div>
                 <div style="font-size: 10px;">Dados extraídos via Snowflake</div>
             </div>
@@ -818,7 +836,7 @@
             <div style="font-size: 12px; color: #6B7280; font-weight: 500; display: flex; flex-direction: column; align-items: flex-end; gap: 4px;">
                 <div style="display: flex; align-items: center; gap: 6px;">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                    Período: Clientes criados a partir de jan/2026
+                    
                 </div>
                 <div style="font-size: 10px;">Dados extraídos via Snowflake</div>
             </div>
@@ -954,7 +972,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
-    <script src="app.js?v=59"></script>
+    <script src="app.js?v=1783340016613"></script>
 
     <!-- Script for Tabs Navigation -->
     <script>
@@ -1020,5 +1038,6 @@
             }, 50);
         }
     </script>
+    <script src="loadrfv.js?v=1783339283572"></script>
 </body>
 </html>

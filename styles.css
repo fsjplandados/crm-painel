@@ -1071,3 +1071,13 @@ main {
 .progress-fill.purple { background-color: #00A650; }
 .progress-fill.green { background-color: #65A30D; }
 .progress-label { width: 45px; text-align: right; font-weight: 600; font-size: 12px; color: #1E293B; }
+
+/* RFV MATRIX TABLE DESIGN */
+.rfv-matrix-table { width: max-content; margin: 0 auto; border-collapse: collapse; font-family: 'Montserrat', sans-serif; font-size: 12px; margin-bottom: 24px; }
+.rfv-matrix-table th, .rfv-matrix-table td { padding: 12px 16px; text-align: center; border: 1px solid #E5E7EB; white-space: nowrap; }
+.rfv-matrix-table th { background-color: #F3F4F6; color: #1F2937; font-weight: 600; }
+.rfv-matrix-table th:first-child, .rfv-matrix-table td:first-child { text-align: center; font-weight: 500; color: #1F2937; background-color: #F9FAFB; }
+.rfv-matrix-table td { color: #374151; transition: background-color 0.2s; }
+.rfv-matrix-table .col-total { font-weight: 700; color: #00A650 !important; }
+.rfv-matrix-table tr:last-child td { font-weight: 700; background-color: #F9FAFB; }
+.rfv-matrix-table tr:last-child td:first-child { color: #00A650; }

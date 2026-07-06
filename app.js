@@ -476,10 +476,13 @@ document.addEventListener('DOMContentLoaded', async () => {
                 // Brand-aligned colors, negative statuses as reddish/dark
                 const baseColors = labels.map((label, index) => {
                     const l = label.toLowerCase();
-                    if (l.includes('churn') || l.includes('inativo') || l.includes('perdido') || l.includes('não ativado')) return '#C81D25'; // Dark red for negative
-                    if (l.includes('dormente') || l.includes('risco') || l.includes('atenção')) return '#F97316'; // Orange for warning
-                    if (l.includes('ativo') && !l.includes('inativo')) return '#243685'; // Brand dark blue for active
-                    if (l.includes('novo')) return '#10B981'; // Green
+                    if (l.includes('não ativado') || l === 'nao ativado') return '#9CA3AF'; // Cinza
+                    if (l.includes('churn')) return '#DC2626'; // Vermelho
+                    if (l.includes('inativo')) return '#F97316'; // Laranja
+                    if (l.includes('dormente') || l.includes('risco') || l.includes('atenção')) return '#1E3A8A'; // Azul
+                    if (l.includes('ativo') && !l.includes('inativo')) return '#00A650'; // Verde
+                    if (l.includes('perdido')) return '#C81D25';
+                    if (l.includes('novo')) return '#10B981';
                     
                     const palette = ['#1E3A8A', '#DC2626', '#F59E0B', '#10B981', '#8B5CF6', '#EC4899', '#14B8A6'];
                     return palette[index % palette.length];
