@@ -275,25 +275,18 @@
                     <canvas id="evolucao-base-chart"></canvas>
                 </div>
             </div>
-            <!-- Evolução Clientes Ativos -->
+            <!-- Evolução de Segmentos - Multi-line -->
             <div class="segmentation-card fade-in delay-1" style="height: 100%; display: flex; flex-direction: column;">
                 <div class="segmentation-header" style="margin-bottom: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;">
-                    <div class="segmentation-title" style="text-transform: uppercase; color: #1E3A8A; font-weight: 700; font-size: 13px;">Crescimento de Clientes Ativos (90 dias)</div>
-                    <div class="growth-badge" id="badge-ativos-container" style="display: none;">
-                        <div class="growth-icon-circle teal">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                        </div>
-                        <div class="growth-info">
-                            <div class="growth-value positive" id="badge-ativos-val">...</div>
-                            <div class="growth-text">último mês completo</div>
-                        </div>
-                    </div>
+                    <div class="segmentation-title" style="text-transform: uppercase; color: #1E3A8A; font-weight: 700; font-size: 13px;">EVOLUÇÃO DA BASE TOTAL (QUANTIDADE)</div>
                 </div>
                 <div style="flex: 1; display: flex; align-items: center; justify-content: center; position: relative; min-height: 250px; padding: 10px;">
-                    <canvas id="evolucao-ativos-chart"></canvas>
+                    <canvas id="evolucao-segmentos-chart"></canvas>
                 </div>
             </div>
         </div>
+
+
 
         <!-- Blocos Dado em construção -->
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
@@ -1009,7 +1002,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
-    <script src="app.js?v=1783344098720"></script>
+    <script src="app.js?v=9983539463612" charset="utf-8"></script>
 
     <!-- Script for Tabs Navigation -->
     <script>

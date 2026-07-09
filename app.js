@@ -109,6 +109,404 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     let globalTotalBase = 0;
 
+
+    let evolucaoFieisChartReceita = null;
+    
+    window.evolucaoSegmentosQtdData = [];
+    const loadEvolucaoSegmentosQtdData = async () => {
+        try {
+            const response = await fetch(`Arquivos Jun-2026/Evolucao_Base_Total.csv?v=${Date.now()}`);
+            if (!response.ok) throw new Error('HTTP error');
+            const csvText = await response.text();
+            
+            const lines = csvText.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+            window.evolucaoSegmentosQtdData = [];
+            
+            for (let i = 1; i < lines.length; i++) {
+                const parts = lines[i].split(',');
+                if (parts.length < 3) continue;
+                
+                const dateStr = parts[0].trim();
+                const segment = parts[1].trim();
+                const qtdStr = parts[2].trim();
+                
+                const dateParts = dateStr.split('-');
+                if (dateParts.length < 2) continue;
+                
+                let year = dateParts[0];
+                let monthStr = dateParts[1];
+                const months = { 'Jan': '01', 'Feb': '02', 'Mar': '03', 'Apr': '04', 'May': '05', 'Jun': '06', 'Jul': '07', 'Aug': '08', 'Sep': '09', 'Oct': '10', 'Nov': '11', 'Dec': '12', 'Fev': '02', 'Abr': '04', 'Mai': '05', 'Ago': '08', 'Set': '09', 'Out': '10', 'Dez': '12' };
+                let month = months[monthStr] || '01';
+                
+                let label = `${month}/${year}`;
+                
+                window.evolucaoSegmentosQtdData.push({
+                    month: parseInt(month, 10).toString(),
+                    year: year,
+                    label: label,
+                    segment: segment,
+                    qtd: parseFloat(qtdStr) || 0
+                });
+            }
+            
+            if (window.updateSegmentosQtdChart) window.updateSegmentosQtdChart();
+        } catch (e) {
+            console.error(e);
+        }
+    };
+
+    window.updateSegmentosQtdChart = () => {
+        if (!window.evolucaoSegmentosQtdData) return;
+        
+        let filtered = window.evolucaoSegmentosQtdData.filter(row => {
+            const hasYearFilter = window.selectedYears && window.selectedYears.size > 0;
+            const hasMonthFilter = window.selectedMonths && window.selectedMonths.size > 0;
+            const matchY = hasYearFilter ? window.selectedYears.has(row.year) : (row.year === '2026');
+            const matchM = !hasMonthFilter || window.selectedMonths.has(row.month);
+            return matchY && matchM;
+        });
+        
+        const allSegmentsMap = {};
+        const labelsSet = new Set();
+        
+        filtered.forEach(row => {
+            labelsSet.add(row.label);
+            
+            if (!allSegmentsMap[row.segment]) {
+                allSegmentsMap[row.segment] = {};
+            }
+            if (!allSegmentsMap[row.segment][row.label]) {
+                allSegmentsMap[row.segment][row.label] = 0;
+            }
+            allSegmentsMap[row.segment][row.label] += row.qtd;
+        });
+        
+        const sortedLabels = Array.from(labelsSet).sort((a, b) => {
+            const [mA, yA] = a.split('/');
+            const [mB, yB] = b.split('/');
+            if (yA !== yB) return yA.localeCompare(yB);
+            return mA.localeCompare(mB);
+        });
+        
+        const ctxSeg = document.getElementById('evolucao-segmentos-chart');
+        if (ctxSeg) {
+            if (window.evolucaoSegmentosChart) window.evolucaoSegmentosChart.destroy();
+            
+            const getSegmentColor = (segment) => {
+                const colors = {
+                    'CAMPEAO': '#00B85C',
+                    'CLIENTE PROMISSOR': '#CBD5E1',
+                    'CLIENTES FIEIS': '#1E3A8A',
+                    'EM RISCO': '#F59E0B',
+                    'HIBERNANDO': '#F97316',
+                    'NÃO PERDER': '#60A5FA',
+                    'NOVOS CLIENTES': '#A855F7',
+                    'POTENCIAL FIEL': '#93C5FD',
+                    'PRECISA DE ATENÇÃO': '#F472B6'
+                };
+                return colors[segment] || '#94A3B8';
+            };
+            
+            const datasets = [];
+            Object.keys(allSegmentsMap).forEach(seg => {
+                const data = sortedLabels.map(l => allSegmentsMap[seg][l] || 0);
+                datasets.push({
+                    label: seg,
+                    data: data,
+                    borderColor: getSegmentColor(seg),
+                    backgroundColor: getSegmentColor(seg),
+                    tension: 0.3,
+                    borderWidth: 2,
+                    pointRadius: 4,
+                    pointHoverRadius: 6,
+                    datalabels: { display: false }
+                });
+            });
+            
+            window.evolucaoSegmentosChart = new Chart(ctxSeg, {
+                type: 'line',
+                data: { labels: sortedLabels, datasets: datasets },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: { 
+                        x: { grid: { display: false } },
+                        y: { 
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    if (value >= 1000000) return (value / 1000000).toFixed(1).replace('.', ',') + 'M';
+                                    if (value >= 1000) return (value / 1000).toFixed(1).replace('.', ',') + 'k';
+                                    return value;
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: { 
+                            position: 'bottom', 
+                            labels: { usePointStyle: true, boxWidth: 8, font: { size: 10 } },
+                            onClick: (e, legendItem, legend) => {
+                                const chart = legend.chart;
+                                const datasetIndex = legendItem.datasetIndex;
+                                const label = chart.data.datasets[datasetIndex].label;
+                                
+                                if (!window.selectedEvolucaoSegments) window.selectedEvolucaoSegments = new Set();
+                                
+                                if (window.selectedEvolucaoSegments.has(label)) {
+                                    window.selectedEvolucaoSegments.delete(label);
+                                } else {
+                                    window.selectedEvolucaoSegments.add(label);
+                                }
+                                
+                                chart.data.datasets.forEach(ds => {
+                                    const origColor = getSegmentColor(ds.label);
+                                    if (window.selectedEvolucaoSegments.size === 0 || window.selectedEvolucaoSegments.has(ds.label)) {
+                                        ds.borderColor = origColor;
+                                        ds.backgroundColor = origColor;
+                                        ds.borderWidth = 2;
+                                    } else {
+                                        const hex = origColor.replace('#', '');
+                                        const r = parseInt(hex.substring(0, 2), 16);
+                                        const g = parseInt(hex.substring(2, 4), 16);
+                                        const b = parseInt(hex.substring(4, 6), 16);
+                                        const transparentColor = `rgba(${r}, ${g}, ${b}, 0.15)`;
+                                        ds.borderColor = transparentColor;
+                                        ds.backgroundColor = transparentColor;
+                                        ds.borderWidth = 1;
+                                    }
+                                });
+                                
+                                chart.update();
+                            }
+                        },
+                        tooltip: {
+                            mode: 'nearest',
+                            intersect: false,
+                            callbacks: {
+                                label: function(context) {
+                                    let val = context.parsed.y;
+                                    let str = val;
+                                    if (val >= 1000000) str = (val / 1000000).toFixed(1).replace('.', ',') + 'M';
+                                    else if (val >= 1000) str = (val / 1000).toFixed(1).replace('.', ',') + 'k';
+                                    return context.dataset.label + ': ' + str;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    };
+
+    const loadSegmentosData = async () => {
+        try {
+            const response = await fetch(`Arquivos Jun-2026/Evolucao_Mensal_Segmento.csv?v=${Date.now()}`);
+            if (!response.ok) throw new Error('HTTP error');
+            const csvText = await response.text();
+            
+            const lines = csvText.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+            window.segmentosReceitaData = [];
+            
+            for (let i = 1; i < lines.length; i++) {
+                const parts = lines[i].split(',');
+                if (parts.length < 3) continue;
+                
+                const dateStr = parts[0].trim();
+                const segment = parts[1].trim();
+                const receitaStr = parts[2].trim();
+                
+                const dateParts = dateStr.split('-');
+                if (dateParts.length < 2) continue;
+                
+                let year = dateParts[0];
+                let monthStr = dateParts[1];
+                const months = { 'Jan': '01', 'Feb': '02', 'Mar': '03', 'Apr': '04', 'May': '05', 'Jun': '06', 'Jul': '07', 'Aug': '08', 'Sep': '09', 'Oct': '10', 'Nov': '11', 'Dec': '12', 'Fev': '02', 'Abr': '04', 'Mai': '05', 'Ago': '08', 'Set': '09', 'Out': '10', 'Dez': '12' };
+                let month = months[monthStr] || '01';
+                
+                let label = `${month}/${year}`;
+                
+                window.segmentosReceitaData.push({
+                    month: parseInt(month, 10).toString(),
+                    year: year,
+                    label: label,
+                    segment: segment,
+                    receita: parseFloat(receitaStr) || 0
+                });
+            }
+            
+            if (window.updateSegmentosCharts) window.updateSegmentosCharts();
+        } catch (e) {
+            console.error(e);
+        }
+    };
+
+    window.updateSegmentosCharts = () => {
+        if (!window.segmentosReceitaData) return;
+        
+        let filtered = window.segmentosReceitaData.filter(row => {
+            const hasYearFilter = window.selectedYears && window.selectedYears.size > 0;
+            const hasMonthFilter = window.selectedMonths && window.selectedMonths.size > 0;
+            const matchY = hasYearFilter ? window.selectedYears.has(row.year) : (row.year === '2026');
+            const matchM = !hasMonthFilter || window.selectedMonths.has(row.month);
+            return matchY && matchM;
+        });
+        
+        const fieisDataMap = {};
+        const labelsSet = new Set();
+        
+        filtered.forEach(row => {
+            labelsSet.add(row.label);
+            if (row.segment === 'CLIENTES FIEIS') {
+                if (!fieisDataMap[row.label]) fieisDataMap[row.label] = 0;
+                fieisDataMap[row.label] += row.receita;
+            }
+        });
+        
+        const sortedLabels = Array.from(labelsSet).sort((a, b) => {
+            const [mA, yA] = a.split('/');
+            const [mB, yB] = b.split('/');
+            if (yA !== yB) return yA.localeCompare(yB);
+            return mA.localeCompare(mB);
+        });
+        
+        const fieisData = sortedLabels.map(l => fieisDataMap[l] || 0);
+        
+        window.evolucaoFieisChartReceita = window.renderBarChart('evolucao-fieis-chart', window.evolucaoFieisChartReceita, sortedLabels, fieisData, 'blue');
+    };
+
+
+    let evolucaoSegmentosQtdChart = null;
+    const loadEvolucaoBaseTotal = async () => {
+        try {
+            const response = await fetch(`Arquivos Jun-2026/Base total.csv?v=${Date.now()}`);
+            if (!response.ok) throw new Error('HTTP error');
+            const csvText = await response.text();
+            
+            const lines = csvText.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+            window.evolucaoBaseTotalData = [];
+            
+            for (let i = 1; i < lines.length; i++) {
+                const parts = lines[i].split(',');
+                if (parts.length < 5) continue;
+                
+                const dateStr = parts[0].trim();
+                let segmentName = parts[2].trim();
+                const qtd = parseInt(parts[3].trim(), 10);
+                
+                if (isNaN(qtd)) continue;
+                if (segmentName === '' || segmentName === '0') segmentName = 'Sem segmentaǜo';
+                
+                if (dateStr.length < 6) continue;
+                let month = dateStr.substring(0, 2);
+                let year = dateStr.substring(dateStr.length - 4);
+                let label = `${month}/${year}`;
+                
+                window.evolucaoBaseTotalData.push({
+                    month: parseInt(month, 10).toString(),
+                    year: year,
+                    label: label,
+                    segment: segmentName,
+                    qtd: qtd
+                });
+            }
+            
+            if (window.updateEvolucaoBaseTotalChart) window.updateEvolucaoBaseTotalChart();
+        } catch (e) {
+            console.error(e);
+        }
+    };
+
+    window.updateEvolucaoBaseTotalChart = () => {
+        if (!window.evolucaoBaseTotalData) return;
+        
+        let filtered = window.evolucaoBaseTotalData.filter(row => {
+            const hasYearFilter = window.selectedYears && window.selectedYears.size > 0;
+            const hasMonthFilter = window.selectedMonths && window.selectedMonths.size > 0;
+            const matchY = hasYearFilter ? window.selectedYears.has(row.year) : (row.year === '2026');
+            const matchM = !hasMonthFilter || window.selectedMonths.has(row.month);
+            return matchY && matchM;
+        });
+        
+        const allSegmentsMap = {};
+        const labelsSet = new Set();
+        
+        filtered.forEach(row => {
+            labelsSet.add(row.label);
+            if (!allSegmentsMap[row.segment]) allSegmentsMap[row.segment] = {};
+            if (!allSegmentsMap[row.segment][row.label]) allSegmentsMap[row.segment][row.label] = 0;
+            allSegmentsMap[row.segment][row.label] += row.qtd;
+        });
+        
+        const sortedLabels = Array.from(labelsSet).sort((a, b) => {
+            const [mA, yA] = a.split('/');
+            const [mB, yB] = b.split('/');
+            if (yA !== yB) return yA.localeCompare(yB);
+            return mA.localeCompare(mB);
+        });
+        
+        const datasets = [];
+        Object.keys(allSegmentsMap).forEach(seg => {
+            const data = sortedLabels.map(l => allSegmentsMap[seg][l] || 0);
+            datasets.push({
+                label: seg,
+                data: data,
+                borderColor: getSegmentColor(seg),
+                backgroundColor: getSegmentColor(seg),
+                tension: 0.3,
+                borderWidth: 2,
+                pointRadius: 4,
+                pointHoverRadius: 6,
+                fill: false,
+                datalabels: { display: false }
+            });
+        });
+        
+        const ctx = document.getElementById('evolucao-segmentos-qtd-chart');
+        if (!ctx) return;
+        
+        if (evolucaoSegmentosQtdChart) {
+            evolucaoSegmentosQtdChart.destroy();
+        }
+        
+        evolucaoSegmentosQtdChart = new Chart(ctx, {
+            type: 'line',
+            data: { labels: sortedLabels, datasets: datasets },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: { 
+                    x: { grid: { display: false } },
+                    y: { 
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                if (value >= 1000000) return (value / 1000000).toFixed(1).replace('.', ',') + 'M';
+                                if (value >= 1000) return (value / 1000).toFixed(1).replace('.', ',') + 'k';
+                                return value;
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: { position: 'bottom', labels: { usePointStyle: true, boxWidth: 8, font: { size: 10 } } },
+                    datalabels: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let val = context.parsed.y;
+                                let formatted = val >= 1000000 ? (val / 1000000).toFixed(2).replace('.', ',') + 'M' :
+                                               val >= 1000 ? (val / 1000).toFixed(1).replace('.', ',') + 'k' :
+                                               new Intl.NumberFormat('pt-BR').format(val);
+                                return context.dataset.label + ': ' + formatted;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    };
+
     const loadBaseTotal = async () => {
         try {
             const response = await fetch(`Arquivos Jun-2026/Base total.csv?v=${Date.now()}`);
@@ -371,7 +769,11 @@ document.addEventListener('DOMContentLoaded', async () => {
                 if (window.updateNovosRecorrentesCharts) {
                     window.updateNovosRecorrentesCharts();
                 }
-                if (window.updateEvolutionCharts) {
+                if (window.updateSegmentosCharts) window.updateSegmentosCharts();
+                if (window.updateEvolucaoBaseTotalChart) window.updateEvolucaoBaseTotalChart();
+                if (window.updateSegmentosCharts) window.updateSegmentosCharts();
+            if (window.updateEvolucaoBaseTotalChart) window.updateEvolucaoBaseTotalChart();
+            if (window.updateEvolutionCharts) {
                     window.updateEvolutionCharts();
                 }
                 totalClientsEl.textContent = formatNumber(total);
@@ -384,7 +786,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 if (delta60dEl) {
                     if (t30 > 0) {
                         const pct = ((t60 - t30) / t30) * 100;
-                        delta60dEl.innerHTML = `<span style="color: ${pct >= 0 ? '#10B981' : '#EF4444'}; font-weight: bold;">${pct > 0 ? '↑' : '↓'} +${Math.abs(pct).toFixed(0)}%</span> vs 30 dias`;
+                        delta60dEl.innerHTML = `<span style="color: ${pct >= 0 ? '#10B981' : '#EF4444'}; font-weight: bold;">${pct > 0 ? '▲' : '▼'} +${Math.abs(pct).toFixed(0)}%</span> vs 30 dias`;
                     } else {
                         delta60dEl.innerHTML = `<span>-</span>`;
                     }
@@ -393,7 +795,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 if (delta90dEl) {
                     if (t60 > 0) {
                         const pct = ((t90 - t60) / t60) * 100;
-                        delta90dEl.innerHTML = `<span style="color: ${pct >= 0 ? '#10B981' : '#EF4444'}; font-weight: bold;">${pct > 0 ? '↑' : '↓'} +${Math.abs(pct).toFixed(0)}%</span> vs 60 dias`;
+                        delta90dEl.innerHTML = `<span style="color: ${pct >= 0 ? '#10B981' : '#EF4444'}; font-weight: bold;">${pct > 0 ? '▲' : '▼'} +${Math.abs(pct).toFixed(0)}%</span> vs 60 dias`;
                     } else {
                         delta90dEl.innerHTML = `<span>-</span>`;
                     }
@@ -712,27 +1114,64 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const ctxQtd = document.getElementById('novos-recorrentes-qtd-chart');
         if (ctxQtd) {
-            if (novosRecorrentesQtdChart) novosRecorrentesQtdChart.destroy();
-            novosRecorrentesQtdChart = new Chart(ctxQtd, {
-                type: 'bar',
+            if (window.novosRecorrentesQtdChart) window.novosRecorrentesQtdChart.destroy();
+            
+            const customLevels = [50000, 70000, 100000, 150000, 1000000, 2000000, 3000000, 4000000, 4500000];
+            const mappedValues = ['50k', '70k', '100k', '150k', '1M', '2M', '3M', '4M', '4,5M'];
+            
+            const mapToLevel = (val) => {
+                if (val <= customLevels[0]) return 0;
+                if (val >= customLevels[customLevels.length - 1]) return customLevels.length - 1;
+                for (let i = 0; i < customLevels.length - 1; i++) {
+                    if (val >= customLevels[i] && val <= customLevels[i + 1]) {
+                        return i + (val - customLevels[i]) / (customLevels[i + 1] - customLevels[i]);
+                    }
+                }
+                return 0;
+            };
+            
+            const mappedRecQtd = recQtd.map(mapToLevel);
+            const mappedNovosQtd = novosQtd.map(mapToLevel);
+
+            window.novosRecorrentesQtdChart = new Chart(ctxQtd, {
+                type: 'line',
                 data: {
                     labels: labels,
                     datasets: [
-                        { label: 'Clientes recorrentes', data: recQtd, backgroundColor: colorRec, stack: 'Stack 0' },
-                        { label: 'Novos clientes', data: novosQtd, backgroundColor: colorNovos, stack: 'Stack 0' }
+                        { label: 'Clientes recorrentes', data: mappedRecQtd, borderColor: colorRec, backgroundColor: colorRec, tension: 0.3, borderWidth: 2, pointRadius: 4, pointHoverRadius: 6 },
+                        { label: 'Novos clientes', data: mappedNovosQtd, borderColor: colorNovos, backgroundColor: colorNovos, tension: 0.3, borderWidth: 2, pointRadius: 4, pointHoverRadius: 6 }
                     ]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    scales: { x: { stacked: true, grid: { display: false } }, y: { stacked: true, beginAtZero: true, ticks: { callback: function(value) { return formatNumber(value); } } } },
+                    scales: { 
+                        x: { grid: { display: false } }, 
+                        y: { 
+                            type: 'linear',
+                            min: 0,
+                            max: 8,
+                            ticks: { 
+                                stepSize: 1,
+                                callback: function(value) { 
+                                    if (Number.isInteger(value) && value >= 0 && value <= 8) {
+                                        return mappedValues[value];
+                                    }
+                                    return '';
+                                } 
+                            } 
+                        } 
+                    },
                     plugins: {
                         legend: { position: 'bottom', labels: { usePointStyle: true, boxWidth: 8 } },
                         datalabels: { display: false },
                         tooltip: {
                             callbacks: {
                                 label: function(context) {
-                                    return context.dataset.label + ': ' + formatNumber(context.parsed.y);
+                                    const datasetIndex = context.datasetIndex;
+                                    const dataIndex = context.dataIndex;
+                                    const originalVal = datasetIndex === 0 ? recQtd[dataIndex] : novosQtd[dataIndex];
+                                    return context.dataset.label + ': ' + formatNumber(originalVal);
                                 }
                             }
                         }
@@ -782,6 +1221,158 @@ document.addEventListener('DOMContentLoaded', async () => {
     let evolucaoFieisChart = null;
     let evolucaoBaseChart = null;
     let evolucaoAtivosChart = null;
+
+    const getColors = (dataArray, theme = 'blue') => {
+        if (!dataArray || dataArray.length === 0) return [];
+        const min = Math.min(...dataArray);
+        const max = Math.max(...dataArray);
+        
+        return dataArray.map((val, index) => {
+            if (index === dataArray.length - 1) {
+                return typeof createHatchedPattern !== 'undefined' ? createHatchedPattern() : '#E2E8F0';
+            }
+            let r, g, b;
+            if (theme === 'green') { r = 153; g = 212; b = 32; } // #99D420
+            else { r = 30; g = 58; b = 138; } // #1E3A8A
+            
+            let ratio = max > min ? (val - min) / (max - min) : 1;
+            let intensity = 0.2 + (0.8 * ratio); // 20% to 100% intensity
+            
+            let nr = Math.round(255 + (r - 255) * intensity);
+            let ng = Math.round(255 + (g - 255) * intensity);
+            let nb = Math.round(255 + (b - 255) * intensity);
+            return `rgb(${nr}, ${ng}, ${nb})`;
+        });
+    };
+
+    const getBarOptions = (datasetData) => {
+        return {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: { 
+                x: { 
+                    grid: { display: false }, 
+                    border: { display: false },
+                    ticks: {
+                        color: function(context) {
+                            if (context.index === context.chart.data.labels.length - 1) return '#F59E0B';
+                            return '#6B7280';
+                        },
+                        callback: function(value, index, ticks) {
+                            let label = this.getLabelForValue(value);
+                            if (index === ticks.length - 1 && !label.endsWith('*')) {
+                                return label + '*';
+                            }
+                            return label;
+                        }
+                    }
+                }, 
+                y: { display: false, beginAtZero: true, suggestedMax: function(context) { return context.chart.data.datasets[0].data.reduce((a,b) => Math.max(a,b), 0) * 1.1; } },
+                y1: { display: false, position: 'right', grid: { drawOnChartArea: false }, grace: '30%' }
+            },
+            plugins: { 
+                legend: { display: false }, 
+                tooltip: { 
+                    mode: 'index',
+                    intersect: false,
+                    callbacks: { 
+                        label: function(context) { 
+                            if (context.datasetIndex === 1) {
+                                const pct = context.parsed.y;
+                                if (pct === null || isNaN(pct)) return '';
+                                const sign = pct > 0 ? '+' : '';
+                                return 'Crescimento: ' + sign + pct.toFixed(1).replace('.', ',') + '%';
+                            }
+                            let formattedVal = context.parsed.y;
+                            if (formattedVal >= 1000000) formattedVal = (formattedVal / 1000000).toFixed(1).replace('.', ',') + 'M';
+                            else if (formattedVal >= 1000) formattedVal = (formattedVal / 1000).toFixed(1).replace('.', ',') + 'k';
+                            return 'Quantidade: ' + formattedVal;
+                        } 
+                    } 
+                }
+            }
+        };
+    };
+
+    window.renderBarChart = (id, chartVar, labels, data, theme = 'blue') => {
+        const ctx = document.getElementById(id);
+        if (!ctx) return chartVar;
+        if (chartVar) chartVar.destroy();
+
+        const growthData = data.map((val, i) => {
+            if (i === 0 || data[i-1] === 0) return null;
+            return ((val - data[i-1]) / data[i-1]) * 100;
+        });
+
+        const options = getBarOptions(data);
+
+        return new Chart(ctx, {
+            type: 'bar',
+            data: { 
+                labels: labels, 
+                datasets: [
+                    { 
+                        type: 'bar',
+                        label: 'Quantidade',
+                        data: data, 
+                        backgroundColor: getColors(data, theme),
+                        borderRadius: 2,
+                        yAxisID: 'y',
+                        order: 2,
+                        datalabels: {
+                            display: true,
+                            anchor: 'end',
+                            align: 'bottom',
+                            offset: 8,
+                            color: function(context) {
+                                const datasetData = context.dataset.data;
+                                if (!datasetData || datasetData.length === 0) return '#1E293B';
+                                const min = Math.min(...datasetData);
+                                const max = Math.max(...datasetData);
+                                const val = datasetData[context.dataIndex];
+                                const ratio = max > min ? (val - min) / (max - min) : 1;
+                                return ratio > 0.45 ? '#FFFFFF' : '#1E293B';
+                            },
+                            font: { family: "'Inter', sans-serif", weight: 'bold', size: 10 },
+                            formatter: function(value, context) {
+                                let formattedVal = value;
+                                if (value > 1000000) formattedVal = (value / 1000000).toFixed(1).replace('.', ',') + 'M';
+                                else if (value > 1000) formattedVal = (value / 1000).toFixed(1).replace('.', ',') + 'k';
+                                return formattedVal;
+                            },
+                            textAlign: 'center'
+                        }
+                    },
+                    {
+                        type: 'line',
+                        label: 'Crescimento (%)',
+                        data: growthData,
+                        borderColor: theme === 'green' ? '#1E3A8A' : '#00A650',
+                        backgroundColor: theme === 'green' ? '#1E3A8A' : '#00A650',
+                        borderWidth: 2,
+                        tension: 0.3,
+                        yAxisID: 'y1',
+                        order: 1,
+                        datalabels: {
+                            display: true,
+                            align: 'top',
+                            anchor: 'center',
+                            color: theme === 'green' ? '#1E3A8A' : '#00A650',
+                            font: { weight: 'bold', size: 11 },
+                            formatter: (val) => {
+                                if (val === null) return '';
+                                return (val > 0 ? '+' : '') + val.toFixed(1).replace('.', ',') + '%';
+                            },
+                            backgroundColor: 'rgba(255, 255, 255, 0.7)',
+                            borderRadius: 4,
+                            padding: 2
+                        }
+                    }
+                ] 
+            },
+            options: options
+        });
+    };
 
     const updateEvolutionCharts = () => {
         // Data for Novos Clientes (from Novos x Recorrentes CSV)
@@ -836,126 +1427,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         const dataBase = sortedKeys.map(k => mapBase[k].val);
         const dataAtivos = sortedKeys.map(k => mapAtivos[k].val);
 
-        const getColors = (dataArray, theme = 'blue') => {
-            if (!dataArray || dataArray.length === 0) return [];
-            const min = Math.min(...dataArray);
-            const max = Math.max(...dataArray);
-            
-            return dataArray.map((val, index) => {
-                if (index === dataArray.length - 1) {
-                    return createHatchedPattern();
-                }
-                let r, g, b;
-                if (theme === 'green') { r = 153; g = 212; b = 32; } // #99D420
-                else { r = 30; g = 58; b = 138; } // #1E3A8A
-                
-                let ratio = max > min ? (val - min) / (max - min) : 1;
-                let intensity = 0.2 + (0.8 * ratio); // 20% to 100% intensity
-                
-                let nr = Math.round(255 + (r - 255) * intensity);
-                let ng = Math.round(255 + (g - 255) * intensity);
-                let nb = Math.round(255 + (b - 255) * intensity);
-                return `rgb(${nr}, ${ng}, ${nb})`;
-            });
-        };
-
-        const getBarOptions = (datasetData) => {
-            return {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: { 
-                    x: { 
-                        grid: { display: false }, 
-                        border: { display: false },
-                        ticks: {
-                            color: function(context) {
-                                if (context.index === context.chart.data.labels.length - 1) return '#F59E0B';
-                                return '#6B7280';
-                            },
-                            callback: function(value, index, ticks) {
-                                let label = this.getLabelForValue(value);
-                                if (index === ticks.length - 1 && !label.endsWith('*')) {
-                                    return label + '*';
-                                }
-                                return label;
-                            }
-                        }
-                    }, 
-                    y: { display: false, beginAtZero: true, suggestedMax: function(context) { return context.chart.data.datasets[0].data.reduce((a,b) => Math.max(a,b), 0) * 1.1; } } 
-                },
-                plugins: { 
-                    legend: { display: false }, 
-                    tooltip: { 
-                        callbacks: { 
-                            label: function(context) { 
-                                const val = context.parsed.y;
-                                let labelStr = formatNumber(val);
-                                if (context.dataIndex > 0 && context.dataIndex < context.chart.data.labels.length - 1) {
-                                    const prevVal = context.chart.data.datasets[0].data[context.dataIndex - 1];
-                                    if (prevVal > 0) {
-                                        const pct = ((val - prevVal) / prevVal) * 100;
-                                        const sign = pct > 0 ? '+' : '';
-                                        labelStr += ` (${sign}${pct.toFixed(1).replace('.', ',')}%)`;
-                                    }
-                                }
-                                return labelStr;
-                            } 
-                        } 
-                    },
-                    datalabels: {
-                        display: true,
-                        anchor: 'end',
-                        align: 'bottom',
-                        offset: 8,
-                        color: function(context) {
-                            const data = context.dataset.data;
-                            if (!data || data.length === 0) return '#1E293B';
-                            const min = Math.min(...data);
-                            const max = Math.max(...data);
-                            const val = data[context.dataIndex];
-                            const ratio = max > min ? (val - min) / (max - min) : 1;
-                            return ratio > 0.45 ? '#FFFFFF' : '#1E293B';
-                        },
-                        font: { family: "'Inter', sans-serif", weight: 'bold', size: 10 },
-                        formatter: function(value, context) {
-                            let formattedVal = value;
-                            if (value > 1000000) formattedVal = (value / 1000000).toFixed(1).replace('.', ',') + 'M';
-                            else if (value > 1000) formattedVal = (value / 1000).toFixed(1).replace('.', ',') + 'k';
-                            
-                            if (context.dataIndex > 0 && context.dataIndex < context.chart.data.labels.length - 1) {
-                                const prevVal = context.chart.data.datasets[0].data[context.dataIndex - 1];
-                                if (prevVal > 0) {
-                                    const pct = ((value - prevVal) / prevVal) * 100;
-                                    const sign = pct > 0 ? '+' : '';
-                                    return `${formattedVal}\n(${sign}${pct.toFixed(1).replace('.', ',')}%)`;
-                                }
-                            }
-                            return formattedVal;
-                        },
-                        textAlign: 'center'
-                    }
-                }
-            };
-        };
-
-        const renderBarChart = (id, chartVar, labels, data, theme = 'blue') => {
-            const ctx = document.getElementById(id);
-            if (!ctx) return chartVar;
-            if (chartVar) chartVar.destroy();
-            return new Chart(ctx, {
-                type: 'bar',
-                data: { 
-                    labels: labels, 
-                    datasets: [{ 
-                        data: data, 
-                        backgroundColor: getColors(data, theme),
-                        borderRadius: 2
-                    }] 
-                },
-                options: getBarOptions(data)
-            });
-        };
-
         if (window.ChartDataLabels && Chart.registry.plugins.get('datalabels') === undefined) {
             Chart.register(window.ChartDataLabels);
         }
@@ -983,10 +1454,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         updateBadge('badge-base', dataBase);
         updateBadge('badge-ativos', dataAtivos);
 
-        evolucaoNovosChart = renderBarChart('evolucao-novos-chart', evolucaoNovosChart, labelsNovos, dataNovos, 'green');
-        evolucaoFieisChart = renderBarChart('evolucao-fieis-chart', evolucaoFieisChart, labelsBase, dataFieis, 'blue');
-        evolucaoBaseChart = renderBarChart('evolucao-base-chart', evolucaoBaseChart, labelsBase, dataBase, 'blue');
-        evolucaoAtivosChart = renderBarChart('evolucao-ativos-chart', evolucaoAtivosChart, labelsBase, dataAtivos, 'blue');
+        window.evolucaoNovosChart = window.renderBarChart('evolucao-novos-chart', window.evolucaoNovosChart, labelsNovos, dataNovos, 'green');
+        window.evolucaoBaseChart = window.renderBarChart('evolucao-base-chart', window.evolucaoBaseChart, labelsBase, dataBase, 'blue');
+        window.evolucaoAtivosChart = window.renderBarChart('evolucao-ativos-chart', window.evolucaoAtivosChart, labelsBase, dataAtivos, 'blue');
     };
     window.updateEvolutionCharts = updateEvolutionCharts;
 
@@ -1873,6 +2343,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     loadHeatmap();
     loadFrequenciaTicket();
     loadCategorias();
+    loadSegmentosData();
+        loadEvolucaoSegmentosQtdData();
+    loadEvolucaoBaseTotal();
 
     // Show construction popup after 5 seconds
     setTimeout(() => {
