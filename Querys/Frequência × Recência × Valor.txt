@@ -1,0 +1,142 @@
+WITH COMPRAS AS (
+
+    SELECT
+        V.CPF_CNPJ,
+        V.VENDA_ID,
+        CAST(V.INCLUSAO_DATA AS DATE) AS DT_COMPRA,
+        DATE_TRUNC('MONTH', V.INCLUSAO_DATA) AS MES,
+        V.VALOR_TOTAL,
+
+        CASE
+            WHEN V.TIPO_VENDA_DESCRICAO IN (
+                'APP','APP Tele Entrega',
+                'SITE','SITE Tele Entrega',
+                'E-commerce','iFood','Rappi'
+            )
+            OR V.TIPO_VENDA_DESCRICAO IS NULL
+            OR TRIM(V.TIPO_VENDA_DESCRICAO) = ''
+                THEN 'CANAIS_VIRTUAIS'
+
+            WHEN V.TIPO_VENDA_DESCRICAO = 'Venda Tele Entrega Central'
+                THEN 'TELEVENDAS'
+
+            WHEN V.TIPO_VENDA_DESCRICAO IN (
+                'Venda Tele Entrega',
+                'Tele Encaminhada Lojas',
+                'Tele Vizinhança',
+                'Venda Balcão',
+                'Venda Caixa',
+                'Auto Atendimento'
+            )
+                THEN 'LOJA_F'
+
+            ELSE 'OUTROS'
+
+        END AS CANAL
+
+    FROM FSJ_PRD.GOLD.VW_ANALISE_VENDAS V
+
+    INNER JOIN FSJ_PRD.GOLD.DATAMART_CLIENTES D
+        ON V.CPF_CNPJ = D.CPF_CNPJ
+
+    WHERE V.IDENTIFICADOR = 'V'
+      AND V.CPF_CNPJ IS NOT NULL
+      AND V.INCLUSAO_DATA >= '2026-01-01'
+      AND V.INCLUSAO_DATA < '2027-01-01'
+
+),
+
+RFV AS (
+
+    SELECT
+
+        MES,
+        CANAL,
+        CPF_CNPJ,
+
+        MAX(DT_COMPRA) AS ULTIMA_COMPRA,
+
+        COUNT(DISTINCT VENDA_ID) AS FREQUENCIA,
+
+        SUM(VALOR_TOTAL) AS VALOR
+
+    FROM COMPRAS
+
+    GROUP BY
+        MES,
+        CANAL,
+        CPF_CNPJ
+
+),
+
+CLASSIFICADO AS (
+
+SELECT
+
+    MES,
+    CANAL,
+    VALOR,
+
+    CASE
+        WHEN DATEDIFF(DAY, ULTIMA_COMPRA, CURRENT_DATE) <= 30 THEN 'R1'
+        WHEN DATEDIFF(DAY, ULTIMA_COMPRA, CURRENT_DATE) <= 60 THEN 'R2'
+        WHEN DATEDIFF(DAY, ULTIMA_COMPRA, CURRENT_DATE) <= 120 THEN 'R3'
+        WHEN DATEDIFF(DAY, ULTIMA_COMPRA, CURRENT_DATE) <= 180 THEN 'R4'
+        WHEN DATEDIFF(DAY, ULTIMA_COMPRA, CURRENT_DATE) <= 360 THEN 'R5'
+        ELSE 'R6'
+    END AS RECENCIA,
+
+    CASE
+        WHEN FREQUENCIA >= 12 THEN 'F1'
+        WHEN FREQUENCIA BETWEEN 7 AND 11 THEN 'F2'
+        WHEN FREQUENCIA BETWEEN 4 AND 6 THEN 'F3'
+        WHEN FREQUENCIA BETWEEN 2 AND 3 THEN 'F4'
+        ELSE 'F5'
+    END AS FREQUENCIA
+
+FROM RFV
+
+)
+
+SELECT
+
+    MES,
+
+    CANAL,
+
+    FREQUENCIA,
+
+    SUM(CASE WHEN RECENCIA='R1' THEN VALOR ELSE 0 END) AS R1,
+
+    SUM(CASE WHEN RECENCIA='R2' THEN VALOR ELSE 0 END) AS R2,
+
+    SUM(CASE WHEN RECENCIA='R3' THEN VALOR ELSE 0 END) AS R3,
+
+    SUM(CASE WHEN RECENCIA='R4' THEN VALOR ELSE 0 END) AS R4,
+
+    SUM(CASE WHEN RECENCIA='R5' THEN VALOR ELSE 0 END) AS R5,
+
+    SUM(CASE WHEN RECENCIA='R6' THEN VALOR ELSE 0 END) AS R6,
+
+    SUM(VALOR) AS TOTAL
+
+FROM CLASSIFICADO
+
+GROUP BY
+
+    MES,
+    CANAL,
+    FREQUENCIA
+
+ORDER BY
+
+    MES,
+
+    CASE CANAL
+        WHEN 'CANAIS_VIRTUAIS' THEN 1
+        WHEN 'TELEVENDAS' THEN 2
+        WHEN 'LOJA_F' THEN 3
+        WHEN 'OUTROS' THEN 4
+    END,
+
+    FREQUENCIA;
