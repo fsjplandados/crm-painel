@@ -1834,11 +1834,11 @@ document.addEventListener('DOMContentLoaded', async () => {
                 if (!table) return;
                 
                 let html = `<tr><th>Faixa de valor</th>`;
-                ages.forEach(a => html += `<th>${a}</th>`);
+                ages.forEach(a => html += `<th data-col="${a}" class="heatmap-header-col" style="cursor:pointer; transition: opacity 0.3s;" onclick="window.filterHeatmapCol('${a}')">${a}</th>`);
                 html += `</tr>`;
 
                 rows.forEach(r => {
-                    html += `<tr><td class="row-label">${r}</td>`;
+                    html += `<tr><td data-row="${r}" class="row-label heatmap-header-row" style="cursor:pointer; transition: opacity 0.3s;" onclick="window.filterHeatmapRow('${r}')">${r}</td>`;
                     ages.forEach(a => {
                         const val = pctData[r][a];
                         // Normalize opacity between 0 and 0.8
@@ -1846,7 +1846,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                         const bg = `rgba(${rgbColor}, ${opacity})`;
                         const displayVal = val > 0 ? val.toFixed(1).replace('.', ',') + '%' : '';
                         
-                        html += `<td class="heatmap-cell" style="background-color: ${bg};" title="${val.toFixed(2)}%">${displayVal}</td>`;
+                        html += `<td data-row="${r}" data-col="${a}" class="heatmap-cell heatmap-data-cell" style="background-color: ${bg}; cursor:pointer; transition: opacity 0.3s; box-sizing: border-box;" onclick="window.filterHeatmapCell('${r}', '${a}')" title="${val.toFixed(2)}%">${displayVal}</td>`;
                     });
                     html += `</tr>`;
                 });
@@ -1856,6 +1856,91 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             renderTable('heatmap-m', pctDataM, maxM, '59, 130, 246'); // Blue
             renderTable('heatmap-f', pctDataF, maxF, '237, 28, 36'); // Red
+
+            // Generate insights
+            window.heatmapSelectedCol = null;
+            window.heatmapSelectedRow = null;
+
+            window.updateHeatmapInsights = () => {
+                const insightsBox = document.getElementById('heatmap-insights-content');
+                if (!insightsBox) return;
+
+                let biggestMAge = '', biggestMRow = '', maxMPct = -1;
+                let biggestFAge = '', biggestFRow = '', maxFPct = -1;
+
+                const filteredRows = window.heatmapSelectedRow ? [window.heatmapSelectedRow] : rows;
+                const filteredAges = window.heatmapSelectedCol ? [window.heatmapSelectedCol] : ages;
+
+                filteredRows.forEach(r => {
+                    filteredAges.forEach(a => {
+                        if (pctDataM[r][a] > maxMPct) { maxMPct = pctDataM[r][a]; biggestMRow = r; biggestMAge = a; }
+                        if (pctDataF[r][a] > maxFPct) { maxFPct = pctDataF[r][a]; biggestFRow = r; biggestFAge = a; }
+                    });
+                });
+
+                const mPctStr = Math.max(0, maxMPct).toFixed(1).replace('.', ',');
+                const fPctStr = Math.max(0, maxFPct).toFixed(1).replace('.', ',');
+                const clearBtn = `<br><span style="font-size:10.5px; cursor:pointer; color:#0284C7; text-decoration:underline; display:inline-block; margin-top:4px;" onclick="window.clearHeatmapFilters()">Limpar filtro selecionado</span>`;
+
+                if (window.heatmapSelectedRow && window.heatmapSelectedCol) {
+                    insightsBox.innerHTML = `Filtrando por <strong>${window.heatmapSelectedRow}</strong> e <strong>${window.heatmapSelectedCol} anos</strong>:<br>A concentração de <strong>Homens</strong> é de ${mPctStr}% e de <strong>Mulheres</strong> é de ${fPctStr}%.${clearBtn}`;
+                } else if (window.heatmapSelectedRow) {
+                    insightsBox.innerHTML = `Na faixa de valor <strong>${window.heatmapSelectedRow}</strong>:<br>A maior concentração de <strong>Homens</strong> (${mPctStr}%) está na idade entre <strong>${biggestMAge} anos</strong>.<br>Para as <strong>Mulheres</strong>, a maior concentração (${fPctStr}%) está na idade entre <strong>${biggestFAge} anos</strong>.${clearBtn}`;
+                } else if (window.heatmapSelectedCol) {
+                    insightsBox.innerHTML = `Na faixa etária de <strong>${window.heatmapSelectedCol} anos</strong>:<br>A maior concentração de <strong>Homens</strong> (${mPctStr}%) encontra-se na faixa de valor <strong>${biggestMRow}</strong>.<br>Para as <strong>Mulheres</strong>, a maior concentração (${fPctStr}%) encontra-se na faixa de valor <strong>${biggestFRow}</strong>.${clearBtn}`;
+                } else {
+                    insightsBox.innerHTML = `
+                        A maior concentração de <strong>Homens</strong> (${mPctStr}%) encontra-se na faixa de valor <strong>${biggestMRow}</strong> com idade entre <strong>${biggestMAge} anos</strong>.<br>
+                        Para as <strong>Mulheres</strong>, a maior concentração (${fPctStr}%) está na faixa de valor <strong>${biggestFRow}</strong> com idade entre <strong>${biggestFAge} anos</strong>.
+                        <br><span style="font-size:10px; color:#64748B; display:inline-block; margin-top:4px;">(Dica: Clique nas idades ou nas faixas de valor da tabela abaixo para ver insights específicos)</span>
+                    `;
+                }
+
+                // Highlight logic (dim unselected cells)
+                const allCells = document.querySelectorAll('.heatmap-data-cell, .heatmap-header-col, .heatmap-header-row');
+                allCells.forEach(el => {
+                    if (!window.heatmapSelectedRow && !window.heatmapSelectedCol) {
+                        el.style.opacity = '1';
+                        el.style.border = '';
+                        return;
+                    }
+
+                    const r = el.getAttribute('data-row');
+                    const c = el.getAttribute('data-col');
+                    let isSelected = false;
+
+                    if (window.heatmapSelectedRow && window.heatmapSelectedCol) {
+                        isSelected = (r === window.heatmapSelectedRow && c === window.heatmapSelectedCol);
+                        if (!r && c === window.heatmapSelectedCol) isSelected = true;
+                        if (!c && r === window.heatmapSelectedRow) isSelected = true;
+                    } else if (window.heatmapSelectedRow) {
+                        isSelected = (r === window.heatmapSelectedRow);
+                        if (!r && el.classList.contains('heatmap-header-col')) isSelected = true;
+                    } else if (window.heatmapSelectedCol) {
+                        isSelected = (c === window.heatmapSelectedCol);
+                        if (!c && el.classList.contains('heatmap-header-row')) isSelected = true;
+                    }
+
+                    if (isSelected) {
+                        el.style.opacity = '1';
+                        if (el.classList.contains('heatmap-data-cell') && window.heatmapSelectedRow && window.heatmapSelectedCol) {
+                            el.style.border = '2px solid #0284C7';
+                        } else {
+                            el.style.border = '';
+                        }
+                    } else {
+                        el.style.opacity = '0.2';
+                        el.style.border = '';
+                    }
+                });
+            };
+
+            window.filterHeatmapCol = (a) => { window.heatmapSelectedCol = a; window.heatmapSelectedRow = null; window.updateHeatmapInsights(); };
+            window.filterHeatmapRow = (r) => { window.heatmapSelectedRow = r; window.heatmapSelectedCol = null; window.updateHeatmapInsights(); };
+            window.filterHeatmapCell = (r, a) => { window.heatmapSelectedRow = r; window.heatmapSelectedCol = a; window.updateHeatmapInsights(); };
+            window.clearHeatmapFilters = () => { window.heatmapSelectedRow = null; window.heatmapSelectedCol = null; window.updateHeatmapInsights(); };
+
+            window.updateHeatmapInsights();
 
         } catch (error) {
             console.error('Error loading Heatmap:', error);
