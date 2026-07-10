@@ -1088,6 +1088,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     };
 
     const updateNovosRecorrentesCharts = () => {
+        if (!window.novosRecorrentesData || window.novosRecorrentesData.length === 0) return;
         let filteredData = window.novosRecorrentesData;
         
         filteredData = window.novosRecorrentesData.filter(row => {
@@ -1301,6 +1302,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const safeData = data || [];
         const safeLabels = labels || [];
+        
+        if (safeData.length === 0) return null;
 
         const growthData = safeData.map((val, i) => {
             if (i === 0 || safeData[i-1] === 0) return null;
@@ -1378,6 +1381,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     };
 
     const updateEvolutionCharts = () => {
+        if (!window.novosRecorrentesData || window.novosRecorrentesData.length === 0) return;
         // Data for Novos Clientes (from Novos x Recorrentes CSV)
         let filteredNovos = window.novosRecorrentesData || [];
         filteredNovos = filteredNovos.filter(row => {
