@@ -1299,23 +1299,26 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (!ctx) return chartVar;
         if (chartVar) chartVar.destroy();
 
-        const growthData = data.map((val, i) => {
-            if (i === 0 || data[i-1] === 0) return null;
-            return ((val - data[i-1]) / data[i-1]) * 100;
+        const safeData = data || [];
+        const safeLabels = labels || [];
+
+        const growthData = safeData.map((val, i) => {
+            if (i === 0 || safeData[i-1] === 0) return null;
+            return ((val - safeData[i-1]) / safeData[i-1]) * 100;
         });
 
-        const options = getBarOptions(data);
+        const options = getBarOptions(safeData);
 
         return new Chart(ctx, {
             type: 'bar',
             data: { 
-                labels: labels, 
+                labels: safeLabels, 
                 datasets: [
                     { 
                         type: 'bar',
                         label: 'Quantidade',
-                        data: data, 
-                        backgroundColor: getColors(data, theme),
+                        data: safeData, 
+                        backgroundColor: getColors(safeData, theme),
                         borderRadius: 2,
                         yAxisID: 'y',
                         order: 2,
