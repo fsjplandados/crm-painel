@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     };
 
     window.updateSegmentosQtdChart = () => {
-        if (!window.evolucaoSegmentosQtdData) return;
+        if (!window.evolucaoSegmentosQtdData || window.evolucaoSegmentosQtdData.length === 0) return;
         
         let filtered = window.evolucaoSegmentosQtdData.filter(row => {
             const hasYearFilter = window.selectedYears && window.selectedYears.size > 0;
@@ -342,7 +342,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     };
 
     window.updateSegmentosCharts = () => {
-        if (!window.segmentosReceitaData) return;
+        if (!window.segmentosReceitaData || window.segmentosReceitaData.length === 0) return;
         
         let filtered = window.segmentosReceitaData.filter(row => {
             const hasYearFilter = window.selectedYears && window.selectedYears.size > 0;
@@ -418,7 +418,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     };
 
     window.updateEvolucaoBaseTotalChart = () => {
-        if (!window.evolucaoBaseTotalData) return;
+        if (!window.evolucaoBaseTotalData || window.evolucaoBaseTotalData.length === 0) return;
         
         let filtered = window.evolucaoBaseTotalData.filter(row => {
             const hasYearFilter = window.selectedYears && window.selectedYears.size > 0;
