@@ -1435,7 +1435,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const hasYearFilter = window.selectedYears && window.selectedYears.size > 0;
             const hasMonthFilter = window.selectedMonths && window.selectedMonths.size > 0;
             const matchY = hasYearFilter ? window.selectedYears.has(row.year) : (row.year === '2026');
-            const matchM = !hasMonthFilter || window.selectedMonths.has(row.month);
+            const matchM = !hasMonthFilter || window.selectedMonths.has(row.month.padStart(2, '0'));
             return matchY && matchM;
         });
         
