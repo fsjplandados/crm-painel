@@ -1978,8 +1978,21 @@ document.addEventListener('DOMContentLoaded', async () => {
                 });
             }
 
+            // Apply global period filters
+            let filteredRawData = rawData;
+            if ((window.selectedYears && window.selectedYears.size > 0) || (window.selectedMonths && window.selectedMonths.size > 0)) {
+                filteredRawData = rawData.filter(d => {
+                    const parts = d.mes.split('-');
+                    const rowYear = parts[0];
+                    const rowMonth = parts.length >= 2 ? parts[1] : '';
+                    const matchY = !window.selectedYears || window.selectedYears.size === 0 || window.selectedYears.has(rowYear);
+                    const matchM = !window.selectedMonths || window.selectedMonths.size === 0 || window.selectedMonths.has(rowMonth);
+                    return matchY && matchM;
+                });
+            }
+
             // Extract unique sorted months
-            let uniqueMonths = [...new Set(rawData.map(d => d.mes))].sort();
+            let uniqueMonths = [...new Set(filteredRawData.map(d => d.mes))].sort();
             const formatMonth = (dateStr) => {
                 const parts = dateStr.split('-');
                 if (parts.length < 3) return dateStr;
@@ -1997,7 +2010,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             };
 
             const renderFrequenciaDashboard = (selectedCanal) => {
-                const channelData = rawData.filter(d => d.canal === selectedCanal).sort((a, b) => a.mes.localeCompare(b.mes));
+                const channelData = filteredRawData.filter(d => d.canal === selectedCanal).sort((a, b) => a.mes.localeCompare(b.mes));
                 
                 if (channelData.length >= 2) {
                     const current = channelData[channelData.length - 1];
@@ -2140,7 +2153,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const averages = {};
 
             channelsToCompare.forEach(c => {
-                const cData = rawData.filter(d => d.canal === c);
+                const cData = filteredRawData.filter(d => d.canal === c);
                 if (cData.length > 0) {
                     averages[c] = {
                         freq: cData.reduce((s, d) => s + d.freq, 0) / cData.length,
