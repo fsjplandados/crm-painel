@@ -1224,13 +1224,39 @@ document.addEventListener('DOMContentLoaded', async () => {
     let evolucaoBaseChart = null;
     let evolucaoAtivosChart = null;
 
-    const getColors = (dataArray, theme = 'blue') => {
+    const isLatestMonth = (label) => {
+        if (!label || !window.availablePeriods || window.availablePeriods.size === 0) return false;
+        const sortedPeriods = Array.from(window.availablePeriods).sort();
+        const latestPeriod = sortedPeriods[sortedPeriods.length - 1]; // e.g., "2026-07-01"
+        const parts = latestPeriod.split('-');
+        if (parts.length < 2) return false;
+        const y = parts[0];
+        const m = parts[1];
+        
+        const labelClean = label.toString().replace('*', '').trim().toLowerCase();
+        
+        if (labelClean.includes(`${y}-${m}`) || labelClean.includes(`${m}/${y}`) || labelClean.includes(`${parseInt(m, 10)}/${y}`)) {
+            return true;
+        }
+        
+        const monthNames = { '01':'jan', '02':'fev', '03':'mar', '04':'abr', '05':'mai', '06':'jun', '07':'jul', '08':'ago', '09':'set', '10':'out', '11':'nov', '12':'dez' };
+        const shortMonth = monthNames[m];
+        const shortYear = y.substring(2);
+        if (labelClean.includes(`${shortMonth}/${shortYear}`)) {
+            return true;
+        }
+        
+        return false;
+    };
+
+    const getColors = (dataArray, labelsArray, theme = 'blue') => {
         if (!dataArray || dataArray.length === 0) return [];
         const min = Math.min(...dataArray);
         const max = Math.max(...dataArray);
         
         return dataArray.map((val, index) => {
-            if (index === dataArray.length - 1) {
+            const label = labelsArray && labelsArray[index];
+            if (label && isLatestMonth(label)) {
                 return typeof createHatchedPattern !== 'undefined' ? createHatchedPattern() : '#E2E8F0';
             }
             let r, g, b;
@@ -1257,12 +1283,13 @@ document.addEventListener('DOMContentLoaded', async () => {
                     border: { display: false },
                     ticks: {
                         color: function(context) {
-                            if (context.index === context.chart.data.labels.length - 1) return '#F59E0B';
+                            const label = context.chart.data.labels[context.index];
+                            if (label && isLatestMonth(label)) return '#F59E0B';
                             return '#6B7280';
                         },
                         callback: function(value, index, ticks) {
                             let label = this.getLabelForValue(value);
-                            if (index === ticks.length - 1 && !label.endsWith('*')) {
+                            if (label && isLatestMonth(label) && !label.toString().endsWith('*')) {
                                 return label + '*';
                             }
                             return label;
@@ -1322,7 +1349,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                         type: 'bar',
                         label: 'Quantidade',
                         data: safeData, 
-                        backgroundColor: getColors(safeData, theme),
+                        backgroundColor: getColors(safeData, safeLabels, theme),
                         borderRadius: 2,
                         yAxisID: 'y',
                         order: 2,
@@ -1456,13 +1483,23 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         
-        const updateBadge = (badgeId, dataArray) => {
+        const updateBadge = (badgeId, dataArray, labelsArray) => {
             const valEl = document.getElementById(badgeId + '-val');
             const containerEl = document.getElementById(badgeId + '-container');
-            if (!valEl || !containerEl || dataArray.length < 3) return;
+            if (!valEl || !containerEl || !labelsArray || labelsArray.length === 0 || dataArray.length < 2) return;
             
-            const m1 = dataArray[dataArray.length - 2]; // Last complete month
-            const m2 = dataArray[dataArray.length - 3]; // Month before that
+            const lastLabel = labelsArray[labelsArray.length - 1];
+            const isLastIncomplete = isLatestMonth(lastLabel);
+            
+            let m1, m2;
+            if (isLastIncomplete) {
+                if (dataArray.length < 3) return;
+                m1 = dataArray[dataArray.length - 2]; // Last complete month
+                m2 = dataArray[dataArray.length - 3]; // Month before that
+            } else {
+                m1 = dataArray[dataArray.length - 1]; // Last visible month (complete)
+                m2 = dataArray[dataArray.length - 2]; // Month before that
+            }
             
             if (m2 > 0) {
                 const pct = ((m1 - m2) / m2) * 100;
@@ -1473,10 +1510,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         };
 
-        updateBadge('badge-novos', dataNovos);
-        updateBadge('badge-fieis', dataFieis);
-        updateBadge('badge-base', dataBase);
-        updateBadge('badge-ativos', dataAtivos);
+        updateBadge('badge-novos', dataNovos, labelsNovos);
+        updateBadge('badge-fieis', dataFieis, labelsFieis);
+        updateBadge('badge-base', dataBase, labelsBase);
+        updateBadge('badge-ativos', dataAtivos, labelsBase);
 
         window.evolucaoNovosChart = window.renderBarChart('evolucao-novos-chart', window.evolucaoNovosChart, labelsNovos, dataNovos, 'green');
         window.evolucaoFieisChart = window.renderBarChart('evolucao-fieis-chart', window.evolucaoFieisChart, labelsFieis, dataFieis, 'purple');
