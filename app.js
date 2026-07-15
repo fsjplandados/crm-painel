@@ -1956,21 +1956,25 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             const csvText = await response.text();
             
-            const lines = csvText.split('\n').map(line => line.trim()).filter(line => line.length > 0 && !line.includes('2026-06-01') && !line.includes('Jun/26'));
+            const lines = csvText.split('\n').map(line => line.trim()).filter(line => line.length > 0);
             
-            // Expected columns: MES, CANAL, FREQUENCIA_MEDIA, TICKET_MEDIO, PCT_RECOMPRA_MES, MEDIA_DIAS_RECOMPRA
+            // Expected columns: MES, CANAL, CLIENTES, TOTAL_COMPRAS, FREQUENCIA_MEDIA, VALOR_TOTAL, TICKET_MEDIO, CLIENTES_RECOMPRA, PCT_RECOMPRA_MES, MEDIA_DIAS_RECOMPRA
             let rawData = [];
             for (let i = 1; i < lines.length; i++) {
                 const cols = lines[i].split(',');
-                if (cols.length < 6) continue;
+                if (cols.length < 10) continue;
                 
                 rawData.push({
                     mes: cols[0].trim(),
                     canal: cols[1].trim(),
-                    freq: parseFloat(cols[2]) || 0,
-                    ticket: parseFloat(cols[3]) || 0,
-                    recompra: parseFloat(cols[4]) || 0,
-                    dias: parseFloat(cols[5]) || 0
+                    clientes: parseInt(cols[2]) || 0,
+                    totalCompras: parseInt(cols[3]) || 0,
+                    freq: parseFloat(cols[4]) || 0,
+                    valorTotal: parseFloat(cols[5]) || 0,
+                    ticket: parseFloat(cols[6]) || 0,
+                    clientesRecompra: parseInt(cols[7]) || 0,
+                    recompra: parseFloat(cols[8]) || 0,
+                    dias: parseFloat(cols[9]) || 0
                 });
             }
 
@@ -2034,7 +2038,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
                     renderKpi('kpi-freq', 'delta-freq', current.freq, prev.freq, false, false, 2, '');
                     renderKpi('kpi-ticket', 'delta-ticket', current.ticket, prev.ticket, false, false, 2, 'R$');
-                    renderKpi('kpi-recompra', 'delta-recompra', current.recompra * 100, prev.recompra * 100, true, false, 1, '');
+                    renderKpi('kpi-recompra', 'delta-recompra', current.recompra, prev.recompra, true, false, 1, '');
                     
                     document.getElementById('kpi-dias').innerHTML = current.dias.toFixed(0) + ' <span style="font-size:16px; font-weight:600;">dias</span>';
                     const deltaDias = current.dias - prev.dias;
@@ -2098,7 +2102,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 
                 try { createChart('chart-freq', chartData.map(d => d.freq), '#99D420', { formatter: v => v.toFixed(2).replace('.', ',') }); } catch (e) { console.error('Error freq chart', e); }
                 try { createChart('chart-ticket', chartData.map(d => d.ticket), '#00A650', { formatter: v => (v||0).toFixed(2).replace('.', ',') }); } catch (e) { console.error('Error ticket chart', e); }
-                try { createChart('chart-recompra', chartData.map(d => d.recompra * 100), '#00ADEF', { formatter: v => (v||0).toFixed(1).replace('.', ',') + '%' }); } catch (e) { console.error('Error recompra chart', e); }
+                try { createChart('chart-recompra', chartData.map(d => d.recompra), '#00ADEF', { formatter: v => (v||0).toFixed(1).replace('.', ',') + '%' }); } catch (e) { console.error('Error recompra chart', e); }
                 
                 // Média dias is bar chart
                 try {
@@ -2202,9 +2206,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                         <div style="width: 100%; height: 4px; background: #E2E8F0; border-radius: 2px; margin-top: 8px;"><div style="width: ${(avg.ticket / 150)*100}%; height: 100%; background: #10B981; border-radius: 2px;"></div></div>
                     </td>
                     <td>
-                        <div class="comp-value">${(avg.recompra * 100).toFixed(1).replace('.', ',')}%</div>
+                        <div class="comp-value">${avg.recompra.toFixed(1).replace('.', ',')}%</div>
                         ${getBadge(avg.recompra, ref.recompra, false)}
-                        <div style="width: 100%; height: 4px; background: #E2E8F0; border-radius: 2px; margin-top: 8px;"><div style="width: ${(avg.recompra * 100)}%; height: 100%; background: #8B5CF6; border-radius: 2px;"></div></div>
+                        <div style="width: 100%; height: 4px; background: #E2E8F0; border-radius: 2px; margin-top: 8px;"><div style="width: ${avg.recompra}%; height: 100%; background: #8B5CF6; border-radius: 2px;"></div></div>
                     </td>
                     <td>
                         <div class="comp-value">${avg.dias.toFixed(1).replace('.', ',')}</div>
