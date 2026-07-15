@@ -1396,7 +1396,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const labelsNovos = filteredNovos.map(d => d.mes);
         const dataNovos = filteredNovos.map(d => d.novosQtd);
 
-        // Data for Fiéis, Base Total, and Ativos (from baseTotalData)
+        // Data for Base Total and Ativos (from baseTotalData)
         let filteredBase = window.baseTotalData || [];
         filteredBase = filteredBase.filter(row => {
             const pParts = row.period.split('-');
@@ -1409,7 +1409,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             return matchY && matchM;
         });
         
-        const mapFieis = {};
         const mapBase = {};
         const mapAtivos = {};
 
@@ -1419,21 +1418,38 @@ document.addEventListener('DOMContentLoaded', async () => {
             const label = pParts.length >= 2 ? `${pParts[1]}/${pParts[0]}` : p; // MM/YYYY
             if (!mapBase[p]) {
                 mapBase[p] = { label: label, val: 0 };
-                mapFieis[p] = { label: label, val: 0 };
                 mapAtivos[p] = { label: label, val: 0 };
             }
             mapBase[p].val += row.qtd;
             mapAtivos[p].val += row.act90;
-            if (row.segment === 'Clientes Fieis') {
-                mapFieis[p].val += row.qtd;
-            }
         });
 
         const sortedKeys = Object.keys(mapBase).sort();
         const labelsBase = sortedKeys.map(k => mapBase[k].label);
-        const dataFieis = sortedKeys.map(k => mapFieis[k].val);
         const dataBase = sortedKeys.map(k => mapBase[k].val);
         const dataAtivos = sortedKeys.map(k => mapAtivos[k].val);
+
+        // Data for Fiéis (from Evolucao_Base_Total.csv via evolucaoSegmentosQtdData)
+        let filteredFieis = (window.evolucaoSegmentosQtdData || []).filter(row => {
+            if (row.segment !== 'CLIENTES FIEIS') return false;
+            const hasYearFilter = window.selectedYears && window.selectedYears.size > 0;
+            const hasMonthFilter = window.selectedMonths && window.selectedMonths.size > 0;
+            const matchY = hasYearFilter ? window.selectedYears.has(row.year) : (row.year === '2026');
+            const matchM = !hasMonthFilter || window.selectedMonths.has(row.month);
+            return matchY && matchM;
+        });
+        
+        const mapFieis = {};
+        filteredFieis.forEach(row => {
+            const key = `${row.year}-${row.month.padStart(2, '0')}`;
+            if (!mapFieis[key]) {
+                mapFieis[key] = { label: row.label, val: 0 };
+            }
+            mapFieis[key].val += row.qtd;
+        });
+        const sortedFieisKeys = Object.keys(mapFieis).sort();
+        const labelsFieis = sortedFieisKeys.map(k => mapFieis[k].label);
+        const dataFieis = sortedFieisKeys.map(k => mapFieis[k].val);
 
         if (window.ChartDataLabels && Chart.registry.plugins.get('datalabels') === undefined) {
             Chart.register(window.ChartDataLabels);
@@ -1463,7 +1479,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         updateBadge('badge-ativos', dataAtivos);
 
         window.evolucaoNovosChart = window.renderBarChart('evolucao-novos-chart', window.evolucaoNovosChart, labelsNovos, dataNovos, 'green');
-        window.evolucaoFieisChart = window.renderBarChart('evolucao-fieis-chart', window.evolucaoFieisChart, labelsBase, dataFieis, 'purple');
+        window.evolucaoFieisChart = window.renderBarChart('evolucao-fieis-chart', window.evolucaoFieisChart, labelsFieis, dataFieis, 'purple');
         window.evolucaoBaseChart = window.renderBarChart('evolucao-base-chart', window.evolucaoBaseChart, labelsBase, dataBase, 'blue');
         window.evolucaoAtivosChart = window.renderBarChart('evolucao-ativos-chart', window.evolucaoAtivosChart, labelsBase, dataAtivos, 'blue');
     };
