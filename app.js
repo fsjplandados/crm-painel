@@ -372,7 +372,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         
         const fieisData = sortedLabels.map(l => fieisDataMap[l] || 0);
         
-        window.evolucaoFieisChartReceita = window.renderBarChart('evolucao-fieis-chart', window.evolucaoFieisChartReceita, sortedLabels, fieisData, 'blue');
+        window.evolucaoFieisChart = window.renderBarChart('evolucao-fieis-chart', window.evolucaoFieisChart, sortedLabels, fieisData, 'blue');
     };
 
 
