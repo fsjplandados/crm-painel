@@ -1462,7 +1462,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         updateBadge('badge-base', dataBase);
         updateBadge('badge-ativos', dataAtivos);
 
-        window\.evolucaoNovosChart = window\.renderBarChart\(\'evolucao-novos-chart\', window\.evolucaoNovosChart, labelsNovos, dataNovos, \'green\'\);
+        window.evolucaoNovosChart = window.renderBarChart('evolucao-novos-chart', window.evolucaoNovosChart, labelsNovos, dataNovos, 'green');
         window.evolucaoFieisChart = window.renderBarChart('evolucao-fieis-chart', window.evolucaoFieisChart, labelsBase, dataFieis, 'purple');
         window.evolucaoBaseChart = window.renderBarChart('evolucao-base-chart', window.evolucaoBaseChart, labelsBase, dataBase, 'blue');
         window.evolucaoAtivosChart = window.renderBarChart('evolucao-ativos-chart', window.evolucaoAtivosChart, labelsBase, dataAtivos, 'blue');
