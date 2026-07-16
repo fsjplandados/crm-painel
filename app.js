@@ -155,6 +155,49 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     };
 
+    window.evolucaoStatusData = [];
+    const loadEvolucaoStatusData = async () => {
+        try {
+            const response = await fetch(`Arquivos Jun-2026/Evolucao_Mensal_Status.csv?v=${Date.now()}`);
+            if (!response.ok) throw new Error('HTTP error');
+            const csvText = await response.text();
+            
+            const lines = csvText.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+            window.evolucaoStatusData = [];
+            
+            for (let i = 1; i < lines.length; i++) {
+                const parts = lines[i].split(',');
+                if (parts.length < 3) continue;
+                
+                const dateStr = parts[0].trim();
+                const status = parts[1].trim().toUpperCase();
+                const qtdStr = parts[2].trim();
+                
+                const dateParts = dateStr.split('-');
+                if (dateParts.length < 2) continue;
+                
+                let year = dateParts[0];
+                let monthStr = dateParts[1];
+                const months = { 'Jan': '01', 'Feb': '02', 'Mar': '03', 'Apr': '04', 'May': '05', 'Jun': '06', 'Jul': '07', 'Aug': '08', 'Sep': '09', 'Oct': '10', 'Nov': '11', 'Dec': '12', 'Fev': '02', 'Abr': '04', 'Mai': '05', 'Ago': '08', 'Set': '09', 'Out': '10', 'Dez': '12' };
+                let month = months[monthStr] || '01';
+                
+                let label = `${month}/${year}`;
+                
+                window.evolucaoStatusData.push({
+                    month: parseInt(month, 10).toString(),
+                    year: year,
+                    label: label,
+                    status: status,
+                    qtd: parseFloat(qtdStr) || 0
+                });
+            }
+            
+            if (window.updateBaseTotalKPI) window.updateBaseTotalKPI();
+        } catch (e) {
+            console.error(e);
+        }
+    };
+
     window.updateSegmentosQtdChart = () => {
         if (!window.evolucaoSegmentosQtdData || window.evolucaoSegmentosQtdData.length === 0) return;
         
@@ -1423,7 +1466,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const labelsNovos = filteredNovos.map(d => d.mes);
         const dataNovos = filteredNovos.map(d => d.novosQtd);
 
-        // Data for Base Total and Ativos (from baseTotalData)
+        // Data for Base Total (from baseTotalData)
         let filteredBase = window.baseTotalData || [];
         filteredBase = filteredBase.filter(row => {
             const pParts = row.period.split('-');
@@ -1437,7 +1480,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
         
         const mapBase = {};
-        const mapAtivos = {};
 
         filteredBase.forEach(row => {
             const p = row.period; // YYYY-MM-DD
@@ -1445,16 +1487,35 @@ document.addEventListener('DOMContentLoaded', async () => {
             const label = pParts.length >= 2 ? `${pParts[1]}/${pParts[0]}` : p; // MM/YYYY
             if (!mapBase[p]) {
                 mapBase[p] = { label: label, val: 0 };
-                mapAtivos[p] = { label: label, val: 0 };
             }
             mapBase[p].val += row.qtd;
-            mapAtivos[p].val += row.act90;
         });
 
         const sortedKeys = Object.keys(mapBase).sort();
         const labelsBase = sortedKeys.map(k => mapBase[k].label);
         const dataBase = sortedKeys.map(k => mapBase[k].val);
-        const dataAtivos = sortedKeys.map(k => mapAtivos[k].val);
+
+        // Data for Ativos (from Evolucao_Mensal_Status.csv via evolucaoStatusData)
+        let filteredAtivos = (window.evolucaoStatusData || []).filter(row => {
+            if (row.status !== 'ATIVO') return false;
+            const hasYearFilter = window.selectedYears && window.selectedYears.size > 0;
+            const hasMonthFilter = window.selectedMonths && window.selectedMonths.size > 0;
+            const matchY = hasYearFilter ? window.selectedYears.has(row.year) : (row.year === '2026');
+            const matchM = !hasMonthFilter || window.selectedMonths.has(row.month.padStart(2, '0'));
+            return matchY && matchM;
+        });
+        
+        const mapAtivos = {};
+        filteredAtivos.forEach(row => {
+            const key = `${row.year}-${row.month.padStart(2, '0')}`;
+            if (!mapAtivos[key]) {
+                mapAtivos[key] = { label: row.label, val: 0 };
+            }
+            mapAtivos[key].val += row.qtd;
+        });
+        const sortedAtivosKeys = Object.keys(mapAtivos).sort();
+        const labelsAtivos = sortedAtivosKeys.map(k => mapAtivos[k].label);
+        const dataAtivos = sortedAtivosKeys.map(k => mapAtivos[k].val);
 
         // Data for Fiéis (from Evolucao_Base_Total.csv via evolucaoSegmentosQtdData)
         let filteredFieis = (window.evolucaoSegmentosQtdData || []).filter(row => {
@@ -1513,12 +1574,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         updateBadge('badge-novos', dataNovos, labelsNovos);
         updateBadge('badge-fieis', dataFieis, labelsFieis);
         updateBadge('badge-base', dataBase, labelsBase);
-        updateBadge('badge-ativos', dataAtivos, labelsBase);
+        updateBadge('badge-ativos', dataAtivos, labelsAtivos);
 
         window.evolucaoNovosChart = window.renderBarChart('evolucao-novos-chart', window.evolucaoNovosChart, labelsNovos, dataNovos, 'green');
         window.evolucaoFieisChart = window.renderBarChart('evolucao-fieis-chart', window.evolucaoFieisChart, labelsFieis, dataFieis, 'purple');
         window.evolucaoBaseChart = window.renderBarChart('evolucao-base-chart', window.evolucaoBaseChart, labelsBase, dataBase, 'blue');
-        window.evolucaoAtivosChart = window.renderBarChart('evolucao-ativos-chart', window.evolucaoAtivosChart, labelsBase, dataAtivos, 'blue');
+        window.evolucaoAtivosChart = window.renderBarChart('evolucao-ativos-chart', window.evolucaoAtivosChart, labelsAtivos, dataAtivos, 'blue');
     };
     window.updateEvolutionCharts = updateEvolutionCharts;
 
@@ -2510,6 +2571,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     loadCategorias();
     loadSegmentosData();
         loadEvolucaoSegmentosQtdData();
+        loadEvolucaoStatusData();
     loadEvolucaoBaseTotal();
 
     // Show construction popup after 5 seconds
