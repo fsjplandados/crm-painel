@@ -612,6 +612,14 @@ document.addEventListener('DOMContentLoaded', async () => {
                     act90: act90 
                 });
             }
+
+            // Populate selectedStatuses with all except "Não Ativado"
+            window.selectedStatuses = new Set();
+            for (const status of Object.keys(dataByStatus)) {
+                if (status.toLowerCase().trim() !== 'não ativado' && status.toLowerCase().trim() !== 'nao ativado') {
+                    window.selectedStatuses.add(status);
+                }
+            }
             
             // Populate Custom Period Picker (Multi-select Years and Months)
             const periodPickerEl = document.getElementById('custom-period-picker');
@@ -954,6 +962,17 @@ document.addEventListener('DOMContentLoaded', async () => {
                     return palette[index % palette.length];
                 });
                 
+                const chartColors = labels.map((lbl, i) => {
+                    if (window.selectedStatuses.size === 0 || window.selectedStatuses.has(lbl)) {
+                        return baseColors[i];
+                    }
+                    const hex = baseColors[i].replace('#', '');
+                    const r = parseInt(hex.substring(0, 2), 16);
+                    const g = parseInt(hex.substring(2, 4), 16);
+                    const b = parseInt(hex.substring(4, 6), 16);
+                    return `rgba(${r}, ${g}, ${b}, 0.25)`;
+                });
+
                 if (window.statusPieChartInstance) {
                     window.statusPieChartInstance.destroy();
                 }
@@ -964,7 +983,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                         labels: labels,
                         datasets: [{
                             data: data,
-                            backgroundColor: [...baseColors],
+                            backgroundColor: chartColors,
                             borderWidth: 2,
                             borderColor: '#ffffff',
                             borderRadius: 8, // Rounded corners for pie slices
