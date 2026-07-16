@@ -869,11 +869,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                     if (progress90dEl) progress90dEl.style.width = `${pct90}%`;
 
                     // --- Progressão da Base Logic (Insight) ---
-                    const inativos = total - t90;
-                    const p_inativos = ((inativos / total) * 100).toFixed(1);
+                    const p_ativos = ((t90 / total) * 100).toFixed(1);
                     const flowFooterPctEl = document.getElementById('flow-footer-pct');
                     if (flowFooterPctEl) {
-                        flowFooterPctEl.textContent = `${p_inativos}%`;
+                        flowFooterPctEl.textContent = `${p_ativos}%`;
                     }
                 }
             };
