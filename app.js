@@ -869,10 +869,13 @@ document.addEventListener('DOMContentLoaded', async () => {
                     if (progress90dEl) progress90dEl.style.width = `${pct90}%`;
 
                     // --- Progressão da Base Logic (Insight) ---
-                    const p_ativos = ((t90 / total) * 100).toFixed(1);
-                    const flowFooterPctEl = document.getElementById('flow-footer-pct');
-                    if (flowFooterPctEl) {
-                        flowFooterPctEl.textContent = `${p_ativos}%`;
+                    const pct_mais_30 = (100 - parseFloat(pct30)).toFixed(1);
+                    const insightBannerTextEl = document.getElementById('insight-banner-text');
+                    if (insightBannerTextEl) {
+                        insightBannerTextEl.innerHTML = `
+                            <div style="margin-bottom: 2px;">Atualmente, <strong style="color:#111827;">${pct30}%</strong> da base de clientes comprou em até 30 dias e <strong style="color:#111827;">${pct60}%</strong> comprou em até 60 dias.</div>
+                            <div>Oportunidade: Recuperar <strong style="color:#111827;">${pct_mais_30}%</strong> de clientes que estão há mais de 30 dias sem comprar.</div>
+                        `;
                     }
                 }
             };
