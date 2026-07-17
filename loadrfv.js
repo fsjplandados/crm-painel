@@ -25,22 +25,35 @@ const loadRFV = async () => {
         
         let globalTotal = { R1:0, R2:0, R3:0, R4:0, R5:0, TOTAL:0 };
 
+        const today = new Date();
+        const currentYear = String(today.getFullYear());
+        const currentMonth = String(today.getMonth() + 1).padStart(2, '0');
+
         for (let i = 1; i < lines.length; i++) {
             const cols = lines[i].split(',');
             if (cols.length < 10) continue;
             
             const mesRaw = cols[0].trim();
-            const canal = cols[1].trim();
-            const freq = cols[2].trim();
             
             let rowMonth = '', rowYear = '';
             if (mesRaw.includes('/')) {
                 const parts = mesRaw.split('/');
                 if (parts.length === 3) {
                     rowMonth = parts[0].padStart(2, '0');
-                    rowYear = '20' + parts[2];
+                    rowYear = parts[2].length === 4 ? parts[2] : '20' + parts[2];
+                }
+            } else if (mesRaw.includes('-')) {
+                const parts = mesRaw.split('-');
+                if (parts.length >= 2) {
+                    rowYear = parts[0];
+                    rowMonth = parts[1].padStart(2, '0');
                 }
             }
+            
+            if (rowMonth === currentMonth && rowYear === currentYear) continue;
+
+            const canal = cols[1].trim();
+            const freq = cols[2].trim();
             
             if (window.globalFilters && window.globalFilters.canal && window.globalFilters.canal !== 'TOTAL' && canal !== window.globalFilters.canal) continue;
             

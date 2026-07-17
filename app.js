@@ -553,7 +553,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const loadBaseTotal = async () => {
         try {
-            const response = await fetch(`Arquivos Jun-2026/Base total.csv?v=${Date.now()}`);
+            const response = await fetch(`Arquivos Jun-2026/Base-clientes-30d--60d-90d.csv?v=${Date.now()}`);
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             const csvText = await response.text();
             
@@ -567,10 +567,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             
             const dataBySegment = {};
             const dataByStatus = {};
-
+ 
             for (let i = 1; i < lines.length; i++) {
-                const parts = lines[i].split(',');
-                if (parts.length < 4) continue;
+                const parts = lines[i].split(';');
+                if (parts.length < 9) continue;
                 
                 let segmentName = parts[2].trim();
                 const qtdStr = parts[3].trim();
@@ -581,7 +581,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 if (segmentName === '' || segmentName === '0') {
                     segmentName = 'Sem segmentação';
                 }
-
+ 
                 if (!dataBySegment[segmentName]) {
                     dataBySegment[segmentName] = 0;
                 }
@@ -595,11 +595,26 @@ document.addEventListener('DOMContentLoaded', async () => {
                 }
                 dataByStatus[statusName] += qtd;
                 
-                const act30 = parseInt(parts[4] || '0', 10) || 0;
-                const act60 = parseInt(parts[5] || '0', 10) || 0;
-                const act90 = parseInt(parts[6] || '0', 10) || 0;
+                const com_tel = parseInt(parts[4] || '0', 10) || 0;
+                const com_email = parseInt(parts[5] || '0', 10) || 0;
+                const act30 = parseInt(parts[6] || '0', 10) || 0;
+                const act60 = parseInt(parts[7] || '0', 10) || 0;
+                const act90 = parseInt(parts[8] || '0', 10) || 0;
                 
-                const period = parts[0].trim();
+                const rawDate = parts[0].trim();
+                let period = '';
+                if (rawDate.includes('/')) {
+                    const dateParts = rawDate.split('/');
+                    if (dateParts.length >= 3) {
+                        period = `${dateParts[2]}-${dateParts[1]}`;
+                    }
+                } else if (rawDate.includes('-')) {
+                    const dateParts = rawDate.split('-');
+                    if (dateParts.length >= 2) {
+                        period = `${dateParts[0]}-${dateParts[1]}`;
+                    }
+                }
+                
                 if (period) window.availablePeriods.add(period);
                 
                 window.baseTotalData.push({ 
@@ -607,6 +622,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                     status: statusName, 
                     period: period,
                     qtd: qtd, 
+                    com_tel: com_tel,
+                    com_email: com_email,
                     act30: act30, 
                     act60: act60, 
                     act90: act90 
@@ -798,6 +815,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             window.updateBaseTotalKPI = () => {
                 let total = 0;
                 let t30 = 0, t60 = 0, t90 = 0;
+                let com_tel_total = 0, com_email_total = 0;
                 for (const row of window.baseTotalData) {
                     const matchSegment = window.selectedSegments.size === 0 || window.selectedSegments.has(row.segment);
                     const matchStatus = window.selectedStatuses.size === 0 || window.selectedStatuses.has(row.status);
@@ -815,7 +833,52 @@ document.addEventListener('DOMContentLoaded', async () => {
                         t30 += row.act30;
                         t60 += row.act60;
                         t90 += row.act90;
+                        com_tel_total += row.com_tel;
+                        com_email_total += row.com_email;
                     }
+                }
+                
+                // Update Contactability KPI Card
+                const kpiContataveisEl = document.getElementById('kpi-contataveis-content');
+                if (kpiContataveisEl) {
+                    const pct_tel = total > 0 ? ((com_tel_total / total) * 100).toFixed(1) : '0';
+                    const pct_email = total > 0 ? ((com_email_total / total) * 100).toFixed(1) : '0';
+                    
+                    kpiContataveisEl.innerHTML = `
+                        <div style="display: flex; flex-direction: column; gap: 8px; width: 100%;">
+                            <!-- Telefone -->
+                            <div>
+                                <div style="display: flex; align-items: center; justify-content: space-between; font-size: 11px; margin-bottom: 3px;">
+                                    <div style="display: flex; align-items: center; gap: 5px; color: #4B5563; font-weight: 600;">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                                        Possuem Telefone
+                                    </div>
+                                    <div style="font-weight: 700; color: #1E293B; font-size: 11px;">
+                                        ${formatNumber(com_tel_total)} <span style="font-weight: 600; color: #2563EB;">(${pct_tel}%)</span>
+                                    </div>
+                                </div>
+                                <div class="progress-bar-bg" style="height: 6px; border-radius: 3px; background: #E2E8F0; width: 100%;">
+                                    <div class="progress-bar-fill" style="width: ${pct_tel}%; background-color: #2563EB; height: 100%; border-radius: 3px;"></div>
+                                </div>
+                            </div>
+
+                            <!-- E-mail -->
+                            <div style="margin-top: 2px;">
+                                <div style="display: flex; align-items: center; justify-content: space-between; font-size: 11px; margin-bottom: 3px;">
+                                    <div style="display: flex; align-items: center; gap: 5px; color: #4B5563; font-weight: 600;">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                                        Possuem E-mail
+                                    </div>
+                                    <div style="font-weight: 700; color: #1E293B; font-size: 11px;">
+                                        ${formatNumber(com_email_total)} <span style="font-weight: 600; color: #10B981;">(${pct_email}%)</span>
+                                    </div>
+                                </div>
+                                <div class="progress-bar-bg" style="height: 6px; border-radius: 3px; background: #E2E8F0; width: 100%;">
+                                    <div class="progress-bar-fill" style="width: ${pct_email}%; background-color: #10B981; height: 100%; border-radius: 3px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
                 }
                 
                 if (window.updateNovosRecorrentesCharts) {
@@ -1610,159 +1673,249 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             const csvText = await response.text();
             
-            const lines = csvText.split('\n').map(line => line.trim()).filter(line => line.length > 0 && !line.includes('2026-06-01') && !line.includes('Jun/26'));
+            const lines = csvText.split('\n').map(line => line.trim()).filter(line => line.length > 0);
             
-            let total30d = 0;
-            let total60d = 0;
-            let total90d = 0;
-
-            const mainChartData = { labels: [], data30: [], data60: [], data90: [] };
-            const secChartData = { labels: [], data30: [], data60: [], data90: [] };
+            // Group by month
+            const monthlyData = {};
 
             for (let i = 1; i < lines.length; i++) {
-                const cols = lines[i].split(',');
-                if (cols.length < 4) continue;
+                const cols = lines[i].split(';');
+                if (cols.length < 9) continue;
 
-                const canal = cols[0].trim();
-                const v30 = parseInt(cols[1], 10);
-                const v60 = parseInt(cols[2], 10);
-                const v90 = parseInt(cols[3], 10);
+                const rawDate = cols[0].trim();
+                if (rawDate.length < 10) continue;
+                
+                const parts = rawDate.split('/');
+                if (parts.length < 3) continue;
+                const month = parts[1];
+                const year = parts[2];
+                const label = `${month}/${year}`;
 
-                total30d += v30;
-                total60d += v60;
-                total90d += v90;
+                const qtd = parseInt(cols[3], 10) || 0;
+                const com_tel = parseInt(cols[4], 10) || 0;
+                const com_email = parseInt(cols[5], 10) || 0;
+                const act30 = parseInt(cols[6], 10) || 0;
+                const act60 = parseInt(cols[7], 10) || 0;
+                const act90 = parseInt(cols[8], 10) || 0;
 
-                let formattedCanal = canal;
-                if (canal === 'GERAL') formattedCanal = 'Geral';
-                if (canal === 'LOJA_F') formattedCanal = 'Loja física';
-                if (canal === 'MARKETPLACE') formattedCanal = 'Marketplace';
-                if (canal === 'VIRTUAL') formattedCanal = 'Virtual';
-
-                if (canal === 'GERAL' || canal === 'LOJA_F') {
-                    mainChartData.labels.push(formattedCanal);
-                    mainChartData.data30.push(v30);
-                    mainChartData.data60.push(v60);
-                    mainChartData.data90.push(v90);
-                } else if (canal === 'MARKETPLACE' || canal === 'VIRTUAL') {
-                    secChartData.labels.push(formattedCanal);
-                    secChartData.data30.push(v30);
-                    secChartData.data60.push(v60);
-                    secChartData.data90.push(v90);
+                if (!monthlyData[label]) {
+                    monthlyData[label] = {
+                        label: label,
+                        year: parseInt(year, 10),
+                        month: parseInt(month, 10),
+                        qtd: 0,
+                        com_tel: 0,
+                        com_email: 0,
+                        act30: 0,
+                        act60: 0,
+                        act90: 0
+                    };
                 }
+
+                monthlyData[label].qtd += qtd;
+                monthlyData[label].com_tel += com_tel;
+                monthlyData[label].com_email += com_email;
+                monthlyData[label].act30 += act30;
+                monthlyData[label].act60 += act60;
+                monthlyData[label].act90 += act90;
             }
 
-            // KPI updates moved to loadBaseTotal dynamic update (window.updateBaseTotalKPI)
+            // Sort chronologically
+            const sortedMonths = Object.values(monthlyData).sort((a, b) => {
+                if (a.year !== b.year) return a.year - b.year;
+                return a.month - b.month;
+            });
 
-            // Register ChartDataLabels plugin
+            if (sortedMonths.length === 0) return;
+
+            // Update KPI Card
+            const latest = sortedMonths[sortedMonths.length - 1];
+            const kpiContataveisEl = document.getElementById('kpi-contataveis-content');
+            if (kpiContataveisEl) {
+                const totalBase = latest.qtd;
+                const pct_tel = totalBase > 0 ? ((latest.com_tel / totalBase) * 100).toFixed(1) : '0';
+                const pct_email = totalBase > 0 ? ((latest.com_email / totalBase) * 100).toFixed(1) : '0';
+                
+                kpiContataveisEl.innerHTML = `
+                    <div style="display: flex; flex-direction: column; gap: 8px; width: 100%;">
+                        <!-- Telefone -->
+                        <div>
+                            <div style="display: flex; align-items: center; justify-content: space-between; font-size: 11px; margin-bottom: 3px;">
+                                <div style="display: flex; align-items: center; gap: 5px; color: #4B5563; font-weight: 600;">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                                    Possuem Telefone
+                                </div>
+                                <div style="font-weight: 700; color: #1E293B; font-size: 11px;">
+                                    ${formatNumber(latest.com_tel)} <span style="font-weight: 600; color: #2563EB;">(${pct_tel}%)</span>
+                                </div>
+                            </div>
+                            <div class="progress-bar-bg" style="height: 6px; border-radius: 3px; background: #E2E8F0; width: 100%;">
+                                <div class="progress-bar-fill" style="width: ${pct_tel}%; background-color: #2563EB; height: 100%; border-radius: 3px;"></div>
+                            </div>
+                        </div>
+
+                        <!-- E-mail -->
+                        <div style="margin-top: 2px;">
+                            <div style="display: flex; align-items: center; justify-content: space-between; font-size: 11px; margin-bottom: 3px;">
+                                <div style="display: flex; align-items: center; gap: 5px; color: #4B5563; font-weight: 600;">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                                    Possuem E-mail
+                                </div>
+                                <div style="font-weight: 700; color: #1E293B; font-size: 11px;">
+                                    ${formatNumber(latest.com_email)} <span style="font-weight: 600; color: #10B981;">(${pct_email}%)</span>
+                                </div>
+                            </div>
+                            <div class="progress-bar-bg" style="height: 6px; border-radius: 3px; background: #E2E8F0; width: 100%;">
+                                <div class="progress-bar-fill" style="width: ${pct_email}%; background-color: #10B981; height: 100%; border-radius: 3px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            const labels = sortedMonths.map(m => m.label);
+            const data30 = sortedMonths.map(m => m.act30);
+            const data60 = sortedMonths.map(m => m.act60);
+            const data90 = sortedMonths.map(m => m.act90);
+            const dataTel = sortedMonths.map(m => m.com_tel);
+            const dataEmail = sortedMonths.map(m => m.com_email);
+
             if (typeof ChartDataLabels !== 'undefined') {
                 Chart.register(ChartDataLabels);
             }
 
-            const getChartConfig = (data, isMillions) => {
-                return {
-                    type: 'bar',
-                    data: {
-                        labels: data.labels,
-                        datasets: [
-                            {
-                                label: '30 dias',
-                                data: data.data30,
-                                backgroundColor: '#99D420',
-                                barPercentage: 0.85,
-                                categoryPercentage: 0.8
-                            },
-                            {
-                                label: '60 dias',
-                                data: data.data60,
-                                backgroundColor: '#00A650',
-                                barPercentage: 0.85,
-                                categoryPercentage: 0.8
-                            },
-                            {
-                                label: '90 dias',
-                                data: data.data90,
-                                backgroundColor: '#F68712',
-                                barPercentage: 0.85,
-                                categoryPercentage: 0.8
-                            }
-                        ]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        layout: {
-                            padding: { top: 20 }
-                        },
-                        plugins: {
-                            legend: {
-                                display: isMillions,
-                                position: 'top',
-                                align: 'start',
-                                labels: {
-                                    usePointStyle: true,
-                                    boxWidth: 10,
-                                    font: { family: "'Inter', sans-serif", size: 11 },
-                                    color: '#4B5563'
-                                }
-                            },
-                            datalabels: {
-                                anchor: 'end',
-                                align: 'top',
-                                color: '#6B7280',
-                                font: {
-                                    family: "'Inter', sans-serif",
-                                    size: 9,
-                                    weight: 600
-                                },
-                                formatter: function(value) {
-                                    if (isMillions) {
-                                        return (value / 1000000).toFixed(1) + 'M';
-                                    } else {
-                                        return (value / 1000).toFixed(0) + 'K';
-                                    }
-                                }
-                            },
-                            tooltip: {
-                                callbacks: {
-                                    label: function(context) {
-                                        return context.dataset.label + ': ' + formatNumber(context.parsed.y);
-                                    }
-                                }
-                            }
-                        },
-                        scales: {
-                            y: {
-                                beginAtZero: true,
-                                ticks: { display: false },
-                                grid: { display: false, drawBorder: false }
-                            },
-                            x: {
-                                ticks: {
-                                    color: '#6B7280',
-                                    font: { family: "'Inter', sans-serif", size: 11, weight: 500 }
-                                },
-                                grid: { display: false, drawBorder: false }
-                            }
-                        }
-                    }
-                };
-            };
-
             const mainCtx = document.getElementById('active-clients-chart-main').getContext('2d');
             const secCtx = document.getElementById('active-clients-chart-secondary').getContext('2d');
-            
+
             if (window.mainChart) window.mainChart.destroy();
             if (window.secChart) window.secChart.destroy();
-            
-            window.mainChart = new Chart(mainCtx, getChartConfig(mainChartData, true));
-            window.secChart = new Chart(secCtx, getChartConfig(secChartData, false));
 
-        if (window.updateEvolutionCharts) window.updateEvolutionCharts();
+            window.mainChart = new Chart(mainCtx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: '30 dias',
+                            data: data30,
+                            backgroundColor: '#99D420',
+                            barPercentage: 0.85,
+                            categoryPercentage: 0.8
+                        },
+                        {
+                            label: '60 dias',
+                            data: data60,
+                            backgroundColor: '#00A650',
+                            barPercentage: 0.85,
+                            categoryPercentage: 0.8
+                        },
+                        {
+                            label: '90 dias',
+                            data: data90,
+                            backgroundColor: '#F68712',
+                            barPercentage: 0.85,
+                            categoryPercentage: 0.8
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    layout: { padding: { top: 20 } },
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top',
+                            align: 'start',
+                            labels: {
+                                usePointStyle: true,
+                                boxWidth: 10,
+                                font: { family: "'Inter', sans-serif", size: 11 },
+                                color: '#4B5563'
+                            }
+                        },
+                        datalabels: {
+                            anchor: 'end',
+                            align: 'top',
+                            color: '#6B7280',
+                            font: { family: "'Inter', sans-serif", size: 9, weight: 600 },
+                            formatter: (value) => (value / 1000000).toFixed(1) + 'M'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: (context) => context.dataset.label + ': ' + formatNumber(context.parsed.y)
+                            }
+                        }
+                    },
+                    scales: {
+                        y: { beginAtZero: true, ticks: { display: false }, grid: { display: false, drawBorder: false } },
+                        x: { ticks: { color: '#6B7280', font: { family: "'Inter', sans-serif", size: 11, weight: 500 } }, grid: { display: false, drawBorder: false } }
+                    }
+                }
+            });
+
+            window.secChart = new Chart(secCtx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Telefone',
+                            data: dataTel,
+                            borderColor: '#2563EB',
+                            backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                            fill: true,
+                            tension: 0.3
+                        },
+                        {
+                            label: 'E-mail',
+                            data: dataEmail,
+                            borderColor: '#10B981',
+                            backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                            fill: true,
+                            tension: 0.3
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    layout: { padding: { top: 20 } },
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top',
+                            align: 'start',
+                            labels: {
+                                usePointStyle: true,
+                                boxWidth: 10,
+                                font: { family: "'Inter', sans-serif", size: 11 },
+                                color: '#4B5563'
+                            }
+                        },
+                        datalabels: {
+                            anchor: 'end',
+                            align: 'top',
+                            color: '#6B7280',
+                            font: { family: "'Inter', sans-serif", size: 9, weight: 600 },
+                            formatter: (value) => (value / 1000000).toFixed(1) + 'M'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: (context) => context.dataset.label + ': ' + formatNumber(context.parsed.y)
+                            }
+                        }
+                    },
+                    scales: {
+                        y: { beginAtZero: true, ticks: { display: false }, grid: { display: false, drawBorder: false } },
+                        x: { ticks: { color: '#6B7280', font: { family: "'Inter', sans-serif", size: 11, weight: 500 } }, grid: { display: false, drawBorder: false } }
+                    }
+                }
+            });
+
+            if (window.updateEvolutionCharts) window.updateEvolutionCharts();
         } catch (error) {
-            console.error('Error loading Active Clients:', error);
-            if (kpi30dEl) kpi30dEl.textContent = 'Erro';
-            if (kpi60dEl) kpi60dEl.textContent = 'Erro';
-            if (kpi90dEl) kpi90dEl.textContent = 'Erro';
+            console.error('Error loading Active Clients & Contactability:', error);
         }
     };
 
@@ -2093,14 +2246,23 @@ document.addEventListener('DOMContentLoaded', async () => {
             
             const lines = csvText.split('\n').map(line => line.trim()).filter(line => line.length > 0);
             
+            // Exclude current month in progress
+            const today = new Date();
+            const currentYear = today.getFullYear();
+            const currentMonth = String(today.getMonth() + 1).padStart(2, '0');
+            const currentPeriod = `${currentYear}-${currentMonth}-01`;
+
             // Expected columns: MES, CANAL, CLIENTES, TOTAL_COMPRAS, FREQUENCIA_MEDIA, VALOR_TOTAL, TICKET_MEDIO, CLIENTES_RECOMPRA, PCT_RECOMPRA_MES, MEDIA_DIAS_RECOMPRA
             let rawData = [];
             for (let i = 1; i < lines.length; i++) {
                 const cols = lines[i].split(',');
                 if (cols.length < 10) continue;
                 
+                const mes = cols[0].trim();
+                if (mes === currentPeriod || mes.startsWith(`${currentYear}-${currentMonth}`)) continue;
+                
                 rawData.push({
-                    mes: cols[0].trim(),
+                    mes: mes,
                     canal: cols[1].trim(),
                     clientes: parseInt(cols[2]) || 0,
                     totalCompras: parseInt(cols[3]) || 0,

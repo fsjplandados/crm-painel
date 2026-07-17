@@ -140,7 +140,7 @@ main {
 /* ── Dashboard Layout ────────────────────────────────────── */
 .top-kpi-row {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 1.5rem;
   margin-bottom: 1.5rem;
 }
@@ -154,6 +154,10 @@ main {
 
 @media (max-width: 1280px) {
   .bottom-content-row { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 1200px) {
+  .top-kpi-row { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (max-width: 992px) {

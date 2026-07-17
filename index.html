@@ -135,6 +135,16 @@
                     <div class="kpi-delta subtext" id="delta-pct-90d">...</div>
                 </div>
             </div>
+
+            <!-- 5. Contatabilidade (Telefone e E-mail) -->
+            <div class="kpi-card-simple" style="display: flex; flex-direction: column; justify-content: space-between; padding: 12px 16px;">
+                <div>
+                    <div class="kpi-label" style="color: #1E3A8A; font-weight: 700; text-transform: uppercase; font-size: 11px;">Contatabilidade da Base</div>
+                    <div id="kpi-contataveis-content" style="display: flex; flex-direction: column; gap: 6px; width: 100%; margin-top: 8px;">
+                        <div style="text-align: center; color: #64748B; font-size: 10px;">Carregando...</div>
+                    </div>
+                </div>
+            </div>
         </div>
         
         <!-- Insight Automático -->
@@ -332,17 +342,6 @@
         </div>
         
         <div class="segmentation-grid" style="margin-top: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
-            <div class="segmentation-card fade-in delay-2" style="height: 100%; display: flex; flex-direction: column;">
-                <div class="segmentation-header" style="margin-bottom: 12px;">
-                    <div class="segmentation-title" style="text-transform: uppercase; color: #1E3A8A; font-size: 0.9rem;">Quant Contataveis SMS, E-mail, Push</div>
-                </div>
-                <div style="flex: 1; display: flex; align-items: center; justify-content: center; background: #F8FAFC; border: 1px dashed #CBD5E1; border-radius: 8px; min-height: 100px;">
-                    <div style="text-align: center; color: #64748B;">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom: 8px; opacity: 0.5;"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
-                        <div style="font-size: 12px; font-weight: 500;">Dado em construção</div>
-                    </div>
-                </div>
-            </div>
             
             <div class="segmentation-card fade-in delay-2" style="height: 100%; display: flex; flex-direction: column;">
                 <div class="segmentation-header" style="margin-bottom: 12px;">
@@ -777,15 +776,21 @@
             <!-- Chart -->
             <div class="chart-card" style="padding: 1.5rem;">
                 <div class="chart-header" style="margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid #E2E8F0;">
-                    <h2 class="chart-title" style="font-size: 1.125rem; font-family: 'Montserrat', sans-serif; font-weight: 700; color: #1E3A8A; text-transform: uppercase;">Evolução de Clientes Ativos por Canal</h2>
+                    <h2 class="chart-title" style="font-size: 1.125rem; font-family: 'Montserrat', sans-serif; font-weight: 700; color: #1E3A8A; text-transform: uppercase;">Evolução de Clientes Ativos e Contatabilidade</h2>
                 </div>
                 
                 <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem;">
-                    <div style="position: relative; height: 320px; width: 100%;">
-                        <canvas id="active-clients-chart-main"></canvas>
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <div style="font-size: 11px; font-weight: 700; color: #4B5563; text-transform: uppercase; font-family: 'Montserrat', sans-serif;">Evolução de Clientes Ativos (30, 60 e 90 dias)</div>
+                        <div style="position: relative; height: 320px; width: 100%;">
+                            <canvas id="active-clients-chart-main"></canvas>
+                        </div>
                     </div>
-                    <div style="position: relative; height: 320px; width: 100%;">
-                        <canvas id="active-clients-chart-secondary"></canvas>
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <div style="font-size: 11px; font-weight: 700; color: #4B5563; text-transform: uppercase; font-family: 'Montserrat', sans-serif;">Evolução de Contatabilidade (Telefone vs E-mail)</div>
+                        <div style="position: relative; height: 320px; width: 100%;">
+                            <canvas id="active-clients-chart-secondary"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1099,7 +1104,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
-    <script src="app.js?v=1784224685741" charset="utf-8"></script>
+    <script src="app.js?v=1784224685745" charset="utf-8"></script>
 
     <!-- Script for Tabs Navigation -->
     <script>
@@ -1165,6 +1170,6 @@
             }, 50);
         }
     </script>
-    <script src="loadrfv.js?v=1783339283572"></script>
+    <script src="loadrfv.js?v=1784224685745"></script>
 </body>
 </html>
