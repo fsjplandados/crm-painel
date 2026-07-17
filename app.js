@@ -149,6 +149,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
             
             if (window.updateSegmentosQtdChart) window.updateSegmentosQtdChart();
+            if (window.updateEvolutionCharts) window.updateEvolutionCharts();
         } catch (e) {
             console.error(e);
         }
@@ -192,6 +193,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
             
             if (window.updateBaseTotalKPI) window.updateBaseTotalKPI();
+            if (window.updateEvolutionCharts) window.updateEvolutionCharts();
         } catch (e) {
             console.error(e);
         }
@@ -1570,7 +1572,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     };
 
     const updateEvolutionCharts = () => {
-        if (!window.novosRecorrentesData || window.novosRecorrentesData.length === 0) return;
         // Data for Novos Clientes (from Novos x Recorrentes CSV)
         let filteredNovos = window.novosRecorrentesData || [];
         filteredNovos = filteredNovos.filter(row => {
@@ -1581,8 +1582,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             return matchY && matchM;
         });
         filteredNovos.sort((a,b) => a.rawMes.localeCompare(b.rawMes));
-        const labelsNovos = filteredNovos.map(d => d.mes);
-        const dataNovos = filteredNovos.map(d => d.novosQtd);
+        const labelsNovos = filteredNovos.length > 0 ? filteredNovos.map(d => d.mes) : [];
+        const dataNovos = filteredNovos.length > 0 ? filteredNovos.map(d => d.novosQtd) : [];
 
         // Data for Base Total (from baseTotalData)
         let filteredBase = window.baseTotalData || [];
