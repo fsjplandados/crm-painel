@@ -1,0 +1,27 @@
+FAIXA_RECENCIA,FAIXA_FREQUENCIA,CLIENTES,PEDIDOS,FATURAMENTO,TICKET_MEDIO,PCT_CLIENTES,PCT_FATURAMENTO
+,,40029,8556651,693842802.81,81.09,0.45,12.86
+5 - Até 30 dias,1 - Até 1 transação,243979,244894,20392680.14,83.27,2.73,0.38
+5 - Até 30 dias,2 - Entre 2 e 3 transações,437799,853264,67138566.36,78.68,4.89,1.24
+5 - Até 30 dias,3 - Entre 4 e 6 transações,584290,1985809,157072210.16,79.1,6.53,2.91
+5 - Até 30 dias,4 - Entre 7 e 13 transações,1097136,6651517,542819188.62,81.61,12.26,10.06
+5 - Até 30 dias,5 - Acima de 14 transações,2018621,33457451,2906468545.99,86.87,22.57,53.86
+4 - Entre 31 e 60 dias,1 - Até 1 transação,227463,228076,17440080.34,76.47,2.54,0.32
+4 - Entre 31 e 60 dias,2 - Entre 2 e 3 transações,348401,638780,48713219.53,76.26,3.89,0.9
+4 - Entre 31 e 60 dias,3 - Entre 4 e 6 transações,372919,1145303,88261560.99,77.06,4.17,1.64
+4 - Entre 31 e 60 dias,4 - Entre 7 e 13 transações,454476,2369795,187314429.35,79.04,5.08,3.47
+4 - Entre 31 e 60 dias,5 - Acima de 14 transações,252251,2620541,208782567.1,79.67,2.82,3.87
+3 - Entre 61 e 90 dias,1 - Até 1 transação,203143,203645,16092756.83,79.02,2.27,0.3
+3 - Entre 61 e 90 dias,2 - Entre 2 e 3 transações,273461,472943,35697771.96,75.48,3.06,0.66
+3 - Entre 61 e 90 dias,3 - Entre 4 e 6 transações,237115,658439,50661296.84,76.94,2.65,0.94
+3 - Entre 61 e 90 dias,4 - Entre 7 e 13 transações,199739,900123,70411609.63,78.22,2.23,1.3
+3 - Entre 61 e 90 dias,5 - Acima de 14 transações,58228,505729,37552251.9,74.25,0.65,0.7
+2 - Entre 91 e 180 dias,1 - Até 1 transação,578178,579295,45752151.83,78.98,6.46,0.85
+2 - Entre 91 e 180 dias,2 - Entre 2 e 3 transações,600129,891908,67609786.35,75.8,6.71,1.25
+2 - Entre 91 e 180 dias,3 - Entre 4 e 6 transações,354255,768484,59135877.13,76.95,3.96,1.1
+2 - Entre 91 e 180 dias,4 - Entre 7 e 13 transações,179252,596028,46310293.17,77.7,2.0,0.86
+2 - Entre 91 e 180 dias,5 - Acima de 14 transações,32971,223936,16024614.04,71.56,0.37,0.3
+1 - Acima de 181 dias,1 - Até 1 transação,71147,71323,5735442.67,80.42,0.8,0.11
+1 - Acima de 181 dias,2 - Entre 2 e 3 transações,53789,61829,4885070.74,79.01,0.6,0.09
+1 - Acima de 181 dias,3 - Entre 4 e 6 transações,20044,24670,1980184.35,80.27,0.22,0.04
+1 - Acima de 181 dias,4 - Entre 7 e 13 transações,5794,7647,604804.71,79.09,0.06,0.01
+1 - Acima de 181 dias,5 - Acima de 14 transações,852,1371,99996.2,72.94,0.01,0.0

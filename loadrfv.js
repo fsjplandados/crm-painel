@@ -1,6 +1,6 @@
 const loadRFV = async () => {
     try {
-        const response = await fetch('Arquivos Jun-2026/Frequencia_Recencia_Valor.csv?v=' + Date.now());
+        const response = await fetch('dados/3-rfv/Frequencia_Recencia_Valor.csv?v=' + Date.now());
         if (!response.ok) return; // Silent fail if file doesn't exist
         const csvText = await response.text();
         
@@ -146,7 +146,7 @@ window.loadRFV = loadRFV;
 
 const loadRFVTicket = async () => {
     try {
-        const response = await fetch('Arquivos Jun-2026/Compra_Recencia_Ticket_Medio.csv?v=' + Date.now());
+        const response = await fetch('dados/3-rfv/Compra_Recencia_Ticket_Medio.csv?v=' + Date.now());
         if (!response.ok) return; // Silent fail if file doesn't exist
         const csvText = await response.text();
         

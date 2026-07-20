@@ -1,0 +1,193 @@
+GRUPO_TERAPEUTICO,SEXO,FAIXA_ETARIA,FATURAMENTO,CLIENTES
+Anticoncepcionais,Feminino,18-24,7943839.47,73624
+Anticoncepcionais,Feminino,25-34,17302562.13,159133
+Anticoncepcionais,Feminino,35-44,17456377.55,151994
+Anticoncepcionais,Feminino,45-54,11325640.66,96084
+Anticoncepcionais,Feminino,55-64,2357749.80,19087
+Anticoncepcionais,Feminino,65-74,650012.96,5586
+Anticoncepcionais,Feminino,75+,211413.25,2117
+Anticoncepcionais,Feminino,<18,814935.69,8357
+Anticoncepcionais,Masculino,18-24,4310812.12,52669
+Anticoncepcionais,Masculino,25-34,9903847.42,106910
+Anticoncepcionais,Masculino,35-44,8566551.03,90753
+Anticoncepcionais,Masculino,45-54,6005490.16,58807
+Anticoncepcionais,Masculino,55-64,1946771.31,19088
+Anticoncepcionais,Masculino,65-74,640509.58,5945
+Anticoncepcionais,Masculino,75+,4057764.82,1930
+Anticoncepcionais,Masculino,<18,935006.71,9523
+Anticoncepcionais,Não Informado,18-24,63980.78,842
+Anticoncepcionais,Não Informado,25-34,131029.34,1609
+Anticoncepcionais,Não Informado,35-44,101818.09,1082
+Anticoncepcionais,Não Informado,45-54,85444.83,895
+Anticoncepcionais,Não Informado,55-64,31362.17,353
+Anticoncepcionais,Não Informado,65-74,14419.99,185
+Anticoncepcionais,Não Informado,75+,697448.84,7219
+Anticoncepcionais,Não Informado,<18,14747.08,189
+Asma e DPOC,Feminino,18-24,504034.69,3027
+Asma e DPOC,Feminino,25-34,3266272.11,17632
+Asma e DPOC,Feminino,35-44,4510730.31,24077
+Asma e DPOC,Feminino,45-54,3286318.08,15835
+Asma e DPOC,Feminino,55-64,2418592.54,10756
+Asma e DPOC,Feminino,65-74,2191815.88,8542
+Asma e DPOC,Feminino,75+,1495761.38,4965
+Asma e DPOC,Feminino,<18,142504.41,963
+Asma e DPOC,Masculino,18-24,527015.56,3060
+Asma e DPOC,Masculino,25-34,3190496.60,17016
+Asma e DPOC,Masculino,35-44,4217463.36,23732
+Asma e DPOC,Masculino,45-54,3476747.93,17318
+Asma e DPOC,Masculino,55-64,2417885.22,11026
+Asma e DPOC,Masculino,65-74,2569267.09,9361
+Asma e DPOC,Masculino,75+,2327703.90,6079
+Asma e DPOC,Masculino,<18,399855.78,2297
+Asma e DPOC,Não Informado,18-24,983.14,15
+Asma e DPOC,Não Informado,25-34,14006.55,110
+Asma e DPOC,Não Informado,35-44,20700.85,153
+Asma e DPOC,Não Informado,45-54,36465.40,212
+Asma e DPOC,Não Informado,55-64,39876.04,181
+Asma e DPOC,Não Informado,65-74,46823.89,247
+Asma e DPOC,Não Informado,75+,215888.03,922
+Asma e DPOC,Não Informado,<18,7154.08,44
+Colesterol,Feminino,18-24,382896.59,3000
+Colesterol,Feminino,25-34,1922823.92,13506
+Colesterol,Feminino,35-44,3503851.80,25391
+Colesterol,Feminino,45-54,5750897.12,41196
+Colesterol,Feminino,55-64,8473332.02,56916
+Colesterol,Feminino,65-74,8492386.20,52732
+Colesterol,Feminino,75+,4704449.51,28898
+Colesterol,Feminino,<18,311894.27,2064
+Colesterol,Masculino,18-24,385547.19,3004
+Colesterol,Masculino,25-34,2359247.64,14297
+Colesterol,Masculino,35-44,3965532.53,28243
+Colesterol,Masculino,45-54,7131802.47,47914
+Colesterol,Masculino,55-64,10029159.99,61812
+Colesterol,Masculino,65-74,10643659.20,58921
+Colesterol,Masculino,75+,7384935.83,32797
+Colesterol,Masculino,<18,1007199.36,6089
+Colesterol,Não Informado,18-24,3541.55,37
+Colesterol,Não Informado,25-34,13693.22,145
+Colesterol,Não Informado,35-44,25580.89,251
+Colesterol,Não Informado,45-54,61829.72,545
+Colesterol,Não Informado,55-64,112833.98,882
+Colesterol,Não Informado,65-74,146110.23,1211
+Colesterol,Não Informado,75+,363590.53,2157
+Colesterol,Não Informado,<18,16398.94,142
+Diabetes,Feminino,18-24,7490155.39,2652
+Diabetes,Feminino,25-34,37665548.59,13452
+Diabetes,Feminino,35-44,48037624.37,20874
+Diabetes,Feminino,45-54,39861122.07,23181
+Diabetes,Feminino,55-64,24516560.37,20968
+Diabetes,Feminino,65-74,13295283.17,15925
+Diabetes,Feminino,75+,5216169.41,9192
+Diabetes,Feminino,<18,1507988.17,1007
+Diabetes,Masculino,18-24,4881143.02,2039
+Diabetes,Masculino,25-34,28076089.35,10510
+Diabetes,Masculino,35-44,35713550.61,16898
+Diabetes,Masculino,45-54,33341060.91,22187
+Diabetes,Masculino,55-64,23718396.48,23391
+Diabetes,Masculino,65-74,16331247.89,20778
+Diabetes,Masculino,75+,8289245.81,11859
+Diabetes,Masculino,<18,4328859.47,2660
+Diabetes,Não Informado,18-24,48442.19,23
+Diabetes,Não Informado,25-34,174436.35,125
+Diabetes,Não Informado,35-44,380555.33,217
+Diabetes,Não Informado,45-54,417612.95,321
+Diabetes,Não Informado,55-64,316970.93,408
+Diabetes,Não Informado,65-74,203784.22,416
+Diabetes,Não Informado,75+,3524505.48,1933
+Diabetes,Não Informado,<18,104739.19,97
+Hipertensão,Feminino,18-24,526753.95,4451
+Hipertensão,Feminino,25-34,2549909.91,19252
+Hipertensão,Feminino,35-44,5101431.15,36542
+Hipertensão,Feminino,45-54,7831986.71,51834
+Hipertensão,Feminino,55-64,9305781.47,55411
+Hipertensão,Feminino,65-74,9022391.14,48425
+Hipertensão,Feminino,75+,6514293.98,31595
+Hipertensão,Feminino,<18,371000.74,2369
+Hipertensão,Masculino,18-24,592280.31,5039
+Hipertensão,Masculino,25-34,3524196.59,22294
+Hipertensão,Masculino,35-44,6042128.16,41480
+Hipertensão,Masculino,45-54,10035227.25,62468
+Hipertensão,Masculino,55-64,12462338.50,69581
+Hipertensão,Masculino,65-74,12386831.70,60994
+Hipertensão,Masculino,75+,10116657.56,36720
+Hipertensão,Masculino,<18,1185820.25,6947
+Hipertensão,Não Informado,18-24,3904.92,56
+Hipertensão,Não Informado,25-34,21161.47,218
+Hipertensão,Não Informado,35-44,33950.50,355
+Hipertensão,Não Informado,45-54,85359.73,733
+Hipertensão,Não Informado,55-64,132422.10,1007
+Hipertensão,Não Informado,65-74,184957.53,1346
+Hipertensão,Não Informado,75+,340307.83,2331
+Hipertensão,Não Informado,<18,19789.01,136
+Osteoporose,Feminino,18-24,150675.96,583
+Osteoporose,Feminino,25-34,738824.69,2746
+Osteoporose,Feminino,35-44,968350.37,3898
+Osteoporose,Feminino,45-54,1312004.13,5928
+Osteoporose,Feminino,55-64,2417222.94,10740
+Osteoporose,Feminino,65-74,2690673.24,11238
+Osteoporose,Feminino,75+,1799286.32,6704
+Osteoporose,Feminino,<18,118158.39,378
+Osteoporose,Masculino,18-24,105211.86,529
+Osteoporose,Masculino,25-34,793186.03,2363
+Osteoporose,Masculino,35-44,761466.20,3217
+Osteoporose,Masculino,45-54,977776.31,4413
+Osteoporose,Masculino,55-64,1295714.13,6056
+Osteoporose,Masculino,65-74,1528094.61,6492
+Osteoporose,Masculino,75+,1359857.73,4302
+Osteoporose,Masculino,<18,177963.61,732
+Osteoporose,Não Informado,18-24,1612.41,6
+Osteoporose,Não Informado,25-34,3094.60,21
+Osteoporose,Não Informado,35-44,4587.54,31
+Osteoporose,Não Informado,45-54,7706.25,53
+Osteoporose,Não Informado,55-64,15936.67,88
+Osteoporose,Não Informado,65-74,22224.75,139
+Osteoporose,Não Informado,75+,110938.10,347
+Osteoporose,Não Informado,<18,2921.14,19
+Saúde Mental,Feminino,18-24,3640263.42,18133
+Saúde Mental,Feminino,25-34,17552970.25,72578
+Saúde Mental,Feminino,35-44,27116911.72,105348
+Saúde Mental,Feminino,45-54,30166799.94,112206
+Saúde Mental,Feminino,55-64,23193428.47,91176
+Saúde Mental,Feminino,65-74,15213437.51,64829
+Saúde Mental,Feminino,75+,8070021.52,35999
+Saúde Mental,Feminino,<18,1283388.11,5170
+Saúde Mental,Masculino,18-24,3319455.15,15754
+Saúde Mental,Masculino,25-34,16995623.84,64593
+Saúde Mental,Masculino,35-44,22997563.30,86504
+Saúde Mental,Masculino,45-54,22123436.46,86813
+Saúde Mental,Masculino,55-64,16970935.56,70048
+Saúde Mental,Masculino,65-74,12329444.06,52577
+Saúde Mental,Masculino,75+,7255791.18,31097
+Saúde Mental,Masculino,<18,2663740.04,10041
+Saúde Mental,Não Informado,18-24,34740.24,239
+Saúde Mental,Não Informado,25-34,141048.81,784
+Saúde Mental,Não Informado,35-44,165596.47,905
+Saúde Mental,Não Informado,45-54,243776.44,1226
+Saúde Mental,Não Informado,55-64,268777.23,1405
+Saúde Mental,Não Informado,65-74,261257.55,1496
+Saúde Mental,Não Informado,75+,614573.32,1628
+Saúde Mental,Não Informado,<18,46487.62,217
+Tireoide,Feminino,18-24,203144.42,5057
+Tireoide,Feminino,25-34,1136300.80,24200
+Tireoide,Feminino,35-44,2004104.70,38835
+Tireoide,Feminino,45-54,2313925.70,43718
+Tireoide,Feminino,55-64,2305528.16,43340
+Tireoide,Feminino,65-74,1883905.38,34562
+Tireoide,Feminino,75+,1048590.45,19367
+Tireoide,Feminino,<18,99041.88,2030
+Tireoide,Masculino,18-24,174279.46,4283
+Tireoide,Masculino,25-34,1098475.98,19098
+Tireoide,Masculino,35-44,1460806.76,28956
+Tireoide,Masculino,45-54,1629279.96,31668
+Tireoide,Masculino,55-64,1623236.27,31246
+Tireoide,Masculino,65-74,1428093.58,26715
+Tireoide,Masculino,75+,1609544.61,16753
+Tireoide,Masculino,<18,193728.39,3704
+Tireoide,Não Informado,18-24,1908.96,59
+Tireoide,Não Informado,25-34,7846.27,233
+Tireoide,Não Informado,35-44,11536.23,284
+Tireoide,Não Informado,45-54,20619.45,512
+Tireoide,Não Informado,55-64,24827.66,589
+Tireoide,Não Informado,65-74,30618.14,747
+Tireoide,Não Informado,75+,51968.59,1262
+Tireoide,Não Informado,<18,3754.43,79

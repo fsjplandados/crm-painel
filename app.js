@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     window.evolucaoSegmentosQtdData = [];
     const loadEvolucaoSegmentosQtdData = async () => {
         try {
-            const response = await fetch(`Arquivos Jun-2026/Evolucao_Base_Total.csv?v=${Date.now()}`);
+            const response = await fetch(`dados/1-visao-geral/Evolucao_Base_Total.csv?v=${Date.now()}`);
             if (!response.ok) throw new Error('HTTP error');
             const csvText = await response.text();
             
@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     window.evolucaoStatusData = [];
     const loadEvolucaoStatusData = async () => {
         try {
-            const response = await fetch(`Arquivos Jun-2026/Evolucao_Mensal_Status.csv?v=${Date.now()}`);
+            const response = await fetch(`dados/1-visao-geral/Evolucao_Mensal_Status.csv?v=${Date.now()}`);
             if (!response.ok) throw new Error('HTTP error');
             const csvText = await response.text();
             
@@ -345,7 +345,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const loadSegmentosData = async () => {
         try {
-            const response = await fetch(`Arquivos Jun-2026/Evolucao_Mensal_Segmento.csv?v=${Date.now()}`);
+            const response = await fetch(`dados/1-visao-geral/Evolucao_Mensal_Segmento.csv?v=${Date.now()}`);
             if (!response.ok) throw new Error('HTTP error');
             const csvText = await response.text();
             
@@ -423,7 +423,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     let evolucaoSegmentosQtdChart = null;
     const loadEvolucaoBaseTotal = async () => {
         try {
-            const response = await fetch(`Arquivos Jun-2026/Base total.csv?v=${Date.now()}`);
+            const response = await fetch(`dados/1-visao-geral/Base total.csv?v=${Date.now()}`);
             if (!response.ok) throw new Error('HTTP error');
             const csvText = await response.text();
             
@@ -554,7 +554,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const loadBaseTotal = async () => {
         try {
-            const response = await fetch(`Arquivos Jun-2026/Base-clientes-30d--60d-90d.csv?v=${Date.now()}`);
+            const response = await fetch(`dados/1-visao-geral/Base-clientes-30d--60d-90d.csv?v=${Date.now()}`);
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             const csvText = await response.text();
             
@@ -1197,7 +1197,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const loadNovosRecorrentes = async () => {
         try {
-            const response = await fetch(`Arquivos Jun-2026/Clientes_Novos_Recorrentes.csv?v=${Date.now()}`);
+            const response = await fetch(`dados/1-visao-geral/Clientes_Novos_Recorrentes.csv?v=${Date.now()}`);
             if (!response.ok) throw new Error('File not found');
             const text = await response.text();
             
@@ -1704,7 +1704,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const loadHeatmap = async () => {
         try {
-            const response = await fetch(`Arquivos Jun-2026/Faixa etaria e ticket.csv?v=${Date.now()}`);
+            const response = await fetch(`dados/2-perfil-cliente/Faixa etaria e ticket.csv?v=${Date.now()}`);
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             const csvText = await response.text();
             
@@ -2023,7 +2023,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const loadFrequenciaTicket = async () => {
         try {
-            const response = await fetch(`Arquivos Jun-2026/frequencia_com_ticket_medio.csv?v=${Date.now()}`);
+            const response = await fetch(`dados/4-frequencia-ticket/frequencia_com_ticket_medio.csv?v=${Date.now()}`);
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             const csvText = await response.text();
             
@@ -2412,7 +2412,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const loadCategorias = async () => {
         try {
-            const response = await fetch('Arquivos Jun-2026/categorias_resumo.csv');
+            const response = await fetch('dados/2-perfil-cliente/categorias_resumo.csv');
             if (!response.ok) throw new Error('Network response was not ok');
             const csvText = await response.text();
             
