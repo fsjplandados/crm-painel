@@ -421,55 +421,18 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
     let evolucaoSegmentosQtdChart = null;
-    const loadEvolucaoBaseTotal = async () => {
-        try {
-            const response = await fetch(`dados/1-visao-geral/Base total.csv?v=${Date.now()}`);
-            if (!response.ok) throw new Error('HTTP error');
-            const csvText = await response.text();
-            
-            const lines = csvText.split('\n').map(line => line.trim()).filter(line => line.length > 0);
-            window.evolucaoBaseTotalData = [];
-            
-            for (let i = 1; i < lines.length; i++) {
-                const parts = lines[i].split(',');
-                if (parts.length < 5) continue;
-                
-                const dateStr = parts[0].trim();
-                let segmentName = parts[2].trim();
-                const qtd = parseInt(parts[3].trim(), 10);
-                
-                if (isNaN(qtd)) continue;
-                if (segmentName === '' || segmentName === '0') segmentName = 'Sem segmentaǜo';
-                
-                if (dateStr.length < 6) continue;
-                let month = dateStr.substring(0, 2);
-                let year = dateStr.substring(dateStr.length - 4);
-                let label = `${month}/${year}`;
-                
-                window.evolucaoBaseTotalData.push({
-                    month: parseInt(month, 10).toString(),
-                    year: year,
-                    label: label,
-                    segment: segmentName,
-                    qtd: qtd
-                });
-            }
-            
-            if (window.updateEvolucaoBaseTotalChart) window.updateEvolucaoBaseTotalChart();
-            if (window.updateEvolutionCharts) window.updateEvolutionCharts();
-        } catch (e) {
-            console.error(e);
-        }
-    };
 
     window.updateEvolucaoBaseTotalChart = () => {
-        if (!window.evolucaoBaseTotalData || window.evolucaoBaseTotalData.length === 0) return;
+        if (!window.baseTotalData || window.baseTotalData.length === 0) return;
         
-        let filtered = window.evolucaoBaseTotalData.filter(row => {
+        let filtered = window.baseTotalData.filter(row => {
+            const pParts = row.period.split('-');
+            const rowYear = pParts[0];
+            const rowMonth = pParts.length >= 2 ? pParts[1] : '';
             const hasYearFilter = window.selectedYears && window.selectedYears.size > 0;
             const hasMonthFilter = window.selectedMonths && window.selectedMonths.size > 0;
-            const matchY = hasYearFilter ? window.selectedYears.has(row.year) : (row.year === '2026');
-            const matchM = !hasMonthFilter || window.selectedMonths.has(row.month);
+            const matchY = hasYearFilter ? window.selectedYears.has(rowYear) : (rowYear === '2026');
+            const matchM = !hasMonthFilter || window.selectedMonths.has(rowMonth);
             return matchY && matchM;
         });
         
@@ -477,10 +440,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         const labelsSet = new Set();
         
         filtered.forEach(row => {
-            labelsSet.add(row.label);
-            if (!allSegmentsMap[row.segment]) allSegmentsMap[row.segment] = {};
-            if (!allSegmentsMap[row.segment][row.label]) allSegmentsMap[row.segment][row.label] = 0;
-            allSegmentsMap[row.segment][row.label] += row.qtd;
+            const pParts = row.period.split('-');
+            const label = pParts.length >= 2 ? `${pParts[1]}/${pParts[0]}` : row.period;
+            labelsSet.add(label);
+            const seg = (row.segment || 'Sem segmentação').toUpperCase();
+            if (!allSegmentsMap[seg]) allSegmentsMap[seg] = {};
+            if (!allSegmentsMap[seg][label]) allSegmentsMap[seg][label] = 0;
+            allSegmentsMap[seg][label] += row.qtd;
         });
         
         const sortedLabels = Array.from(labelsSet).sort((a, b) => {
@@ -1182,6 +1148,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             
             // Initial render of KPIs
             window.updateBaseTotalKPI();
+            if (window.updateEvolucaoBaseTotalChart) window.updateEvolucaoBaseTotalChart();
+            if (window.updateEvolutionCharts) window.updateEvolutionCharts();
 
         } catch (error) {
             console.error('Error loading Base total:', error);
@@ -2537,7 +2505,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     loadSegmentosData();
         loadEvolucaoSegmentosQtdData();
         loadEvolucaoStatusData();
-    loadEvolucaoBaseTotal();
 
     // Show construction popup after 5 seconds
     setTimeout(() => {
