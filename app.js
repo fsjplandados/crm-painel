@@ -200,147 +200,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     };
 
     window.updateSegmentosQtdChart = () => {
-        if (!window.evolucaoSegmentosQtdData || window.evolucaoSegmentosQtdData.length === 0) return;
-        
-        let filtered = window.evolucaoSegmentosQtdData.filter(row => {
-            const hasYearFilter = window.selectedYears && window.selectedYears.size > 0;
-            const hasMonthFilter = window.selectedMonths && window.selectedMonths.size > 0;
-            const matchY = hasYearFilter ? window.selectedYears.has(row.year) : (row.year === '2026');
-            const matchM = !hasMonthFilter || window.selectedMonths.has(row.month);
-            return matchY && matchM;
-        });
-        
-        const allSegmentsMap = {};
-        const labelsSet = new Set();
-        
-        filtered.forEach(row => {
-            labelsSet.add(row.label);
-            
-            if (!allSegmentsMap[row.segment]) {
-                allSegmentsMap[row.segment] = {};
-            }
-            if (!allSegmentsMap[row.segment][row.label]) {
-                allSegmentsMap[row.segment][row.label] = 0;
-            }
-            allSegmentsMap[row.segment][row.label] += row.qtd;
-        });
-        
-        const sortedLabels = Array.from(labelsSet).sort((a, b) => {
-            const [mA, yA] = a.split('/');
-            const [mB, yB] = b.split('/');
-            if (yA !== yB) return yA.localeCompare(yB);
-            return mA.localeCompare(mB);
-        });
-        
-        const ctxSeg = document.getElementById('evolucao-segmentos-chart');
-        if (ctxSeg) {
-            if (window.evolucaoSegmentosChart) window.evolucaoSegmentosChart.destroy();
-            
-            const getSegmentColor = (segment) => {
-                const colors = {
-                    'CAMPEAO': '#00B85C',
-                    'CLIENTE PROMISSOR': '#CBD5E1',
-                    'CLIENTES FIEIS': '#1E3A8A',
-                    'EM RISCO': '#F59E0B',
-                    'HIBERNANDO': '#F97316',
-                    'NÃO PERDER': '#60A5FA',
-                    'NOVOS CLIENTES': '#A855F7',
-                    'POTENCIAL FIEL': '#93C5FD',
-                    'PRECISA DE ATENÇÃO': '#F472B6'
-                };
-                return colors[segment] || '#94A3B8';
-            };
-            
-            const datasets = [];
-            Object.keys(allSegmentsMap).forEach(seg => {
-                const data = sortedLabels.map(l => allSegmentsMap[seg][l] || 0);
-                datasets.push({
-                    label: seg,
-                    data: data,
-                    borderColor: getSegmentColor(seg),
-                    backgroundColor: getSegmentColor(seg),
-                    tension: 0.3,
-                    borderWidth: 2,
-                    pointRadius: 4,
-                    pointHoverRadius: 6,
-                    datalabels: { display: false }
-                });
-            });
-            
-            window.evolucaoSegmentosChart = new Chart(ctxSeg, {
-                type: 'line',
-                data: { labels: sortedLabels, datasets: datasets },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: { 
-                        x: { grid: { display: false } },
-                        y: { 
-                            beginAtZero: true,
-                            ticks: {
-                                callback: function(value) {
-                                    if (value >= 1000000) return (value / 1000000).toFixed(1).replace('.', ',') + 'M';
-                                    if (value >= 1000) return (value / 1000).toFixed(1).replace('.', ',') + 'k';
-                                    return value;
-                                }
-                            }
-                        }
-                    },
-                    plugins: {
-                        legend: { 
-                            position: 'bottom', 
-                            labels: { usePointStyle: true, boxWidth: 8, font: { size: 10 } },
-                            onClick: (e, legendItem, legend) => {
-                                const chart = legend.chart;
-                                const datasetIndex = legendItem.datasetIndex;
-                                const label = chart.data.datasets[datasetIndex].label;
-                                
-                                if (!window.selectedEvolucaoSegments) window.selectedEvolucaoSegments = new Set();
-                                
-                                if (window.selectedEvolucaoSegments.has(label)) {
-                                    window.selectedEvolucaoSegments.delete(label);
-                                } else {
-                                    window.selectedEvolucaoSegments.add(label);
-                                }
-                                
-                                chart.data.datasets.forEach(ds => {
-                                    const origColor = getSegmentColor(ds.label);
-                                    if (window.selectedEvolucaoSegments.size === 0 || window.selectedEvolucaoSegments.has(ds.label)) {
-                                        ds.borderColor = origColor;
-                                        ds.backgroundColor = origColor;
-                                        ds.borderWidth = 2;
-                                    } else {
-                                        const hex = origColor.replace('#', '');
-                                        const r = parseInt(hex.substring(0, 2), 16);
-                                        const g = parseInt(hex.substring(2, 4), 16);
-                                        const b = parseInt(hex.substring(4, 6), 16);
-                                        const transparentColor = `rgba(${r}, ${g}, ${b}, 0.15)`;
-                                        ds.borderColor = transparentColor;
-                                        ds.backgroundColor = transparentColor;
-                                        ds.borderWidth = 1;
-                                    }
-                                });
-                                
-                                chart.update();
-                            }
-                        },
-                        tooltip: {
-                            mode: 'nearest',
-                            intersect: false,
-                            callbacks: {
-                                label: function(context) {
-                                    let val = context.parsed.y;
-                                    let str = val;
-                                    if (val >= 1000000) str = (val / 1000000).toFixed(1).replace('.', ',') + 'M';
-                                    else if (val >= 1000) str = (val / 1000).toFixed(1).replace('.', ',') + 'k';
-                                    return context.dataset.label + ': ' + str;
-                                }
-                            }
-                        }
-                    }
-                }
-            });
-        }
+        if (window.updateEvolucaoBaseTotalChart) window.updateEvolucaoBaseTotalChart();
+    };
     };
 
     const loadSegmentosData = async () => {
@@ -473,7 +334,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
         });
         
-        const ctx = document.getElementById('evolucao-segmentos-qtd-chart');
+        const ctx = document.getElementById('evolucao-segmentos-chart');
         if (!ctx) return;
         
         if (evolucaoSegmentosQtdChart) {
